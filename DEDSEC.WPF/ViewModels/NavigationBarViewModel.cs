@@ -15,6 +15,7 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand LogoutCommand { get; }
 
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
+        public bool IsUnlogged => !IsLoggedIn;
 
         public NavigationBarViewModel(AccountStore accountStore,
             INavigationService homeNavigationService,
@@ -33,6 +34,7 @@ namespace DEDSEC.WPF.ViewModels
         private void OnCurrentAccountChanged()
         {
             OnPropertyChanged(nameof(IsLoggedIn));
+            OnPropertyChanged(nameof(IsUnlogged));
         }
 
         public override void Dispose()

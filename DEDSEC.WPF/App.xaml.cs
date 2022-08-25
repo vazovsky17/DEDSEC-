@@ -31,7 +31,7 @@ namespace DEDSEC.WPF
                 s.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(s)));
             services.AddTransient<LoginViewModel>(CreateLoginViewModel);
-            services.AddSingleton<NavigationBarViewModel>(CreateNavigationBarViewModel);
+            services.AddTransient<NavigationBarViewModel>(CreateNavigationBarViewModel);
             services.AddSingleton<MainViewModel>();
 
             services.AddSingleton<MainWindow>(s => new MainWindow()

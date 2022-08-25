@@ -42,38 +42,63 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
         <TextBlock
             Grid.Column="0"
-            FontSize="14"
-            Foreground="White"
-            Text="Navigation Demo" />
+            FontSize="28"
+            Foreground="DarkSlateGray"
+            Text="DEDSEC" />
 
         <Button
             Grid.Column="1"
             Margin="10,0,0,0"
             Command="{Binding NavigateHomeCommand}"
-            Content="Home" />
+            Content="Главная" />
 
         <Button
             Grid.Column="2"
             Margin="10,0,0,0"
             Command="{Binding NavigateLoginCommand}"
-            Content="Login" />
+            Content="Войти"
+            Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
         <Button
             Grid.Column="3"
             Margin="10,0,0,0"
             Command="{Binding NavigateAccountCommand}"
-            Content="Account"
+            Content="Аккаунт"
             Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
         <Button
             Grid.Column="4"
             Margin="10,0,0,0"
+            Command="{Binding NavigateAccountCommand}"
+            Content="Игры"
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <Button
+            Grid.Column="5"
+            Margin="10,0,0,0"
+            Command="{Binding NavigateAccountCommand}"
+            Content="Сходки"
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <Button
+            Grid.Column="6"
+            Margin="10,0,0,0"
+            Command="{Binding NavigateAccountCommand}"
+            Content="Игроки"
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <Button
+            Grid.Column="7"
+            Margin="10,0,0,0"
             Command="{Binding LogoutCommand}"
-            Content="Logout"
+            Content="Выйти"
             Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
     </Grid>
 </UserControl>
