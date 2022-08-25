@@ -13,5 +13,7 @@ namespace DEDSEC.WPF.Stores
                 _currentAccount = value;
             }
         }
+
+        public bool IsLoggedIn => CurrentAccount != null;
     }
 }

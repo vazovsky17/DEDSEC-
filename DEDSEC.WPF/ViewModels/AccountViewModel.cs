@@ -7,16 +7,18 @@ namespace DEDSEC.WPF.ViewModels
 {
     public class AccountViewModel : ViewModelBase
     {
+        public NavigationBarViewModel NavigationBarViewModel { get; }
         private readonly AccountStore _accountStore;
 
         public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Unknown";
 
         public ICommand NavigateHomeCommand { get; }
 
-        public AccountViewModel(AccountStore accountStore, NavigationStore navigationStore)
+        public AccountViewModel(NavigationBarViewModel navigationBarViewModel, AccountStore accountStore, NavigationService<HomeViewModel> homeNavigationService)
         {
             _accountStore = accountStore;
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(accountStore, navigationStore)));
+            NavigationBarViewModel = navigationBarViewModel;
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
         }
     }
 }

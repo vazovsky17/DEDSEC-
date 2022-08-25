@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\App.xaml
-41138083102
+5945899380
 
-201034481788
+221618373771
 1961147647403
-Components\AccountComponent.xaml;Components\HomeComponent.xaml;Components\LoginComponent.xaml;MainWindow.xaml;
+Components\AccountComponent.xaml;Components\HomeComponent.xaml;Components\LoginComponent.xaml;Components\NavigationComponent.xaml;MainWindow.xaml;
 
-False
+True
 

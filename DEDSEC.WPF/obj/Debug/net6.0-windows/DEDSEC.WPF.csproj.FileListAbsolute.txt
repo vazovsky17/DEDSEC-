@@ -30,3 +30,5 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Pa
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF.csproj.CopyComplete
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\DEDSEC.Domain.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\DEDSEC.Domain.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\NavigationComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\NavigationComponent.baml
