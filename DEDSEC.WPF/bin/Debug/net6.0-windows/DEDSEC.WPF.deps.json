@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DEDSEC.WPF/1.0.0": {
+        "dependencies": {
+          "DEDSEC.Domain": "1.0.0",
+          "PasswordBoxMVVM": "1.0.5"
+        },
+        "runtime": {
+          "DEDSEC.WPF.dll": {}
+        }
+      },
+      "PasswordBoxMVVM/1.0.5": {
+        "runtime": {
+          "lib/netcoreapp3.1/PasswordBoxMVVM.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DEDSEC.Domain/1.0.0": {
+        "runtime": {
+          "DEDSEC.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DEDSEC.WPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PasswordBoxMVVM/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NeUoGEBKjrYotXuLdSmEsglUhofPNgf6Hd6g7R64R+Iail4+ANzkNRsrcq/euYMlurFkC7MUtUJvesdU20Cycg==",
+      "path": "passwordboxmvvm/1.0.5",
+      "hashPath": "passwordboxmvvm.1.0.5.nupkg.sha512"
+    },
+    "DEDSEC.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

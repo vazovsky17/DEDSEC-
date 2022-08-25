@@ -1,0 +1,12 @@
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\bin\Debug\net6.0\DEDSEC.Domain.deps.json
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\bin\Debug\net6.0\DEDSEC.Domain.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\bin\Debug\net6.0\DEDSEC.Domain.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.csproj.AssemblyReference.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.AssemblyInfoInputs.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.AssemblyInfo.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.csproj.CoreCompileInputs.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\refint\DEDSEC.Domain.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\DEDSEC.Domain.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.Domain\obj\Debug\net6.0\ref\DEDSEC.Domain.dll

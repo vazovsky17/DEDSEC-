@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LXXMcSaMGTw7Chd6Llefu78qpWMlyu2mfOLxIt3nzDIIVhvRmjnT+D7l7ZOfzxffOdaoYAHFUfbXCLVmRN3c2g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vazovsky\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

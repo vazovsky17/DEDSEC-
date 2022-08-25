@@ -1,0 +1,129 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "PasswordBoxMVVM/1.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/PasswordBoxMVVM.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/PasswordBoxMVVM.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "DEDSEC.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DEDSEC.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DEDSEC.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PasswordBoxMVVM/1.0.5": {
+      "sha512": "NeUoGEBKjrYotXuLdSmEsglUhofPNgf6Hd6g7R64R+Iail4+ANzkNRsrcq/euYMlurFkC7MUtUJvesdU20Cycg==",
+      "type": "package",
+      "path": "passwordboxmvvm/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/PasswordBoxMVVM.dll",
+        "passwordboxmvvm.1.0.5.nupkg.sha512",
+        "passwordboxmvvm.nuspec"
+      ]
+    },
+    "DEDSEC.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DEDSEC.Domain/DEDSEC.Domain.csproj",
+      "msbuildProject": "../DEDSEC.Domain/DEDSEC.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "DEDSEC.Domain >= 1.0.0",
+      "PasswordBoxMVVM >= 1.0.5"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\vazovsky\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
+      "projectName": "DEDSEC.WPF",
+      "projectPath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
+      "packagesPath": "C:\\Users\\vazovsky\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\vazovsky\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {
+            "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.Domain\\DEDSEC.Domain.csproj": {
+              "projectPath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.Domain\\DEDSEC.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "PasswordBoxMVVM": {
+            "target": "Package",
+            "version": "[1.0.5, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
