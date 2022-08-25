@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "VLZFOjzF7lbu3Wb07Jz1gNuOqUPS/zk2sCcJejyaBLktjToHpSPQxOfIALW1IwzvXz+GqTEu2jjitBLuUrgLiQ==",
+  "dgSpecHash": "OLzurlLhBFMPPyDhivtMfK6mlKoK+F3smMS0GN5pm3mfFRlIBCvA+XWat5fn7yYJWvLoUQ/JErJSGUAdIKPCKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vazovsky\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\vazovsky\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512",
-    "C:\\Users\\vazovsky\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512"
+    "C:\\Users\\vazovsky\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512",
+    "C:\\Users\\vazovsky\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
