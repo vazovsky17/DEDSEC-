@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LXXMcSaMGTw7Chd6Llefu78qpWMlyu2mfOLxIt3nzDIIVhvRmjnT+D7l7ZOfzxffOdaoYAHFUfbXCLVmRN3c2g==",
+  "dgSpecHash": "VLZFOjzF7lbu3Wb07Jz1gNuOqUPS/zk2sCcJejyaBLktjToHpSPQxOfIALW1IwzvXz+GqTEu2jjitBLuUrgLiQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vazovsky\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512"
+    "C:\\Users\\vazovsky\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512",
+    "C:\\Users\\vazovsky\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }

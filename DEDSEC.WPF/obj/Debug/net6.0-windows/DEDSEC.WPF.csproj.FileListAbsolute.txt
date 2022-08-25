@@ -34,3 +34,4 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Co
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\NavigationComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\LayoutComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\LayoutComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\ModalControl.dll

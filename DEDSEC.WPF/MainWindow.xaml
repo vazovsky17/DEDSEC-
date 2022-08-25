@@ -6,14 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DEDSEC.WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
     xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
     xmlns:views="clr-namespace:DEDSEC.WPF.ViewModels"
     Title="MainWindow"
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <ContentControl Content="{Binding CurrentViewModel}">
-        <ContentControl.Resources>
+    <Grid>
+        <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:AccountViewModel}">
                 <components:AccountComponent />
             </DataTemplate>
@@ -26,6 +27,10 @@
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:LayoutComponent />
             </DataTemplate>
-        </ContentControl.Resources>
-    </ContentControl>
+        </Grid.Resources>
+        <modal:Modal Panel.ZIndex="100" IsOpen="{Binding IsOpen}">
+            <ContentControl Content="{Binding CurrentModalViewModel}" />
+        </modal:Modal>
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
 </Window>

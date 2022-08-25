@@ -37,9 +37,9 @@ namespace DEDSEC.WPF.ViewModels
 
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel(AccountStore accountStore, INavigationService<AccountViewModel> accountNavigationService)
+        public LoginViewModel(AccountStore accountStore, INavigationService loginNavigationService)
         {
-            LoginCommand = new LoginCommand(this, accountStore, accountNavigationService);
+            LoginCommand = new LoginCommand(this, accountStore, loginNavigationService);
         }
     }
 }

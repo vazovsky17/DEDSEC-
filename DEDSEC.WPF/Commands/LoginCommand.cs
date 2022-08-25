@@ -3,11 +3,6 @@ using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace DEDSEC.WPF.Commands
 {
@@ -15,9 +10,9 @@ namespace DEDSEC.WPF.Commands
     {
         private readonly LoginViewModel _viewModel;
         private readonly AccountStore _accountStore;
-        private readonly INavigationService<AccountViewModel> _navigationService;
+        private readonly INavigationService _navigationService;
 
-        public LoginCommand(LoginViewModel viewModel, AccountStore accountStore, INavigationService<AccountViewModel> navigationService)
+        public LoginCommand(LoginViewModel viewModel, AccountStore accountStore, INavigationService navigationService)
         {
             _viewModel = viewModel;
             _accountStore = accountStore;
