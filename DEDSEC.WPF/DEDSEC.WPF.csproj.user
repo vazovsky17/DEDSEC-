@@ -13,6 +13,9 @@
     <Compile Update="Components\HomeComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\LayoutComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\LoginComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\HomeComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\LayoutComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\LoginComponent.xaml">

@@ -23,6 +23,9 @@
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <components:LoginComponent />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
+                <components:LayoutComponent />
+            </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
 </Window>
