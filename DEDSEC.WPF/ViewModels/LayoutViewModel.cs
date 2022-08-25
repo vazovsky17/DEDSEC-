@@ -1,6 +1,6 @@
 ﻿namespace DEDSEC.WPF.ViewModels
 {
-    public class LayoutViewModel :ViewModelBase
+    public class LayoutViewModel : ViewModelBase
     {
         public NavigationBarViewModel NavigationBarViewModel { get; }
         public ViewModelBase ContentViewModel { get; }
@@ -9,6 +9,14 @@
         {
             NavigationBarViewModel = navigationBarViewModel;
             ContentViewModel = contentViewModel;
+        }
+
+        public override void Dispose()
+        {
+            NavigationBarViewModel.Dispose();
+            ContentViewModel.Dispose();
+
+            base.Dispose();
         }
     }
 }

@@ -8,20 +8,20 @@ namespace DEDSEC.WPF.Services
     {
         private readonly NavigationStore _navigationStore;
         private readonly Func<TViewModel> _createViewModel;
-        private readonly NavigationBarViewModel _navigationBarViewModel;
+        private readonly Func<NavigationBarViewModel> _createNavigationBarViewModel;
 
         public LayoutNavigationService(NavigationStore navigationStore,
             Func<TViewModel> createViewModel,
-            NavigationBarViewModel navigationBarViewModel)
+            Func<NavigationBarViewModel> createNavigationBarViewModel)
         {
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
-            _navigationBarViewModel = navigationBarViewModel;
+            _createNavigationBarViewModel = createNavigationBarViewModel;
         }
 
         public void Navigate()
         {
-            _navigationStore.CurrentViewModel = new LayoutViewModel(_navigationBarViewModel, _createViewModel());
+            _navigationStore.CurrentViewModel = new LayoutViewModel(_createNavigationBarViewModel(), _createViewModel());
         }
     }
 }

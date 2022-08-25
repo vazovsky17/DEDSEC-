@@ -1,4 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
+using System;
 
 namespace DEDSEC.WPF.Stores
 {
@@ -11,9 +12,17 @@ namespace DEDSEC.WPF.Stores
             set
             {
                 _currentAccount = value;
+                CurrentAccountChanged?.Invoke();
             }
         }
 
         public bool IsLoggedIn => CurrentAccount != null;
+
+        public event Action CurrentAccountChanged;
+
+        public void Logout()
+        {
+            CurrentAccount = null;
+        }
     }
 }

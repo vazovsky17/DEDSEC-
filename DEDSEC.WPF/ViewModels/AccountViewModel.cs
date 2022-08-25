@@ -17,6 +17,21 @@ namespace DEDSEC.WPF.ViewModels
         {
             _accountStore = accountStore;
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
+
+            _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
+        }
+
+        private void OnCurrentAccountChanged()
+        {
+            OnPropertyChanged(nameof(Nickname));
+        }
+
+        public override void Dispose()
+        {
+            _accountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
+
+            base.Dispose();
+
         }
     }
 }

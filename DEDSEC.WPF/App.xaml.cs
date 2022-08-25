@@ -13,13 +13,11 @@ namespace DEDSEC.WPF
     {
         private readonly AccountStore _accountStore;
         private readonly NavigationStore _navigationStore;
-        private readonly NavigationBarViewModel _navigationBarViewModel;
 
         public App()
         {
             _accountStore = new AccountStore();
             _navigationStore = new NavigationStore();
-            _navigationBarViewModel = new NavigationBarViewModel(_accountStore, CreateHomeNavigationService(), CreateAccountNavigationService(), CreateLoginNavigationService());
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -39,9 +37,9 @@ namespace DEDSEC.WPF
         private INavigationService<HomeViewModel> CreateHomeNavigationService()
         {
             return new LayoutNavigationService<HomeViewModel>(
-                 _navigationStore, 
+                 _navigationStore,
                  () => new HomeViewModel(CreateLoginNavigationService()),
-                _navigationBarViewModel);
+                CreateNavigationBarViewModel);
         }
 
         private INavigationService<LoginViewModel> CreateLoginNavigationService()
@@ -56,7 +54,15 @@ namespace DEDSEC.WPF
             return new LayoutNavigationService<AccountViewModel>(
                  _navigationStore,
                  () => new AccountViewModel(_accountStore, CreateHomeNavigationService()),
-                 _navigationBarViewModel);
+                 CreateNavigationBarViewModel);
+        }
+
+        private NavigationBarViewModel CreateNavigationBarViewModel()
+        {
+            return new NavigationBarViewModel(_accountStore,
+                CreateHomeNavigationService(),
+                CreateAccountNavigationService(),
+                CreateLoginNavigationService());
         }
     }
 }
