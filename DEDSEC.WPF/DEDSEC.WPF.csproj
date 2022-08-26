@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Components\Games\" />
-    <Folder Include="Components\Players\" />
     <Folder Include="Components\Donations\" />
   </ItemGroup>
 

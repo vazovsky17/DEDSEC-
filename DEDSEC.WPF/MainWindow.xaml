@@ -36,6 +36,11 @@
             <DataTemplate DataType="{x:Type viewmodels:AddMeetingViewModel}">
                 <components:AddMeetingComponent/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:PlayerListingViewModel}">
+                <components:PlayerListingComponent/>
+            </DataTemplate>
+            
         </Grid.Resources>
         <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
             <ContentControl Content="{Binding CurrentModalViewModel}" />

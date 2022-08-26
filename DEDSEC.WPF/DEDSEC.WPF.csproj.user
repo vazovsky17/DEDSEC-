@@ -28,6 +28,9 @@
     <Compile Update="Components\NavigationComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Players\PlayerListingComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\Account\AccountComponent.xaml">
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\NavigationComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Players\PlayerListingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

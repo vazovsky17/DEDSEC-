@@ -1,14 +1,15 @@
-﻿using System;
+﻿using DEDSEC.Domain.Models;
+using System;
 
 namespace DEDSEC.WPF.Stores
 {
     public class PlayersStore
     {
-        public event Action<string> PlayerAdded;
+        public event Action<Account> PlayerAdded;
 
-        public void AddPlayer(string name)
+        public void AddPlayer(Account account)
         {
-            PlayerAdded?.Invoke(name);
+            PlayerAdded?.Invoke(account);
         }
     }
 }

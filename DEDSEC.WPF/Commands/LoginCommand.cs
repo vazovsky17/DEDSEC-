@@ -3,6 +3,7 @@ using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using System;
+using System.Collections.Generic;
 
 namespace DEDSEC.WPF.Commands
 {
@@ -27,7 +28,9 @@ namespace DEDSEC.WPF.Commands
                     Guid.NewGuid(),
                     _viewModel.Nickname,
                     _viewModel.Password
-                    ));
+                    ),
+                "имя", 0, "обо мне", false, new List<Game>()
+                );
             _accountStore.CurrentAccount = account;
 
             _navigationService.Navigate();

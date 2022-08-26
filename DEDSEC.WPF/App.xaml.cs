@@ -21,6 +21,7 @@ namespace DEDSEC.WPF
 
             services.AddSingleton<AccountStore>();
             services.AddSingleton<MeetingsStore>();
+            services.AddSingleton<PlayersStore>();
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<ModalNavigationStore>();
 
@@ -39,9 +40,13 @@ namespace DEDSEC.WPF
                 s.GetRequiredService<MeetingsStore>(),
                CreateAddMeetingNavigationService(s)));
 
+
             services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
                 s.GetRequiredService<MeetingsStore>(),
                 s.GetRequiredService<CloseModalNavigationService>()));
+
+            services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
+                s.GetRequiredService<PlayersStore>()));
 
             services.AddTransient<NavigationBarViewModel>(CreateNavigationBarViewModel);
 
@@ -114,13 +119,22 @@ namespace DEDSEC.WPF
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        private INavigationService CreatePlayerListingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<PlayerListingViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<PlayerListingViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
+        }
+
         private NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
             return new NavigationBarViewModel(serviceProvider.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(serviceProvider),
                 CreateAccountNavigationService(serviceProvider),
                 CreateLoginNavigationService(serviceProvider),
-                CreateMeetingListingNavigationService(serviceProvider));
+                CreateMeetingListingNavigationService(serviceProvider),
+                CreatePlayerListingNavigationService(serviceProvider));
         }
     }
 }

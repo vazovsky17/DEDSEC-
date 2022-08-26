@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\App.xaml
-8547058842
+9-439845590
 
-431182597367
+46-1961580768
 199-1200677171
-Components\Account\AccountComponent.xaml;Components\Authorization\LoginComponent.xaml;Components\HomeComponent.xaml;Components\LayoutComponent.xaml;Components\Meetings\AddMeetingComponent.xaml;Components\Meetings\MeetingListingComponent.xaml;Components\NavigationComponent.xaml;MainWindow.xaml;
+Components\Account\AccountComponent.xaml;Components\Authorization\LoginComponent.xaml;Components\HomeComponent.xaml;Components\LayoutComponent.xaml;Components\Meetings\AddMeetingComponent.xaml;Components\Meetings\MeetingListingComponent.xaml;Components\NavigationComponent.xaml;Components\Players\PlayerListingComponent.xaml;MainWindow.xaml;
 
 False
 
