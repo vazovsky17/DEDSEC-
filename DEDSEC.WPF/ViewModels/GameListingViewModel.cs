@@ -24,15 +24,17 @@ namespace DEDSEC.WPF.ViewModels
             AddGameCommand = new NavigateCommand(addGameNavigationService);
             _games = new ObservableCollection<GameViewModel>();
 
-            _games.Add(new GameViewModel(new Game(
-                Guid.NewGuid(),
-                "Таверна",
-                "Пьем и играем",
-                2,
-                20,
-                "ссылочка",
-                new List<Review>()
-                )));
+            _games.Add(new GameViewModel(new Game()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Таверна",
+                Description = "Пьем и играем",
+                MinCountPlayers = 2,
+                MaxCountPlayers = 20,
+                LinkHobbyGames = "ссылочка",
+                Reviews = new List<Review>(),
+            }));
+
             _gamesStore.GameAdded += OnGameAdded;
         }
 

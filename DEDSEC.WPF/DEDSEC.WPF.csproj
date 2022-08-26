@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DEDSEC.Domain\DEDSEC.Domain.csproj" />
+    <ProjectReference Include="..\DEDSEC.EntityFramework\DEDSEC.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>

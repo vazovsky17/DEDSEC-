@@ -22,22 +22,27 @@ namespace DEDSEC.WPF.Commands
 
         public override void Execute(object parameter)
         {
-            _donationStore.AddDonation(new Donation(
-                 Guid.NewGuid(),
-                 new Account(
-                     Guid.NewGuid(),
-                     new User(
-                         Guid.NewGuid(),
-                         "VAZ",
-                         "883306"
-                     ),
-                     "Mark",
-                     23,
-                     "about meeeee",
-                     true,
-                     new List<Game>()
-                     ),
-                 _addDonationViewModel.Value));
+            _donationStore.AddDonation(new Donation()
+            {
+                Id = Guid.NewGuid(),
+                Donater = new Account()
+                {
+                    Id = Guid.NewGuid(),
+                    AccountHolder = new User()
+                    {
+                        Id = Guid.NewGuid(),
+                        Nickname = "VAZ",
+                        Password = "883306"
+                    },
+                    Name = "MARINA",
+                    Age = 23,
+                    AboutMe = "Android developer",
+                    IsVisited = true,
+                    FavoriteGames = new List<Game>()
+                },
+                Value = _addDonationViewModel.Value
+            });
+                 
             _navigationService.Navigate();
         }
     }

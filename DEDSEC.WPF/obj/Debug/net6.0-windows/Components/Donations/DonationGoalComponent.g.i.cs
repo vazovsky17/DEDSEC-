@@ -52,7 +52,7 @@ namespace DEDSEC.WPF.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/components/donations/donationgoalcomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/components/donations/donationgoalcomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Components\Donations\DonationGoalComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

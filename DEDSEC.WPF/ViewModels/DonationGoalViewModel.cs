@@ -3,10 +3,8 @@ using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels
@@ -36,9 +34,15 @@ namespace DEDSEC.WPF.ViewModels
             AddDonationCommand = new NavigateCommand(addDonationNavigationService);
 
             _donationViewModels = new ObservableCollection<DonationViewModel>();
-            DonationGoal = new DonationGoal(
-                Guid.NewGuid(),
-                "антикафе","деняки",400,800,new List<Donation>());
+            DonationGoal = new DonationGoal()
+            {
+                Id = Guid.NewGuid(),
+                Title = "антикафе",
+                Description = "деняки",
+                CurrentValue = 400,
+                TargetValue = 800,
+                Donations = new List<Donation>()
+            };
             _donationGoalStore.AddDonationGoal(DonationGoal);
             _donationGoalStore.DonationGoalAdded += OnDonationGoalAdded;
 
@@ -48,22 +52,27 @@ namespace DEDSEC.WPF.ViewModels
                 _donationStore.DonationAdded += OnDonationAdded;
             });
 
-            _donationViewModels.Add(new DonationViewModel(new Donation(
-                Guid.NewGuid(),
-                new Account(
-                    Guid.NewGuid(),
-                    new User(
-                        Guid.NewGuid(),
-                        "VAZ",
-                        "883306"
-                    ),
-                    "Mark",
-                    23,
-                    "about meeeee",
-                    true,
-                    new List<Game>()
-                    ),
-                2400)));
+            _donationViewModels.Add(new DonationViewModel(new Donation()
+            {
+                Id = Guid.NewGuid(),
+                Donater = new Account()
+                {
+                    Id = Guid.NewGuid(),
+                    AccountHolder = new User()
+                    {
+                        Id = Guid.NewGuid(),
+                        Nickname = "VAZ",
+                        Password = "883306"
+                    },
+                    Name = "Mark",
+                    Age = 23,
+                    AboutMe = "about me...",
+                    IsVisited = true,
+                    FavoriteGames = new List<Game>(),
+                },
+                Value = 2400,
+            }));
+
             _donationStore.DonationAdded += OnDonationAdded;
         }
 
@@ -74,7 +83,7 @@ namespace DEDSEC.WPF.ViewModels
 
         private void OnDonationGoalAdded(DonationGoal donationGoal)
         {
-            
+
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using DEDSEC.WPF.HostBuilders;
+﻿using DEDSEC.EntityFramework;
+using DEDSEC.WPF.HostBuilders;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
@@ -29,6 +31,7 @@ namespace DEDSEC.WPF
                 .AddDonationViewModels()
                 .AddPlayerViewModels()
                 .AddOtherViewModels()
+                .AddDbContext()
                 .ConfigureServices(services =>
                 {
                     services.AddSingleton<MainWindow>(s => new MainWindow()
@@ -43,6 +46,13 @@ namespace DEDSEC.WPF
             _host.Start();
             INavigationService initialNavigationService = _host.Services.GetRequiredService<INavigationService>();
             initialNavigationService.Navigate();
+
+            DedsecDbContextFactory contextFactory = _host.Services.GetRequiredService<DedsecDbContextFactory>();
+            using (DedsecDbContext context = contextFactory.CreateDbContext())
+            {
+                context.Database.Migrate();
+            }
+
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();

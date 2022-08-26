@@ -634,6 +634,16 @@
             "rid": "win"
           }
         }
+      },
+      "DEDSEC.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DEDSEC.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DEDSEC.Domain.dll": {}
+        }
       }
     }
   },
@@ -1855,10 +1865,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DEDSEC.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DEDSEC.Domain/DEDSEC.Domain.csproj",
+      "msbuildProject": "../DEDSEC.Domain/DEDSEC.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DEDSEC.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.8"
@@ -1895,7 +1911,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.Domain\\DEDSEC.Domain.csproj": {
+              "projectPath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.Domain\\DEDSEC.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

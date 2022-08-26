@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DEDSEC.Domain\DEDSEC.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

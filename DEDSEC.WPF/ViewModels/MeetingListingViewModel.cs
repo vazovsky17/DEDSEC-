@@ -24,14 +24,15 @@ namespace DEDSEC.WPF.ViewModels
             AddMeetingCommand = new NavigateCommand(addMeetingNavigationService);
             _meetings = new ObservableCollection<MeetingViewModel>();
 
-            _meetings.Add(new MeetingViewModel(new Meeting(
-                Guid.NewGuid(),
-                "Сходочка",
-                "Хуедочка",
-                DateTime.Now,
-                DateTime.Now,
-                10
-                )));
+            _meetings.Add(new MeetingViewModel(new Meeting()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Сходочка",
+                Description = "Хуедочка",
+                DateBegin = DateTime.Now,
+                DateEnd = DateTime.Now,
+                MaxCountVisitors = 10,
+            }));
 
             _meetingsStore.MeetingAdded += OnMeetingAdded;
         }

@@ -21,13 +21,15 @@ namespace DEDSEC.WPF.Commands
 
         public override void Execute(object parameter)
         {
-            _meetingsStore.AddMeeting(new Meeting(
-                 Guid.NewGuid(),
-                _addMeetingViewModel.Title,
-                _addMeetingViewModel.Description,
-                _addMeetingViewModel.DateBegin,
-                _addMeetingViewModel.DateEnd,
-                _addMeetingViewModel.MaxCountVisitors));
+            _meetingsStore.AddMeeting(new Meeting()
+            {
+                Id = Guid.NewGuid(),
+                Title = _addMeetingViewModel.Title,
+                Description = _addMeetingViewModel.Description,
+                DateBegin = _addMeetingViewModel.DateBegin,
+                DateEnd = _addMeetingViewModel.DateEnd,
+                MaxCountVisitors = _addMeetingViewModel.MaxCountVisitors
+            });
             _navigationService.Navigate();
         }
     }

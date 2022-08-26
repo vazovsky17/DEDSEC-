@@ -22,15 +22,17 @@ namespace DEDSEC.WPF.Commands
 
         public override void Execute(object parameter)
         {
-            _gamesStore.AddGame(new Game(
-                Guid.NewGuid(),
-                _addGameViewModel.Name,
-                _addGameViewModel.Description,
-                _addGameViewModel.MinCountPlayers,
-                _addGameViewModel.MaxCountPlayers,
-                _addGameViewModel.LinkHobbyGames,
-                new List<Review>()
-                ));
+            _gamesStore.AddGame(new Game()
+            {
+                Id = Guid.NewGuid(),
+                Name = _addGameViewModel.Name,
+                Description = _addGameViewModel.Description,
+                MinCountPlayers = _addGameViewModel.MinCountPlayers,
+                MaxCountPlayers = _addGameViewModel.MaxCountPlayers,
+                LinkHobbyGames = _addGameViewModel.LinkHobbyGames,
+                Reviews = new List<Review>(),
+            });
+
             _navigationService.Navigate();
         }
     }
