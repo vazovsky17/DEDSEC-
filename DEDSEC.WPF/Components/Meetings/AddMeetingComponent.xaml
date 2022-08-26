@@ -20,7 +20,10 @@
             FontSize="28"
             Text="Добавить встречу" />
 
-        <Grid Grid.Row="1" Margin="0,20,0,0" Grid.IsSharedSizeScope="True" >
+        <Grid
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -29,47 +32,47 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" >
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Title"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Value"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Заголовок"/>
-                <TextBox Grid.Column="1" Text="{Binding Title}"/>
+                <TextBlock Grid.Column="0" Text="Заголовок" />
+                <TextBox Grid.Column="1" Text="{Binding Title}" />
             </Grid>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Title"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Value"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Описание"/>
-                <TextBox Grid.Column="1" Text="{Binding Description}"/>
+                <TextBlock Grid.Column="0" Text="Описание" />
+                <TextBox Grid.Column="1" Text="{Binding Description}" />
             </Grid>
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Title"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Value"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Дата начала"/>
-                <DatePickerTextBox Grid.Column="1" Text="{Binding DateBegin}"/>
+                <TextBlock Grid.Column="0" Text="Дата начала" />
+                <DatePickerTextBox Grid.Column="1" Text="{Binding DateBegin}" />
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Title"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Value"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Дата конца"/>
-                <DatePickerTextBox Grid.Column="1" Text="{Binding DateEnd}"/>
+                <TextBlock Grid.Column="0" Text="Дата конца" />
+                <DatePickerTextBox Grid.Column="1" Text="{Binding DateEnd}" />
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Title"/>
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Value"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Максимум игроков"/>
-                <TextBox Grid.Column="1" Text="{Binding MaxCountVisitors}"/>
+                <TextBlock Grid.Column="0" Text="Максимум игроков" />
+                <TextBox Grid.Column="1" Text="{Binding MaxCountVisitors}" />
             </Grid>
         </Grid>
 

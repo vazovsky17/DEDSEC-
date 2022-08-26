@@ -1,7 +1,4 @@
 ﻿using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
-using System;
 
 namespace DEDSEC.WPF.Commands
 {

@@ -12,8 +12,8 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\App.xaml
 13-629054141
 
-56-1704107013
-199-1200677171
+63175575854
+222-1759400704
 Components\Account\AccountComponent.xaml;Components\Authorization\LoginComponent.xaml;Components\Donations\AddDonationComponent.xaml;Components\Donations\DonationGoalComponent.xaml;Components\Games\AddGameComponent.xaml;Components\Games\GameListingComponent.xaml;Components\HomeComponent.xaml;Components\LayoutComponent.xaml;Components\Meetings\AddMeetingComponent.xaml;Components\Meetings\MeetingListingComponent.xaml;Components\NavigationComponent.xaml;Components\Players\PlayerListingComponent.xaml;MainWindow.xaml;
 
 False
