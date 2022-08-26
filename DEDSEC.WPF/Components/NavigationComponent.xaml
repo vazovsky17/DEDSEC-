@@ -45,6 +45,7 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
         <TextBlock
@@ -76,7 +77,7 @@
         <Button
             Grid.Column="4"
             Margin="10,0,0,0"
-            Command="{Binding NavigateAccountCommand}"
+            Command="{Binding NavigateGameListingCommand}"
             Content="Игры"
             Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
@@ -93,9 +94,16 @@
             Command="{Binding NavigatePlayerListingCommand}"
             Content="Игроки"
             Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
+        
         <Button
-            Grid.Column="7"
+            Grid.Column="6"
+            Margin="10,0,0,0"
+            Command="{Binding NavigateDonationGoalCommand}"
+            Content="Донаты"
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        
+        <Button
+            Grid.Column="8"
             Margin="10,0,0,0"
             Command="{Binding LogoutCommand}"
             Content="Выйти"

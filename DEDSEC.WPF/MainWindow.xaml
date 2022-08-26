@@ -40,6 +40,14 @@
             <DataTemplate DataType="{x:Type viewmodels:PlayerListingViewModel}">
                 <components:PlayerListingComponent/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:GameListingViewModel}">
+                <components:GameListingComponent/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:AddGameViewModel}">
+                <components:AddGameComponent/>
+            </DataTemplate>
             
         </Grid.Resources>
         <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">

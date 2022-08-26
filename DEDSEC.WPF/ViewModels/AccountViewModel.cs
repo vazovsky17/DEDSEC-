@@ -12,7 +12,7 @@ namespace DEDSEC.WPF.ViewModels
         public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Unknown";
         public string Name => _accountStore.CurrentAccount?.Name ?? "Unknown";
         public int Age => _accountStore.CurrentAccount?.Age ?? 0;
-        public string AboutAge => _accountStore.CurrentAccount?.AboutMe ?? "About me...";
+        public string AboutMe => _accountStore.CurrentAccount?.AboutMe ?? "About me...";
         public bool IsVisited => _accountStore.CurrentAccount?.IsVisited ?? true;
 
         public ICommand NavigateHomeCommand { get; }

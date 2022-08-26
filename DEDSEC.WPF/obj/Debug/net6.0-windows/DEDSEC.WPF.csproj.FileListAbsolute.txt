@@ -1,13 +1,18 @@
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF.csproj.AssemblyReference.cache
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\LoginComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Games\GameListingComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Meetings\MeetingListingComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Players\PlayerListingComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Account\AccountComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\LoginComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Games\AddGameComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Games\GameListingComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\HomeComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\LayoutComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Meetings\AddMeetingComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Meetings\MeetingListingComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\NavigationComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Players\PlayerListingComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -24,6 +29,7 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Pa
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\ModalControl.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\DEDSEC.Domain.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\DEDSEC.Domain.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Games\AddGameComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Account\AccountComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\HomeComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\LayoutComponent.baml
@@ -41,5 +47,3 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\re
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF.pdb
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF.genruntimeconfig.cache
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\ref\DEDSEC.WPF.dll
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Players\PlayerListingComponent.baml
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Players\PlayerListingComponent.g.cs

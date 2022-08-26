@@ -22,6 +22,7 @@ namespace DEDSEC.WPF
             services.AddSingleton<AccountStore>();
             services.AddSingleton<MeetingsStore>();
             services.AddSingleton<PlayersStore>();
+            services.AddSingleton<GamesStore>();
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<ModalNavigationStore>();
 
@@ -36,14 +37,21 @@ namespace DEDSEC.WPF
 
             services.AddTransient<LoginViewModel>(CreateLoginViewModel);
 
+            services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
+                  s.GetRequiredService<MeetingsStore>(),
+                  s.GetRequiredService<CloseModalNavigationService>()));
+
             services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
                 s.GetRequiredService<MeetingsStore>(),
                CreateAddMeetingNavigationService(s)));
 
-
-            services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
-                s.GetRequiredService<MeetingsStore>(),
+            services.AddTransient<AddGameViewModel>(s => new AddGameViewModel(
+                s.GetRequiredService<GamesStore>(),
                 s.GetRequiredService<CloseModalNavigationService>()));
+
+            services.AddTransient<GameListingViewModel>(s => new GameListingViewModel(
+                s.GetRequiredService<GamesStore>(),
+                CreateAddGameNavigationService(s)));
 
             services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
                 s.GetRequiredService<PlayersStore>()));
@@ -127,6 +135,13 @@ namespace DEDSEC.WPF
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        private INavigationService CreateAddGameNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddGameViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddGameViewModel>());
+        }
+
         private NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
             return new NavigationBarViewModel(serviceProvider.GetRequiredService<AccountStore>(),
@@ -134,7 +149,16 @@ namespace DEDSEC.WPF
                 CreateAccountNavigationService(serviceProvider),
                 CreateLoginNavigationService(serviceProvider),
                 CreateMeetingListingNavigationService(serviceProvider),
-                CreatePlayerListingNavigationService(serviceProvider));
+                CreatePlayerListingNavigationService(serviceProvider),
+                CreateGameListingNavigationService(serviceProvider));
+        }
+
+        private INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<GameListingViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<GameListingViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
     }
 }

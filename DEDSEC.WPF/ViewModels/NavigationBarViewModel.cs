@@ -14,6 +14,7 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand NavigateLoginCommand { get; }
         public ICommand NavigateMeetingListingCommand{ get; }
         public ICommand NavigatePlayerListingCommand { get; }
+        public ICommand NavigateGameListingCommand { get; }
         public ICommand LogoutCommand { get; }
 
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
@@ -24,7 +25,8 @@ namespace DEDSEC.WPF.ViewModels
             INavigationService accountNavigationService,
             INavigationService loginNavigationService,
             INavigationService meetingListingNavigationService,
-            INavigationService playerListingNavigationService)
+            INavigationService playerListingNavigationService,
+            INavigationService gameListingNavigationService)
         {
             _accountStore = accountStore;
             NavigateHomeCommand = new NavigateCommand(homeNavigationService);
@@ -32,6 +34,7 @@ namespace DEDSEC.WPF.ViewModels
             NavigateLoginCommand = new NavigateCommand(loginNavigationService);
             NavigateMeetingListingCommand = new NavigateCommand(meetingListingNavigationService);
             NavigatePlayerListingCommand = new NavigateCommand(playerListingNavigationService);
+            NavigateGameListingCommand = new NavigateCommand(gameListingNavigationService);
             LogoutCommand = new LogoutCommand(_accountStore);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
