@@ -96,7 +96,7 @@
             Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
         
         <Button
-            Grid.Column="6"
+            Grid.Column="7"
             Margin="10,0,0,0"
             Command="{Binding NavigateDonationGoalCommand}"
             Content="Донаты"

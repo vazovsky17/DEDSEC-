@@ -23,6 +23,8 @@ namespace DEDSEC.WPF
             services.AddSingleton<MeetingsStore>();
             services.AddSingleton<PlayersStore>();
             services.AddSingleton<GamesStore>();
+            services.AddSingleton<DonationGoalStore>();
+            services.AddSingleton<DonationStore>();
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<ModalNavigationStore>();
 
@@ -53,6 +55,15 @@ namespace DEDSEC.WPF
                 s.GetRequiredService<GamesStore>(),
                 CreateAddGameNavigationService(s)));
 
+            services.AddTransient<DonationGoalViewModel>(s => new DonationGoalViewModel(
+                s.GetRequiredService<DonationGoalStore>(),
+                s.GetRequiredService<DonationStore>(),
+                CreateAddDonationNavigationService(s)));
+
+            services.AddTransient<AddDonationViewModel>(s => new AddDonationViewModel(
+                s.GetRequiredService<DonationStore>(),
+                s.GetRequiredService<CloseModalNavigationService>()));
+
             services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
                 s.GetRequiredService<PlayersStore>()));
 
@@ -66,6 +77,13 @@ namespace DEDSEC.WPF
             });
 
             _serviceProvider = services.BuildServiceProvider();
+        }
+
+        private INavigationService CreateAddDonationNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddDonationViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddDonationViewModel>());
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -150,7 +168,16 @@ namespace DEDSEC.WPF
                 CreateLoginNavigationService(serviceProvider),
                 CreateMeetingListingNavigationService(serviceProvider),
                 CreatePlayerListingNavigationService(serviceProvider),
-                CreateGameListingNavigationService(serviceProvider));
+                CreateGameListingNavigationService(serviceProvider),
+                CreateDonationGoalNavigationService(serviceProvider));
+        }
+
+        private INavigationService CreateDonationGoalNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<DonationGoalViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<DonationGoalViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
         private INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)

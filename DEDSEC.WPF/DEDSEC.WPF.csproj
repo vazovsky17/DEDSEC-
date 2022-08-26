@@ -17,8 +17,4 @@
     <ProjectReference Include="..\DEDSEC.Domain\DEDSEC.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Donations\" />
-  </ItemGroup>
-
 </Project>

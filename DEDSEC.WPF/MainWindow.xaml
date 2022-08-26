@@ -48,7 +48,14 @@
             <DataTemplate DataType="{x:Type viewmodels:AddGameViewModel}">
                 <components:AddGameComponent/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewmodels:DonationGoalViewModel}">
+                <components:DonationGoalComponent/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:AddDonationViewModel}">
+                <components:AddDonationComponent/>
+            </DataTemplate>
         </Grid.Resources>
         <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
             <ContentControl Content="{Binding CurrentModalViewModel}" />

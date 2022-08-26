@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\App.xaml
-11-392655924
+13-629054141
 
-531760862867
+58650998094
 199-1200677171
-Components\Account\AccountComponent.xaml;Components\Authorization\LoginComponent.xaml;Components\Games\AddGameComponent.xaml;Components\Games\GameListingComponent.xaml;Components\HomeComponent.xaml;Components\LayoutComponent.xaml;Components\Meetings\AddMeetingComponent.xaml;Components\Meetings\MeetingListingComponent.xaml;Components\NavigationComponent.xaml;Components\Players\PlayerListingComponent.xaml;MainWindow.xaml;
+Components\Account\AccountComponent.xaml;Components\Authorization\LoginComponent.xaml;Components\Donations\AddDonationComponent.xaml;Components\Donations\DonationGoalComponent.xaml;Components\Games\AddGameComponent.xaml;Components\Games\GameListingComponent.xaml;Components\HomeComponent.xaml;Components\LayoutComponent.xaml;Components\Meetings\AddMeetingComponent.xaml;Components\Meetings\MeetingListingComponent.xaml;Components\NavigationComponent.xaml;Components\Players\PlayerListingComponent.xaml;MainWindow.xaml;
 
 True
 

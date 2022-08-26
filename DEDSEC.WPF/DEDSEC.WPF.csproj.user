@@ -10,6 +10,12 @@
     <Compile Update="Components\Account\AccountComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Donations\AddDonationComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Donations\DonationGoalComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\Account\AccountComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Donations\AddDonationComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Donations\DonationGoalComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">
