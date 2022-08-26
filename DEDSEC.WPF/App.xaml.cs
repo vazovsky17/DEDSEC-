@@ -20,6 +20,7 @@ namespace DEDSEC.WPF
             IServiceCollection services = new ServiceCollection();
 
             services.AddSingleton<AccountStore>();
+            services.AddSingleton<MeetingsStore>();
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<ModalNavigationStore>();
 
@@ -27,11 +28,23 @@ namespace DEDSEC.WPF
             services.AddSingleton<CloseModalNavigationService>();
 
             services.AddTransient<HomeViewModel>(s => new HomeViewModel(CreateLoginNavigationService(s)));
+
             services.AddTransient<AccountViewModel>(s => new AccountViewModel(
                 s.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(s)));
+
             services.AddTransient<LoginViewModel>(CreateLoginViewModel);
+
+            services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
+                s.GetRequiredService<MeetingsStore>(),
+               CreateAddMeetingNavigationService(s)));
+
+            services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
+                s.GetRequiredService<MeetingsStore>(),
+                s.GetRequiredService<CloseModalNavigationService>()));
+
             services.AddTransient<NavigationBarViewModel>(CreateNavigationBarViewModel);
+
             services.AddSingleton<MainViewModel>();
 
             services.AddSingleton<MainWindow>(s => new MainWindow()
@@ -81,10 +94,24 @@ namespace DEDSEC.WPF
             CompositeNavigationService navigationService = new CompositeNavigationService(
                 serviceProvider.GetRequiredService<CloseModalNavigationService>(),
                 CreateAccountNavigationService(serviceProvider));
-
             return new LoginViewModel(
                 serviceProvider.GetRequiredService<AccountStore>(),
                 navigationService);
+        }
+
+        private INavigationService CreateAddMeetingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddMeetingViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddMeetingViewModel>());
+        }
+
+        private INavigationService CreateMeetingListingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<MeetingListingViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<MeetingListingViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
         private NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
@@ -92,7 +119,8 @@ namespace DEDSEC.WPF
             return new NavigationBarViewModel(serviceProvider.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(serviceProvider),
                 CreateAccountNavigationService(serviceProvider),
-                CreateLoginNavigationService(serviceProvider));
+                CreateLoginNavigationService(serviceProvider),
+                CreateMeetingListingNavigationService(serviceProvider));
         }
     }
 }

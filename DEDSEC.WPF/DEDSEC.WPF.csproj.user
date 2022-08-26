@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Components\AccountComponent.xaml.cs">
+    <Compile Update="Components\Account\AccountComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Meetings\AddMeetingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\HomeComponent.xaml.cs">
@@ -16,7 +19,10 @@
     <Compile Update="Components\LayoutComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\LoginComponent.xaml.cs">
+    <Compile Update="Components\Authorization\LoginComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Meetings\MeetingListingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\NavigationComponent.xaml.cs">
@@ -24,7 +30,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Components\AccountComponent.xaml">
+    <Page Update="Components\Account\AccountComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Meetings\AddMeetingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\HomeComponent.xaml">
@@ -33,7 +42,10 @@
     <Page Update="Components\LayoutComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\LoginComponent.xaml">
+    <Page Update="Components\Authorization\LoginComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Meetings\MeetingListingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\NavigationComponent.xaml">

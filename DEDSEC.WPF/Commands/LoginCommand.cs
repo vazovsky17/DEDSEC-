@@ -21,16 +21,13 @@ namespace DEDSEC.WPF.Commands
 
         public override void Execute(object parameter)
         {
-            Account account = new Account()
-            {
-                Id = Guid.NewGuid(),
-                AccountHolder = new User()
-                {
-                    Id = Guid.NewGuid(),
-                    Nickname = _viewModel.Nickname,
-                    Password = _viewModel.Password,
-                },
-            };
+            Account account = new Account(
+                Guid.NewGuid(),
+                new User(
+                    Guid.NewGuid(),
+                    _viewModel.Nickname,
+                    _viewModel.Password
+                    ));
             _accountStore.CurrentAccount = account;
 
             _navigationService.Navigate();

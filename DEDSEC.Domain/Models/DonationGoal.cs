@@ -8,5 +8,15 @@
         public int CurrentValue { get; set; }
         public int TargetValue { get; set; }
         public List<Donation> Donations { get; set; }
+
+        public DonationGoal(Guid id, string title, string description, int currentValue, int targetValue, List<Donation> donations)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            CurrentValue = currentValue;
+            TargetValue = targetValue;
+            Donations = donations;
+        }
     }
 }

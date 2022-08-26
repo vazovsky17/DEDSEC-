@@ -1,14 +1,12 @@
 ﻿<Window
     x:Class="DEDSEC.WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:DEDSEC.WPF.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:DEDSEC.WPF"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
+    xmlns:components="clr-namespace:DEDSEC.WPF.Components"
     xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
-    xmlns:views="clr-namespace:DEDSEC.WPF.ViewModels"
+    xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -18,14 +16,25 @@
             <DataTemplate DataType="{x:Type viewmodels:AccountViewModel}">
                 <components:AccountComponent />
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                 <components:HomeComponent />
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <components:LoginComponent />
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:LayoutComponent />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:MeetingListingViewModel}">
+                <components:MeetingListingComponent/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodels:AddMeetingViewModel}">
+                <components:AddMeetingComponent/>
             </DataTemplate>
         </Grid.Resources>
         <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
