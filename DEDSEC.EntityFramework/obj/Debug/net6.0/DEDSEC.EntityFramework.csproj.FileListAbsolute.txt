@@ -1,0 +1,12 @@
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.deps.json
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.csproj.AssemblyReference.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.AssemblyInfoInputs.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.AssemblyInfo.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.csproj.CoreCompileInputs.cache
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\refint\DEDSEC.EntityFramework.dll
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\DEDSEC.EntityFramework.pdb
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\obj\Debug\net6.0\ref\DEDSEC.EntityFramework.dll
