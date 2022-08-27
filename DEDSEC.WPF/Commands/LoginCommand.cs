@@ -49,7 +49,6 @@ namespace DEDSEC.WPF.Commands
             {
                 if (task.IsCompleted)
                 {
-                    MessageBox.Show("Ура");
                     _accountStore.CurrentAccount = account;
                     _navigationService.Navigate();
                 }
