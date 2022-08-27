@@ -1,11 +1,13 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DEDSEC.WPF.Commands
 {
@@ -23,7 +25,7 @@ namespace DEDSEC.WPF.Commands
             _accountStore = accountStore;
             _navigationService = navigationService;
         }
-
+       
         public override async Task ExecuteAsync(object parameter)
         {
             var account = new Account()
@@ -34,6 +36,7 @@ namespace DEDSEC.WPF.Commands
                     Id = Guid.NewGuid(),
                     Nickname = _viewModel.Nickname,
                     Password = _viewModel.Password,
+                    IsAdmin = false
                 },
                 Name = "",
                 Age = 0,
@@ -41,10 +44,12 @@ namespace DEDSEC.WPF.Commands
                 IsVisited = false,
                 FavoriteGames = new List<Game>()
             };
+
             await _dataService.Create(account).ContinueWith(task =>
             {
                 if (task.IsCompleted)
                 {
+                    MessageBox.Show("Ура");
                     _accountStore.CurrentAccount = account;
                     _navigationService.Navigate();
                 }

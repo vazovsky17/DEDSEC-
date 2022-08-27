@@ -1,6 +1,6 @@
 ﻿using DEDSEC.EntityFramework;
 using DEDSEC.WPF.HostBuilders;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,7 +53,6 @@ namespace DEDSEC.WPF
             {
                 context.Database.Migrate();
             }
-
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();

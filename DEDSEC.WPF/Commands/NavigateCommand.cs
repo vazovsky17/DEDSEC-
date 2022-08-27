@@ -1,4 +1,4 @@
-﻿using DEDSEC.WPF.Services;
+﻿using DEDSEC.WPF.Services.Navigation;
 
 namespace DEDSEC.WPF.Commands
 {

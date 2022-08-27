@@ -17,6 +17,7 @@ namespace DEDSEC.WPF.Stores
         }
 
         public bool IsLoggedIn => CurrentAccount != null;
+        public bool IsAdmin => CurrentAccount?.AccountHolder.IsAdmin ?? false;
 
         public event Action CurrentAccountChanged;
 

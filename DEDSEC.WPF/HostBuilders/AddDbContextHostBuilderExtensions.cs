@@ -1,10 +1,8 @@
 ﻿using DEDSEC.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Windows;
 
 namespace DEDSEC.WPF.HostBuilders
 {

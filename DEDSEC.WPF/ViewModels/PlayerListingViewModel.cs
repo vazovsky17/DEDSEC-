@@ -1,9 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Stores;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DEDSEC.WPF.ViewModels

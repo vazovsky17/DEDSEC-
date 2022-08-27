@@ -201,6 +201,9 @@ namespace DEDSEC.EntityFramework.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nickname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -1,6 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
 
