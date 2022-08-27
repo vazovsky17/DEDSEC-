@@ -100,7 +100,7 @@
                 <Separator
                     Height="0.8"
                     Margin="24"
-                    Background="#7e5fdc"
+                    Background="{StaticResource ColorSeparatorSecond}"
                     DockPanel.Dock="Top" />
 
                 <!--  Menu Buttons  -->

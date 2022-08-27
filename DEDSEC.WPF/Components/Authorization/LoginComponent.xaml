@@ -24,7 +24,7 @@
             Grid.Row="0"
             HorizontalAlignment="Center"
             FontSize="28"
-            Text="Авторизация" Foreground="{StaticResource ColorPrimary}"/>
+            Text="Авторизация" Foreground="{StaticResource ColorTextForeground}"/>
 
         <StackPanel Grid.Row="1" Margin="0,20,0,0">
             <Grid Width="140">
@@ -32,7 +32,7 @@
                     Margin="15,0"
                     VerticalAlignment="Center"
                     Panel.ZIndex="1"
-                    Foreground="#b0b976"
+                    Foreground="{StaticResource ColorTextBoxHint}"
                     IsHitTestVisible="False"
                     Text="Никнейм"
                     Visibility="{Binding ElementName=textBoxNickname, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -46,7 +46,7 @@
                     Margin="15,0"
                     VerticalAlignment="Center"
                     Panel.ZIndex="1"
-                    Foreground="#b0b976"
+                    Foreground="{StaticResource ColorTextBoxHint}"
                     IsHitTestVisible="False"
                     Text="Пароль"
                     Visibility="{Binding ElementName=textBoxPassword, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -62,7 +62,7 @@
                 HorizontalAlignment="Right"
                 
                 Orientation="Horizontal">
-                <TextBlock Text="Администратор" Foreground="{StaticResource ColorPrimary}" />
+                <TextBlock Text="Администратор" Foreground="{StaticResource ColorTextForeground}" />
                 <CheckBox
                     Margin="5,0,0,0"
                     IsChecked="{Binding IsAdmin}"
@@ -70,15 +70,13 @@
             </StackPanel>
         </StackPanel>
 
-        <Button Style="{StaticResource defaultButton}"
+        <Button
+            Style="{StaticResource tabButton}"
             Grid.Row="2"
             Margin="0,20,0,0"
             HorizontalAlignment="Center"
+            Content="Войти"
             Command="{Binding LoginCommand}" >
-            <StackPanel Orientation="Horizontal">
-                <icon:PackIconMaterial Kind="Login" Style="{StaticResource defaultButtonIcon}" />
-                <TextBlock Text="Войти" VerticalAlignment="Center" Padding="0 8 8 8"/>
-            </StackPanel>
         </Button>
     </Grid>
 </UserControl>

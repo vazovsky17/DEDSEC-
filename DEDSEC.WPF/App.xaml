@@ -7,6 +7,14 @@
     <Application.Resources>
 
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
+        <SolidColorBrush x:Key="ColorButtonBackground" Color="#7950f2" />
+        <SolidColorBrush x:Key="ColorButtonForeground" Color="#d0c0ff" />
+        <SolidColorBrush x:Key="ColorPaginationButtonForeground" Color="#6c7682" />
+        <SolidColorBrush x:Key="ColorMouseOverBackground" Color="#7b5cd6" />
+        <SolidColorBrush x:Key="ColorTextForeground" Color="#121518" />
+        <SolidColorBrush x:Key="ColorSeparator" Color="#dae2ae" />
+        <SolidColorBrush x:Key="ColorSeparatorSecond" Color="#7e5fdc" />
+        <SolidColorBrush x:Key="ColorTextBoxHint" Color="#b0b976" />
 
         <!--#region Button Styles-->
         <Style x:Key="defaultButton" TargetType="Button">
@@ -29,7 +37,7 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
-                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -57,7 +65,7 @@
         </Style>
         <Style x:Key="menuButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#d0c0ff" />
+            <Setter Property="Foreground" Value="{StaticResource ColorButtonForeground}" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Height" Value="36" />
             <Setter Property="Margin" Value="16,4" />
@@ -73,14 +81,14 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#7b5cd6" />
-                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background" Value="{StaticResource ColorMouseOverBackground}" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="tabButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#121518" />
+            <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="MinWidth" Value="80" />
             <Setter Property="MinHeight" Value="44" />
@@ -102,13 +110,13 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="BorderBrush" Value="#7b5cd6" />
+                    <Setter Property="BorderBrush" Value="{StaticResource ColorMouseOverBackground}" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="addButton" TargetType="Button">
             <Setter Property="Background" Value="#6741d9" />
-            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="MinWidth" Value="150" />
             <Setter Property="Height" Value="36" />
@@ -127,14 +135,14 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#7b5cd6" />
+                    <Setter Property="Background" Value="{StaticResource ColorMouseOverBackground}" />
                     <Setter Property="Foreground" Value="#dcdcdc" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="pagingButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#6c7682" />
+            <Setter Property="Foreground" Value="{StaticResource ColorPaginationButtonForeground}" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Margin" Value="1,0" />
@@ -155,15 +163,15 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#7950f2" />
-                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background" Value="{StaticResource ColorButtonBackground}" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="gridEditButton" TargetType="Button">
             <Setter Property="Background" Value="#512da8" />
             <Setter Property="BorderBrush" Value="#4a148c" />
-            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Template">
@@ -235,7 +243,7 @@
 
         <!--#region TextBox Styles-->
         <Style x:Key="textBoxSearch" TargetType="TextBox">
-            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="Background" Value="White" />
             <Setter Property="Foreground" Value="#b0b9c6" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="12" />
@@ -530,11 +538,11 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
-                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
-                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
                 <MultiTrigger>
                     <MultiTrigger.Conditions>
@@ -617,7 +625,7 @@
         <!--#endregion-->
 
         <!--#region Checkbox Style-->
-        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="White" />
         <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070" />
         <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121" />
         <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#FFF3F9FF" />

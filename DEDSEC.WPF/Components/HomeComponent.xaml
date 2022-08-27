@@ -37,7 +37,7 @@
         <!--  Page Title  -->
         <TextBlock
             Grid.Row="1"
-            Foreground="#121518"
+            Foreground="{StaticResource ColorTextForeground}"
             Margin="0,20,0,0"
             HorizontalAlignment="Left"
             FontSize="32"

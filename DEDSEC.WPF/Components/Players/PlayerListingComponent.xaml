@@ -41,7 +41,7 @@
             HorizontalAlignment="Left"
             FontSize="32"
             FontWeight="SemiBold"
-            Foreground="#121518"
+            Foreground="{StaticResource ColorTextForeground}"
             Text="Игроки" />
 
         <!--  Add Button  -->
@@ -62,7 +62,7 @@
             Grid.Row="3"
             Height="1"
             Margin="0,-1,0,8"
-            Background="#dae2ae" />
+            Background="{StaticResource ColorSeparator}" />
 
         <!--  Tab Buttons  -->
         <StackPanel
@@ -86,7 +86,7 @@
             VerticalAlignment="Center"
             FontSize="18"
             FontWeight="SemiBold"
-            Foreground="#121518"
+            Foreground="{StaticResource ColorTextForeground}"
             Text="2 игрока" />
 
         <TextBlock
@@ -96,7 +96,7 @@
             VerticalAlignment="Center"
             FontSize="18"
             FontWeight="SemiBold"
-            Foreground="#121518"
+            Foreground="{StaticResource ColorTextForeground}"
             Text="Фильтровать по" />
 
         <!--  Filter Textbox  -->
@@ -222,9 +222,9 @@
                     Margin="3,7"
                     Fill="#dee4ec" />
                 <Button
-                    Background="#7950f2"
+                    Background="{StaticResource ColorButtonBackground}"
                     Content="1"
-                    Foreground="#ffffff"
+                    Foreground="White"
                     Style="{StaticResource pagingButton}" />
                 <Button Content="2" Style="{StaticResource pagingButton}" />
                 <Button Content="3" Style="{StaticResource pagingButton}" />
@@ -232,7 +232,7 @@
                     Margin="10,0"
                     VerticalAlignment="Center"
                     FontSize="15"
-                    Foreground="#6c7682"
+                    Foreground="{StaticResource ColorPaginationButtonForeground}"
                     Text="..." />
                 <Button Content="7" Style="{StaticResource pagingButton}" />
                 <Button Content="8" Style="{StaticResource pagingButton}" />

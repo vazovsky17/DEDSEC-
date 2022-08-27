@@ -11,7 +11,7 @@
             Margin="20,0"
             VerticalAlignment="Center"
             Panel.ZIndex="1"
-            Foreground="#b0b976"
+            Foreground="{StaticResource ColorTextBoxHint}"
             IsHitTestVisible="False"
             Text="Искать здесь..."
             Visibility="{Binding ElementName=textBoxSearch, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />

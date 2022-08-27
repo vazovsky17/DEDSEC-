@@ -11,7 +11,7 @@
             Margin="15,0"
             VerticalAlignment="Center"
             Panel.ZIndex="1"
-            Foreground="#b0b976"
+            Foreground="{StaticResource ColorTextBoxHint}"
             IsHitTestVisible="False"
             Text="Искать среди игроков ..."
             Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
