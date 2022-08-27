@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Commands;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System;
@@ -81,9 +83,9 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddMeetingViewModel(MeetingsStore meetingsStore, INavigationService closeNavigationService)
+        public AddMeetingViewModel(IDataService<Meeting> dataService, MeetingsStore meetingsStore, INavigationService closeNavigationService)
         {
-            SubmitCommand = new AddMeetingCommand(this, meetingsStore, closeNavigationService);
+            SubmitCommand = new AddMeetingCommand(this, dataService, meetingsStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);
         }
     }

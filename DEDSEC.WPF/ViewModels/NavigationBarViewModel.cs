@@ -38,7 +38,7 @@ namespace DEDSEC.WPF.ViewModels
             NavigatePlayerListingCommand = new NavigateCommand(playerListingNavigationService);
             NavigateGameListingCommand = new NavigateCommand(gameListingNavigationService);
             NavigateDonationGoalCommand = new NavigateCommand(donationGoalNavigationService);
-            LogoutCommand = new LogoutCommand(_accountStore);
+            LogoutCommand = new LogoutCommand(_accountStore,homeNavigationService);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }

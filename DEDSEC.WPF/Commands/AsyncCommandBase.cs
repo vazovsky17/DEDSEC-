@@ -6,8 +6,6 @@ namespace DEDSEC.WPF.Commands
 {
     public abstract class AsyncCommandBase : ICommand
     {
-        private readonly Action<Exception> _onException;
-
         private bool _isExecuting;
         public bool IsExecuting
         {
@@ -18,18 +16,13 @@ namespace DEDSEC.WPF.Commands
             set
             {
                 _isExecuting = value;
-                CanExecuteChanged?.Invoke(this, new EventArgs());
+                OnCanExecuteChanged();
             }
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public AsyncCommandBase(Action<Exception> onException)
-        {
-            _onException = onException;
-        }
-
-        public bool CanExecute(object parameter)
+        public virtual bool CanExecute(object parameter)
         {
             return !IsExecuting;
         }
@@ -38,18 +31,16 @@ namespace DEDSEC.WPF.Commands
         {
             IsExecuting = true;
 
-            try
-            {
-                await ExecuteAsync(parameter);
-            }
-            catch (Exception ex)
-            {
-                _onException?.Invoke(ex);
-            }
+            await ExecuteAsync(parameter);
 
             IsExecuting = false;
         }
 
-        protected abstract Task ExecuteAsync(object parameter);
+        public abstract Task ExecuteAsync(object parameter);
+
+        protected void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
     }
 }

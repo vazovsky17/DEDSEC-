@@ -3,9 +3,7 @@ using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
@@ -31,7 +29,7 @@ namespace DEDSEC.WPF.ViewModels
             }
         }
 
-        public MeetingListingViewModel(IDataService<Meeting> dataService,MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
+        public MeetingListingViewModel(IDataService<Meeting> dataService, MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
         {
             _dataService = dataService;
             _meetingsStore = meetingsStore;
