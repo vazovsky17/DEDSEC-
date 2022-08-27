@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Commands;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
@@ -15,12 +17,14 @@ namespace DEDSEC.WPF.ViewModels
         public string AboutMe => _accountStore.CurrentAccount?.AboutMe ?? "About me...";
         public bool IsVisited => _accountStore.CurrentAccount?.IsVisited ?? true;
 
-        public ICommand NavigateHomeCommand { get; }
+        public ICommand EditAccountCommand { get; }
+        public ICommand DeleteAccountCommand { get; }
 
-        public AccountViewModel(AccountStore accountStore, INavigationService homeNavigationService)
+        public AccountViewModel(IDataService<Account> dataService, AccountStore accountStore, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
         {
             _accountStore = accountStore;
-            NavigateHomeCommand = new NavigateCommand(homeNavigationService);
+            EditAccountCommand = new NavigateCommand(editAccountNavigationService);
+            DeleteAccountCommand = new DeleteAccountCommand(dataService, accountStore, homeNavigationService);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }

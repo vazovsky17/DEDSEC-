@@ -16,7 +16,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
+                services.AddSingleton<INavigationService>(s => CreateNavigationServiceExtensions.CreateHomeNavigationService(s));
                 services.AddSingleton<CloseModalNavigationService>();
 
                 services.AddSingleton<IDataService<Account>, GenericDataService<Account>>();
@@ -29,14 +29,6 @@ namespace DEDSEC.WPF.HostBuilders
             });
 
             return host;
-        }
-
-        private static INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
-        {
-            return new LayoutNavigationService<HomeViewModel>(
-                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<HomeViewModel>(),
-                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
     }
 }

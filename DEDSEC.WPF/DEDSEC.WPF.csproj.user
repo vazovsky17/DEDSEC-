@@ -10,6 +10,9 @@
     <Compile Update="Components\Account\AccountComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Account\EditAccountComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Donations\AddDonationComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\Account\AccountComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Account\EditAccountComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Donations\AddDonationComponent.xaml">

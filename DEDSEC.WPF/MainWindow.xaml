@@ -1,12 +1,12 @@
 ﻿<Window
     x:Class="DEDSEC.WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:components="clr-namespace:DEDSEC.WPF.Components"
-    xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
+    xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -16,45 +16,49 @@
             <DataTemplate DataType="{x:Type viewmodels:AccountViewModel}">
                 <components:AccountComponent />
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewmodels:EditAccountViewModel}">
+                <components:EditAccountComponent />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                 <components:HomeComponent />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <components:LoginComponent />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:LayoutComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:MeetingListingViewModel}">
-                <components:MeetingListingComponent/>
+                <components:MeetingListingComponent />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type viewmodels:AddMeetingViewModel}">
-                <components:AddMeetingComponent/>
+                <components:AddMeetingComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:PlayerListingViewModel}">
-                <components:PlayerListingComponent/>
+                <components:PlayerListingComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:GameListingViewModel}">
-                <components:GameListingComponent/>
+                <components:GameListingComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:AddGameViewModel}">
-                <components:AddGameComponent/>
+                <components:AddGameComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:DonationGoalViewModel}">
-                <components:DonationGoalComponent/>
+                <components:DonationGoalComponent />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodels:AddDonationViewModel}">
-                <components:AddDonationComponent/>
+                <components:AddDonationComponent />
             </DataTemplate>
         </Grid.Resources>
         <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">

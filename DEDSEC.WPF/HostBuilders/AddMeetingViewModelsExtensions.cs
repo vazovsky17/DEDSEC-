@@ -23,17 +23,10 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
                     s.GetRequiredService<IDataService<Meeting>>(),
                     s.GetRequiredService<MeetingsStore>(),
-                    CreateAddMeetingNavigationService(s)));
+                    CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));
             });
 
             return host;
-        }
-
-        private static INavigationService CreateAddMeetingNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddMeetingViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddMeetingViewModel>());
         }
     }
 }

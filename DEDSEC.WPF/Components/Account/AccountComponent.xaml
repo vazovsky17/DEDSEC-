@@ -10,11 +10,7 @@
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <TextBlock
@@ -22,64 +18,86 @@
             FontSize="28"
             Text="Аккаунт" />
 
-        <Grid Grid.Row="1" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
-                <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Никнейм" />
-            <TextBlock
-                Grid.Column="1"
-                Margin="10,0"
-                Text="{Binding Nickname}" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Никнейм" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0"
+                    Text="{Binding Nickname}" />
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Имя" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0"
+                    Text="{Binding Name}" />
+            </Grid>
+
+            <Grid Grid.Row="3" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Возраст" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0"
+                    Text="{Binding Age}" />
+            </Grid>
+
+            <Grid Grid.Row="4" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Обо мне" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0"
+                    Text="{Binding AboutMe}" />
+            </Grid>
+
+            <Grid Grid.Row="5" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Был(а) на встречах" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0"
+                    Text="{Binding IsVisited}" />
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="2" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
-                <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Имя" />
-            <TextBlock
-                Grid.Column="1"
-                Margin="10,0"
-                Text="{Binding Name}" />
-        </Grid>
-
-        <Grid Grid.Row="3" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
-                <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Возраст" />
-            <TextBlock
-                Grid.Column="1"
-                Margin="10,0"
-                Text="{Binding Age}" />
-        </Grid>
-
-        <Grid Grid.Row="4" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
-                <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Обо мне" />
-            <TextBlock
-                Grid.Column="1"
-                Margin="10,0"
-                Text="{Binding AboutMe}" />
-        </Grid>
-
-        <Grid Grid.Row="5" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" SharedSizeGroup="Title" />
-                <ColumnDefinition Width="auto" SharedSizeGroup="Value" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Ьыл(а) на встречах" />
-            <TextBlock
-                Grid.Column="1"
-                Margin="10,0"
-                Text="{Binding IsVisited}" />
-        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button
+                Padding="10,5"
+                Command="{Binding EditAccountCommand}"
+                Content="Редактировать" />
+            <Button
+                Margin="5,0,0,0"
+                Padding="10,5"
+                Command="{Binding DeleteAccountCommand}"
+                Content="Удалить аккаунт" />
+        </StackPanel>
     </Grid>
 </UserControl>

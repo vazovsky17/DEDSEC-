@@ -26,6 +26,7 @@ namespace DEDSEC.WPF
             return Host.CreateDefaultBuilder(args)
                 .AddStores()
                 .AddServices()
+                .AddAccountViewModels()
                 .AddGameViewModels()
                 .AddMeetingViewModels()
                 .AddDonationViewModels()

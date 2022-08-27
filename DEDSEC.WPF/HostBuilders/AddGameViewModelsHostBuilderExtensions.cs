@@ -23,17 +23,10 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<GameListingViewModel>(s => new GameListingViewModel(
                     s.GetRequiredService<IDataService<Game>>(),
                     s.GetRequiredService<GamesStore>(),
-                    CreateAddGameNavigationService(s)));
+                    CreateNavigationServiceExtensions.CreateAddGameNavigationService(s)));
             });
 
             return host;
-        }
-
-        private static INavigationService CreateAddGameNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddGameViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddGameViewModel>());
         }
     }
 }
