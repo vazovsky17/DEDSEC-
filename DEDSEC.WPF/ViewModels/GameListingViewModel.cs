@@ -1,46 +1,60 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels
 {
     public class GameListingViewModel : ViewModelBase
     {
-        private readonly GamesStore _gamesStore;
-        private readonly ObservableCollection<GameViewModel> _games;
-
-        public IEnumerable<GameViewModel> Games => _games;
         public ICommand AddGameCommand { get; }
+        private readonly IDataService<Game> _dataService;
+        private readonly GamesStore _gamesStore;
 
-        public GameListingViewModel(GamesStore gamesStore, INavigationService addGameNavigationService)
+        private IEnumerable<Game> _games;
+        public IEnumerable<Game> Games
         {
+            get
+            {
+                return _games;
+            }
+            set
+            {
+                _games = value;
+                OnPropertyChanged(nameof(Games));
+            }
+        }
+
+        public GameListingViewModel(IDataService<Game> dataService, GamesStore gamesStore, INavigationService addGameNavigationService)
+        {
+            _dataService = dataService;
             _gamesStore = gamesStore;
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);
-            _games = new ObservableCollection<GameViewModel>();
 
-            _games.Add(new GameViewModel(new Game()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Таверна",
-                Description = "Пьем и играем",
-                MinCountPlayers = 2,
-                MaxCountPlayers = 20,
-                LinkHobbyGames = "ссылочка",
-                Reviews = new List<Review>(),
-            }));
-
+            LoadGames();
             _gamesStore.GameAdded += OnGameAdded;
         }
 
         private void OnGameAdded(Game game)
         {
-            _games.Add(new GameViewModel(game));
+            _games.Append(game);
+        }
+
+        private async void LoadGames()
+        {
+            await _dataService.GetAll().ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    _games = task.Result;
+                    OnPropertyChanged(nameof(Games));
+                }
+            });
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Services;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,10 +16,12 @@ namespace DEDSEC.WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddTransient<AddGameViewModel>(s => new AddGameViewModel(
+                    s.GetRequiredService<IDataService<Game>>(),
                     s.GetRequiredService<GamesStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
                 services.AddTransient<GameListingViewModel>(s => new GameListingViewModel(
+                    s.GetRequiredService<IDataService<Game>>(),
                     s.GetRequiredService<GamesStore>(),
                     CreateAddGameNavigationService(s)));
             });
