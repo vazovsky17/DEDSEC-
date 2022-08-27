@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Services;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,6 +65,7 @@ namespace DEDSEC.WPF.HostBuilders
                 CreateAccountNavigationService(serviceProvider));
             return new LoginViewModel(
                 serviceProvider.GetRequiredService<AccountStore>(),
+                serviceProvider.GetRequiredService<IDataService<Account>>(),
                 navigationService);
         }
 

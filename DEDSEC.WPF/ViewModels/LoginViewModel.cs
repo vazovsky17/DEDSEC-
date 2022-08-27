@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Commands;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
@@ -37,9 +39,9 @@ namespace DEDSEC.WPF.ViewModels
 
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel(AccountStore accountStore, INavigationService loginNavigationService)
+        public LoginViewModel(AccountStore accountStore, IDataService<Account> dataService, INavigationService loginNavigationService)
         {
-            LoginCommand = new LoginCommand(this, accountStore, loginNavigationService);
+            LoginCommand = new LoginCommand(this, dataService, accountStore, loginNavigationService);
         }
     }
 }

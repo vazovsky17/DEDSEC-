@@ -1,28 +1,32 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
-    public class LoginCommand : CommandBase
+    public class LoginCommand : AsyncCommandBase
     {
+        private readonly IDataService<Account> _dataService;
         private readonly LoginViewModel _viewModel;
         private readonly AccountStore _accountStore;
         private readonly INavigationService _navigationService;
 
-        public LoginCommand(LoginViewModel viewModel, AccountStore accountStore, INavigationService navigationService)
+        public LoginCommand(LoginViewModel viewModel, IDataService<Account> dataService, AccountStore accountStore, INavigationService navigationService)
         {
             _viewModel = viewModel;
+            _dataService = dataService;
             _accountStore = accountStore;
             _navigationService = navigationService;
         }
 
-        public override void Execute(object parameter)
+        public override async Task ExecuteAsync(object parameter)
         {
-            Account account = new Account()
+            var account = new Account()
             {
                 Id = Guid.NewGuid(),
                 AccountHolder = new User()
@@ -31,15 +35,20 @@ namespace DEDSEC.WPF.Commands
                     Nickname = _viewModel.Nickname,
                     Password = _viewModel.Password,
                 },
-                Name = "MARINA",
-                Age = 23,
-                AboutMe = "Android developer",
-                IsVisited = true,
+                Name = "",
+                Age = 0,
+                AboutMe = "",
+                IsVisited = false,
                 FavoriteGames = new List<Game>()
             };
-            _accountStore.CurrentAccount = account;
-
-            _navigationService.Navigate();
+            await _dataService.Create(account).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    _accountStore.CurrentAccount = account;
+                    _navigationService.Navigate();
+                }
+            });
         }
     }
 }
