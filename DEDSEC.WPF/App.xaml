@@ -795,6 +795,12 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
         </Style>
+        <Style x:Key="textBlockTitleMiniComponent" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource ColorButtonForeground}" />
+        </Style>
         <!--#endregion-->
     </Application.Resources>
 </Application>

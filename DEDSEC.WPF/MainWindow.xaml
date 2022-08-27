@@ -58,10 +58,14 @@
                     <components:AddGameComponent />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewmodels:DonationGoalViewModel}">
+                <DataTemplate DataType="{x:Type viewmodels:DonationGoalViewModel}" >
                     <components:DonationGoalComponent />
                 </DataTemplate>
-
+                
+                <DataTemplate DataType="{x:Type viewmodels:DonationGoalMiniViewModel}">
+                    <components:DonationGoalMiniComponent />
+                </DataTemplate>
+                
                 <DataTemplate DataType="{x:Type viewmodels:AddDonationViewModel}">
                     <components:AddDonationComponent />
                 </DataTemplate>

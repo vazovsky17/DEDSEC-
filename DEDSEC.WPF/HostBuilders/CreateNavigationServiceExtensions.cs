@@ -77,6 +77,13 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        public static INavigationService CreateAddDonationNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddDonationViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddDonationViewModel>());
+        }
+
         public static INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)
         {
             return new LayoutNavigationService<GameListingViewModel>(

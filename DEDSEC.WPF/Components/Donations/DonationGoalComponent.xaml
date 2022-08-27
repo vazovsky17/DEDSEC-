@@ -15,7 +15,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock FontSize="28" Text="Донатная цель" />
-            <TextBlock Text="{Binding Title}"/>
+            <TextBlock Text="{Binding Title}" />
             <Button
                 Margin="10,0,0,0"
                 Padding="10,5"

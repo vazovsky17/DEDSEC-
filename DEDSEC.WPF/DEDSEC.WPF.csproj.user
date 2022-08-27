@@ -22,6 +22,9 @@
     <Compile Update="Components\Common\FilterComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Donations\DonationGoalMiniComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Common\FilterComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Donations\DonationGoalMiniComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">

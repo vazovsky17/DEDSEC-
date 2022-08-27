@@ -3,7 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:components="clr-namespace:DEDSEC.WPF.Components"
+    xmlns:viewModels="clr-namespace:DEDSEC.WPF.ViewModels"
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -15,13 +19,26 @@
 
         <!--  Page Title  -->
         <TextBlock
-            Grid.Row="1"
-            Foreground="{StaticResource ColorTextForeground}"
+            Grid.Row="0"
             Margin="0,20,0,0"
             HorizontalAlignment="Left"
             FontSize="32"
             FontWeight="SemiBold"
+            Foreground="{StaticResource ColorTextForeground}"
             Text="Главная" />
-        
+
+        <!--  Add Button  -->
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource optionButton}"
+            Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal">
+                <icon:PackIconMaterial Kind="Login" Style="{StaticResource optionButtonIcon}" />
+                <TextBlock Margin="0,0,8,0" Text="Авторизация" />
+            </StackPanel>
+        </Button>
+
+        <components:DonationGoalMiniComponent DataContext="{Binding DonationGoalMiniViewModel}" Margin="0 40 0 0" Grid.Row="1" Width="200" 
+                                              HorizontalAlignment="Left" />
     </Grid>
 </UserControl>

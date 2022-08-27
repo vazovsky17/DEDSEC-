@@ -17,21 +17,20 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<DonationGoalViewModel>(s => new DonationGoalViewModel(
                     s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<DonationStore>(),
-                    CreateAddDonationNavigationService(s)));
+                    CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s)));
 
                 services.AddTransient<AddDonationViewModel>(s => new AddDonationViewModel(
                     s.GetRequiredService<DonationStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
+
+                services.AddTransient<DonationGoalMiniViewModel>(s=>new DonationGoalMiniViewModel(
+                    s.GetRequiredService<DonationGoalStore>(),
+                    s.GetRequiredService<AccountStore>(),
+                    CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s),
+                    CreateNavigationServiceExtensions.CreateDonationGoalNavigationService(s)));
             });
 
             return host;
-        }
-
-        private static INavigationService CreateAddDonationNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddDonationViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddDonationViewModel>());
         }
     }
 }

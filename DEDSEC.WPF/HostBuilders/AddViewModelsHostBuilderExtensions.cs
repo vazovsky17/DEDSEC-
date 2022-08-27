@@ -15,7 +15,10 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<HomeViewModel>(s => new HomeViewModel(CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
+                services.AddTransient<HomeViewModel>(s => new HomeViewModel(
+                    s.GetRequiredService<DonationGoalMiniViewModel>(),
+                    s.GetRequiredService<AccountStore>(),
+                    CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
 
                 services.AddTransient<LoginViewModel>(CreateLoginViewModel);
 
