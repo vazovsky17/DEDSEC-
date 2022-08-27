@@ -49,6 +49,7 @@
 
         <Border
             Grid.Row="1"
+            MinHeight="580"
             Padding="0,0,0,24"
             Background="#623ed0"
             CornerRadius="0 50 0 30">
@@ -84,8 +85,15 @@
                     FontSize="14"
                     FontWeight="SemiBold"
                     Foreground="#d0bfff"
-                    Text="Vazovsky"
-                    TextAlignment="Center" />
+                    TextAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial
+                            Kind="Star"
+                            Style="{StaticResource adminIcon}"
+                            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <TextBlock Text="{Binding Nickname}" />
+                    </StackPanel>
+                </TextBlock>
 
                 <!--  Menu Separator  -->
                 <Separator
@@ -97,12 +105,12 @@
                 <!--  Menu Buttons  -->
                 <StackPanel DockPanel.Dock="Top">
                     <Button
-                        Command="{Binding NavigateLoginCommand}"
+                        Command="{Binding NavigateHomeCommand}"
                         Style="{StaticResource menuButton}"
-                        Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Login" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Войти" />
+                            <icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Дашборд" />
                         </StackPanel>
                     </Button>
 
@@ -131,7 +139,7 @@
                         Style="{StaticResource menuButton}"
                         Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="ClockTimeEight" Style="{StaticResource menuButtonIcon}" />
+                            <icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}" />
                             <TextBlock Text="Сходки" />
                         </StackPanel>
                     </Button>
@@ -141,7 +149,7 @@
                         Style="{StaticResource menuButton}"
                         Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Human" Style="{StaticResource menuButtonIcon}" />
+                            <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}" />
                             <TextBlock Text="Игроки" />
                         </StackPanel>
                     </Button>
@@ -151,21 +159,34 @@
                         Style="{StaticResource menuButton}"
                         Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Diamond" Style="{StaticResource menuButtonIcon}" />
+                            <icon:PackIconMaterial Kind="Wallet" Style="{StaticResource menuButtonIcon}" />
                             <TextBlock Text="Донаты" />
                         </StackPanel>
                     </Button>
 
-                    <Button
-                        Command="{Binding LogoutCommand}"
-                        Style="{StaticResource menuButton}"
-                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Выйти" />
-                        </StackPanel>
-                    </Button>
                 </StackPanel>
+                <Button
+                    VerticalAlignment="Bottom"
+                    Command="{Binding NavigateLoginCommand}"
+                    DockPanel.Dock="Bottom"
+                    Style="{StaticResource menuButton}"
+                    Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Login" Style="{StaticResource menuButtonIcon}" />
+                        <TextBlock Text="Войти" />
+                    </StackPanel>
+                </Button>
+                <Button
+                    VerticalAlignment="Bottom"
+                    Command="{Binding LogoutCommand}"
+                    DockPanel.Dock="Bottom"
+                    Style="{StaticResource menuButton}"
+                    Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
+                        <TextBlock Text="Выйти" />
+                    </StackPanel>
+                </Button>
             </DockPanel>
         </Border>
     </Grid>

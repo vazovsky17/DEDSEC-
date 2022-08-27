@@ -18,6 +18,8 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand NavigateDonationGoalCommand { get; }
         public ICommand LogoutCommand { get; }
 
+        public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Гость";
+        public bool IsAdmin => _accountStore.CurrentAccount?.AccountHolder.IsAdmin ?? false;
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
         public bool IsUnlogged => !IsLoggedIn;
 
