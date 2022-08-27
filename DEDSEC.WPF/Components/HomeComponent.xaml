@@ -10,29 +10,8 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <!--  Search TextBox  -->
-        <components:SearchComponent Grid.Row="0" HorizontalAlignment="Left" />
-        <!--  Top Buttons  -->
-        <Button
-            Grid.Row="0"
-            Margin="0,0,20,0"
-            HorizontalAlignment="Right"
-            Background="#dcdcdc"
-            Style="{StaticResource topButton}">
-            <icon:PackIconMaterial Kind="Cog" />
-        </Button>
-
-        <Button
-            Grid.Row="0"
-            Margin="0,0,55,0"
-            HorizontalAlignment="Right"
-            Style="{StaticResource topButton}">
-            <icon:PackIconMaterial Kind="Bell" />
-        </Button>
 
         <!--  Page Title  -->
         <TextBlock
@@ -42,7 +21,7 @@
             HorizontalAlignment="Left"
             FontSize="32"
             FontWeight="SemiBold"
-            Text="Дашборд" />
+            Text="Главная" />
         
     </Grid>
 </UserControl>

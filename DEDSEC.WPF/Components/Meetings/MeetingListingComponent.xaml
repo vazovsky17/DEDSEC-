@@ -1,40 +1,142 @@
 ﻿<UserControl
     x:Class="DEDSEC.WPF.Components.MeetingListingComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock FontSize="28" Text="Встречи" />
+        <!--  Page Title  -->
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,20,0,0"
+            Style="{StaticResource textBlockTitle}"
+            Text="Встречи" />
+
+        <!--  Add Button  -->
+        <Button
+            Grid.Row="0"
+            Command="{Binding AddMeetingCommand}"
+            Style="{StaticResource optionButton}"
+            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal">
+                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
+                <TextBlock Margin="0,0,8,0" Text="Добавить встречу" />
+            </StackPanel>
+        </Button>
+
+        <!--  Separator  -->
+        <Separator
+            Grid.Row="2"
+            Height="1"
+            Margin="0,-16,0,8"
+            Background="{StaticResource ColorSeparator}" />
+
+        <!--  Tab Buttons  -->
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,8,0,0"
+            Orientation="Horizontal">
             <Button
-                Margin="10,0,0,0"
-                Padding="10,5"
-                VerticalAlignment="Center"
-                Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}"
-                Command="{Binding AddMeetingCommand}"
-                Content="Добавить встречу" />
+                BorderBrush="#784ff2"
+                Content="Все"
+                Style="{StaticResource tabButton}" />
+            <Button Content="Игроки" Style="{StaticResource tabButton}" />
+            <Button Content="Админы" Style="{StaticResource tabButton}" />
+            <Button Content="Посетившие" Style="{StaticResource tabButton}" />
+            <Button Content="Новички" Style="{StaticResource tabButton}" />
         </StackPanel>
 
-        <ListView
-            Grid.Row="1"
-            Margin="0,20,0,0"
-            ItemsSource="{Binding Meetings}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Название" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Описание" />
-                    <GridViewColumn DisplayMemberBinding="{Binding DateBegin}" Header="Дата начала" />
-                    <GridViewColumn DisplayMemberBinding="{Binding DateEnd}" Header="Дата конца" />
-                    <GridViewColumn DisplayMemberBinding="{Binding MaxCountVisitors}" Header="Максимум игроков" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <!--  Counter Title  -->
+        <TextBlock
+            Grid.Row="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="18"
+            FontWeight="SemiBold"
+            Foreground="{StaticResource ColorTextForeground}"
+            Text="2 встречи" />
+
+        <!--  Meetings Datagrid  -->
+        <DataGrid
+            x:Name="MeetingsDataGrid"
+            Grid.Row="3"
+            CellStyle="{DynamicResource DataGridCellStyle1}"
+            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+            ItemsSource="{Binding Meetings}"
+            RowStyle="{DynamicResource DataGridRowStyle1}"
+            Style="{DynamicResource DataGridStyle1}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                    Width="auto"
+                    CanUserResize="False"
+                    ElementStyle="{StaticResource CornerCheckBoxStyle}">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource CornerCheckBoxStyle}" />
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Title}"
+                    CanUserResize="False"
+                    Header="Название"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Description}"
+                    CanUserResize="False"
+                    Header="Описание"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding DateBegin}"
+                    CanUserResize="False"
+                    Header="Дата начала"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding DateEnd}"
+                    CanUserResize="False"
+                    Header="Дата окончания"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding MaxCountVisitors}"
+                    CanUserResize="False"
+                    Header="Максимум игроков"
+                    IsReadOnly="True" />
+                <DataGridTemplateColumn
+                    Width="auto"
+                    CanUserResize="False"
+                    Header="Действия"
+                    IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Command="" Style="{StaticResource gridEditButton}">
+                                    <icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button
+                                    Margin="5,0,0,0"
+                                    Command=""
+                                    Style="{StaticResource gridDeleteButton}">
+                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

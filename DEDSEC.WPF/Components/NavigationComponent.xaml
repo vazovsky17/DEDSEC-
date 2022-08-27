@@ -111,7 +111,7 @@
                         Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
                             <icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Дашборд" />
+                            <TextBlock Text="Главная" />
                         </StackPanel>
                     </Button>
 
