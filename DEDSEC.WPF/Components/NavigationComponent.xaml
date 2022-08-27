@@ -2,11 +2,7 @@
     x:Class="DEDSEC.WPF.Components.NavigationComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    mc:Ignorable="d">
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
@@ -25,10 +21,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <TextBlock
-                                    Padding="10"
-                                    Background="Black"
-                                    Text="{TemplateBinding Content}" />
+                                <TextBlock Padding="10" Text="{TemplateBinding Content}" />
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -37,71 +30,143 @@
         </Style>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid MaxWidth="1000">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-        </Grid.ColumnDefinitions>
-
-        <TextBlock
-            Grid.Column="0"
-            Padding="10,0,0,0"
-            FontSize="28"
-            Foreground="BlueViolet"
-            Text="DEDSEC" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
         <Button
-            Grid.Column="1"
+            Grid.Row="0"
+            Margin="20,28,0,32"
             Command="{Binding NavigateHomeCommand}"
-            Content="Главная" />
+            Style="{StaticResource topButton}">
+            <icon:PackIconMaterial
+                Width="16"
+                Height="16"
+                Kind="Menu" />
+        </Button>
 
-        <Button
-            Grid.Column="2"
-            Command="{Binding NavigateLoginCommand}"
-            Content="Войти"
-            Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <Border
+            Grid.Row="1"
+            Padding="0,0,0,24"
+            Background="#623ed0"
+            CornerRadius="0 50 0 30">
+            <DockPanel>
+                <!--  Menu Logo  -->
+                <Border
+                    Width="80"
+                    Height="80"
+                    Margin="20,-30,0,0"
+                    Padding="3"
+                    HorizontalAlignment="Left"
+                    Background="White"
+                    CornerRadius="100"
+                    DockPanel.Dock="Top">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Components/ic_person.png" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
 
-        <Button
-            Grid.Column="3"
-            Command="{Binding NavigateAccountCommand}"
-            Content="Аккаунт"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBlock
+                    Margin="4,24,0,8"
+                    DockPanel.Dock="Top"
+                    FontSize="22"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Text="Dedsec club"
+                    TextAlignment="Center" />
 
-        <Button
-            Grid.Column="4"
-            Command="{Binding NavigateGameListingCommand}"
-            Content="Игры"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBlock
+                    DockPanel.Dock="Top"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Foreground="#d0bfff"
+                    Text="Vazovsky"
+                    TextAlignment="Center" />
 
-        <Button
-            Grid.Column="5"
-            Command="{Binding NavigateMeetingListingCommand}"
-            Content="Сходки"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <!--  Menu Separator  -->
+                <Separator
+                    Height="0.8"
+                    Margin="24"
+                    Background="#7e5fdc"
+                    DockPanel.Dock="Top" />
 
-        <Button
-            Grid.Column="6"
-            Command="{Binding NavigatePlayerListingCommand}"
-            Content="Игроки"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <!--  Menu Buttons  -->
+                <StackPanel DockPanel.Dock="Top">
+                    <Button
+                        Command="{Binding NavigateLoginCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Login" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Войти" />
+                        </StackPanel>
+                    </Button>
 
-        <Button
-            Grid.Column="7"
-            Command="{Binding NavigateDonationGoalCommand}"
-            Content="Донаты"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Button
+                        Command="{Binding NavigateAccountCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Аккаунт" />
+                        </StackPanel>
+                    </Button>
 
-        <Button
-            Grid.Column="8"
-            Command="{Binding LogoutCommand}"
-            Content="Выйти"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Button
+                        Command="{Binding NavigateGameListingCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="NintendoGameBoy" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Игры" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding NavigateMeetingListingCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="ClockTimeEight" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Сходки" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding NavigatePlayerListingCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Human" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Игроки" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding NavigateDonationGoalCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Diamond" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Донаты" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding LogoutCommand}"
+                        Style="{StaticResource menuButton}"
+                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
+                            <TextBlock Text="Выйти" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </Border>
     </Grid>
 </UserControl>

@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Components\ic_person.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
@@ -18,6 +23,10 @@
   <ItemGroup>
     <ProjectReference Include="..\DEDSEC.Domain\DEDSEC.Domain.csproj" />
     <ProjectReference Include="..\DEDSEC.EntityFramework\DEDSEC.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Components\ic_person.png" />
   </ItemGroup>
 
 </Project>
