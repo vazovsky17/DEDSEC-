@@ -1,45 +1,62 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels
 {
     public class MeetingListingViewModel : ViewModelBase
     {
-        private readonly MeetingsStore _meetingsStore;
-        private readonly ObservableCollection<MeetingViewModel> _meetings;
-
-        public IEnumerable<MeetingViewModel> Meetings => _meetings;
         public ICommand AddMeetingCommand { get; }
+        private readonly IDataService<Meeting> _dataService;
+        private readonly MeetingsStore _meetingsStore;
 
-        public MeetingListingViewModel(MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
+        private IEnumerable<Meeting> _meetings;
+        public IEnumerable<Meeting> Meetings
         {
+            get
+            {
+                return _meetings;
+            }
+            set
+            {
+                _meetings = value;
+                OnPropertyChanged(nameof(Meetings));
+            }
+        }
+
+        public MeetingListingViewModel(IDataService<Meeting> dataService,MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
+        {
+            _dataService = dataService;
             _meetingsStore = meetingsStore;
 
             AddMeetingCommand = new NavigateCommand(addMeetingNavigationService);
-            _meetings = new ObservableCollection<MeetingViewModel>();
 
-            _meetings.Add(new MeetingViewModel(new Meeting()
-            {
-                Id = Guid.NewGuid(),
-                Title = "Сходочка",
-                Description = "Хуедочка",
-                DateBegin = DateTime.Now,
-                DateEnd = DateTime.Now,
-                MaxCountVisitors = 10,
-            }));
-
+            LoadMeetings();
             _meetingsStore.MeetingAdded += OnMeetingAdded;
         }
 
         private void OnMeetingAdded(Meeting meeting)
         {
-            _meetings.Add(new MeetingViewModel(meeting));
+            _meetings.Append(meeting);
+        }
+
+        private async void LoadMeetings()
+        {
+            await _dataService.GetAll().ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    _meetings = task.Result;
+                    OnPropertyChanged(nameof(Meetings));
+                }
+            });
         }
     }
 }
