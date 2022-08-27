@@ -6,7 +6,33 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
 
+        <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
+
         <!--#region Button Styles-->
+        <Style x:Key="defaultButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource ColorPrimary}" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="7">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
+                    <Setter Property="Foreground" Value="#ffffff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="topButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#6e7783" />
@@ -172,9 +198,16 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
         <!--#endregion-->
 
         <!--#region Icon Styles-->
+        <Style x:Key="defaultButtonIcon" TargetType="icon:PackIconMaterial">
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8,0,8,0" />
+        </Style>
         <Style x:Key="menuButtonIcon" TargetType="icon:PackIconMaterial">
             <Setter Property="Width" Value="16" />
             <Setter Property="Height" Value="16" />
@@ -239,6 +272,39 @@
         </Style>
         <Style
             x:Key="textBoxFilter"
+            BasedOn="{StaticResource textBoxSearch}"
+            TargetType="TextBox">
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="#e0e6ed"
+                            BorderThickness="1"
+                            CornerRadius="7"
+                            SnapsToDevicePixels="True">
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style
+            x:Key="textBoxDefault"
             BasedOn="{StaticResource textBoxSearch}"
             TargetType="TextBox">
             <Setter Property="Padding" Value="10,8" />
@@ -463,11 +529,11 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#623ed0" />
+                    <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#623ed0" />
+                    <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
                 <MultiTrigger>
@@ -550,7 +616,6 @@
         </Style>
         <!--#endregion-->
 
-
         <!--#region Checkbox Style-->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF" />
         <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070" />
@@ -564,7 +629,7 @@
         <SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6" />
         <SolidColorBrush x:Key="OptionMark.Disabled.Border" Color="#FFBCBCBC" />
         <SolidColorBrush x:Key="OptionMark.Disabled.Glyph" Color="#FF707070" />
-        <Style x:Key="GridCheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Style x:Key="CornerCheckBoxStyle" TargetType="{x:Type CheckBox}">
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}" />
             <Setter Property="BorderBrush" Value="#dae2ea" />
@@ -652,7 +717,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="GridCheckBoxReadonlyStyle" TargetType="{x:Type CheckBox}">
+        <Style x:Key="CornerCheckBoxReadonlyStyle" TargetType="{x:Type CheckBox}">
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}" />
             <Setter Property="BorderBrush" Value="#dae2ea" />
@@ -707,7 +772,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            </Style>
-            <!--#endregion-->
+        </Style>
+        <!--#endregion-->
     </Application.Resources>
 </Application>

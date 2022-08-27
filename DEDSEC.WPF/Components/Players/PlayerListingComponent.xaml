@@ -114,10 +114,10 @@
                 <DataGridCheckBoxColumn
                     Width="auto"
                     CanUserResize="False"
-                    ElementStyle="{StaticResource GridCheckBoxStyle}">
+                    ElementStyle="{StaticResource CornerCheckBoxStyle}">
                     <DataGridCheckBoxColumn.HeaderTemplate>
                         <DataTemplate>
-                            <CheckBox Style="{StaticResource GridCheckBoxStyle}" />
+                            <CheckBox Style="{StaticResource CornerCheckBoxStyle}" />
                         </DataTemplate>
                     </DataGridCheckBoxColumn.HeaderTemplate>
                 </DataGridCheckBoxColumn>
@@ -170,13 +170,13 @@
                     Width="*"
                     Binding="{Binding IsVisited}"
                     CanUserResize="False"
-                    ElementStyle="{StaticResource GridCheckBoxReadonlyStyle}"
+                    ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Посещено"
                     IsReadOnly="True" />
                 <DataGridCheckBoxColumn
                     Width="*"
                     CanUserResize="False"
-                    ElementStyle="{StaticResource GridCheckBoxReadonlyStyle}"
+                    ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Админ"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn

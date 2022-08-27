@@ -52,7 +52,7 @@
             Grid.Row="1"
             MinHeight="580"
             Padding="0,0,0,24"
-            Background="#623ed0"
+            Background="{StaticResource ColorPrimary}"
             CornerRadius="0 50 0 30">
             <DockPanel>
                 <!--  Menu Logo  -->

@@ -7,11 +7,15 @@
     xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
     Width="1080"
     Height="720"
-    WindowStartupLocation="CenterScreen"
     AllowsTransparency="True"
     Background="Transparent"
+    WindowStartupLocation="CenterScreen"
     WindowStyle="None">
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border
+        Background="#eff2f7"
+        CornerRadius="30"
+        MouseDown="Border_MouseDown"
+        MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:AccountViewModel}">

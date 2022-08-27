@@ -25,7 +25,7 @@ namespace DEDSEC.WPF
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ClickCount == 2)
+            if (e.ClickCount == 2)
             {
                 if (IsMaximized)
                 {
@@ -37,7 +37,7 @@ namespace DEDSEC.WPF
                 else
                 {
                     this.WindowState = WindowState.Maximized;
-                    IsMaximized = true; 
+                    IsMaximized = true;
                 }
             }
         }

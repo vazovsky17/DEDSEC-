@@ -39,9 +39,9 @@ namespace DEDSEC.WPF
                     {
                         DataContext = s.GetRequiredService<MainViewModel>()
                     });
-                });   
+                });
         }
-        
+
         protected override void OnStartup(StartupEventArgs e)
         {
             _host.Start();
