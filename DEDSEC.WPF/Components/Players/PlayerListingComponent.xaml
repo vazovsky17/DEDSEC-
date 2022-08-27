@@ -101,29 +101,27 @@
 
         <!--  Filter Textbox  -->
         <components:FilterComponent Grid.Row="4" HorizontalAlignment="Right" />
-
         <!--  Players Datagrid  -->
         <DataGrid
             x:Name="PlayersDataGrid"
             Grid.Row="5"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+            ItemsSource="{Binding Players}"
             RowStyle="{DynamicResource DataGridRowStyle1}"
             Style="{DynamicResource DataGridStyle1}">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Width="auto" CanUserResize="False">
-                    <DataGridCheckBoxColumn.Header>
-                        <DataTemplate>
-                            <CheckBox />
-                        </DataTemplate>
-                    </DataGridCheckBoxColumn.Header>
-                </DataGridCheckBoxColumn>
-
-                <DataGridTextColumn
+                <DataGridCheckBoxColumn
                     Width="auto"
                     CanUserResize="False"
-                    Header="#"
-                    IsReadOnly="True" />
+                    ElementStyle="{StaticResource GridCheckBoxStyle}">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource GridCheckBoxStyle}" />
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+
                 <DataGridTemplateColumn
                     Width="auto"
                     CanUserResize="False"
@@ -143,36 +141,42 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Foreground="White"
-                                        Text="..." />
+                                        Text="{Binding Path=AccountHolder.Nickname}" />
                                 </Border>
-                                <TextBlock VerticalAlignment="Center" Text="..." />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn
                     Width="*"
+                    Binding="{Binding Name}"
                     CanUserResize="False"
                     Header="Имя"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
+                    Binding="{Binding Age}"
                     CanUserResize="False"
                     Header="Возраст"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
+                    Binding="{Binding AboutMe}"
                     CanUserResize="False"
                     Header="Обо мне"
                     IsReadOnly="True" />
-                <DataGridTextColumn
+                <DataGridCheckBoxColumn
                     Width="*"
+                    Binding="{Binding IsVisited}"
                     CanUserResize="False"
+                    ElementStyle="{StaticResource GridCheckBoxReadonlyStyle}"
                     Header="Посещено"
                     IsReadOnly="True" />
-                <DataGridTextColumn
+                <DataGridCheckBoxColumn
                     Width="*"
                     CanUserResize="False"
+                    ElementStyle="{StaticResource GridCheckBoxReadonlyStyle}"
                     Header="Админ"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn
@@ -183,11 +187,14 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource gridEditButton}">
-                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}"/>
+                                <Button Command="" Style="{StaticResource gridEditButton}">
+                                    <icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
-                                <Button Style="{StaticResource gridDeleteButton}">
-                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}"/>
+                                <Button
+                                    Margin="5,0,0,0"
+                                    Command=""
+                                    Style="{StaticResource gridDeleteButton}">
+                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
