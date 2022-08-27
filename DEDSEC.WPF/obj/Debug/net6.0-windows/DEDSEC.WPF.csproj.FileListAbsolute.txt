@@ -104,3 +104,7 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\re
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\MahApps.Metro.IconPacks.Core.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\MahApps.Metro.IconPacks.Material.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\App.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\FilterComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\SearchComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\FilterComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\SearchComponent.g.cs

@@ -19,6 +19,9 @@
     <Compile Update="Components\Donations\DonationGoalComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Common\FilterComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
     <Compile Update="Components\Players\PlayerListingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Common\SearchComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\Account\AccountComponent.xaml">
@@ -58,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Donations\DonationGoalComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Common\FilterComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">
@@ -85,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Players\PlayerListingComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Common\SearchComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
