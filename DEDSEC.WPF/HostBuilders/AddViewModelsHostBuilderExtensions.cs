@@ -60,7 +60,7 @@ namespace DEDSEC.WPF.HostBuilders
 
         private static LoginViewModel CreateLoginViewModel(IServiceProvider serviceProvider)
         {
-            CompositeNavigationService navigationService = new CompositeNavigationService(
+            CompositeNavigationService navigationService = new(
                 serviceProvider.GetRequiredService<CloseModalNavigationService>(),
                 CreateAccountNavigationService(serviceProvider));
             return new LoginViewModel(
