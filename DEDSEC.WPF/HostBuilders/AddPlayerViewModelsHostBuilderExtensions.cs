@@ -15,6 +15,7 @@ namespace DEDSEC.WPF.HostBuilders
             {
                 services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
                     s.GetRequiredService<IDataService<Account>>(),
+                    s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<PlayersStore>()));
             });
 

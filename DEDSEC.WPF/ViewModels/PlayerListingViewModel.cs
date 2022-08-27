@@ -9,6 +9,7 @@ namespace DEDSEC.WPF.ViewModels
     public class PlayerListingViewModel : ViewModelBase
     {
         private readonly IDataService<Account> _dataService;
+        private readonly AccountStore _accountStore;
         private readonly PlayersStore _playersStore;
 
         private IEnumerable<Account> _players;
@@ -24,10 +25,12 @@ namespace DEDSEC.WPF.ViewModels
                 OnPropertyChanged(nameof(Players));
             }
         }
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
 
-        public PlayerListingViewModel(IDataService<Account> dataService, PlayersStore playersStore)
+        public PlayerListingViewModel(IDataService<Account> dataService, AccountStore accountStore,PlayersStore playersStore)
         {
             _dataService = dataService;
+            _accountStore = accountStore;
             _playersStore = playersStore;
 
             LoadPlayers();

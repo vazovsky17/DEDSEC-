@@ -13,6 +13,7 @@ namespace DEDSEC.WPF.ViewModels
     {
         public ICommand AddMeetingCommand { get; }
         private readonly IDataService<Meeting> _dataService;
+        private readonly AccountStore _accountStore;
         private readonly MeetingsStore _meetingsStore;
 
         private IEnumerable<Meeting> _meetings;
@@ -28,10 +29,12 @@ namespace DEDSEC.WPF.ViewModels
                 OnPropertyChanged(nameof(Meetings));
             }
         }
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
 
-        public MeetingListingViewModel(IDataService<Meeting> dataService, MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
+        public MeetingListingViewModel(IDataService<Meeting> dataService, AccountStore accountStore, MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
         {
             _dataService = dataService;
+            _accountStore = accountStore;
             _meetingsStore = meetingsStore;
 
             AddMeetingCommand = new NavigateCommand(addMeetingNavigationService);

@@ -13,7 +13,10 @@ namespace DEDSEC.WPF.ViewModels
     {
         public ICommand AddGameCommand { get; }
         private readonly IDataService<Game> _dataService;
+        private readonly AccountStore _accountStore;
         private readonly GamesStore _gamesStore;
+
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
 
         private IEnumerable<Game> _games;
         public IEnumerable<Game> Games
@@ -29,9 +32,10 @@ namespace DEDSEC.WPF.ViewModels
             }
         }
 
-        public GameListingViewModel(IDataService<Game> dataService, GamesStore gamesStore, INavigationService addGameNavigationService)
+        public GameListingViewModel(IDataService<Game> dataService,AccountStore accountStore, GamesStore gamesStore, INavigationService addGameNavigationService)
         {
             _dataService = dataService;
+            _accountStore = accountStore;
             _gamesStore = gamesStore;
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);

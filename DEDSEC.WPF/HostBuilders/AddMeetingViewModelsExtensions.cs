@@ -5,7 +5,6 @@ using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
 namespace DEDSEC.WPF.HostBuilders
 {
@@ -22,6 +21,7 @@ namespace DEDSEC.WPF.HostBuilders
 
                 services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
                     s.GetRequiredService<IDataService<Meeting>>(),
+                    s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
                     CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));
             });

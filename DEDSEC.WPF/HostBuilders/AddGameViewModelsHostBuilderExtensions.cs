@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.HostBuilders
 
                 services.AddTransient<GameListingViewModel>(s => new GameListingViewModel(
                     s.GetRequiredService<IDataService<Game>>(),
-                    s.GetRequiredService<GamesStore>(),
+                    s.GetRequiredService<AccountStore>(),                    s.GetRequiredService<GamesStore>(),
                     CreateNavigationServiceExtensions.CreateAddGameNavigationService(s)));
             });
 

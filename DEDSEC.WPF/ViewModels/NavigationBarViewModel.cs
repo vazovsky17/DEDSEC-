@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand LogoutCommand { get; }
 
         public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Гость";
-        public bool IsAdmin => _accountStore.CurrentAccount?.AccountHolder.IsAdmin ?? false;
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
         public bool IsUnlogged => !IsLoggedIn;
 
@@ -40,7 +40,7 @@ namespace DEDSEC.WPF.ViewModels
             NavigatePlayerListingCommand = new NavigateCommand(playerListingNavigationService);
             NavigateGameListingCommand = new NavigateCommand(gameListingNavigationService);
             NavigateDonationGoalCommand = new NavigateCommand(donationGoalNavigationService);
-            LogoutCommand = new LogoutCommand(_accountStore,homeNavigationService);
+            LogoutCommand = new LogoutCommand(_accountStore, homeNavigationService);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }

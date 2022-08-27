@@ -2,71 +2,48 @@
     x:Class="DEDSEC.WPF.Components.PlayerListingComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:DEDSEC.WPF.Components"
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <!--  Search TextBox  -->
-        <components:SearchComponent Grid.Row="0" HorizontalAlignment="Left" />
-        <!--  Top Buttons  -->
-        <Button
-            Grid.Row="0"
-            Margin="0,0,20,0"
-            HorizontalAlignment="Right"
-            Background="#dcdcdc"
-            Style="{StaticResource topButton}">
-            <icon:PackIconMaterial Kind="Cog" />
-        </Button>
 
-        <Button
-            Grid.Row="0"
-            Margin="0,0,55,0"
-            HorizontalAlignment="Right"
-            Style="{StaticResource topButton}">
-            <icon:PackIconMaterial Kind="Bell" />
-        </Button>
 
         <!--  Page Title  -->
         <TextBlock
-            Grid.Row="1"
+            Grid.Row="0"
             Margin="0,20,0,0"
-            HorizontalAlignment="Left"
-            FontSize="32"
-            FontWeight="SemiBold"
-            Foreground="{StaticResource ColorTextForeground}"
+            Style="{StaticResource textBlockTitle}"
             Text="Игроки" />
 
         <!--  Add Button  -->
-        <Button Grid.Row="1" Style="{StaticResource addButton}">
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource optionButton}"
+            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel Orientation="Horizontal">
-                <icon:PackIconMaterial
-                    Width="12"
-                    Height="12"
-                    Margin="8,1,8,0"
-                    VerticalAlignment="Center"
-                    Kind="Plus" />
+                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
                 <TextBlock Margin="0,0,8,0" Text="Добавить нового игрока" />
             </StackPanel>
         </Button>
 
         <!--  Separator  -->
         <Separator
-            Grid.Row="3"
+            Grid.Row="2"
             Height="1"
-            Margin="0,-1,0,8"
+            Margin="0,-16,0,8"
             Background="{StaticResource ColorSeparator}" />
 
         <!--  Tab Buttons  -->
         <StackPanel
-            Grid.Row="2"
+            Grid.Row="1"
             Margin="0,8,0,0"
             Orientation="Horizontal">
             <Button
@@ -81,7 +58,7 @@
 
         <!--  Counter Title  -->
         <TextBlock
-            Grid.Row="4"
+            Grid.Row="2"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             FontSize="18"
@@ -89,22 +66,10 @@
             Foreground="{StaticResource ColorTextForeground}"
             Text="2 игрока" />
 
-        <TextBlock
-            Grid.Row="4"
-            Margin="0,0,230,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            FontSize="18"
-            FontWeight="SemiBold"
-            Foreground="{StaticResource ColorTextForeground}"
-            Text="Фильтровать по" />
-
-        <!--  Filter Textbox  -->
-        <components:FilterComponent Grid.Row="4" HorizontalAlignment="Right" />
         <!--  Players Datagrid  -->
         <DataGrid
             x:Name="PlayersDataGrid"
-            Grid.Row="5"
+            Grid.Row="3"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
             ItemsSource="{Binding Players}"
@@ -205,7 +170,7 @@
 
         <!--  Pagination Section  -->
         <Border
-            Grid.Row="6"
+            Grid.Row="4"
             Margin="0,10,10,10"
             Padding="5"
             HorizontalAlignment="Right"
