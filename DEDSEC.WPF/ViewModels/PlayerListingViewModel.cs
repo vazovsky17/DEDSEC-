@@ -1,47 +1,56 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.WPF.Services;
+using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
+using System.Linq;
 
 namespace DEDSEC.WPF.ViewModels
 {
     public class PlayerListingViewModel : ViewModelBase
     {
+        private readonly IDataService<Account> _dataService;
         private readonly PlayersStore _playersStore;
-        private readonly ObservableCollection<PlayerViewModel> _players;
 
-        public IEnumerable<PlayerViewModel> Players => _players;
-
-        public PlayerListingViewModel(PlayersStore playersStore)
+        private IEnumerable<Account> _players;
+        public IEnumerable<Account> Players
         {
+            get
+            {
+                return _players;
+            }
+            set
+            {
+                _players = value;
+                OnPropertyChanged(nameof(Players));
+            }
+        }
+
+        public PlayerListingViewModel(IDataService<Account> dataService, PlayersStore playersStore)
+        {
+            _dataService = dataService;
             _playersStore = playersStore;
 
-            _players = new ObservableCollection<PlayerViewModel>();
-            _players.Add(new PlayerViewModel(
-                new Account()
-                {
-                    Id = Guid.NewGuid(),
-                    AccountHolder = new User()
-                    {
-                        Id = Guid.NewGuid(),
-                        Nickname = "VAZ",
-                        Password = "883306"
-                    },
-                    Name = "MARINA",
-                    Age = 23,
-                    AboutMe = "Android developer",
-                    IsVisited = true,
-                    FavoriteGames = new List<Game>()
-                }));
-
+            LoadPlayers();
             _playersStore.PlayerAdded += OnPlayerAdded;
         }
+
         private void OnPlayerAdded(Account account)
         {
-            _players.Add(new PlayerViewModel(account));
+            _players.Append(account);
+        }
+
+        private async void LoadPlayers()
+        {
+            await _dataService.GetAll().ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    _players = task.Result;
+                    OnPropertyChanged(nameof(Players));
+                }
+            });
         }
     }
 }

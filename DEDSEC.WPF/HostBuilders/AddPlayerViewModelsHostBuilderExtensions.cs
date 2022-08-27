@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Stores;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +14,7 @@ namespace DEDSEC.WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
+                    s.GetRequiredService<IDataService<Account>>(),
                     s.GetRequiredService<PlayersStore>()));
             });
 
