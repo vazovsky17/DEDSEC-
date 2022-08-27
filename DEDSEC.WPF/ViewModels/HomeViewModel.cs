@@ -6,7 +6,7 @@ namespace DEDSEC.WPF.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        public string WelcomeMessage => "Welcome to Dedsec";
+        public string WelcomeMessage => "Добро пожаловать в DEDSEC";
 
         public ICommand NavigateLoginCommand { get; }
 

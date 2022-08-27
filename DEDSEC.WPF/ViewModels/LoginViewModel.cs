@@ -37,6 +37,20 @@ namespace DEDSEC.WPF.ViewModels
             }
         }
 
+        private bool _isAdmin;
+        public bool IsAdmin
+        {
+            get
+            {
+                return _isAdmin;
+            }
+            set
+            {
+                _isAdmin = value;
+                OnPropertyChanged(nameof(IsAdmin));
+            }
+        }
+
         public ICommand LoginCommand { get; }
 
         public LoginViewModel(AccountStore accountStore, IDataService<Account> dataService, INavigationService loginNavigationService)

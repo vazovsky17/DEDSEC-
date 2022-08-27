@@ -36,7 +36,7 @@ namespace DEDSEC.WPF.Commands
                     Id = Guid.NewGuid(),
                     Nickname = _viewModel.Nickname,
                     Password = _viewModel.Password,
-                    IsAdmin = false
+                    IsAdmin = _viewModel.IsAdmin,
                 },
                 Name = "",
                 Age = 0,
