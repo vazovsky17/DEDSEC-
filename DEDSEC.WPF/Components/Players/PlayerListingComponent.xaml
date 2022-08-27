@@ -75,6 +75,8 @@
                 Style="{StaticResource tabButton}" />
             <Button Content="Игроки" Style="{StaticResource tabButton}" />
             <Button Content="Админы" Style="{StaticResource tabButton}" />
+            <Button Content="Посетившие" Style="{StaticResource tabButton}" />
+            <Button Content="Новички" Style="{StaticResource tabButton}" />
         </StackPanel>
 
         <!--  Counter Title  -->
@@ -101,8 +103,97 @@
         <components:FilterComponent Grid.Row="4" HorizontalAlignment="Right" />
 
         <!--  Players Datagrid  -->
-        <DataGrid Grid.Row="5" >
+        <DataGrid
+            x:Name="PlayersDataGrid"
+            Grid.Row="5"
+            CellStyle="{DynamicResource DataGridCellStyle1}"
+            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+            RowStyle="{DynamicResource DataGridRowStyle1}"
+            Style="{DynamicResource DataGridStyle1}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="auto" CanUserResize="False">
+                    <DataGridCheckBoxColumn.Header>
+                        <DataTemplate>
+                            <CheckBox />
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
 
+                <DataGridTextColumn
+                    Width="auto"
+                    CanUserResize="False"
+                    Header="#"
+                    IsReadOnly="True" />
+                <DataGridTemplateColumn
+                    Width="auto"
+                    CanUserResize="False"
+                    Header="Игрок"
+                    IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Border
+                                    Width="25"
+                                    Height="25"
+                                    Margin="0,0,10,0"
+                                    Background="Red"
+                                    CornerRadius="50">
+                                    <TextBlock
+                                        Margin="0,0,0,1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="..." />
+                                </Border>
+                                <TextBlock VerticalAlignment="Center" Text="..." />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="*"
+                    CanUserResize="False"
+                    Header="Имя"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    CanUserResize="False"
+                    Header="Возраст"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    CanUserResize="False"
+                    Header="Обо мне"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    CanUserResize="False"
+                    Header="Посещено"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    CanUserResize="False"
+                    Header="Админ"
+                    IsReadOnly="True" />
+                <DataGridTemplateColumn
+                    Width="auto"
+                    CanUserResize="False"
+                    Header="Действия"
+                    IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource gridEditButton}">
+                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                                <Button Style="{StaticResource gridDeleteButton}">
+                                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
 
         <!--  Pagination Section  -->
