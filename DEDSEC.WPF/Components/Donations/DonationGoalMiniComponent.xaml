@@ -10,20 +10,61 @@
         Width="200"
         MinHeight="200"
         Padding="0,0,0,24"
-        Background="{StaticResource ColorMouseOverBackground}"
-        CornerRadius="30" >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource textBlockTitleMiniComponent}" Grid.Row="0" Text="Цель" Margin="16 16 4 0" HorizontalAlignment="Left"/>
-            <Button Style="{StaticResource topButton}" Grid.Row="0" HorizontalAlignment="Right" Margin="4 16 16 0" Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
-                <icon:PackIconMaterial Foreground="{StaticResource ColorButtonForeground}" Kind="Plus"/>
+        Background="{StaticResource ColorCardBackground}"
+        CornerRadius="30">
+        <DockPanel>
+            <StackPanel
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Top"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="16,16,4,0"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource textBlockTitleMiniComponent}"
+                    Text="Цель" />
+                <Button
+                    Margin="4,16,16,0"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource topButton}"
+                    Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <icon:PackIconMaterial Foreground="{StaticResource ColorCardForeground}" Kind="Plus" />
+                </Button>
+            </StackPanel>
+
+            <TextBlock
+                Margin="4,8,4,0"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Top"
+                FontSize="16"
+                Foreground="{StaticResource ColorCardForeground}"
+                Text="{Binding Title}" />
+            <ProgressBar
+                Grid.Row="2"
+                Width="160"
+                Margin="4,8,4,0"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Top"
+                Foreground="{StaticResource ColorCardForeground}"
+                Maximum="100"
+                Minimum="0"
+                Value="{Binding Progress, Mode=OneWay}" />
+            <TextBlock
+                Grid.Row="3"
+                Margin="4,8,4,0"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Top"
+                Foreground="{StaticResource ColorCardForeground}"
+                Text="{Binding Targets}" />
+            <Button
+                Grid.Row="4"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Bottom"
+                Style="{StaticResource optionButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Wallet" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Text="Задонатить" />
+                </StackPanel>
             </Button>
-            <TextBlock Grid.Row="1" Text="{Binding Title}" Foreground="{StaticResource ColorTextForeground}"/>
-        </Grid>
+        </DockPanel>
     </Border>
 </UserControl>

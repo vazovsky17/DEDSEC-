@@ -30,6 +30,7 @@
         <!--  Add Button  -->
         <Button
             Grid.Row="0"
+            Command="{Binding NavigateLoginCommand}"
             Style="{StaticResource optionButton}"
             Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel Orientation="Horizontal">

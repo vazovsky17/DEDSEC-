@@ -22,6 +22,8 @@ namespace DEDSEC.WPF.ViewModels
         public string Description => DonationGoal?.Description ?? "Неизвестно";
         public int CurrentValue => DonationGoal?.CurrentValue ?? 0;
         public int TargetValue => DonationGoal?.TargetValue ?? 100;
+        public int Progress => CurrentValue * 100 / TargetValue;
+        public string Targets => CurrentValue + "/" + TargetValue;
 
         public DonationGoalMiniViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService  addDonationNavigationService, INavigationService donationGoalNavigationService)
         {
