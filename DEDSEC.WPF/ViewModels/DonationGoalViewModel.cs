@@ -22,6 +22,8 @@ namespace DEDSEC.WPF.ViewModels
         public string Description => DonationGoal.Description;
         public int CurrentValue => DonationGoal.CurrentValue;
         public int TargetValue => DonationGoal.TargetValue;
+        public int Progress => CurrentValue * 100 / TargetValue;
+        public string Targets => CurrentValue + "/" + TargetValue;
         public List<Donation> Donations => DonationGoal.Donations;
 
         public ICommand AddDonationCommand { get; }

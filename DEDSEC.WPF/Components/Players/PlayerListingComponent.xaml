@@ -25,7 +25,7 @@
         <Button
             Grid.Row="0"
             Style="{StaticResource optionButton}"
-            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
+            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel Orientation="Horizontal">
                 <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
                 <TextBlock Margin="0,0,8,0" Text="Добавить нового игрока" />

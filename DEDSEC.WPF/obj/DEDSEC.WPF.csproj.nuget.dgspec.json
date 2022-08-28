@@ -210,6 +210,10 @@
             "SimpleModal.WPF": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Xam.Plugins.Forms.ProgressRing": {
+              "target": "Package",
+              "version": "[0.1.2, )"
             }
           },
           "imports": [

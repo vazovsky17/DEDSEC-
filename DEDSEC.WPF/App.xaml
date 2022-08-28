@@ -6,7 +6,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
 
-        <!--#region Colors -->
+        <!--#region Colors-->
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
         <SolidColorBrush x:Key="ColorButtonBackground" Color="#7950f2" />
         <SolidColorBrush x:Key="ColorButtonForeground" Color="#d0c0ff" />
@@ -16,10 +16,10 @@
         <SolidColorBrush x:Key="ColorSeparator" Color="#dae2ae" />
         <SolidColorBrush x:Key="ColorSeparatorSecond" Color="#7e5fdc" />
         <SolidColorBrush x:Key="ColorTextBoxHint" Color="#b0b976" />
-        <SolidColorBrush x:Key="ColorCardBackground" Color="#660099"/>
-        <SolidColorBrush x:Key="ColorCardForeground" Color="#F6F4F7"/>
+        <SolidColorBrush x:Key="ColorCardBackground" Color="#660099" />
+        <SolidColorBrush x:Key="ColorCardForeground" Color="#F6F4F7" />
         <!--#endregion-->
-        
+
         <!--#region Button Styles-->
         <Style x:Key="defaultButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
