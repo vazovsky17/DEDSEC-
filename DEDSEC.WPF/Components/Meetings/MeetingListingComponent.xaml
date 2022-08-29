@@ -71,7 +71,7 @@
             Grid.Row="3"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-            ItemsSource="{Binding Meetings}"
+            ItemsSource="{Binding MeetingViewModels}"
             RowStyle="{DynamicResource DataGridRowStyle1}"
             Style="{DynamicResource DataGridStyle1}">
             <DataGrid.Columns>

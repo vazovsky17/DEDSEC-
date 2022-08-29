@@ -2,7 +2,7 @@
 using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Accounts;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands

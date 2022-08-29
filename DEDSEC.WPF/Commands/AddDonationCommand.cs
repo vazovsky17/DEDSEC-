@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Donations;
 using System;
 using System.Collections.Generic;
 

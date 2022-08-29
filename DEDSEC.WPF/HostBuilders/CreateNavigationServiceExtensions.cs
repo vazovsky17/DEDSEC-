@@ -1,7 +1,11 @@
-﻿using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Accounts;
+using DEDSEC.WPF.ViewModels.Donations;
+using DEDSEC.WPF.ViewModels.Games;
+using DEDSEC.WPF.ViewModels.Meetings;
+using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 

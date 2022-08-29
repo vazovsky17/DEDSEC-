@@ -3,6 +3,7 @@ using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Donations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;

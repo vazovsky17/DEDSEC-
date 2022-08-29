@@ -1,8 +1,6 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
-using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Meetings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -15,12 +13,10 @@ namespace DEDSEC.WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
-                    s.GetRequiredService<IDataService<Meeting>>(),
                     s.GetRequiredService<MeetingsStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
                 services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
-                    s.GetRequiredService<IDataService<Meeting>>(),
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
                     CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));

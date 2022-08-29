@@ -1,6 +1,7 @@
 ﻿using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
+using DEDSEC.WPF.ViewModels.Donations;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels

@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

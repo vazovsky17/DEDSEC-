@@ -42,14 +42,14 @@ namespace DEDSEC.WPF.Stores
         {
             await _dataService.Update(game.Id, game);
             _games.Add(game);
-            GameAdded?.Invoke(game);
+            GameUpdated?.Invoke(game);
         }
 
         public async Task Delete(Game game)
         {
             await _dataService.Delete(game.Id);
             _games.Remove(game);
-            GameAdded?.Invoke(game);
+            GameDeleted?.Invoke(game.Id);
         }
     }
 }

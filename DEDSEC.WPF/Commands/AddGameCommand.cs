@@ -1,8 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
