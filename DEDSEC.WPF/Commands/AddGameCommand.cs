@@ -12,14 +12,12 @@ namespace DEDSEC.WPF.Commands
     public class AddGameCommand : AsyncCommandBase
     {
         private readonly AddGameViewModel _addGameViewModel;
-        private readonly IDataService<Game> _dataService;
         private readonly GamesStore _gamesStore;
         private readonly INavigationService _navigationService;
 
-        public AddGameCommand(AddGameViewModel addGameViewModel, IDataService<Game> dataService, GamesStore gamesStore, INavigationService navigationService)
+        public AddGameCommand(AddGameViewModel addGameViewModel, GamesStore gamesStore, INavigationService navigationService)
         {
             _addGameViewModel = addGameViewModel;
-            _dataService = dataService;
             _gamesStore = gamesStore;
             _navigationService = navigationService;
         }
@@ -36,11 +34,10 @@ namespace DEDSEC.WPF.Commands
                 LinkHobbyGames = _addGameViewModel.LinkHobbyGames,
                 Reviews = new List<Review>(),
             };
-            await _dataService.Create(game).ContinueWith(task =>
+            await _gamesStore.Add(game).ContinueWith(task =>
             {
                 if (task.IsCompleted)
                 {
-                    _gamesStore.AddGame(game);
                     _navigationService.Navigate();
                 }
             });

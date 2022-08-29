@@ -1,6 +1,4 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
-using DEDSEC.WPF.Commands;
+﻿using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
@@ -82,9 +80,9 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddGameViewModel(IDataService<Game> dataService,GamesStore gamesStore, INavigationService closeNavigationService)
+        public AddGameViewModel(GamesStore gamesStore, INavigationService closeNavigationService)
         {
-            SubmitCommand = new AddGameCommand(this, dataService, gamesStore, closeNavigationService);
+            SubmitCommand = new AddGameCommand(this, gamesStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);
         }
     }
