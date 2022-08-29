@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using System.Xml.Linq;
 
 namespace DEDSEC.WPF.ViewModels.Players
 {
@@ -34,6 +33,11 @@ namespace DEDSEC.WPF.ViewModels.Players
             OnPropertyChanged(nameof(Player));
         }
 
+        /// <summary>
+        /// Установка отображаемого никнейма игрока
+        /// </summary>
+        /// <param name="nickname">Никнейм, если есть</param>
+        /// <returns>Строка с отображаемым никнеймом</returns>
         private string SetNicknameDisplay(string? nickname)
         {
             var randomList = new List<string>() { "Unknown", "Strange", "Alien" };
@@ -49,6 +53,11 @@ namespace DEDSEC.WPF.ViewModels.Players
             }
         }
 
+        /// <summary>
+        /// Установка отображаемого имени игрока
+        /// </summary>
+        /// <param name="name">Имя, если есть</param>
+        /// <returns>Строка с отображаемым именем</returns>
         private string SetNameDisplay(string? name)
         {
             var randomList = new List<string>() { "Безымянный", "Неизвестный", "Таинственный", "Анонимный", "Скрытный" };
@@ -64,6 +73,11 @@ namespace DEDSEC.WPF.ViewModels.Players
             }
         }
 
+        /// <summary>
+        /// Установка отображаемого описания игрока о себе
+        /// </summary>
+        /// <param name="aboutMe">Описание, если есть</param>
+        /// <returns>Строка с отображаемым описанием игрока о себе</returns>
         private string SetAboutMeDisplay(string? aboutMe)
         {
             if (aboutMe != null && aboutMe.Length > 0)

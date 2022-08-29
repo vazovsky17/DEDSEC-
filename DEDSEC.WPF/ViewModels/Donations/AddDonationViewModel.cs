@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
             }
         }
 
-        private int _value;
+        private int _value = 0;
         public int Value
         {
             get

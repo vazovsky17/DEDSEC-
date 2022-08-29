@@ -99,15 +99,9 @@
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding MinCountPlayers}"
+                    Binding="{Binding CountPlayersDisplay}"
                     CanUserResize="False"
-                    Header="Минимум игрокова"
-                    IsReadOnly="True" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding MaxCountPlayers}"
-                    CanUserResize="False"
-                    Header="Максимум игроков"
+                    Header="Кол-во игроков"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"

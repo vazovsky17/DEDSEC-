@@ -7,7 +7,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class AddGameViewModel : ViewModelBase
     {
-        private string _name;
+        private string _name = string.Empty;
         public string Name
         {
             get
@@ -21,7 +21,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             }
         }
 
-        private string _description;
+        private string _description = string.Empty;
         public string Description
         {
             get
@@ -63,7 +63,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             }
         }
 
-        private string _linkHobbyGames;
+        private string _linkHobbyGames = string.Empty;
         public string LinkHobbyGames
         {
             get

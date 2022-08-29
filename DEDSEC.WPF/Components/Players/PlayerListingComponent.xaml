@@ -85,32 +85,12 @@
                     </DataGridCheckBoxColumn.HeaderTemplate>
                 </DataGridCheckBoxColumn>
 
-                <DataGridTemplateColumn
-                    Width="auto"
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Nickname}"
                     CanUserResize="False"
-                    Header="Игрок"
-                    IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Border
-                                    Width="25"
-                                    Height="25"
-                                    Margin="0,0,10,0"
-                                    Background="Red"
-                                    CornerRadius="50">
-                                    <TextBlock
-                                        Margin="0,0,0,1"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="White"
-                                        Text="{Binding Path=AccountHolder.Nickname}" />
-                                </Border>
-                                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                    Header="Никнейм"
+                    IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding Name}"

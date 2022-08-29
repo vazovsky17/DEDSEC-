@@ -8,7 +8,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class AddMeetingViewModel : ViewModelBase
     {
-        private string _title;
+        private string _title = string.Empty;
         public string Title
         {
             get
@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             }
         }
 
-        private string _description;
+        private string _description = string.Empty;
         public string Description
         {
             get
