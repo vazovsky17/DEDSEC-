@@ -19,7 +19,6 @@ namespace DEDSEC.WPF.ViewModels.Games
         private readonly GamesStore _gamesStore;
 
         private readonly ObservableCollection<GameViewModel> _gameViewModels;
-
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
 
         public GameListingViewModel(AccountStore accountStore, GamesStore gamesStore, INavigationService addGameNavigationService)
@@ -32,7 +31,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             Load();
             _gamesStore.GamesLoaded += GamesStore_Loaded;
             _gamesStore.GameAdded += GamesStore_Added;
-            _gamesStore.GameUpdated += GamesStore_Update;
+            _gamesStore.GameUpdated += GamesStore_Updated;
             _gamesStore.GameDeleted += GamesStore_Deleted;
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);
@@ -57,7 +56,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             AddGameViewModel(game);
         }
 
-        private void GamesStore_Update(Game game)
+        private void GamesStore_Updated(Game game)
         {
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
             if (gameViewModel != null)
@@ -86,7 +85,7 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             _gamesStore.GamesLoaded -= GamesStore_Loaded;
             _gamesStore.GameAdded -= GamesStore_Added;
-            _gamesStore.GameUpdated -= GamesStore_Update;
+            _gamesStore.GameUpdated -= GamesStore_Updated;
             _gamesStore.GameDeleted -= GamesStore_Deleted;
 
             base.Dispose();

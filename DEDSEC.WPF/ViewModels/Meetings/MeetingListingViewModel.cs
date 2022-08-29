@@ -14,6 +14,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
     {
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
         public ICommand AddMeetingCommand { get; }
+
         private readonly AccountStore _accountStore;
         private readonly MeetingsStore _meetingsStore;
 

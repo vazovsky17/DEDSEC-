@@ -70,7 +70,7 @@
             Grid.Row="3"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-            ItemsSource="{Binding Players}"
+            ItemsSource="{Binding PlayerViewModels}"
             RowStyle="{DynamicResource DataGridRowStyle1}"
             Style="{DynamicResource DataGridStyle1}">
             <DataGrid.Columns>
@@ -131,13 +131,14 @@
                     IsReadOnly="True" />
                 <DataGridCheckBoxColumn
                     Width="*"
-                    Binding="{Binding IsVisited}"
+                    Binding="{Binding IsVisited, Mode=OneWay}"
                     CanUserResize="False"
                     ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Посещено"
                     IsReadOnly="True" />
                 <DataGridCheckBoxColumn
                     Width="*"
+                    Binding="{Binding IsAdmin, Mode=OneWay}"
                     CanUserResize="False"
                     ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Админ"
