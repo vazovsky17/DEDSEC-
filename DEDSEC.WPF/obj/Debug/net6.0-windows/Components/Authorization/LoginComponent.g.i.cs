@@ -78,7 +78,7 @@ namespace DEDSEC.WPF.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/components/authorization/logincomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/components/authorization/logincomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Components\Authorization\LoginComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -19,20 +19,23 @@ namespace DEDSEC.WPF.ViewModels.Donations
         private readonly ObservableCollection<DonationViewModel> _donationViewModels;
         public IEnumerable<DonationViewModel> DonationViewModels => _donationViewModels;
 
-        private DonationGoal _donationGoal;
-        public DonationGoal DonationGoal => _donationGoal;
-        public bool HasDonationGoal => _donationGoal != null;
+        public DonationGoal? DonationGoal => _donationGoalStore?.DonationGoal;
+        public bool HasDonationGoal => DonationGoal != null;
+        public bool DonationGoalMissing => !HasDonationGoal;
+        public bool CanAddDonationGoal => IsAdmin && DonationGoalMissing;
+        public bool CanEditDonationGoal => IsAdmin && HasDonationGoal;
 
-        public Guid Id => DonationGoal.Id;
-        public string Title => DonationGoal.Title;
-        public string Description => DonationGoal.Description;
-        public int CurrentValue => DonationGoal.CurrentValue;
-        public int TargetValue => DonationGoal.TargetValue;
+        public string Title => DonationGoal?.Title ?? String.Empty;
+        public string Description => DonationGoal?.Description ?? String.Empty;
+        public int CurrentValue => DonationGoal?.CurrentValue ?? 00;
+        public int TargetValue => DonationGoal?.TargetValue ?? 100;
         public int Progress => CurrentValue * 100 / TargetValue;
         public string Targets => CurrentValue + "/" + TargetValue;
 
         public ICommand AddDonationCommand { get; }
         public ICommand AddDonationGoalCommand { get; }
+        public ICommand EditDonationGoalCommand { get; }
+        public ICommand DeleteDonationGoalCommand { get; }
 
         public DonationGoalViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService addDonationNavigationService)
         {
@@ -42,9 +45,9 @@ namespace DEDSEC.WPF.ViewModels.Donations
             _donationViewModels = new ObservableCollection<DonationViewModel>();
 
             Load();
-            _donationGoalStore.DonationGoalLoaded += DonationGoalStore_Loaded;
-            _donationGoalStore.DonationGoalAdded += DonationGoalStore_Added;
-            _donationGoalStore.DonationGoalUpdated += DonationGoalStore_Updated;
+            _donationGoalStore.DonationGoalLoaded += DonationGoalStore_Changed;
+            _donationGoalStore.DonationGoalAdded += DonationGoalStore_Changed;
+            _donationGoalStore.DonationGoalUpdated += DonationGoalStore_Changed;
             _donationGoalStore.DonationGoalDeleted += DonationGoalStore_Deleted;
             _donationGoalStore.DonationAdded += DonationGoalStore_DonationAdded;
             _donationGoalStore.DonationUpdated += DonationGoalStore_DonationUpdated;
@@ -58,31 +61,32 @@ namespace DEDSEC.WPF.ViewModels.Donations
             await _donationGoalStore.Load();
         }
 
-        private void DonationGoalStore_Loaded()
+        private void DonationGoalStore_Changed()
         {
-            var donationGoal = _donationGoalStore.DonationGoal;
-            _donationGoal = donationGoal;
-            OnPropertyChanged(nameof(HasDonationGoal));
+            OnAllPropertysChanged();
         }
 
-        private void DonationGoalStore_Added(DonationGoal donationGoal)
+        private void DonationGoalStore_Changed(DonationGoal donationGoal)
         {
-            _donationGoal = donationGoal;
-        }
-
-        private void DonationGoalStore_Updated(DonationGoal donationGoal)
-        {
-            _donationGoal = donationGoal;
+            OnAllPropertysChanged();
         }
 
         private void DonationGoalStore_Deleted(Guid id)
         {
-            _donationGoal = null;
+            OnAllPropertysChanged();
+        }
+
+        private void OnAllPropertysChanged()
+        {
+            OnPropertyChanged(nameof(DonationGoal));
+            OnPropertyChanged(nameof(HasDonationGoal));
+            OnPropertyChanged(nameof(DonationGoalMissing));
+            OnPropertyChanged(nameof(CanAddDonationGoal));
+            OnPropertyChanged(nameof(CanEditDonationGoal));
         }
 
         private void DonationGoalStore_DonationAdded(Donation donation)
         {
-            if(_d)
             AddDonationViewModel(donation);
         }
 
@@ -114,9 +118,9 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         public override void Dispose()
         {
-            _donationGoalStore.DonationGoalLoaded -= DonationGoalStore_Loaded;
-            _donationGoalStore.DonationGoalAdded -= DonationGoalStore_Added;
-            _donationGoalStore.DonationGoalUpdated -= DonationGoalStore_Updated;
+            _donationGoalStore.DonationGoalLoaded -= DonationGoalStore_Changed;
+            _donationGoalStore.DonationGoalAdded -= DonationGoalStore_Changed;
+            _donationGoalStore.DonationGoalUpdated -= DonationGoalStore_Changed;
             _donationGoalStore.DonationGoalDeleted -= DonationGoalStore_Deleted;
             _donationGoalStore.DonationAdded -= DonationGoalStore_DonationAdded;
             _donationGoalStore.DonationUpdated -= DonationGoalStore_DonationUpdated;

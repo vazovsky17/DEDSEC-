@@ -11,8 +11,16 @@ namespace DEDSEC.WPF.Stores
     {
         private readonly IDataService<DonationGoal> _dataService;
 
-        private DonationGoal? _donationGoal;
-        public DonationGoal? DonationGoal => _donationGoal;
+        private DonationGoal _donationGoal;
+        public DonationGoal DonationGoal
+        {
+            get => _donationGoal;
+            set
+            {
+                _donationGoal = value;
+            }
+        }
+
         public bool HasDonationGoal => _donationGoal != null;
 
         private readonly List<Donation> _donations;

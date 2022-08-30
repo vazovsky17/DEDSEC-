@@ -13,7 +13,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         private readonly AccountStore _accountStore;
 
         public Account? CurrentAccount => _accountStore?.CurrentAccount;
-        public string Nickname => !string.IsNullOrEmpty(CurrentAccount?.AccountHolder.Nickname) ?  CurrentAccount.AccountHolder.Nickname : "Неизвестно";
+        public string Nickname => !string.IsNullOrEmpty(CurrentAccount?.AccountHolder.Nickname) ? CurrentAccount.AccountHolder.Nickname : "Неизвестно";
         public string Name => !string.IsNullOrEmpty(CurrentAccount?.Name) ? CurrentAccount.Name : "Неизестно";
         public int Age => _accountStore.CurrentAccount?.Age ?? 0;
         public string AboutMe => !string.IsNullOrEmpty(CurrentAccount?.AboutMe) ? CurrentAccount.AboutMe : "Не заполнено";
@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand EditAccountCommand { get; }
         public ICommand DeleteAccountCommand { get; }
 
-        public AccountViewModel(IAccountService dataService, AccountStore accountStore,IAuthenticatorService authenticatorService, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
+        public AccountViewModel(IAccountService dataService, AccountStore accountStore, IAuthenticatorService authenticatorService, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
         {
             _accountStore = accountStore;
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);

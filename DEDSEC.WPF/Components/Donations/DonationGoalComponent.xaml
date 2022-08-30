@@ -24,22 +24,56 @@
         <!--  Add Button  -->
         <Button
             Grid.Row="0"
+            Command="{Binding AddDonationGoalCommand}"
             Style="{StaticResource optionButton}"
-            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+            Visibility="{Binding CanAddDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel Orientation="Horizontal">
-                <icon:PackIconMaterial Kind="Pencil" Style="{StaticResource optionButtonIcon}" />
-                <TextBlock Margin="0,0,8,0" Text="Редактировать" />
+                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
+                <TextBlock Margin="0,0,8,0" Text="Добавить цель" />
             </StackPanel>
         </Button>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Visibility="{Binding CanEditDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+            <!--  Edit Button  -->
+            <Button
+                Grid.Row="0"
+                Command="{Binding EditDonationGoalCommand}"
+                Style="{StaticResource optionButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Pencil" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Margin="0,0,8,0" Text="Редактировать цель" />
+                </StackPanel>
+            </Button>
+
+            <!--  Delete Button  -->
+            <Button
+                Grid.Row="0"
+                Margin="10,20,0,0"
+                Command="{Binding DeleteDonationGoalCommand}"
+                Style="{StaticResource optionButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Delete" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Margin="0,0,8,0" Text="Удалить цель" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
 
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Left"
-            Text="{Binding Title}" />
+            Text="{Binding Title}"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Right"
-            Text="{Binding Description}" />
+            Text="{Binding Description}"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <ProgressBar
             Grid.Row="1"
             Width="160"
@@ -49,6 +83,7 @@
             Foreground="{StaticResource ColorPrimary}"
             Maximum="100"
             Minimum="0"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}"
             Value="{Binding Progress, Mode=OneWay}" />
 
         <!--  Counter Title  -->
@@ -59,17 +94,28 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="{StaticResource ColorTextForeground}"
-            Text="2 доната" />
+            Text="2 доната"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
+        <TextBlock
+            Grid.Row="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="18"
+            FontWeight="SemiBold"
+            Foreground="{StaticResource ColorTextForeground}"
+            Text="Донатная цель отсутствует"
+            Visibility="{Binding DonationGoalMissing, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <!--  Donations Datagrid  -->
         <DataGrid
             x:Name="DonationsDataGrid"
             Grid.Row="3"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-            ItemsSource="{Binding Donations}"
+            ItemsSource="{Binding DonationViewModels}"
             RowStyle="{DynamicResource DataGridRowStyle1}"
-            Style="{DynamicResource DataGridStyle1}">
+            Style="{DynamicResource DataGridStyle1}"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn
                     Width="auto"
