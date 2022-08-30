@@ -1,22 +1,22 @@
-﻿using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
+﻿using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 
 namespace DEDSEC.WPF.Commands
 {
-    public class LogoutCommand :CommandBase
+    public class LogoutCommand : CommandBase
     {
-        private readonly AccountStore _accountStore;
+        private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public LogoutCommand(AccountStore accountStore,INavigationService navigationService)
+        public LogoutCommand(IAuthenticatorService authenticatorService, INavigationService navigationService)
         {
-            _accountStore = accountStore;
+            _authenticatorService = authenticatorService;
             _navigationService = navigationService;
         }
 
         public override void Execute(object parameter)
         {
-            _accountStore.Logout();
+            _authenticatorService.Logout();
             _navigationService.Navigate();
         }
     }

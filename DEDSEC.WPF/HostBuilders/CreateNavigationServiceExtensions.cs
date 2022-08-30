@@ -1,7 +1,9 @@
-﻿using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using DEDSEC.WPF.ViewModels.Accounts;
+using DEDSEC.WPF.ViewModels.Authorization;
 using DEDSEC.WPF.ViewModels.Donations;
 using DEDSEC.WPF.ViewModels.Games;
 using DEDSEC.WPF.ViewModels.Meetings;
@@ -13,6 +15,13 @@ namespace DEDSEC.WPF.HostBuilders
 {
     public static class CreateNavigationServiceExtensions
     {
+        public static INavigationService CreateLoginNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<LoginViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<LoginViewModel>());
+        }
+
         public static INavigationService CreateEditAccountNavigationService(IServiceProvider serviceProvider)
         {
             return new ModalNavigationService<EditAccountViewModel>(
@@ -42,11 +51,11 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
-        public static INavigationService CreateLoginNavigationService(IServiceProvider serviceProvider)
+        public static INavigationService CreateRegisterNavigationService(IServiceProvider serviceProvider)
         {
-            return new ModalNavigationService<LoginViewModel>(
+            return new ModalNavigationService<RegisterViewModel>(
                 serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<LoginViewModel>());
+                () => serviceProvider.GetRequiredService<RegisterViewModel>());
         }
 
         public static INavigationService CreateAccountNavigationService(IServiceProvider serviceProvider)

@@ -1,6 +1,4 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
-using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using DEDSEC.WPF.ViewModels.Donations;
@@ -21,8 +19,6 @@ namespace DEDSEC.WPF.HostBuilders
                     s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
 
-                services.AddTransient<LoginViewModel>(CreateLoginViewModel);
-
                 services.AddTransient<NavigationBarViewModel>(CreateNavigationBarViewModel);
 
                 services.AddSingleton<MainViewModel>();
@@ -31,20 +27,10 @@ namespace DEDSEC.WPF.HostBuilders
             return host;
         }
 
-        public static LoginViewModel CreateLoginViewModel(IServiceProvider serviceProvider)
-        {
-            CompositeNavigationService navigationService = new(
-                serviceProvider.GetRequiredService<CloseModalNavigationService>(),
-                CreateNavigationServiceExtensions.CreateAccountNavigationService(serviceProvider));
-            return new LoginViewModel(
-                serviceProvider.GetRequiredService<AccountStore>(),
-                serviceProvider.GetRequiredService<IDataService<Account>>(),
-                navigationService);
-        }
-
         private static NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
             return new NavigationBarViewModel(serviceProvider.GetRequiredService<AccountStore>(),
+                serviceProvider.GetRequiredService<IAuthenticatorService>(),
                 CreateNavigationServiceExtensions.CreateHomeNavigationService(serviceProvider),
                 CreateNavigationServiceExtensions.CreateAccountNavigationService(serviceProvider),
                 CreateNavigationServiceExtensions.CreateLoginNavigationService(serviceProvider),

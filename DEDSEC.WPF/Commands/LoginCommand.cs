@@ -1,58 +1,79 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
+﻿using DEDSEC.Domain.Exceptions;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels;
+using DEDSEC.WPF.ViewModels.Authorization;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace DEDSEC.WPF.Commands
 {
     public class LoginCommand : AsyncCommandBase
     {
-        private readonly IDataService<Account> _dataService;
-        private readonly LoginViewModel _viewModel;
-        private readonly AccountStore _accountStore;
+        private readonly LoginViewModel _loginViewModel;
+        private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public LoginCommand(LoginViewModel viewModel, IDataService<Account> dataService, AccountStore accountStore, INavigationService navigationService)
+        public LoginCommand(LoginViewModel loginViewModel, IAuthenticatorService authenticatorService, INavigationService navigationService)
         {
-            _viewModel = viewModel;
-            _dataService = dataService;
-            _accountStore = accountStore;
+            _loginViewModel = loginViewModel;
+            _authenticatorService = authenticatorService;
             _navigationService = navigationService;
+
+            _loginViewModel.PropertyChanged += LoginViewModel_PropertyChanged;
         }
-       
+
+        public override bool CanExecute(object parameter)
+        {
+            return _loginViewModel.CanLogin && base.CanExecute(parameter);
+        }
+
         public override async Task ExecuteAsync(object parameter)
         {
-            var account = new Account()
-            {
-                Id = Guid.NewGuid(),
-                AccountHolder = new User()
-                {
-                    Id = Guid.NewGuid(),
-                    Nickname = _viewModel.Nickname,
-                    Password = _viewModel.Password,
-                    IsAdmin = _viewModel.IsAdmin,
-                },
-                Name = "",
-                Age = 0,
-                AboutMe = "",
-                IsVisited = false,
-                FavoriteGames = new List<Game>()
-            };
+            _loginViewModel.ErrorMessage = string.Empty;
 
-            await _dataService.Create(account).ContinueWith(task =>
+            try
             {
-                if (task.IsCompleted)
-                {
-                    _accountStore.CurrentAccount = account;
-                    _navigationService.Navigate();
-                }
-            });
+                await _authenticatorService.Login(
+                    _loginViewModel.Nickname,
+                    _loginViewModel.Password,
+                    _loginViewModel.IsAdmin,
+                    _loginViewModel.AdministrationCode);
+                _navigationService.Navigate();
+            }
+            catch (UserNotFoundException)
+            {
+                _loginViewModel.ErrorMessage = "Пользователь не найден.";
+            }
+            catch (PasswordInvalidException)
+            {
+                _loginViewModel.ErrorMessage = "Неверный пароль.";
+            }
+            catch (AdministratorRightsMissingException)
+            {
+                _loginViewModel.ErrorMessage = "У вас отсутствуют права администратора. Уберите галочку.";
+            }
+            catch (AdministrationCodeMissingException)
+            {
+                _loginViewModel.ErrorMessage = "У вас есть права администратора. Поставьте галочку и введите код.";
+            }
+            catch (AdministrationCodeInvalidException)
+            {
+                _loginViewModel.ErrorMessage = "Неверно введен код администрации.";
+            }
+
+            catch (Exception e)
+            {
+                _loginViewModel.ErrorMessage = $"Что-то пошло не так.\nОшибка:{e}";
+            }
+        }
+
+        private void LoginViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(LoginViewModel.CanLogin))
+            {
+                OnCanExecuteChanged();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Accounts;
@@ -17,6 +18,7 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<AccountViewModel>(s => new AccountViewModel(
                     s.GetRequiredService<IDataService<Account>>(),
                     s.GetRequiredService<AccountStore>(),
+                    s.GetRequiredService<IAuthenticatorService>(),
                     CreateNavigationServiceExtensions.CreateEditAccountNavigationService(s),
                     CreateNavigationServiceExtensions.CreateHomeNavigationService(s)));
                 services.AddTransient<EditAccountViewModel>(s => new EditAccountViewModel(

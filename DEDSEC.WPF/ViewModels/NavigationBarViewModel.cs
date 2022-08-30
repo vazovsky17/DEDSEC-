@@ -1,4 +1,5 @@
 ﻿using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
@@ -24,6 +25,7 @@ namespace DEDSEC.WPF.ViewModels
         public bool IsUnlogged => !IsLoggedIn;
 
         public NavigationBarViewModel(AccountStore accountStore,
+            IAuthenticatorService authenticatorService,
             INavigationService homeNavigationService,
             INavigationService accountNavigationService,
             INavigationService loginNavigationService,
@@ -40,7 +42,7 @@ namespace DEDSEC.WPF.ViewModels
             NavigatePlayerListingCommand = new NavigateCommand(playerListingNavigationService);
             NavigateGameListingCommand = new NavigateCommand(gameListingNavigationService);
             NavigateDonationGoalCommand = new NavigateCommand(donationGoalNavigationService);
-            LogoutCommand = new LogoutCommand(_accountStore, homeNavigationService);
+            LogoutCommand = new LogoutCommand(authenticatorService, homeNavigationService);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }

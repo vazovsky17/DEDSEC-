@@ -13,6 +13,7 @@
     Width="1080"
     Height="720"
     AllowsTransparency="True"
+    xmlns:authorization="clr-namespace:DEDSEC.WPF.ViewModels.Authorization"
     Background="Transparent"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
@@ -35,8 +36,12 @@
                     <components:HomeComponent />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <DataTemplate DataType="{x:Type authorization:LoginViewModel}">
                     <components:LoginComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type authorization:RegisterViewModel}">
+                    <components:RegisterComponent/>
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
