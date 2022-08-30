@@ -37,7 +37,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public ICommand EditDonationGoalCommand { get; }
         public ICommand DeleteDonationGoalCommand { get; }
 
-        public DonationGoalViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService addDonationNavigationService)
+        public DonationGoalViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService addDonationNavigationService, INavigationService addDonationGoalNavigationService, INavigationService editDonationGoalNavigationService)
         {
             _donationGoalStore = donationGoalStore;
             _accountStore = accountStore;
@@ -54,6 +54,8 @@ namespace DEDSEC.WPF.ViewModels.Donations
             _donationGoalStore.DonationDeleted += DonationGoalStore_DonationDeleted;
 
             AddDonationCommand = new NavigateCommand(addDonationNavigationService);
+            AddDonationGoalCommand = new NavigateCommand(addDonationGoalNavigationService);
+            EditDonationGoalCommand = new NavigateCommand(editDonationGoalNavigationService);
         }
 
         private async void Load()

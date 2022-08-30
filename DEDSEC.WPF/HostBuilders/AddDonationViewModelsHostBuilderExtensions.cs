@@ -15,11 +15,17 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<DonationGoalViewModel>(s => new DonationGoalViewModel(
                     s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<AccountStore>(),
-                    CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s)));
+                    CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s),
+                    CreateNavigationServiceExtensions.CreateAddDonationGoalNavigationService(s),
+                    CreateNavigationServiceExtensions.CreateEditDonationGoalNavigationService(s)));
 
                 services.AddTransient<AddDonationViewModel>(s => new AddDonationViewModel(
                     s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<AccountStore>(),
+                    s.GetRequiredService<CloseModalNavigationService>()));
+
+                services.AddTransient<AddDonationGoalViewModel>(s => new AddDonationGoalViewModel(
+                    s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
             });
 

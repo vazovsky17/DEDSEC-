@@ -35,7 +35,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             }
         }
 
-        private int _minCountPlayers;
+        private int _minCountPlayers = 0;
         public int MinCountPlayers
         {
             get
@@ -49,7 +49,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             }
         }
 
-        private int _maxCountPlayers;
+        private int _maxCountPlayers = 0;
         public int MaxCountPlayers
         {
             get

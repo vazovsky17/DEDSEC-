@@ -14,11 +14,29 @@ namespace DEDSEC.WPF.HostBuilders
 {
     public static class CreateNavigationServiceExtensions
     {
+        #region Authorization
         public static INavigationService CreateLoginNavigationService(IServiceProvider serviceProvider)
         {
             return new ModalNavigationService<LoginViewModel>(
                 serviceProvider.GetRequiredService<ModalNavigationStore>(),
                 () => serviceProvider.GetRequiredService<LoginViewModel>());
+        }
+
+        public static INavigationService CreateRegisterNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<RegisterViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<RegisterViewModel>());
+        }
+        #endregion
+
+        #region Account
+        public static INavigationService CreateAccountNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<AccountViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<AccountViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
         public static INavigationService CreateEditAccountNavigationService(IServiceProvider serviceProvider)
@@ -28,6 +46,17 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<EditAccountViewModel>());
         }
 
+        #endregion
+
+        #region Game
+        public static INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<GameListingViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<GameListingViewModel>(),
+                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
+        }
+
         public static INavigationService CreateAddGameNavigationService(IServiceProvider serviceProvider)
         {
             return new ModalNavigationService<AddGameViewModel>(
@@ -35,36 +64,9 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<AddGameViewModel>());
         }
 
-        public static INavigationService CreateAddMeetingNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddMeetingViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddMeetingViewModel>());
-        }
+        #endregion
 
-        public static INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
-        {
-            return new LayoutNavigationService<HomeViewModel>(
-                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<HomeViewModel>(),
-                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
-        }
-
-        public static INavigationService CreateRegisterNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<RegisterViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<RegisterViewModel>());
-        }
-
-        public static INavigationService CreateAccountNavigationService(IServiceProvider serviceProvider)
-        {
-            return new LayoutNavigationService<AccountViewModel>(
-                serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<AccountViewModel>(),
-                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
-        }
-
+        #region Meeting
         public static INavigationService CreateMeetingListingNavigationService(IServiceProvider serviceProvider)
         {
             return new LayoutNavigationService<MeetingListingViewModel>(
@@ -73,6 +75,15 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        public static INavigationService CreateAddMeetingNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddMeetingViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddMeetingViewModel>());
+        }
+        #endregion
+
+        #region Player
         public static INavigationService CreatePlayerListingNavigationService(IServiceProvider serviceProvider)
         {
             return new LayoutNavigationService<PlayerListingViewModel>(
@@ -81,6 +92,9 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        #endregion
+
+        #region Donation
         public static INavigationService CreateDonationGoalNavigationService(IServiceProvider serviceProvider)
         {
             return new LayoutNavigationService<DonationGoalViewModel>(
@@ -96,12 +110,30 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<AddDonationViewModel>());
         }
 
-        public static INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)
+        public static INavigationService CreateAddDonationGoalNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<GameListingViewModel>(
-                serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<GameListingViewModel>(),
+            return new ModalNavigationService<AddDonationGoalViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddDonationGoalViewModel>());
+        }
+
+        public static INavigationService CreateEditDonationGoalNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<EditDonationGoalViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<EditDonationGoalViewModel>());
+        }
+        #endregion
+
+        #region Other
+        public static INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
+        {
+            return new LayoutNavigationService<HomeViewModel>(
+                 serviceProvider.GetRequiredService<NavigationStore>(),
+                () => serviceProvider.GetRequiredService<HomeViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
+
+        #endregion
     }
 }
