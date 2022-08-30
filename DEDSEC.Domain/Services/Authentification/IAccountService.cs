@@ -2,8 +2,16 @@
 
 namespace DEDSEC.Domain.Services.Authentification
 {
+    /// <summary>
+    /// Расширенный сервис для операций с аккаунтами
+    /// </summary>
     public interface IAccountService : IDataService<Account>
     {
+        /// <summary>
+        /// Поиск аккаунта по никнейму
+        /// </summary>
+        /// <param name="nickname">Никнейм</param>
+        /// <returns>Аккаунт, если есть</returns>
         Task<Account> GetByNickname(string nickname);
     }
 }

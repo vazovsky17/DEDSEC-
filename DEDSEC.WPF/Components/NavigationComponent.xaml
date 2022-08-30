@@ -1,9 +1,11 @@
 ﻿<UserControl
+    x:Class="DEDSEC.WPF.Components.NavigationComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av"
-    x:Class="DEDSEC.WPF.Components.NavigationComponent"
-    >
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="av">
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent" />
@@ -87,13 +89,13 @@
                     FontWeight="SemiBold"
                     Foreground="#d0bfff"
                     TextAlignment="Center"><InlineUIContainer>
-                    <StackPanel Orientation="Horizontal">
-                        <icon:PackIconMaterial
-                            Kind="Star"
-                            Style="{StaticResource adminIcon}"
-                            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <TextBlock Text="{Binding Nickname}" />
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial
+                                Kind="Star"
+                                Style="{StaticResource adminIcon}"
+                                Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                            <TextBlock Text="{Binding Nickname}" />
+                        </StackPanel>
                     </InlineUIContainer></TextBlock>
 
                 <!--  Menu Separator  -->

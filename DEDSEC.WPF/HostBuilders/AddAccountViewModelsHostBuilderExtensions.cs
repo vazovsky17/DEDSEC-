@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.HostBuilders
                     CreateNavigationServiceExtensions.CreateHomeNavigationService(s)));
                 services.AddTransient<EditAccountViewModel>(s => new EditAccountViewModel(
                     s.GetRequiredService<IAccountService>(),
-                    s.GetRequiredService<AccountStore>(),
+                    s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
             });
 

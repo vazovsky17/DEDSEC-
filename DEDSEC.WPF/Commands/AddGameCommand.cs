@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
+    /// <summary>
+    /// Добавление игры
+    /// </summary>
     public class AddGameCommand : AsyncCommandBase
     {
         private readonly AddGameViewModel _addGameViewModel;

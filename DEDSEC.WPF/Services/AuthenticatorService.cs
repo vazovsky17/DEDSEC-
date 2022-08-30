@@ -20,7 +20,7 @@ namespace DEDSEC.WPF.Services
         public Account CurrentAccount
         {
             get { return _accountStore.CurrentAccount; }
-            private set
+            set
             {
                 _accountStore.CurrentAccount = value;
                 CurrentAccountChanged?.Invoke();

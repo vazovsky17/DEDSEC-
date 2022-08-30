@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DEDSEC.EntityFramework.Services
 {
+    /// <summary>
+    /// Сервис для операций с аккаунтом
+    /// </summary>
     public class AccountDataService : IAccountService
     {
         private readonly DedsecDbContextFactory _contextFactory;

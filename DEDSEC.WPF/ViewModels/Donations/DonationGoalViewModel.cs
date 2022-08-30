@@ -5,6 +5,7 @@ using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Donations
@@ -12,11 +13,16 @@ namespace DEDSEC.WPF.ViewModels.Donations
     public class DonationGoalViewModel : ViewModelBase
     {
         private readonly DonationGoalStore _donationGoalStore;
-        private readonly DonationStore _donationStore;
+        private readonly AccountStore _accountStore;
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+
         private readonly ObservableCollection<DonationViewModel> _donationViewModels;
         public IEnumerable<DonationViewModel> DonationViewModels => _donationViewModels;
 
-        public DonationGoal DonationGoal { get; }
+        private DonationGoal _donationGoal;
+        public DonationGoal DonationGoal => _donationGoal;
+        public bool HasDonationGoal => _donationGoal != null;
+
         public Guid Id => DonationGoal.Id;
         public string Title => DonationGoal.Title;
         public string Description => DonationGoal.Description;
@@ -24,68 +30,99 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public int TargetValue => DonationGoal.TargetValue;
         public int Progress => CurrentValue * 100 / TargetValue;
         public string Targets => CurrentValue + "/" + TargetValue;
-        public List<Donation> Donations => DonationGoal.Donations;
 
         public ICommand AddDonationCommand { get; }
+        public ICommand AddDonationGoalCommand { get; }
 
-        public DonationGoalViewModel(DonationGoalStore donationGoalStore, DonationStore donationStore, INavigationService addDonationNavigationService)
+        public DonationGoalViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService addDonationNavigationService)
         {
             _donationGoalStore = donationGoalStore;
-            _donationStore = donationStore;
-
-            AddDonationCommand = new NavigateCommand(addDonationNavigationService);
+            _accountStore = accountStore;
 
             _donationViewModels = new ObservableCollection<DonationViewModel>();
-            DonationGoal = new DonationGoal()
-            {
-                Id = Guid.NewGuid(),
-                Title = "антикафе",
-                Description = "деняки",
-                CurrentValue = 400,
-                TargetValue = 800,
-                Donations = new List<Donation>()
-            };
-            _donationGoalStore.AddDonationGoal(DonationGoal);
-            _donationGoalStore.DonationGoalAdded += OnDonationGoalAdded;
 
-            Donations.ForEach(donation =>
-            {
-                _donationViewModels.Add(new DonationViewModel(donation));
-                _donationStore.DonationAdded += OnDonationAdded;
-            });
+            Load();
+            _donationGoalStore.DonationGoalLoaded += DonationGoalStore_Loaded;
+            _donationGoalStore.DonationGoalAdded += DonationGoalStore_Added;
+            _donationGoalStore.DonationGoalUpdated += DonationGoalStore_Updated;
+            _donationGoalStore.DonationGoalDeleted += DonationGoalStore_Deleted;
+            _donationGoalStore.DonationAdded += DonationGoalStore_DonationAdded;
+            _donationGoalStore.DonationUpdated += DonationGoalStore_DonationUpdated;
+            _donationGoalStore.DonationDeleted += DonationGoalStore_DonationDeleted;
 
-            _donationViewModels.Add(new DonationViewModel(new Donation()
-            {
-                Id = Guid.NewGuid(),
-                Donater = new Account()
-                {
-                    Id = Guid.NewGuid(),
-                    AccountHolder = new User()
-                    {
-                        Id = Guid.NewGuid(),
-                        Nickname = "VAZ",
-                        Password = "883306"
-                    },
-                    Name = "Mark",
-                    Age = 23,
-                    AboutMe = "about me...",
-                    IsVisited = true,
-                    FavoriteGames = new List<Game>(),
-                },
-                Value = 2400,
-            }));
-
-            _donationStore.DonationAdded += OnDonationAdded;
+            AddDonationCommand = new NavigateCommand(addDonationNavigationService);
         }
 
-        private void OnDonationAdded(Donation donation)
+        private async void Load()
         {
-            _donationViewModels.Add(new DonationViewModel(donation));
+            await _donationGoalStore.Load();
         }
 
-        private void OnDonationGoalAdded(DonationGoal donationGoal)
+        private void DonationGoalStore_Loaded()
         {
+            var donationGoal = _donationGoalStore.DonationGoal;
+            _donationGoal = donationGoal;
+            OnPropertyChanged(nameof(HasDonationGoal));
+        }
 
+        private void DonationGoalStore_Added(DonationGoal donationGoal)
+        {
+            _donationGoal = donationGoal;
+        }
+
+        private void DonationGoalStore_Updated(DonationGoal donationGoal)
+        {
+            _donationGoal = donationGoal;
+        }
+
+        private void DonationGoalStore_Deleted(Guid id)
+        {
+            _donationGoal = null;
+        }
+
+        private void DonationGoalStore_DonationAdded(Donation donation)
+        {
+            if(_d)
+            AddDonationViewModel(donation);
+        }
+
+        private void DonationGoalStore_DonationUpdated(Donation donation)
+        {
+            DonationViewModel donationViewModel = _donationViewModels.FirstOrDefault(x => x.Id == donation.Id);
+
+            if (donationViewModel != null)
+            {
+                donationViewModel.Update(donation);
+            }
+        }
+
+        private void DonationGoalStore_DonationDeleted(Guid id)
+        {
+            DonationViewModel donationViewModel = _donationViewModels.FirstOrDefault(x => x.Id == id);
+
+            if (donationViewModel != null)
+            {
+                _donationViewModels.Remove(donationViewModel);
+            }
+        }
+
+        private void AddDonationViewModel(Donation donation)
+        {
+            DonationViewModel itemViewModel = new DonationViewModel(donation);
+            _donationViewModels.Add(itemViewModel);
+        }
+
+        public override void Dispose()
+        {
+            _donationGoalStore.DonationGoalLoaded -= DonationGoalStore_Loaded;
+            _donationGoalStore.DonationGoalAdded -= DonationGoalStore_Added;
+            _donationGoalStore.DonationGoalUpdated -= DonationGoalStore_Updated;
+            _donationGoalStore.DonationGoalDeleted -= DonationGoalStore_Deleted;
+            _donationGoalStore.DonationAdded -= DonationGoalStore_DonationAdded;
+            _donationGoalStore.DonationUpdated -= DonationGoalStore_DonationUpdated;
+            _donationGoalStore.DonationDeleted -= DonationGoalStore_DonationDeleted;
+
+            base.Dispose();
         }
     }
 }

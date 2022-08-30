@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
+    /// <summary>
+    /// Удаление аккаунта
+    /// </summary>
     public class DeleteAccountCommand : AsyncCommandBase
     {
         private readonly IAccountService _dataService;

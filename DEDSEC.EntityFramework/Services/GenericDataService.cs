@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DEDSEC.EntityFramework.Services
 {
+    /// <summary>
+    /// Сервис для общих операций с объектами
+    /// </summary>
+    /// <typeparam name="T">Тип объектов</typeparam>
     public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         /** Можно было бы создать просто контекст, но лучше фабрику, чтобы куча потоков не использовала один контекст */

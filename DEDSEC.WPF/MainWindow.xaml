@@ -72,10 +72,6 @@
                     <components:DonationGoalComponent />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type donations:DonationGoalMiniViewModel}">
-                    <components:DonationGoalMiniComponent />
-                </DataTemplate>
-
                 <DataTemplate DataType="{x:Type donations:AddDonationViewModel}">
                     <components:AddDonationComponent />
                 </DataTemplate>

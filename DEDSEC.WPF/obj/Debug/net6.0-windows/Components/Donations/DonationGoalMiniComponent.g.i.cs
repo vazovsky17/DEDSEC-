@@ -54,7 +54,8 @@ namespace DEDSEC.WPF.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/components/donations/donationgoalminicomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/components/donations/donationgoalminicomponent.xam" +
+                    "l", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Components\Donations\DonationGoalMiniComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

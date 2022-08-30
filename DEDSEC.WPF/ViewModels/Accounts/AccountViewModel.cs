@@ -1,4 +1,5 @@
-﻿using DEDSEC.Domain.Services.Authentification;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
@@ -11,11 +12,12 @@ namespace DEDSEC.WPF.ViewModels.Accounts
     {
         private readonly AccountStore _accountStore;
 
-        public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Unknown";
-        public string Name => _accountStore.CurrentAccount?.Name ?? "Unknown";
+        public Account? CurrentAccount => _accountStore?.CurrentAccount;
+        public string Nickname => !string.IsNullOrEmpty(CurrentAccount?.AccountHolder.Nickname) ?  CurrentAccount.AccountHolder.Nickname : "Неизвестно";
+        public string Name => !string.IsNullOrEmpty(CurrentAccount?.Name) ? CurrentAccount.Name : "Неизестно";
         public int Age => _accountStore.CurrentAccount?.Age ?? 0;
-        public string AboutMe => _accountStore.CurrentAccount?.AboutMe ?? "About me...";
-        public bool IsVisited => _accountStore.CurrentAccount?.IsVisited ?? true;
+        public string AboutMe => !string.IsNullOrEmpty(CurrentAccount?.AboutMe) ? CurrentAccount.AboutMe : "Не заполнено";
+        public bool IsVisited => _accountStore.CurrentAccount?.IsVisited ?? false;
 
         public ICommand EditAccountCommand { get; }
         public ICommand DeleteAccountCommand { get; }

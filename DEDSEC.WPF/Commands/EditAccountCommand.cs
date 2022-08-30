@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Accounts;
 using System.Threading.Tasks;
 
@@ -11,19 +11,19 @@ namespace DEDSEC.WPF.Commands
     {
         private readonly IAccountService _dataService;
         private readonly EditAccountViewModel _editAccountViewModel;
-        private readonly AccountStore _accountStore;
+        private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public EditAccountCommand(EditAccountViewModel editAccountViewModel, IAccountService dataService, AccountStore accountStore, INavigationService navigationService)
+        public EditAccountCommand(EditAccountViewModel editAccountViewModel, IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService navigationService)
         {
             _editAccountViewModel = editAccountViewModel;
+            _authenticatorService = authenticatorService;
             _dataService = dataService;
-            _accountStore = accountStore;
             _navigationService = navigationService;
         }
         public override async Task ExecuteAsync(object parameter)
         {
-            var account = _accountStore.CurrentAccount;
+            var account = _authenticatorService.CurrentAccount;
             account.AccountHolder.Nickname = _editAccountViewModel.Nickname;
             account.AccountHolder.Password = _editAccountViewModel.Password;
             account.Name = _editAccountViewModel.Name;
@@ -34,7 +34,7 @@ namespace DEDSEC.WPF.Commands
             {
                 if (task.IsCompleted)
                 {
-                    _accountStore.CurrentAccount = account;
+                    _authenticatorService.CurrentAccount = account;
                     _navigationService.Navigate();
                 }
             });

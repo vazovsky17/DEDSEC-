@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
+    /// <summary>
+    /// Добавление встречи
+    /// </summary>
     public class AddMeetingCommand : AsyncCommandBase
     {
         private readonly AddMeetingViewModel _addMeetingViewModel;

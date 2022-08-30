@@ -1,10 +1,8 @@
-﻿using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Donations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
 namespace DEDSEC.WPF.HostBuilders
 {
@@ -16,18 +14,13 @@ namespace DEDSEC.WPF.HostBuilders
             {
                 services.AddTransient<DonationGoalViewModel>(s => new DonationGoalViewModel(
                     s.GetRequiredService<DonationGoalStore>(),
-                    s.GetRequiredService<DonationStore>(),
+                    s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s)));
 
                 services.AddTransient<AddDonationViewModel>(s => new AddDonationViewModel(
-                    s.GetRequiredService<DonationStore>(),
-                    s.GetRequiredService<CloseModalNavigationService>()));
-
-                services.AddTransient<DonationGoalMiniViewModel>(s=>new DonationGoalMiniViewModel(
                     s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<AccountStore>(),
-                    CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s),
-                    CreateNavigationServiceExtensions.CreateDonationGoalNavigationService(s)));
+                    s.GetRequiredService<CloseModalNavigationService>()));
             });
 
             return host;

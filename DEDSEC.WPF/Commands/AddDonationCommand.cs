@@ -4,47 +4,44 @@ using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Donations;
 using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
-    public class AddDonationCommand : CommandBase
+    /// <summary>
+    /// Добавление доната
+    /// </summary>
+    public class AddDonationCommand : AsyncCommandBase
     {
         private readonly AddDonationViewModel _addDonationViewModel;
-        private readonly DonationStore _donationStore;
+        private readonly AccountStore _accountStore;
+        private readonly DonationGoalStore _donationGoalStore;
         private readonly INavigationService _navigationService;
 
-        public AddDonationCommand(AddDonationViewModel addDonationViewModel, DonationStore donationStore, INavigationService navigationService)
+        public AddDonationCommand(AddDonationViewModel addDonationViewModel, AccountStore accountStore, DonationGoalStore donationGoalStore, INavigationService navigationService)
         {
             _addDonationViewModel = addDonationViewModel;
-            _donationStore = donationStore;
+            _accountStore = accountStore;
+            _donationGoalStore = donationGoalStore;
             _navigationService = navigationService;
-}
+        }
 
-        public override void Execute(object parameter)
+        public override async Task ExecuteAsync(object parameter)
         {
-            _donationStore.AddDonation(new Donation()
+            var donation = new Donation()
             {
                 Id = Guid.NewGuid(),
-                Donater = new Account()
-                {
-                    Id = Guid.NewGuid(),
-                    AccountHolder = new User()
-                    {
-                        Id = Guid.NewGuid(),
-                        Nickname = "VAZ",
-                        Password = "883306"
-                    },
-                    Name = "MARINA",
-                    Age = 23,
-                    AboutMe = "Android developer",
-                    IsVisited = true,
-                    FavoriteGames = new List<Game>()
-                },
+                Donater = _accountStore.CurrentAccount,
                 Value = _addDonationViewModel.Value
+            };
+
+            await _donationGoalStore.AddDonation(donation).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    _navigationService.Navigate();
+                }
             });
-                 
-            _navigationService.Navigate();
         }
     }
 }

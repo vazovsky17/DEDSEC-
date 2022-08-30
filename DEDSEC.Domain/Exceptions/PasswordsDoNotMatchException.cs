@@ -1,5 +1,8 @@
 ﻿namespace DEDSEC.Domain.Exceptions
 {
+    /// <summary>
+    /// Исключение, возникающее, если пароль и подтверждение пароля не совпадают
+    /// </summary>
     public class PasswordsDoNotMatchException : Exception
     {
         public string Password { get; set; }

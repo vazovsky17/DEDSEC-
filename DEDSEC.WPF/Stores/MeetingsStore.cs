@@ -3,7 +3,6 @@ using DEDSEC.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 
 namespace DEDSEC.WPF.Stores
 {

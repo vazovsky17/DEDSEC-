@@ -20,6 +20,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private readonly ObservableCollection<GameViewModel> _gameViewModels;
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
+        public string GameViewModelsCountDisplay => setGameViewModelsCountDisplay();
 
         public GameListingViewModel(AccountStore accountStore, GamesStore gamesStore, INavigationService addGameNavigationService)
         {
@@ -49,11 +50,13 @@ namespace DEDSEC.WPF.ViewModels.Games
             {
                 AddGameViewModel(game);
             }
+            OnPropertyChanged(nameof(GameViewModelsCountDisplay));
         }
 
         private void GamesStore_Added(Game game)
         {
             AddGameViewModel(game);
+            OnPropertyChanged(nameof(GameViewModelsCountDisplay));
         }
 
         private void GamesStore_Updated(Game game)
@@ -62,6 +65,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             if (gameViewModel != null)
             {
                 gameViewModel.Update(game);
+                OnPropertyChanged(nameof(GameViewModelsCountDisplay));
             }
         }
 
@@ -72,6 +76,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             if (gameViewModel != null)
             {
                 _gameViewModels.Remove(gameViewModel);
+                OnPropertyChanged(nameof(GameViewModelsCountDisplay));
             }
         }
 
@@ -79,6 +84,37 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             GameViewModel itemViewModel = new GameViewModel(game);
             _gameViewModels.Add(itemViewModel);
+        }
+
+        private string setGameViewModelsCountDisplay()
+        {
+            var count = _gameViewModels.Count;
+            return count + " " + GrammarGame(count);
+        }
+
+        /// <summary>
+        /// НЕ РАБОТАЕТ
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private string GrammarGame(int num)
+        {
+            if (num % 10 == 0)
+            {
+                return "игр";
+            }
+            else if (num % 10 == 1 && num != 11)
+            {
+                return "игра";
+            }
+            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
+            {
+                return "игры";
+            }
+            else
+            {
+                return "игр";
+            }
         }
 
         public override void Dispose()

@@ -38,12 +38,5 @@
                 <TextBlock Margin="0,0,8,0" Text="Авторизация" />
             </StackPanel>
         </Button>
-
-        <components:DonationGoalMiniComponent
-            Grid.Row="1"
-            Width="200"
-            Margin="0,40,0,0"
-            HorizontalAlignment="Left"
-            DataContext="{Binding DonationGoalMiniViewModel}" />
     </Grid>
 </UserControl>

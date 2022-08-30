@@ -1,5 +1,4 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
 using System;
 using System.Threading.Tasks;
 
@@ -7,7 +6,7 @@ namespace DEDSEC.WPF.Services
 {
     public interface IAuthenticatorService
     {
-        Account? CurrentAccount { get; }
+        Account? CurrentAccount { get; set; }
         bool IsLoggedIn { get; }
         public event Action CurrentAccountChanged;
 

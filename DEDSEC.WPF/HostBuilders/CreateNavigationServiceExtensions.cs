@@ -1,5 +1,4 @@
-﻿using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using DEDSEC.WPF.ViewModels.Accounts;

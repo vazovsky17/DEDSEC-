@@ -63,7 +63,7 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="{StaticResource ColorTextForeground}"
-            Text="2 игры" />
+            Text="{Binding GameViewModelsCountDisplay}" />
 
         <!--  Meetings Datagrid  -->
         <DataGrid

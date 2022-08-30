@@ -1,5 +1,8 @@
 ﻿namespace DEDSEC.Domain.Exceptions
 {
+    /// <summary>
+    /// Исключение, возникающее если при логине пользователь, не имеющий прав администратора, отмечает галочку IsAdmin
+    /// </summary>
     public class AdministrationCodeMissingException : Exception
     {
         public bool IsAdmin { get; set; }

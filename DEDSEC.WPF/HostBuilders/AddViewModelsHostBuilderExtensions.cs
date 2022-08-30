@@ -1,7 +1,6 @@
 ﻿using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
-using DEDSEC.WPF.ViewModels.Donations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -15,7 +14,6 @@ namespace DEDSEC.WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddTransient<HomeViewModel>(s => new HomeViewModel(
-                    s.GetRequiredService<DonationGoalMiniViewModel>(),
                     s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
 

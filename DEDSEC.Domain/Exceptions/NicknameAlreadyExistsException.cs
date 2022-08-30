@@ -1,5 +1,8 @@
 ﻿namespace DEDSEC.Domain.Exceptions
 {
+    /// <summary>
+    /// Исключение возникающее при попытке создать аккаунт с никнеймом, который уже занят
+    /// </summary>
     public class NicknameAlreadyExistsException : Exception
     {
         public string Nickname { get; set; }

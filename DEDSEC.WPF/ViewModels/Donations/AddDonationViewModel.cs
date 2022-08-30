@@ -39,9 +39,9 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddDonationViewModel(DonationStore donationStore, INavigationService closeNavigationService)
+        public AddDonationViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService closeNavigationService)
         {
-            SubmitCommand = new AddDonationCommand(this, donationStore, closeNavigationService);
+            SubmitCommand = new AddDonationCommand(this, accountStore, donationGoalStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);
         }
     }
