@@ -1,5 +1,5 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
+﻿using DEDSEC.Domain.Services.Authentification;
+using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Accounts;
@@ -9,12 +9,12 @@ namespace DEDSEC.WPF.Commands
 {
     public class EditAccountCommand : AsyncCommandBase
     {
-        private readonly IDataService<Account> _dataService;
+        private readonly IAccountService _dataService;
         private readonly EditAccountViewModel _editAccountViewModel;
         private readonly AccountStore _accountStore;
         private readonly INavigationService _navigationService;
 
-        public EditAccountCommand(EditAccountViewModel editAccountViewModel, IDataService<Account> dataService, AccountStore accountStore, INavigationService navigationService)
+        public EditAccountCommand(EditAccountViewModel editAccountViewModel, IAccountService dataService, AccountStore accountStore, INavigationService navigationService)
         {
             _editAccountViewModel = editAccountViewModel;
             _dataService = dataService;

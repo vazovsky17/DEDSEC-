@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
@@ -98,7 +99,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public EditAccountViewModel(IDataService<Account> dataService, AccountStore accountStore, INavigationService closeNavigationService)
+        public EditAccountViewModel(IAccountService dataService, AccountStore accountStore, INavigationService closeNavigationService)
         {
             SubmitCommand = new EditAccountCommand(this, dataService, accountStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);

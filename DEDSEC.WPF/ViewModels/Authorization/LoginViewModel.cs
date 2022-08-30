@@ -1,16 +1,13 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
-using DEDSEC.WPF.Commands;
+﻿using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Authorization
 {
     public class LoginViewModel : ViewModelBase
     {
-        private string _nickname;
+        private string _nickname = string.Empty;
         public string Nickname
         {
             get
@@ -25,7 +22,7 @@ namespace DEDSEC.WPF.ViewModels.Authorization
             }
         }
 
-        private string _password;
+        private string _password = string.Empty;
         public string Password
         {
             get
@@ -40,7 +37,7 @@ namespace DEDSEC.WPF.ViewModels.Authorization
             }
         }
 
-        private bool _isAdmin;
+        private bool _isAdmin = false;
         public bool IsAdmin
         {
             get
@@ -54,7 +51,7 @@ namespace DEDSEC.WPF.ViewModels.Authorization
             }
         }
 
-        private string _administrationCode;
+        private string _administrationCode = string.Empty;
         public string AdministrationCode
         {
             get

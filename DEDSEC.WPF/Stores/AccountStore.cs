@@ -1,10 +1,13 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services.Authentification;
 using System;
 
 namespace DEDSEC.WPF.Stores
 {
     public class AccountStore
     {
+        private readonly IAccountService _accountService;
+
         private Account _currentAccount;
         public Account CurrentAccount
         {

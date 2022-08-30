@@ -1,4 +1,6 @@
-﻿namespace DEDSEC.WPF.Commands
+﻿using DEDSEC.WPF.Commands.Common;
+
+namespace DEDSEC.WPF.Commands
 {
     public class AddDonationGoalCommand : CommandBase
     {

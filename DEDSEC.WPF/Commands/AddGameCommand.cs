@@ -1,4 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Games;

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DEDSEC.WPF.Commands
+namespace DEDSEC.WPF.Commands.Common
 {
     public abstract class AsyncCommandBase : ICommand
     {

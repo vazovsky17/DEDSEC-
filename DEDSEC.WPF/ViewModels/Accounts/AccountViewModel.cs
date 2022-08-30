@@ -1,5 +1,4 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
+﻿using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
@@ -21,7 +20,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand EditAccountCommand { get; }
         public ICommand DeleteAccountCommand { get; }
 
-        public AccountViewModel(IDataService<Account> dataService, AccountStore accountStore,IAuthenticatorService authenticatorService, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
+        public AccountViewModel(IAccountService dataService, AccountStore accountStore,IAuthenticatorService authenticatorService, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
         {
             _accountStore = accountStore;
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);

@@ -1,19 +1,18 @@
-﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services;
+﻿using DEDSEC.Domain.Services.Authentification;
+using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands
 {
     public class DeleteAccountCommand : AsyncCommandBase
     {
-        private readonly IDataService<Account> _dataService;
+        private readonly IAccountService _dataService;
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public DeleteAccountCommand(IDataService<Account> dataService, IAuthenticatorService authenticatorService, INavigationService navigationService)
+        public DeleteAccountCommand(IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService navigationService)
         {
             _dataService = dataService;
             _authenticatorService = authenticatorService;

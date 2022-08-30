@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DEDSEC.WPF.Commands
+namespace DEDSEC.WPF.Commands.Common
 {
     public abstract class CommandBase : ICommand
     {

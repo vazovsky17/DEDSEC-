@@ -4,7 +4,6 @@ namespace DEDSEC.Domain.Services.Authentification
 {
     public interface IAuthenticationService
     {
-
         /// <summary>
         /// Регистрация нового пользователя
         /// </summary>
