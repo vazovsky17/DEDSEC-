@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.Stores
 
         public PlayersStore(IDataService<Account> dataService)
         {
-            _players = new List<Account>();
+            _players = new();
             _dataService = dataService;
         }
 

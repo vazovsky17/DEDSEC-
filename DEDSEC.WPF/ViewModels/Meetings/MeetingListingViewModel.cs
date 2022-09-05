@@ -28,7 +28,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             _accountStore = accountStore;
             _meetingsStore = meetingsStore;
 
-            _meetingViewModels = new ObservableCollection<MeetingViewModel>();
+            _meetingViewModels = new();
 
             Load();
             _meetingsStore.MeetingsLoaded += MeetingsStore_Loaded;
@@ -80,7 +80,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         private void AddGameViewModel(Meeting meeting)
         {
-            MeetingViewModel itemViewModel = new MeetingViewModel(meeting);
+            var itemViewModel = new MeetingViewModel(meeting);
             _meetingViewModels.Add(itemViewModel);
         }
 

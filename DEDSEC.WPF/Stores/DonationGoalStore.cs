@@ -36,7 +36,7 @@ namespace DEDSEC.WPF.Stores
 
         public DonationGoalStore(IDataService<DonationGoal> dataService)
         {
-            _donations = new List<Donation>();
+            _donations = new();
             _dataService = dataService;
         }
 

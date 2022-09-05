@@ -75,7 +75,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
             _donationGoalStore = donationGoalStore;
             _accountStore = accountStore;
 
-            _donationViewModels = new ObservableCollection<DonationViewModel>();
+            _donationViewModels = new();
 
             Load();
             _donationGoalStore.DonationGoalLoaded += DonationGoalStore_Changed;
@@ -148,7 +148,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         private void AddDonationViewModel(Donation donation)
         {
-            DonationViewModel itemViewModel = new DonationViewModel(donation);
+            var itemViewModel = new DonationViewModel(donation);
             _donationViewModels.Add(itemViewModel);
         }
 

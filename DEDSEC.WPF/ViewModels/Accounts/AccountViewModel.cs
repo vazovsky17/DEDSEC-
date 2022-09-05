@@ -46,7 +46,6 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             _accountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
 
             base.Dispose();
-
         }
     }
 }

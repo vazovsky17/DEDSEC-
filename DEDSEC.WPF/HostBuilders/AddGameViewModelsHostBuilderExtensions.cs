@@ -15,12 +15,12 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<AddGameViewModel>(s => new AddGameViewModel(
+                services.AddTransient<AddGameViewModel>(s => new(
                     s.GetRequiredService<GamesStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
-                services.AddTransient<GameListingViewModel>(s => new GameListingViewModel(
-                    s.GetRequiredService<AccountStore>(),                   
+                services.AddTransient<GameListingViewModel>(s => new(
+                    s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<GamesStore>(),
                     CreateNavigationServiceExtensions.CreateAddGameNavigationService(s),
                     CreateNavigationServiceExtensions.CreateEditGameNavigationService(s)));

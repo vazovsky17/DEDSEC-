@@ -32,7 +32,7 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             EditCommand = new NavigateCommand(editGameNavigationService);
-            DeleteCommand = new DeleteGameCommand(Game, gamesStore);
+            DeleteCommand = new DeleteGameCommand(gamesStore, Game);
         }
 
         public void Update(Game game)

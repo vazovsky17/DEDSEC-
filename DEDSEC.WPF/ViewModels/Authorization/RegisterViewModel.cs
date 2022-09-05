@@ -99,7 +99,7 @@ namespace DEDSEC.WPF.ViewModels.Authorization
             INavigationService registerNavigationService,
             INavigationService loginNavigationService)
         {
-            ErrorMessageViewModel = new MessageViewModel();
+            ErrorMessageViewModel = new();
 
             RegisterCommand = new RegisterCommand(this, authenticatorService, registerNavigationService);
             NavigateLoginCommand = new NavigateCommand(loginNavigationService);

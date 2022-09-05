@@ -13,7 +13,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<HomeViewModel>(s => new HomeViewModel(
+                services.AddTransient<HomeViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
 
@@ -27,7 +27,7 @@ namespace DEDSEC.WPF.HostBuilders
 
         private static NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
-            return new NavigationBarViewModel(serviceProvider.GetRequiredService<AccountStore>(),
+            return new(serviceProvider.GetRequiredService<AccountStore>(),
                 serviceProvider.GetRequiredService<IAuthenticatorService>(),
                 CreateNavigationServiceExtensions.CreateHomeNavigationService(serviceProvider),
                 CreateNavigationServiceExtensions.CreateAccountNavigationService(serviceProvider),

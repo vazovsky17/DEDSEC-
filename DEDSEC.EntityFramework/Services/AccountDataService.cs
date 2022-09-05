@@ -15,7 +15,7 @@ namespace DEDSEC.EntityFramework.Services
         public AccountDataService(DedsecDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
-            _nonQueryDataService = new NonQueryDataService<Account>(contextFactory);
+            _nonQueryDataService = new (contextFactory);
         }
 
         public async Task<Account> Create(Account entity)

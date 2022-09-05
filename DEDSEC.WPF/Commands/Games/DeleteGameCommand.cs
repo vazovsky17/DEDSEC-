@@ -7,14 +7,14 @@ namespace DEDSEC.WPF.Commands.Games
 {
     public class DeleteGameCommand : AsyncCommandBase
     {
-        private readonly Game _game;
         private readonly GamesStore _gamesStore;
+        private readonly Game _game;
 
-        public DeleteGameCommand(Game game,
-            GamesStore gamesStore)
+        public DeleteGameCommand(GamesStore gamesStore,
+            Game game)
         {
-            _game = game;
             _gamesStore = gamesStore;
+            _game = game;
         }
 
         public override async Task ExecuteAsync(object parameter)

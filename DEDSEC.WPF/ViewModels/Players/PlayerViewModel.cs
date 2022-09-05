@@ -1,4 +1,9 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Players;
+using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
+using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -16,14 +21,20 @@ namespace DEDSEC.WPF.ViewModels.Players
         public string AboutMe => SetAboutMeDisplay(Player.AboutMe);
         public bool IsVisited => Player?.IsVisited ?? false;
         public bool IsAdmin => AccountHolder?.IsAdmin ?? false;
-        public List<Game> FavoriteGames => Player?.FavoriteGames ?? new List<Game>();
+        public List<Game> FavoriteGames => Player?.FavoriteGames ?? new();
 
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public PlayerViewModel(Account player)
+        public PlayerViewModel(Account player,
+            PlayersStore playersStore,
+            IAuthenticatorService authenticatorService,
+            INavigationService logoutNavigationService,
+            INavigationService editPlayerNavigationService)
         {
             Player = player;
+            EditCommand = new NavigateCommand(editPlayerNavigationService);
+            DeleteCommand = new DeletePlayerCommand(authenticatorService, logoutNavigationService, playersStore, player);
         }
 
         public void Update(Account player)

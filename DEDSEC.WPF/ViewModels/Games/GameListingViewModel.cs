@@ -32,7 +32,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             _gamesStore = gamesStore;
             _editGameNavigationService = editGameNavigationService;
 
-            _gameViewModels = new ObservableCollection<GameViewModel>();
+            _gameViewModels = new();
 
             Load();
             _gamesStore.GamesLoaded += GamesStore_Loaded;
@@ -118,7 +118,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            GameViewModel itemViewModel = new GameViewModel(game, _gamesStore, _editGameNavigationService);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _editGameNavigationService);
             _gameViewModels.Add(itemViewModel);
         }
 

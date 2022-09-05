@@ -13,7 +13,7 @@ namespace DEDSEC.EntityFramework
 
         public DedsecDbContext CreateDbContext()
         {
-            DbContextOptionsBuilder<DedsecDbContext> options = new DbContextOptionsBuilder<DedsecDbContext>();
+            var options = new DbContextOptionsBuilder<DedsecDbContext>();
 
             _configureDbContext(options);
 

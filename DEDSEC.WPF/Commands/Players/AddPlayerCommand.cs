@@ -40,7 +40,7 @@ namespace DEDSEC.WPF.Commands.Players
                 Age = _addPlayerViewModel.Age,
                 AboutMe = _addPlayerViewModel.AboutMe,
                 IsVisited = _addPlayerViewModel.IsVisited,
-                FavoriteGames = new List<Game>()
+                FavoriteGames = new()
             };
             await _playersStore.Add(player).ContinueWith(task =>
             {

@@ -12,11 +12,11 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<AddMeetingViewModel>(s => new AddMeetingViewModel(
+                services.AddTransient<AddMeetingViewModel>(s => new(
                     s.GetRequiredService<MeetingsStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
-                services.AddTransient<MeetingListingViewModel>(s => new MeetingListingViewModel(
+                services.AddTransient<MeetingListingViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
                     CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));

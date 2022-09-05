@@ -12,12 +12,13 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
-                    s.GetRequiredService<AccountStore>(),
+                services.AddTransient<PlayerListingViewModel>(s => new (
                     s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<PlayersStore>(),
+                    s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateAddPlayerNavigationService(s),
-                    CreateNavigationServiceExtensions.CreateEditPlayerNavigationService(s)));
+                    CreateNavigationServiceExtensions.CreateEditPlayerNavigationService(s),
+                    CreateNavigationServiceExtensions.CreateHomeNavigationService(s)));
             });
 
             return host;

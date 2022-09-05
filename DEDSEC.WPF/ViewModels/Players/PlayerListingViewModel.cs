@@ -1,10 +1,8 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
-using DEDSEC.WPF.Commands.Players;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,29 +13,35 @@ namespace DEDSEC.WPF.ViewModels.Players
 {
     public class PlayerListingViewModel : ViewModelBase
     {
-        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+        private readonly IAuthenticatorService _authenticatorService;
+        private readonly INavigationService _editPlayerNavigationService;
+        private readonly INavigationService _logoutNavigationService;
+        private readonly PlayersStore _playersStore;
 
         private readonly AccountStore _accountStore;
-        private readonly PlayersStore _playersStore;
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
 
         private readonly ObservableCollection<PlayerViewModel> _playerViewModels;
         public IEnumerable<PlayerViewModel> PlayerViewModels => _playerViewModels;
         public string PlayersViewModelsCountDisplay => setPlayersViewModelsCountDisplay();
 
         public ICommand AddPlayerCommand { get; }
-        public ICommand EditPlayerCommand { get; }
-        public ICommand DeletePlayerCommand { get; }
 
-        public PlayerListingViewModel(AccountStore accountStore,
+        public PlayerListingViewModel(
             IAuthenticatorService authenticatorService,
             PlayersStore playersStore,
+            AccountStore accountStore,
             INavigationService addPlayerNavigationService,
-            INavigationService editPlayerNavigationService)
+            INavigationService editPlayerNavigationService,
+            INavigationService logoutNavigationService)
         {
-            _accountStore = accountStore;
+            _authenticatorService = authenticatorService;
+            _editPlayerNavigationService = editPlayerNavigationService;
+            _logoutNavigationService = logoutNavigationService;
             _playersStore = playersStore;
+            _accountStore = accountStore;
 
-            _playerViewModels = new ObservableCollection<PlayerViewModel>();
+            _playerViewModels = new();
 
             Load();
             _playersStore.PlayersLoaded += PlayersStore_Loaded;
@@ -46,8 +50,6 @@ namespace DEDSEC.WPF.ViewModels.Players
             _playersStore.PlayerDeleted += PlayerStore_Deleted;
 
             AddPlayerCommand = new NavigateCommand(addPlayerNavigationService);
-            EditPlayerCommand = new NavigateCommand(editPlayerNavigationService);
-            DeletePlayerCommand = new DeletePlayerCommand(playersStore, authenticatorService);
         }
 
         private string setPlayersViewModelsCountDisplay()
@@ -118,7 +120,7 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private void AddPlayerViewModel(Account player)
         {
-            PlayerViewModel itemViewModel = new PlayerViewModel(player);
+            var itemViewModel = new PlayerViewModel(player, _playersStore, _authenticatorService, _logoutNavigationService, _editPlayerNavigationService);
             _playerViewModels.Add(itemViewModel);
         }
 

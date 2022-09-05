@@ -37,7 +37,7 @@ namespace DEDSEC.WPF.Commands.Games
                 MinCountPlayers = _addGameViewModel.MinCountPlayers,
                 MaxCountPlayers = _addGameViewModel.MaxCountPlayers,
                 LinkHobbyGames = _addGameViewModel.LinkHobbyGames,
-                Reviews = new List<Review>(),
+                Reviews = new(),
             };
             await _gamesStore.Add(game).ContinueWith(task =>
             {

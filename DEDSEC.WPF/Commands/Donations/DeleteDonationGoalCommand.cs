@@ -1,13 +1,25 @@
-﻿using DEDSEC.WPF.Commands.Common;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands.Common;
+using DEDSEC.WPF.Stores;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands.Donations
 {
     public class DeleteDonationGoalCommand : AsyncCommandBase
     {
-        public override Task ExecuteAsync(object parameter)
+        private readonly DonationGoalStore _donationGoalStore;
+        private readonly DonationGoal _donationGoal;
+
+        public DeleteDonationGoalCommand(DonationGoalStore donationGoalStore,
+            DonationGoal donationGoal)
         {
-            throw new System.NotImplementedException();
+            _donationGoalStore = donationGoalStore;
+            _donationGoal = donationGoal;
+        }
+
+        public override async Task ExecuteAsync(object parameter)
+        {
+            await _donationGoalStore.Delete(_donationGoal);
         }
     }
 }

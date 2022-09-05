@@ -24,7 +24,7 @@ namespace DEDSEC.WPF.HostBuilders
             CompositeNavigationService navigationService = new(
                 serviceProvider.GetRequiredService<CloseModalNavigationService>(),
                 CreateNavigationServiceExtensions.CreateAccountNavigationService(serviceProvider));
-            return new LoginViewModel(
+            return new(
                 serviceProvider.GetRequiredService<IAuthenticatorService>(),
                 navigationService,
                 CreateNavigationServiceExtensions.CreateRegisterNavigationService(serviceProvider));
@@ -35,7 +35,7 @@ namespace DEDSEC.WPF.HostBuilders
             CompositeNavigationService navigationService = new(
                 serviceProvider.GetRequiredService<CloseModalNavigationService>(),
                 CreateNavigationServiceExtensions.CreateAccountNavigationService(serviceProvider));
-            return new RegisterViewModel(
+            return new(
                 serviceProvider.GetRequiredService<IAuthenticatorService>(),
                 navigationService,
                 CreateNavigationServiceExtensions.CreateLoginNavigationService(serviceProvider));

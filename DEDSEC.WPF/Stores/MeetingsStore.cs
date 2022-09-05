@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.Stores
 
         public MeetingsStore(IDataService<Meeting> dataService)
         {
-            _meetings = new List<Meeting>();
+            _meetings = new();
             _dataService = dataService;
         }
 

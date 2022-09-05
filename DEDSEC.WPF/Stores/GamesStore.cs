@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.Stores
 
         public GamesStore(IDataService<Game> dataService)
         {
-            _games = new List<Game>();
+            _games = new();
             _dataService = dataService;
         }
 

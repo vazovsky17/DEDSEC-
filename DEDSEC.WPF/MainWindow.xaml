@@ -70,7 +70,7 @@
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type games:EditGameViewModel}">
-                    <components:EditGameComponent/>
+                    <components:EditGameComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

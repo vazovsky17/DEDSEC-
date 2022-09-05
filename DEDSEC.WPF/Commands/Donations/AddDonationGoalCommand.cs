@@ -36,7 +36,7 @@ namespace DEDSEC.WPF.Commands.Donations
                 Description = _addDonationGoalViewModel.Description,
                 CurrentValue = _addDonationGoalViewModel.CurrentValue,
                 TargetValue = _addDonationGoalViewModel.TargetValue,
-                Donations = new List<Donation>()
+                Donations = new()
             };
 
             await _donationGoalStore.Add(donationGoal).ContinueWith(task =>
