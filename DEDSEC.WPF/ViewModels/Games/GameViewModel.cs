@@ -11,6 +11,8 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameViewModel : ViewModelBase
     {
+        public bool IsAdmin { get; }
+
         public Game Game { get; private set; }
         public Guid Id => Game.Id;
         public string Name => SetNameDisplay(Game.Name);
@@ -28,11 +30,13 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         public GameViewModel(Game game,
             GamesStore gamesStore,
-            INavigationService editGameNavigationService)
+            INavigationService editGameNavigationService,
+            bool isAdmin)
         {
+            IsAdmin = isAdmin;
             Game = game;
             EditCommand = new NavigateCommand(editGameNavigationService);
-            DeleteCommand = new DeleteGameCommand(gamesStore, Game);
+            DeleteCommand = new DeleteGameCommand(gamesStore, game);
         }
 
         public void Update(Game game)

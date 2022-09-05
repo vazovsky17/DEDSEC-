@@ -118,7 +118,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            var itemViewModel = new GameViewModel(game, _gamesStore, _editGameNavigationService);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _editGameNavigationService, IsAdmin);
             _gameViewModels.Add(itemViewModel);
         }
 

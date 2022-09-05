@@ -7,14 +7,15 @@ namespace DEDSEC.WPF.Commands.Meetings
 {
     public class DeleteMeetingCommand : AsyncCommandBase
     {
-        private readonly Meeting _meeting;
         private readonly MeetingsStore _meetingsStore;
+        private readonly Meeting _meeting;
 
-        public DeleteMeetingCommand(Meeting meeting,
-            MeetingsStore meetingsStore)
+        public DeleteMeetingCommand(MeetingsStore meetingsStore,
+            Meeting meeting
+            )
         {
-            _meeting = meeting;
             _meetingsStore = meetingsStore;
+            _meeting = meeting;
         }
 
         public override async Task ExecuteAsync(object parameter)

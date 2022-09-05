@@ -27,11 +27,11 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             AccountStore accountStore,
             IAuthenticatorService authenticatorService,
             INavigationService editAccountNavigationService,
-            INavigationService homeNavigationService)
+            INavigationService logoutNavigationService)
         {
             _accountStore = accountStore;
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);
-            DeleteAccountCommand = new DeleteAccountCommand(dataService, authenticatorService, homeNavigationService);
+            DeleteAccountCommand = new DeleteAccountCommand(dataService, authenticatorService, logoutNavigationService);
 
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }

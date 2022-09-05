@@ -1,4 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands.Meetings;
+using DEDSEC.WPF.Stores;
 using System;
 using System.Windows.Input;
 
@@ -6,6 +8,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class MeetingViewModel : ViewModelBase
     {
+        public bool IsAdmin { get; }
         public Meeting Meeting { get; private set; }
 
         public Guid Id => Meeting.Id;
@@ -22,9 +25,13 @@ namespace DEDSEC.WPF.ViewModels.Meetings
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public MeetingViewModel(Meeting meeting)
+        public MeetingViewModel(Meeting meeting, MeetingsStore meetingsStore, bool isAdmin)
         {
+            IsAdmin = isAdmin;
             Meeting = meeting;
+
+            //EditCommand = new NavigateCommand();
+            DeleteCommand = new DeleteMeetingCommand(meetingsStore, meeting);
         }
 
         public void Update(Meeting meeting)

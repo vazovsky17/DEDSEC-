@@ -148,7 +148,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         private void AddDonationViewModel(Donation donation)
         {
-            var itemViewModel = new DonationViewModel(donation);
+            var itemViewModel = new DonationViewModel(donation, _donationGoalStore, IsAdmin);
             _donationViewModels.Add(itemViewModel);
         }
 

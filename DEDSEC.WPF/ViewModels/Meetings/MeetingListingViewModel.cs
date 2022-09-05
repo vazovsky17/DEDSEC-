@@ -80,7 +80,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         private void AddGameViewModel(Meeting meeting)
         {
-            var itemViewModel = new MeetingViewModel(meeting);
+            var itemViewModel = new MeetingViewModel(meeting, _meetingsStore, IsAdmin);
             _meetingViewModels.Add(itemViewModel);
         }
 

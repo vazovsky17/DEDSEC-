@@ -98,7 +98,7 @@
                     Header="Имя"
                     IsReadOnly="True" />
                 <DataGridTextColumn
-                    Width="*"
+                    Width="auto"
                     Binding="{Binding Age}"
                     CanUserResize="False"
                     Header="Возраст"
@@ -110,14 +110,14 @@
                     Header="Обо мне"
                     IsReadOnly="True" />
                 <DataGridCheckBoxColumn
-                    Width="*"
+                    Width="auto"
                     Binding="{Binding IsVisited, Mode=OneWay}"
                     CanUserResize="False"
                     ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Посещено"
                     IsReadOnly="True" />
                 <DataGridCheckBoxColumn
-                    Width="*"
+                    Width="auto"
                     Binding="{Binding IsAdmin, Mode=OneWay}"
                     CanUserResize="False"
                     ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
@@ -131,13 +131,21 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Command="" Style="{StaticResource gridEditButton}">
+                                <Button Command="{Binding ShowCommand}" Style="{StaticResource gridEditButton}">
+                                    <icon:PackIconMaterial Kind="Shower" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button
+                                    Margin="5,0,0,0"
+                                    Command="{Binding EditCommand}"
+                                    Style="{StaticResource gridEditButton}"
+                                    Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"
-                                    Command=""
-                                    Style="{StaticResource gridDeleteButton}">
+                                    Command="{Binding DeleteCommand}"
+                                    Style="{StaticResource gridDeleteButton}"
+                                    Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                             </StackPanel>
