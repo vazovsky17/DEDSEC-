@@ -75,6 +75,7 @@
                     Text="Администратор" />
                 <CheckBox
                     Margin="5,0,0,0"
+                    Focusable="False"
                     IsChecked="{Binding IsAdmin}"
                     Style="{StaticResource CornerCheckBoxStyle}" />
             </StackPanel>
@@ -103,6 +104,7 @@
             HorizontalAlignment="Center"
             Command="{Binding LoginCommand}"
             Content="Продолжить"
+            IsDefault="True"
             Style="{StaticResource tabButton}" />
 
         <TextBlock
