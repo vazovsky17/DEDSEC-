@@ -2,91 +2,26 @@
 using DEDSEC.WPF.Commands.Meetings;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using System;
-using System.Windows.Input;
+using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class AddMeetingViewModel : ViewModelBase
     {
-        private string _title = string.Empty;
-        public string Title
-        {
-            get
-            {
-                return _title;
-            }
-            set
-            {
-                _title = value;
-                OnPropertyChanged(nameof(Title));
-            }
-        }
-
-        private string _description = string.Empty;
-        public string Description
-        {
-            get
-            {
-                return _description;
-            }
-            set
-            {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
-            }
-        }
-
-        private DateTime _dateBegin;
-        public DateTime DateBegin
-        {
-            get
-            {
-                return _dateBegin;
-            }
-            set
-            {
-                _dateBegin = value;
-                OnPropertyChanged(nameof(DateBegin));
-            }
-        }
-
-        private DateTime _dateEnd;
-        public DateTime DateEnd
-        {
-            get
-            {
-                return _dateEnd;
-            }
-            set
-            {
-                _dateEnd = value;
-                OnPropertyChanged(nameof(DateEnd));
-            }
-        }
-
-        private int _maxCountVisitors;
-        public int MaxCountVisitors
-        {
-            get
-            {
-                return _maxCountVisitors;
-            }
-            set
-            {
-                _maxCountVisitors = value;
-                OnPropertyChanged(nameof(MaxCountVisitors));
-            }
-        }
-
-        public ICommand SubmitCommand { get; }
-        public ICommand CancelCommand { get; }
+        public MeetingFormViewModel MeetingFormViewModel { get; }
 
         public AddMeetingViewModel(MeetingsStore meetingsStore,
             INavigationService closeNavigationService)
         {
-            SubmitCommand = new AddMeetingCommand(this, meetingsStore, closeNavigationService);
-            CancelCommand = new NavigateCommand(closeNavigationService);
+            var SubmitCommand = new AddMeetingCommand(this, meetingsStore, closeNavigationService);
+            var CancelCommand = new NavigateCommand(closeNavigationService);
+
+            MeetingFormViewModel = new MeetingFormViewModel(SubmitCommand, CancelCommand)
+            {
+                DateBegin = System.DateTime.Now,
+                DateEnd = System.DateTime.Now,
+                MaxCountVisitors = 8
+            };
         }
     }
 }

@@ -31,11 +31,11 @@ namespace DEDSEC.WPF.Commands.Meetings
             var meeting = new Meeting()
             {
                 Id = Guid.NewGuid(),
-                Title = _addMeetingViewModel.Title,
-                Description = _addMeetingViewModel.Description,
-                DateBegin = _addMeetingViewModel.DateBegin,
-                DateEnd = _addMeetingViewModel.DateEnd,
-                MaxCountVisitors = _addMeetingViewModel.MaxCountVisitors
+                Title = _addMeetingViewModel.MeetingFormViewModel.Title,
+                Description = _addMeetingViewModel.MeetingFormViewModel.Description,
+                DateBegin = _addMeetingViewModel.MeetingFormViewModel.DateBegin,
+                DateEnd = _addMeetingViewModel.MeetingFormViewModel.DateEnd,
+                MaxCountVisitors = _addMeetingViewModel.MeetingFormViewModel.MaxCountVisitors
             };
             await _meetingsStore.Add(meeting).ContinueWith(task =>
             {

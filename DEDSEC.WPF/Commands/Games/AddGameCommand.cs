@@ -32,11 +32,11 @@ namespace DEDSEC.WPF.Commands.Games
             var game = new Game()
             {
                 Id = Guid.NewGuid(),
-                Name = _addGameViewModel.Name,
-                Description = _addGameViewModel.Description,
-                MinCountPlayers = _addGameViewModel.MinCountPlayers,
-                MaxCountPlayers = _addGameViewModel.MaxCountPlayers,
-                LinkHobbyGames = _addGameViewModel.LinkHobbyGames,
+                Name = _addGameViewModel.GameFormViewModel.Name,
+                Description = _addGameViewModel.GameFormViewModel.Description,
+                MinCountPlayers = _addGameViewModel.GameFormViewModel.MinCountPlayers,
+                MaxCountPlayers = _addGameViewModel.GameFormViewModel.MaxCountPlayers,
+                LinkHobbyGames = _addGameViewModel.GameFormViewModel.LinkHobbyGames,
                 Reviews = new(),
             };
             await _gamesStore.Add(game).ContinueWith(task =>

@@ -14,7 +14,7 @@ namespace DEDSEC.WPF.ViewModels.Games
     {
         private readonly AccountStore _accountStore;
         private readonly GamesStore _gamesStore;
-        private readonly INavigationService _editGameNavigationService;
+        private readonly ModalNavigationStore _modalStore;
 
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
         public ICommand AddGameCommand { get; }
@@ -25,12 +25,12 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         public GameListingViewModel(AccountStore accountStore,
             GamesStore gamesStore,
-            INavigationService addGameNavigationService,
-            INavigationService editGameNavigationService)
+            ModalNavigationStore modalStore,
+            INavigationService addGameNavigationService)
         {
             _accountStore = accountStore;
             _gamesStore = gamesStore;
-            _editGameNavigationService = editGameNavigationService;
+            _modalStore = modalStore;
 
             _gameViewModels = new();
 
@@ -118,7 +118,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            var itemViewModel = new GameViewModel(game, _gamesStore, _editGameNavigationService, IsAdmin);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _modalStore, IsAdmin);
             _gameViewModels.Add(itemViewModel);
         }
 

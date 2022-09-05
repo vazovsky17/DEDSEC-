@@ -48,7 +48,11 @@
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Посещал(а) ли встречи" />
-                <CheckBox VerticalAlignment="Center" Margin="8 0 0 0" IsChecked="{Binding IsVisited}" Style="{StaticResource CornerCheckBoxStyle}" />
+                <CheckBox
+                    Margin="8,0,0,0"
+                    VerticalAlignment="Center"
+                    IsChecked="{Binding IsVisited}"
+                    Style="{StaticResource CornerCheckBoxStyle}" />
             </StackPanel>
         </StackPanel>
 

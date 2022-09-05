@@ -1,5 +1,4 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;

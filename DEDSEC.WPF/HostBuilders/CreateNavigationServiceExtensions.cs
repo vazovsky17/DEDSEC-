@@ -63,13 +63,6 @@ namespace DEDSEC.WPF.HostBuilders
                 serviceProvider.GetRequiredService<ModalNavigationStore>(),
                 () => serviceProvider.GetRequiredService<AddGameViewModel>());
         }
-
-        public static INavigationService CreateEditGameNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<EditGameViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<EditGameViewModel>());
-        }
         #endregion
 
         #region Meeting

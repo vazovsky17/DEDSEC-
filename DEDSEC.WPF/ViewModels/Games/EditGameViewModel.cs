@@ -1,91 +1,32 @@
-﻿using DEDSEC.WPF.Commands;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Commands.Games;
-using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using System.Windows.Input;
+using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Games
 {
     public class EditGameViewModel : ViewModelBase
     {
-        private string _name;
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
+        public Game Game { get; }
+        public GameFormViewModel GameFormViewModel { get; }
 
-        private string _description;
-        public string Description
+        public EditGameViewModel(Game game,
+            GamesStore gamesStore,
+            ModalNavigationStore modalStore)
         {
-            get
-            {
-                return _description;
-            }
-            set
-            {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
-            }
-        }
+            Game = game;
+            var SubmitCommand = new EditGameCommand(this, gamesStore, modalStore);
+            var CancelCommand = new CloseModalCommand(modalStore);
 
-        private int _minCountPlayers;
-        public int MinCountPlayers
-        {
-            get
+            GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
             {
-                return _minCountPlayers;
-            }
-            set
-            {
-                _minCountPlayers = value;
-                OnPropertyChanged(nameof(MinCountPlayers));
-            }
-        }
-
-        private int _maxCountPlayers;
-        public int MaxCountPlayers
-        {
-            get
-            {
-                return _maxCountPlayers;
-            }
-            set
-            {
-                _maxCountPlayers = value;
-                OnPropertyChanged(nameof(MaxCountPlayers));
-            }
-        }
-
-        private string _linkHobbyGames;
-        public string LinkHobbyGames
-        {
-            get
-            {
-                return _linkHobbyGames;
-            }
-            set
-            {
-                _linkHobbyGames = value;
-                OnPropertyChanged(nameof(LinkHobbyGames));
-            }
-        }
-
-        public ICommand SubmitCommand { get; }
-        public ICommand CancelCommand { get; }
-
-        public EditGameViewModel(GamesStore gamesStore,
-            INavigationService closeNavigationService)
-        {
-            //SubmitCommand = new EditGameCommand(this, gamesStore, closeNavigationService);
-            CancelCommand = new NavigateCommand(closeNavigationService);
+                Name = Game.Name,
+                Description = Game.Description,
+                MinCountPlayers = Game.MinCountPlayers,
+                MaxCountPlayers = Game.MaxCountPlayers,
+                LinkHobbyGames = Game.LinkHobbyGames
+            };
         }
     }
 }
