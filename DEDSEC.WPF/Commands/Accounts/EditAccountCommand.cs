@@ -14,7 +14,10 @@ namespace DEDSEC.WPF.Commands.Accounts
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public EditAccountCommand(EditAccountViewModel editAccountViewModel, IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService navigationService)
+        public EditAccountCommand(EditAccountViewModel editAccountViewModel,
+            IAccountService dataService,
+            IAuthenticatorService authenticatorService,
+            INavigationService navigationService)
         {
             _editAccountViewModel = editAccountViewModel;
             _authenticatorService = authenticatorService;

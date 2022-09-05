@@ -18,7 +18,9 @@ namespace DEDSEC.WPF.Commands.Games
         private readonly GamesStore _gamesStore;
         private readonly INavigationService _navigationService;
 
-        public AddGameCommand(AddGameViewModel addGameViewModel, GamesStore gamesStore, INavigationService navigationService)
+        public AddGameCommand(AddGameViewModel addGameViewModel,
+            GamesStore gamesStore,
+            INavigationService navigationService)
         {
             _addGameViewModel = addGameViewModel;
             _gamesStore = gamesStore;

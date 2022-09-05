@@ -36,7 +36,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public string DonationsViewModelsCountDisplay => setDonationViewModelsCountDisplay();
 
         private string setDonationViewModelsCountDisplay()
-{
+        {
             var count = _donationViewModels.Count;
             return count + " " + GrammarDonation(count);
         }
@@ -66,7 +66,11 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public ICommand EditDonationGoalCommand { get; }
         public ICommand DeleteDonationGoalCommand { get; }
 
-        public DonationGoalViewModel(DonationGoalStore donationGoalStore, AccountStore accountStore, INavigationService addDonationNavigationService, INavigationService addDonationGoalNavigationService, INavigationService editDonationGoalNavigationService)
+        public DonationGoalViewModel(DonationGoalStore donationGoalStore,
+            AccountStore accountStore,
+            INavigationService addDonationNavigationService,
+            INavigationService addDonationGoalNavigationService,
+            INavigationService editDonationGoalNavigationService)
         {
             _donationGoalStore = donationGoalStore;
             _accountStore = accountStore;

@@ -14,7 +14,8 @@ namespace DEDSEC.WPF.ViewModels
 
         public ICommand NavigateLoginCommand { get; }
 
-        public HomeViewModel(AccountStore accountStore, INavigationService loginNavigationService)
+        public HomeViewModel(AccountStore accountStore,
+            INavigationService loginNavigationService)
         {
             _accountStore = accountStore;
             NavigateLoginCommand = new NavigateCommand(loginNavigationService);

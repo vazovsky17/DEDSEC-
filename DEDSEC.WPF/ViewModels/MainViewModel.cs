@@ -1,5 +1,4 @@
-﻿using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Stores;
+﻿using DEDSEC.WPF.Stores;
 
 namespace DEDSEC.WPF.ViewModels
 {
@@ -12,7 +11,8 @@ namespace DEDSEC.WPF.ViewModels
         public ViewModelBase CurrentModalViewModel => _modalNavigationStore.CurrentViewModel;
         public bool IsOpen => _modalNavigationStore.IsOpen;
 
-        public MainViewModel(NavigationStore navigationStore, ModalNavigationStore modalNavigationStore)
+        public MainViewModel(NavigationStore navigationStore,
+            ModalNavigationStore modalNavigationStore)
         {
             _navigationStore = navigationStore;
             _modalNavigationStore = modalNavigationStore;

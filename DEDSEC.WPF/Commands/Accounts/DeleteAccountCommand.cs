@@ -15,7 +15,9 @@ namespace DEDSEC.WPF.Commands.Accounts
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public DeleteAccountCommand(IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService navigationService)
+        public DeleteAccountCommand(IAccountService dataService,
+            IAuthenticatorService authenticatorService,
+            INavigationService navigationService)
         {
             _dataService = dataService;
             _authenticatorService = authenticatorService;

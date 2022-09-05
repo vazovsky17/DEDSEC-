@@ -82,7 +82,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddMeetingViewModel(MeetingsStore meetingsStore, INavigationService closeNavigationService)
+        public AddMeetingViewModel(MeetingsStore meetingsStore,
+            INavigationService closeNavigationService)
         {
             SubmitCommand = new AddMeetingCommand(this, meetingsStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);

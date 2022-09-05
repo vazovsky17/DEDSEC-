@@ -15,7 +15,9 @@ namespace DEDSEC.WPF.Commands.Players
         private readonly PlayersStore _playersStore;
         private readonly INavigationService _navigationService;
 
-        public AddPlayerCommand(AddPlayerViewModel addPlayerViewModel, PlayersStore playersStore, INavigationService navigationService)
+        public AddPlayerCommand(AddPlayerViewModel addPlayerViewModel,
+            PlayersStore playersStore,
+            INavigationService navigationService)
         {
             _addPlayerViewModel = addPlayerViewModel;
             _playersStore = playersStore;

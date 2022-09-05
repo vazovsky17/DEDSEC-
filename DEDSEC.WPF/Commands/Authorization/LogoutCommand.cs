@@ -9,7 +9,8 @@ namespace DEDSEC.WPF.Commands.Authorization
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public LogoutCommand(IAuthenticatorService authenticatorService, INavigationService navigationService)
+        public LogoutCommand(IAuthenticatorService authenticatorService,
+            INavigationService navigationService)
         {
             _authenticatorService = authenticatorService;
             _navigationService = navigationService;

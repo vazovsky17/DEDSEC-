@@ -28,9 +28,9 @@ namespace DEDSEC.WPF.ViewModels.Players
         public ICommand EditPlayerCommand { get; }
         public ICommand DeletePlayerCommand { get; }
 
-        public PlayerListingViewModel(AccountStore accountStore, 
+        public PlayerListingViewModel(AccountStore accountStore,
             IAuthenticatorService authenticatorService,
-            PlayersStore playersStore, 
+            PlayersStore playersStore,
             INavigationService addPlayerNavigationService,
             INavigationService editPlayerNavigationService)
         {
@@ -47,11 +47,11 @@ namespace DEDSEC.WPF.ViewModels.Players
 
             AddPlayerCommand = new NavigateCommand(addPlayerNavigationService);
             EditPlayerCommand = new NavigateCommand(editPlayerNavigationService);
-            DeletePlayerCommand = new DeletePlayerCommand(playersStore,authenticatorService);
+            DeletePlayerCommand = new DeletePlayerCommand(playersStore, authenticatorService);
         }
 
         private string setPlayersViewModelsCountDisplay()
-{
+        {
             var count = _playerViewModels.Count;
             return count + " " + GrammarPlayer(count);
         }

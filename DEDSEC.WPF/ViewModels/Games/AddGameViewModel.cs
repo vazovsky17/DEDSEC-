@@ -81,7 +81,8 @@ namespace DEDSEC.WPF.ViewModels.Games
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddGameViewModel(GamesStore gamesStore, INavigationService closeNavigationService)
+        public AddGameViewModel(GamesStore gamesStore,
+            INavigationService closeNavigationService)
         {
             SubmitCommand = new AddGameCommand(this, gamesStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);

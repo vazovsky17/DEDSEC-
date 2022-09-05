@@ -10,7 +10,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class EditAccountViewModel : ViewModelBase
     {
-        public static Account? CurrentAccount { get;private set; }
+        public static Account? CurrentAccount { get; private set; }
 
         private string _nickname = CurrentAccount?.AccountHolder.Nickname ?? string.Empty;
         public string Nickname
@@ -99,7 +99,9 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public EditAccountViewModel(IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService closeNavigationService)
+        public EditAccountViewModel(IAccountService dataService,
+            IAuthenticatorService authenticatorService,
+            INavigationService closeNavigationService)
         {
             CurrentAccount = authenticatorService.CurrentAccount;
 

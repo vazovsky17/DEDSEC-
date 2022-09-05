@@ -18,7 +18,10 @@ namespace DEDSEC.WPF.Commands.Donations
         private readonly DonationGoalStore _donationGoalStore;
         private readonly INavigationService _navigationService;
 
-        public AddDonationCommand(AddDonationViewModel addDonationViewModel, AccountStore accountStore, DonationGoalStore donationGoalStore, INavigationService navigationService)
+        public AddDonationCommand(AddDonationViewModel addDonationViewModel,
+            AccountStore accountStore,
+            DonationGoalStore donationGoalStore,
+            INavigationService navigationService)
         {
             _addDonationViewModel = addDonationViewModel;
             _accountStore = accountStore;

@@ -15,7 +15,9 @@ namespace DEDSEC.WPF.Commands.Authorization
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public LoginCommand(LoginViewModel loginViewModel, IAuthenticatorService authenticatorService, INavigationService navigationService)
+        public LoginCommand(LoginViewModel loginViewModel,
+            IAuthenticatorService authenticatorService,
+            INavigationService navigationService)
         {
             _loginViewModel = loginViewModel;
             _authenticatorService = authenticatorService;

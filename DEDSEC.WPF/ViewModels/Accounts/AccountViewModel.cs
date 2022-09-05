@@ -23,7 +23,11 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand EditAccountCommand { get; }
         public ICommand DeleteAccountCommand { get; }
 
-        public AccountViewModel(IAccountService dataService, AccountStore accountStore, IAuthenticatorService authenticatorService, INavigationService editAccountNavigationService, INavigationService homeNavigationService)
+        public AccountViewModel(IAccountService dataService,
+            AccountStore accountStore,
+            IAuthenticatorService authenticatorService,
+            INavigationService editAccountNavigationService,
+            INavigationService homeNavigationService)
         {
             _accountStore = accountStore;
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);

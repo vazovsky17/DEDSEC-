@@ -17,7 +17,9 @@ namespace DEDSEC.WPF.Commands.Meetings
         private readonly MeetingsStore _meetingsStore;
         private readonly INavigationService _navigationService;
 
-        public AddMeetingCommand(AddMeetingViewModel addMeetingViewModel, MeetingsStore meetingsStore, INavigationService navigationService)
+        public AddMeetingCommand(AddMeetingViewModel addMeetingViewModel,
+            MeetingsStore meetingsStore,
+            INavigationService navigationService)
         {
             _addMeetingViewModel = addMeetingViewModel;
             _meetingsStore = meetingsStore;

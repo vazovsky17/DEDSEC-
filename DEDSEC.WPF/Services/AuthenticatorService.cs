@@ -11,7 +11,8 @@ namespace DEDSEC.WPF.Services
         private readonly IAuthenticationService _authenticationService;
         private readonly AccountStore _accountStore;
 
-        public AuthenticatorService(IAuthenticationService authenticationService, AccountStore accountStore)
+        public AuthenticatorService(IAuthenticationService authenticationService,
+            AccountStore accountStore)
         {
             _authenticationService = authenticationService;
             _accountStore = accountStore;

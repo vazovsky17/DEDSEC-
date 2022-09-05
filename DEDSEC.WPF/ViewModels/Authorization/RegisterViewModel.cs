@@ -95,7 +95,9 @@ namespace DEDSEC.WPF.ViewModels.Authorization
             set => ErrorMessageViewModel.Message = value;
         }
 
-        public RegisterViewModel(IAuthenticatorService authenticatorService, INavigationService registerNavigationService, INavigationService loginNavigationService)
+        public RegisterViewModel(IAuthenticatorService authenticatorService,
+            INavigationService registerNavigationService,
+            INavigationService loginNavigationService)
         {
             ErrorMessageViewModel = new MessageViewModel();
 

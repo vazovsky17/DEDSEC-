@@ -21,7 +21,9 @@ namespace DEDSEC.WPF.ViewModels.Meetings
         private readonly ObservableCollection<MeetingViewModel> _meetingViewModels;
         public IEnumerable<MeetingViewModel> MeetingViewModels => _meetingViewModels;
 
-        public MeetingListingViewModel(AccountStore accountStore, MeetingsStore meetingsStore, INavigationService addMeetingNavigationService)
+        public MeetingListingViewModel(AccountStore accountStore,
+            MeetingsStore meetingsStore,
+            INavigationService addMeetingNavigationService)
         {
             _accountStore = accountStore;
             _meetingsStore = meetingsStore;

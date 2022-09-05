@@ -24,7 +24,9 @@ namespace DEDSEC.WPF.ViewModels.Games
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
         public string GameViewModelsCountDisplay => setGameViewModelsCountDisplay();
 
-        public GameListingViewModel(AccountStore accountStore, GamesStore gamesStore, INavigationService addGameNavigationService)
+        public GameListingViewModel(AccountStore accountStore,
+            GamesStore gamesStore,
+            INavigationService addGameNavigationService)
         {
             _accountStore = accountStore;
             _gamesStore = gamesStore;

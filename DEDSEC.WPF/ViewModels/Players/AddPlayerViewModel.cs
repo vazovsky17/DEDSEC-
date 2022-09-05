@@ -111,7 +111,8 @@ namespace DEDSEC.WPF.ViewModels.Players
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddPlayerViewModel(PlayersStore playersStore,INavigationService closeNavigationService)
+        public AddPlayerViewModel(PlayersStore playersStore,
+            INavigationService closeNavigationService)
         {
             SubmitCommand = new AddPlayerCommand(this, playersStore, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);

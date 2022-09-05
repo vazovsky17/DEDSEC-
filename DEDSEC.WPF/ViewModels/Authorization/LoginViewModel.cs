@@ -78,7 +78,9 @@ namespace DEDSEC.WPF.ViewModels.Authorization
         public ICommand LoginCommand { get; }
         public ICommand NavigateRegisterCommand { get; }
 
-        public LoginViewModel(IAuthenticatorService authenticatorService, INavigationService loginNavigationService, INavigationService registerNavigationService)
+        public LoginViewModel(IAuthenticatorService authenticatorService,
+            INavigationService loginNavigationService,
+            INavigationService registerNavigationService)
         {
             ErrorMessageViewModel = new MessageViewModel();
             LoginCommand = new LoginCommand(this, authenticatorService, loginNavigationService);
