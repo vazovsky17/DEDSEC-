@@ -1,16 +1,18 @@
-﻿using DEDSEC.Domain.Services.Authentification;
+﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.ViewModels.Accounts;
+using System;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands.Accounts
 {
     public class EditAccountCommand : AsyncCommandBase
     {
-        private readonly IAccountService _dataService;
         private readonly EditAccountViewModel _editAccountViewModel;
+        private readonly IAccountService _dataService;
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
@@ -27,15 +29,24 @@ namespace DEDSEC.WPF.Commands.Accounts
 
         public override async Task ExecuteAsync(object parameter)
         {
-            var account = _authenticatorService.CurrentAccount;
+            var account = new Account()
+            {
+                Id = _editAccountViewModel.CurrentAccount?.Id ?? Guid.NewGuid(),
+                AccountHolder = new User()
+                {
+                    Id = _editAccountViewModel.CurrentAccount?.AccountHolder?.Id ?? Guid.NewGuid(),
+                    Nickname = _editAccountViewModel.AccountFormViewModel.Nickname,
+                    Password = _editAccountViewModel.AccountFormViewModel.Password,
+                    IsAdmin = _editAccountViewModel.CurrentAccount?.AccountHolder?.IsAdmin ?? false,
+                },
+                Name = _editAccountViewModel.AccountFormViewModel.Name,
+                Age = _editAccountViewModel.AccountFormViewModel.Age,
+                AboutMe = _editAccountViewModel.AccountFormViewModel.AboutMe,
+                IsVisited = _editAccountViewModel.AccountFormViewModel.IsVisited,
+                FavoriteGames = _editAccountViewModel.CurrentAccount?.FavoriteGames ?? new()
+            };
             if (account != null)
             {
-                account.AccountHolder.Nickname = _editAccountViewModel.Nickname;
-                account.AccountHolder.Password = _editAccountViewModel.Password;
-                account.Name = _editAccountViewModel.Name;
-                account.Age = _editAccountViewModel.Age;
-                account.AboutMe = _editAccountViewModel.AboutMe;
-                account.IsVisited = _editAccountViewModel.IsVisited;
                 await _dataService.Update(account.Id, account).ContinueWith(task =>
                 {
                     if (task.IsCompleted)

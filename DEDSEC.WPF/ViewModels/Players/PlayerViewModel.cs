@@ -1,5 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.WPF.Commands;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Players;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
@@ -28,12 +28,12 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         public PlayerViewModel(Account player,
             PlayersStore playersStore,
+            ModalNavigationStore modalStore,
             IAuthenticatorService authenticatorService,
-            INavigationService logoutNavigationService,
-            INavigationService editPlayerNavigationService)
+            INavigationService logoutNavigationService)
         {
             Player = player;
-            EditCommand = new NavigateCommand(editPlayerNavigationService);
+            EditCommand = new OpenEditPlayerCommand(this, playersStore,modalStore);
             DeleteCommand = new DeletePlayerCommand(authenticatorService, logoutNavigationService, playersStore, player);
         }
 

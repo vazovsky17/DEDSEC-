@@ -58,6 +58,10 @@
                 <DataTemplate DataType="{x:Type players:PlayerListingViewModel}">
                     <components:PlayerListingComponent />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type players:EditPlayerViewModel}">
+                    <components:EditPlayerComponent/>
+                </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Game-->

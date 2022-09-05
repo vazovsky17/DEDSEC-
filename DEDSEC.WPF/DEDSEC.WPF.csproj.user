@@ -58,10 +58,16 @@
     <Compile Update="Components\NavigationComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Players\EditPlayerComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Players\PlayerListingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Common\SearchComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Forms\AccountFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -117,6 +123,9 @@
     <Page Update="Components\NavigationComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\Players\EditPlayerComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\Players\PlayerListingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -124,6 +133,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Forms\AccountFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
@@ -14,8 +15,8 @@ namespace DEDSEC.WPF.ViewModels.Players
     public class PlayerListingViewModel : ViewModelBase
     {
         private readonly IAuthenticatorService _authenticatorService;
-        private readonly INavigationService _editPlayerNavigationService;
         private readonly INavigationService _logoutNavigationService;
+        private readonly ModalNavigationStore _modalStore;
         private readonly PlayersStore _playersStore;
 
         private readonly AccountStore _accountStore;
@@ -31,13 +32,13 @@ namespace DEDSEC.WPF.ViewModels.Players
             IAuthenticatorService authenticatorService,
             PlayersStore playersStore,
             AccountStore accountStore,
+            ModalNavigationStore modalStore,
             INavigationService addPlayerNavigationService,
-            INavigationService editPlayerNavigationService,
             INavigationService logoutNavigationService)
         {
             _authenticatorService = authenticatorService;
-            _editPlayerNavigationService = editPlayerNavigationService;
             _logoutNavigationService = logoutNavigationService;
+            _modalStore = modalStore;
             _playersStore = playersStore;
             _accountStore = accountStore;
 
@@ -120,7 +121,7 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private void AddPlayerViewModel(Account player)
         {
-            var itemViewModel = new PlayerViewModel(player, _playersStore, _authenticatorService, _logoutNavigationService, _editPlayerNavigationService);
+            var itemViewModel = new PlayerViewModel(player, _playersStore, _modalStore, _authenticatorService, _logoutNavigationService);
             _playerViewModels.Add(itemViewModel);
         }
 

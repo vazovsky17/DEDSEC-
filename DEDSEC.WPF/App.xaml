@@ -18,6 +18,8 @@
         <SolidColorBrush x:Key="ColorTextBoxHint" Color="#b0b976" />
         <SolidColorBrush x:Key="ColorCardBackground" Color="#660099" />
         <SolidColorBrush x:Key="ColorCardForeground" Color="#F6F4F7" />
+        <SolidColorBrush x:Key="ColorCancelButtonBackground" Color="#d32f2f" />
+        <SolidColorBrush x:Key="ColorSubmitButtonBackground" Color="#6741d9" />
         <!--#endregion-->
 
         <!--#region Button Styles-->
@@ -125,7 +127,6 @@
             <Setter Property="MinWidth" Value="150" />
             <Setter Property="Height" Value="36" />
             <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Margin" Value="0,20,0,0" />
             <Setter Property="Padding" Value="10" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Template">
@@ -804,6 +805,12 @@
             <Setter Property="FontSize" Value="24" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource ColorCardForeground}" />
+        </Style>
+        <Style x:Key="textBlockDefault" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
         </Style>
         <!--#endregion-->
     </Application.Resources>
