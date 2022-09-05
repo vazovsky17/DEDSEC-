@@ -41,9 +41,15 @@ namespace DEDSEC.WPF.Services
             CurrentAccount = await _authenticationService.Register(nickname, password, confirmPassword, isAdmin, administrationCode);
         }
 
+        public void EditAccount(Account account)
+        {
+            CurrentAccount = account;
+        }
+
         public void Logout()
         {
             CurrentAccount = null;
         }
+
     }
 }

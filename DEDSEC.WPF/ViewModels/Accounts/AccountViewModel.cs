@@ -1,6 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Accounts;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
@@ -33,7 +34,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 
         private void OnCurrentAccountChanged()
         {
-            OnPropertyChanged(nameof(Nickname));
+            OnPropertyChanged(nameof(Account));
         }
 
         public override void Dispose()

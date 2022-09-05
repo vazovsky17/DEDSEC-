@@ -12,11 +12,13 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameListingViewModel : ViewModelBase
     {
-        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
-        public ICommand AddGameCommand { get; }
-
         private readonly AccountStore _accountStore;
         private readonly GamesStore _gamesStore;
+
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+        public ICommand AddGameCommand { get; }
+        public ICommand EditGameCommand { get; }
+        public ICommand DeleteGameCommand { get; }
 
         private readonly ObservableCollection<GameViewModel> _gameViewModels;
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
@@ -36,6 +38,37 @@ namespace DEDSEC.WPF.ViewModels.Games
             _gamesStore.GameDeleted += GamesStore_Deleted;
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);
+        }
+
+        private string setGameViewModelsCountDisplay()
+        {
+            var count = _gameViewModels.Count;
+            return count + " " + GrammarGame(count);
+        }
+
+        /// <summary>
+        /// НЕ РАБОТАЕТ
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private string GrammarGame(int num)
+        {
+            if (num % 10 == 0)
+            {
+                return "игр";
+            }
+            else if (num % 10 == 1 && num != 11)
+            {
+                return "игра";
+            }
+            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
+            {
+                return "игры";
+            }
+            else
+            {
+                return "игр";
+            }
         }
 
         private async void Load()
@@ -84,37 +117,6 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             GameViewModel itemViewModel = new GameViewModel(game);
             _gameViewModels.Add(itemViewModel);
-        }
-
-        private string setGameViewModelsCountDisplay()
-        {
-            var count = _gameViewModels.Count;
-            return count + " " + GrammarGame(count);
-        }
-
-        /// <summary>
-        /// НЕ РАБОТАЕТ
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        private string GrammarGame(int num)
-        {
-            if (num % 10 == 0)
-            {
-                return "игр";
-            }
-            else if (num % 10 == 1 && num != 11)
-            {
-                return "игра";
-            }
-            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
-            {
-                return "игры";
-            }
-            else
-            {
-                return "игр";
-            }
         }
 
         public override void Dispose()

@@ -75,6 +75,14 @@
                 <DataTemplate DataType="{x:Type donations:AddDonationViewModel}">
                     <components:AddDonationComponent />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type donations:AddDonationGoalViewModel}">
+                    <components:AddDonationGoalComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type donations:EditDonationGoalViewModel}">
+                    <components:EditDonationGoalComponent />
+                </DataTemplate>
             </Grid.Resources>
             <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
                 <ContentControl Content="{Binding CurrentModalViewModel}" />

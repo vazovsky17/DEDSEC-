@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Donations;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;

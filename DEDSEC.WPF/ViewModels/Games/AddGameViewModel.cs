@@ -1,4 +1,5 @@
 ﻿using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Games;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;

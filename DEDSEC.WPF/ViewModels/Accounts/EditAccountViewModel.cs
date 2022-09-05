@@ -1,6 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Accounts;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using System.Windows.Input;
@@ -9,9 +10,9 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class EditAccountViewModel : ViewModelBase
     {
-        public Account CurrentAccount { get; }
+        public static Account? CurrentAccount { get;private set; }
 
-        private string _nickname;
+        private string _nickname = CurrentAccount?.AccountHolder.Nickname ?? string.Empty;
         public string Nickname
         {
             get
@@ -25,7 +26,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             }
         }
 
-        private string _password;
+        private string _password = CurrentAccount?.AccountHolder.Password ?? string.Empty;
         public string Password
         {
             get
@@ -39,7 +40,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             }
         }
 
-        private string _name;
+        private string _name = CurrentAccount?.Name ?? string.Empty;
         public string Name
         {
             get
@@ -53,7 +54,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             }
         }
 
-        private int _age;
+        private int _age = CurrentAccount?.Age ?? 0;
         public int Age
         {
             get
@@ -67,7 +68,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             }
         }
 
-        private string _aboutMe;
+        private string _aboutMe = CurrentAccount?.AboutMe ?? string.Empty;
         public string AboutMe
         {
             get
@@ -81,7 +82,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             }
         }
 
-        private bool _isVisited;
+        private bool _isVisited = CurrentAccount?.IsVisited ?? false;
         public bool IsVisited
         {
             get
@@ -100,6 +101,8 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 
         public EditAccountViewModel(IAccountService dataService, IAuthenticatorService authenticatorService, INavigationService closeNavigationService)
         {
+            CurrentAccount = authenticatorService.CurrentAccount;
+
             SubmitCommand = new EditAccountCommand(this, dataService, authenticatorService, closeNavigationService);
             CancelCommand = new NavigateCommand(closeNavigationService);
         }

@@ -2,10 +2,12 @@
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
+using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Donations
@@ -31,6 +33,33 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public int TargetValue => DonationGoal?.TargetValue ?? 100;
         public int Progress => CurrentValue * 100 / TargetValue;
         public string Targets => CurrentValue + "/" + TargetValue;
+        public string DonationsViewModelsCountDisplay => setDonationViewModelsCountDisplay();
+
+        private string setDonationViewModelsCountDisplay()
+{
+            var count = _donationViewModels.Count;
+            return count + " " + GrammarDonation(count);
+        }
+
+        private string GrammarDonation(int num)
+        {
+            if (num % 10 == 0)
+            {
+                return "донатов";
+            }
+            else if (num % 10 == 1 && num != 11)
+            {
+                return "донат";
+            }
+            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
+            {
+                return "доната";
+            }
+            else
+            {
+                return "донатов";
+            }
+        }
 
         public ICommand AddDonationCommand { get; }
         public ICommand AddDonationGoalCommand { get; }
@@ -61,6 +90,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
         private async void Load()
         {
             await _donationGoalStore.Load();
+            OnAllPropertysChanged();
         }
 
         private void DonationGoalStore_Changed()

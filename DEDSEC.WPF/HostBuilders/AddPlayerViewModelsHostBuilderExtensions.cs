@@ -1,4 +1,5 @@
-﻿using DEDSEC.WPF.Stores;
+﻿using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,7 +14,10 @@ namespace DEDSEC.WPF.HostBuilders
             {
                 services.AddTransient<PlayerListingViewModel>(s => new PlayerListingViewModel(
                     s.GetRequiredService<AccountStore>(),
-                    s.GetRequiredService<PlayersStore>()));
+                    s.GetRequiredService<IAuthenticatorService>(),
+                    s.GetRequiredService<PlayersStore>(),
+                    CreateNavigationServiceExtensions.CreateAddPlayerNavigationService(s),
+                    CreateNavigationServiceExtensions.CreateEditPlayerNavigationService(s)));
             });
 
             return host;

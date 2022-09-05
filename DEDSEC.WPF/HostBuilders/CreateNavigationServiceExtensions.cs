@@ -92,6 +92,19 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
+        public static INavigationService CreateAddPlayerNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<AddPlayerViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<AddPlayerViewModel>());
+        }
+
+        public static INavigationService CreateEditPlayerNavigationService(IServiceProvider serviceProvider)
+        {
+            return new ModalNavigationService<EditPlayerViewModel>(
+                serviceProvider.GetRequiredService<ModalNavigationStore>(),
+                () => serviceProvider.GetRequiredService<EditPlayerViewModel>());
+        }
         #endregion
 
         #region Donation
