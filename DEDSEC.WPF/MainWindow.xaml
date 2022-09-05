@@ -24,6 +24,7 @@
         MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.Resources>
+                <!--#region Account-->
                 <DataTemplate DataType="{x:Type accounts:AccountViewModel}">
                     <components:AccountComponent />
                 </DataTemplate>
@@ -31,11 +32,9 @@
                 <DataTemplate DataType="{x:Type accounts:EditAccountViewModel}">
                     <components:EditAccountComponent />
                 </DataTemplate>
+                <!--#endregion-->
 
-                <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-                    <components:HomeComponent />
-                </DataTemplate>
-
+                <!--#region Authorization-->
                 <DataTemplate DataType="{x:Type authorization:LoginViewModel}">
                     <components:LoginComponent />
                 </DataTemplate>
@@ -43,11 +42,9 @@
                 <DataTemplate DataType="{x:Type authorization:RegisterViewModel}">
                     <components:RegisterComponent />
                 </DataTemplate>
+                <!--#endregion-->
 
-                <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
-                    <components:LayoutComponent />
-                </DataTemplate>
-
+                <!--#region Meetings-->
                 <DataTemplate DataType="{x:Type meetings:MeetingListingViewModel}">
                     <components:MeetingListingComponent />
                 </DataTemplate>
@@ -55,11 +52,15 @@
                 <DataTemplate DataType="{x:Type meetings:AddMeetingViewModel}">
                     <components:AddMeetingComponent />
                 </DataTemplate>
+                <!--#endregion-->
 
+                <!--#region Players-->
                 <DataTemplate DataType="{x:Type players:PlayerListingViewModel}">
                     <components:PlayerListingComponent />
                 </DataTemplate>
+                <!--#endregion-->
 
+                <!--#region Game-->
                 <DataTemplate DataType="{x:Type games:GameListingViewModel}">
                     <components:GameListingComponent />
                 </DataTemplate>
@@ -68,6 +69,12 @@
                     <components:AddGameComponent />
                 </DataTemplate>
 
+                <DataTemplate DataType="{x:Type games:EditGameViewModel}">
+                    <components:EditGameComponent/>
+                </DataTemplate>
+                <!--#endregion-->
+
+                <!--#region Donations-->
                 <DataTemplate DataType="{x:Type donations:DonationGoalViewModel}">
                     <components:DonationGoalComponent />
                 </DataTemplate>
@@ -83,6 +90,17 @@
                 <DataTemplate DataType="{x:Type donations:EditDonationGoalViewModel}">
                     <components:EditDonationGoalComponent />
                 </DataTemplate>
+                <!--#endregion-->
+
+                <!--#region Other-->
+                <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                    <components:HomeComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
+                    <components:LayoutComponent />
+                </DataTemplate>
+                <!--#endregion-->
             </Grid.Resources>
             <modal:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
                 <ContentControl Content="{Binding CurrentModalViewModel}" />

@@ -34,6 +34,9 @@
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Games\EditGameComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Games\GameListingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Games\EditGameComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\GameListingComponent.xaml">
