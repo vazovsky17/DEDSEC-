@@ -13,6 +13,6 @@
             Margin="20"
             Style="{StaticResource textBlockTitle}"
             Text="Редактировать игрока" />
-        <components:AccountFormComponent Grid.Row="1" DataContext="{Binding AccountFormViewModel}"/>
+        <components:AccountFormComponent Grid.Row="1" DataContext="{Binding AccountFormViewModel}" />
     </Grid>
 </UserControl>

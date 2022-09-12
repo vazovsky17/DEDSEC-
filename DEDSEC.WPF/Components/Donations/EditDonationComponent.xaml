@@ -1,7 +1,18 @@
-﻿<UserControl x:Class="DEDSEC.WPF.Components.EditDonationComponent"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid>
-            
+﻿<UserControl
+    x:Class="DEDSEC.WPF.Components.EditDonationComponent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:DEDSEC.WPF.Components">
+    <Grid Width="400" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Margin="20"
+            Style="{StaticResource textBlockTitle}"
+            Text="Редактировать донат" />
+        <components:DonationFormComponent Grid.Row="1" DataContext="{Binding DonationFormViewModel}" />
     </Grid>
 </UserControl>
