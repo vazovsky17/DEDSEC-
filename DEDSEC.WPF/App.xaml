@@ -200,6 +200,18 @@
             </Style.Triggers>
         </Style>
         <Style
+            x:Key="gridFavoriteButton"
+            BasedOn="{StaticResource gridEditButton}"
+            TargetType="Button">
+            <Setter Property="Background" Value="#FFC618" />
+            <Setter Property="BorderBrush" Value="#FFCC00" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFCC00" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style
             x:Key="gridDeleteButton"
             BasedOn="{StaticResource gridEditButton}"
             TargetType="Button">

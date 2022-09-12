@@ -2,6 +2,7 @@
 using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Commands.Players;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Forms;
 
@@ -13,12 +14,13 @@ namespace DEDSEC.WPF.ViewModels.Players
         public AccountFormViewModel AccountFormViewModel { get; }
 
         public EditPlayerViewModel(Account player,
+            IAuthenticatorService authenticatorService,
             PlayersStore playersStore,
             ModalNavigationStore modalStore)
         {
             Player = player;
 
-            var SubmitCommand = new EditPlayerCommand(this, playersStore, modalStore);
+            var SubmitCommand = new EditPlayerCommand(this, authenticatorService, playersStore, modalStore);
             var CancelCommand = new CloseModalCommand(modalStore);
 
             AccountFormViewModel = new AccountFormViewModel(SubmitCommand, CancelCommand)

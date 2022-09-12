@@ -37,7 +37,7 @@ namespace DEDSEC.WPF.ViewModels.Players
         {
             Player = player;
             IsCurrentAccountAdmin = isCurrentAccountAdmin;
-            EditCommand = new OpenEditPlayerCommand(this, playersStore, modalStore);
+            EditCommand = new OpenEditPlayerCommand(this, authenticatorService, playersStore, modalStore);
             DeleteCommand = new DeletePlayerCommand(authenticatorService, logoutNavigationService, playersStore, player);
         }
 

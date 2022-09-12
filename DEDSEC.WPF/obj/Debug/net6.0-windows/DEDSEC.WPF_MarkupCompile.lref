@@ -1,6 +1,10 @@
 ﻿
 
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Account\EditAccountComponent.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationComponent.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationGoalComponent.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\EditDonationComponent.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\EditDonationGoalComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Games\AddGameComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Games\EditGameComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\LayoutComponent.xaml;;
@@ -8,8 +12,4 @@ FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Meetings\AddMee
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Meetings\EditMeetingComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Players\EditPlayerComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\MainWindow.xaml;;
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\EditDonationComponent.xaml;;
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\EditDonationGoalComponent.xaml;;
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationComponent.xaml;;
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationGoalComponent.xaml;;
 

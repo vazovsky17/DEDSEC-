@@ -1,12 +1,13 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games
@@ -14,6 +15,8 @@ namespace DEDSEC.WPF.ViewModels.Games
     public class GameListingViewModel : ViewModelBase
     {
         private readonly AccountStore _accountStore;
+        private readonly IAccountService _accountService;
+        private readonly IAuthenticatorService _authenticatorService;
         private readonly GamesStore _gamesStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
@@ -25,11 +28,15 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string GameViewModelsCountDisplay => setGameViewModelsCountDisplay();
 
         public GameListingViewModel(AccountStore accountStore,
+            IAccountService accountService,
+            IAuthenticatorService authenticatorService,
             GamesStore gamesStore,
             ModalNavigationStore modalNavigationStore,
             INavigationService addGameNavigationService)
         {
             _accountStore = accountStore;
+            _accountService = accountService;
+            _authenticatorService = authenticatorService;
             _gamesStore = gamesStore;
             _modalNavigationStore = modalNavigationStore;
 
@@ -120,7 +127,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            var itemViewModel = new GameViewModel(game, _gamesStore, _modalNavigationStore, IsAdmin);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _accountStore, _accountService, _authenticatorService, _modalNavigationStore);
             _gameViewModels.Add(itemViewModel);
         }
 

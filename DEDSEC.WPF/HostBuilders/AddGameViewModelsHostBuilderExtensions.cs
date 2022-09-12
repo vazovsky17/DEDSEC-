@@ -1,4 +1,6 @@
-﻿using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.Domain.Services.Authentification;
+using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Games;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,8 @@ namespace DEDSEC.WPF.HostBuilders
 
                 services.AddTransient<GameListingViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
+                    s.GetRequiredService<IAccountService>(),
+                    s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<GamesStore>(),
                     s.GetRequiredService<ModalNavigationStore>(),
                     CreateNavigationServiceExtensions.CreateAddGameNavigationService(s)));

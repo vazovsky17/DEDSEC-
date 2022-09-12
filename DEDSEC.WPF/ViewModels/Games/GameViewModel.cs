@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.WPF.Commands;
+using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Games;
-using DEDSEC.WPF.Services.Navigation;
+using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,8 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameViewModel : ViewModelBase
     {
-        public bool IsAdmin { get; }
+        public AccountStore AccountStore { get; }
+        public bool IsAdmin => AccountStore?.IsAdmin ?? false;
 
         public Game Game { get; private set; }
         public Guid Id => Game.Id;
@@ -25,16 +26,22 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string LinkHobbyGames => SetLinkDisplay(Game.LinkHobbyGames);
         public List<Review> Reviews => Game.Reviews;
 
+        public bool IsAddToFavoriteEnabled => !IsFavoriteGame();
+
+        public ICommand AddToFavoriteCommand { get; }
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
         public GameViewModel(Game game,
             GamesStore gamesStore,
-            ModalNavigationStore modalNavigationStore,
-            bool isAdmin)
+            AccountStore accountStore,
+            IAccountService accountService,
+            IAuthenticatorService authenticatorService,
+            ModalNavigationStore modalNavigationStore)
         {
-            IsAdmin = isAdmin;
             Game = game;
+            AccountStore = accountStore;
+            AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, accountService, authenticatorService);
             EditCommand = new OpenEditGameCommand(this, gamesStore, modalNavigationStore);
             DeleteCommand = new DeleteGameCommand(gamesStore, game);
         }
@@ -74,5 +81,21 @@ namespace DEDSEC.WPF.ViewModels.Games
         /// <param name="link">Ссылка, если есть</param>
         /// <returns>Строка с отображаемой ссылкой на игру</returns>
         private string SetLinkDisplay(string? link) => (link != null && link.Length > 0) ? link : "Нет ссылки";
+
+        private bool IsFavoriteGame()
+        {
+            var account = AccountStore.CurrentAccount;
+            if (account != null)
+            {
+                foreach (var item in account.FavoriteGames)
+                {
+                    if (Game == item)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
