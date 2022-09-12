@@ -94,6 +94,10 @@
                 <DataTemplate DataType="{x:Type donations:EditDonationGoalViewModel}">
                     <components:EditDonationGoalComponent />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type donations:EditDonationViewModel}">
+                    <components:EditDonationComponent />
+                </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Other-->

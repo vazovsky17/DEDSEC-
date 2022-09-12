@@ -19,6 +19,7 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<MeetingListingViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
+                    s.GetRequiredService<ModalNavigationStore>(),
                     CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));
             });
 

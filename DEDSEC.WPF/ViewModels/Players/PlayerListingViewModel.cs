@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.ViewModels.Players
         private readonly PlayersStore _playersStore;
 
         private readonly AccountStore _accountStore;
-        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+        public bool IsCurrentAccountAdmin => _accountStore?.IsAdmin ?? false;
 
         private readonly ObservableCollection<PlayerViewModel> _playerViewModels;
         public IEnumerable<PlayerViewModel> PlayerViewModels => _playerViewModels;
@@ -104,7 +104,9 @@ namespace DEDSEC.WPF.ViewModels.Players
 
             if (playerViewModel != null)
             {
+                _playerViewModels.Remove(playerViewModel);
                 playerViewModel.Update(player);
+                _playerViewModels.Add(playerViewModel);
             }
         }
 
@@ -120,7 +122,7 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private void AddPlayerViewModel(Account player)
         {
-            var itemViewModel = new PlayerViewModel(player, _playersStore, _modalStore, _authenticatorService, _logoutNavigationService);
+            var itemViewModel = new PlayerViewModel(player, _playersStore, IsCurrentAccountAdmin, _modalStore, _authenticatorService, _logoutNavigationService);
             _playerViewModels.Add(itemViewModel);
         }
 

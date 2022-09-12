@@ -9,15 +9,15 @@ namespace DEDSEC.WPF.Commands.Games
     {
         private readonly GameViewModel _gameViewModel;
         private readonly GamesStore _gamesStore;
-        private readonly ModalNavigationStore _modalStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
 
-        public OpenEditGameCommand(GameViewModel gameViewModel, 
-            GamesStore gamesStore, 
-            ModalNavigationStore modalStore)
+        public OpenEditGameCommand(GameViewModel gameViewModel,
+            GamesStore gamesStore,
+            ModalNavigationStore modalNavigationStore)
         {
             _gameViewModel = gameViewModel;
             _gamesStore = gamesStore;
-            _modalStore = modalStore;
+            _modalNavigationStore = modalNavigationStore;
         }
 
         public override void Execute(object parameter)
@@ -25,8 +25,8 @@ namespace DEDSEC.WPF.Commands.Games
             Game game = _gameViewModel.Game;
 
             EditGameViewModel editGameViewModel = new EditGameViewModel(
-                game,_gamesStore,_modalStore);
-            _modalStore.CurrentViewModel = editGameViewModel;
+                game, _gamesStore, _modalNavigationStore);
+            _modalNavigationStore.CurrentViewModel = editGameViewModel;
         }
     }
 }

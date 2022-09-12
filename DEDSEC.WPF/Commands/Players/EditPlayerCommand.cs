@@ -1,5 +1,4 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Players;

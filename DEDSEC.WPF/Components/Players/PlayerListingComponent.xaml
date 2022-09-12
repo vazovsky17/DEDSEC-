@@ -131,21 +131,21 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Command="{Binding ShowCommand}" Style="{StaticResource gridEditButton}">
+                                <Button Command="{Binding IsCurrentAccountAdmin}" Style="{StaticResource gridEditButton}">
                                     <icon:PackIconMaterial Kind="Shower" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"
                                     Command="{Binding EditCommand}"
                                     Style="{StaticResource gridEditButton}"
-                                    Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    Visibility="{Binding IsCurrentAccountAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"
                                     Command="{Binding DeleteCommand}"
                                     Style="{StaticResource gridDeleteButton}"
-                                    Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    Visibility="{Binding IsCurrentAccountAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="Delete" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                             </StackPanel>

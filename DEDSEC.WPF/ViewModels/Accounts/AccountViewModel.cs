@@ -38,7 +38,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 
         private void OnCurrentAccountChanged()
         {
-            OnPropertyChanged(nameof(Account));
+            OnPropertyChanged(nameof(CurrentAccount));
         }
 
         public override void Dispose()

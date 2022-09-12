@@ -9,15 +9,15 @@ namespace DEDSEC.WPF.Commands.Games
     {
         private readonly EditGameViewModel _editGameViewModel;
         private readonly GamesStore _gamesStore;
-        private readonly ModalNavigationStore _modalStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
 
         public EditGameCommand(EditGameViewModel editGameViewModel,
             GamesStore gamesStore,
-            ModalNavigationStore modalStore)
+            ModalNavigationStore modalNavigationStore)
         {
             _editGameViewModel = editGameViewModel;
             _gamesStore = gamesStore;
-            _modalStore = modalStore;
+            _modalNavigationStore = modalNavigationStore;
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -38,7 +38,7 @@ namespace DEDSEC.WPF.Commands.Games
                 {
                     if (task.IsCompleted)
                     {
-                        _modalStore.Close();
+                        _modalNavigationStore.Close();
                     }
                 });
             }

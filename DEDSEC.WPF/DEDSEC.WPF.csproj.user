@@ -28,10 +28,22 @@
     <Compile Update="Components\Common\FilterComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Donations\EditDonationComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Donations\EditDonationGoalComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Forms\DonationFormComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Forms\DonationGoalFormComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Forms\GameFormComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Forms\MeetingFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
@@ -53,6 +65,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Authorization\LoginComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Meetings\EditMeetingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Meetings\MeetingListingComponent.xaml.cs">
@@ -96,10 +111,22 @@
     <Page Update="Components\Common\FilterComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\Donations\EditDonationComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\Donations\EditDonationGoalComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\Forms\DonationFormComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Forms\DonationGoalFormComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\Forms\GameFormComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Forms\MeetingFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">
@@ -121,6 +148,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Authorization\LoginComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Meetings\EditMeetingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Meetings\MeetingListingComponent.xaml">

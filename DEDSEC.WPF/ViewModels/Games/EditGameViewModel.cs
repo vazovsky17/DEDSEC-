@@ -13,11 +13,11 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         public EditGameViewModel(Game game,
             GamesStore gamesStore,
-            ModalNavigationStore modalStore)
+            ModalNavigationStore modalNavigationStore)
         {
             Game = game;
-            var SubmitCommand = new EditGameCommand(this, gamesStore, modalStore);
-            var CancelCommand = new CloseModalCommand(modalStore);
+            var SubmitCommand = new EditGameCommand(this, gamesStore, modalNavigationStore);
+            var CancelCommand = new CloseModalCommand(modalNavigationStore);
 
             GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
             {

@@ -17,7 +17,7 @@ namespace DEDSEC.WPF.HostBuilders
                     s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s),
                     CreateNavigationServiceExtensions.CreateAddDonationGoalNavigationService(s),
-                    CreateNavigationServiceExtensions.CreateEditDonationGoalNavigationService(s)));
+                    s.GetRequiredService<ModalNavigationStore>()));
 
                 services.AddTransient<AddDonationViewModel>(s => new(
                     s.GetRequiredService<DonationGoalStore>(),

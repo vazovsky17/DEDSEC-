@@ -23,17 +23,21 @@ namespace DEDSEC.WPF.ViewModels.Players
         public bool IsAdmin => AccountHolder?.IsAdmin ?? false;
         public List<Game> FavoriteGames => Player?.FavoriteGames ?? new();
 
+        public bool IsCurrentAccountAdmin { get; }
+
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
         public PlayerViewModel(Account player,
             PlayersStore playersStore,
+            bool isCurrentAccountAdmin,
             ModalNavigationStore modalStore,
             IAuthenticatorService authenticatorService,
             INavigationService logoutNavigationService)
         {
             Player = player;
-            EditCommand = new OpenEditPlayerCommand(this, playersStore,modalStore);
+            IsCurrentAccountAdmin = isCurrentAccountAdmin;
+            EditCommand = new OpenEditPlayerCommand(this, playersStore, modalStore);
             DeleteCommand = new DeletePlayerCommand(authenticatorService, logoutNavigationService, playersStore, player);
         }
 

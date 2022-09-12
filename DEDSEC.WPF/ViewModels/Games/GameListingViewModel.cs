@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games
@@ -14,7 +15,7 @@ namespace DEDSEC.WPF.ViewModels.Games
     {
         private readonly AccountStore _accountStore;
         private readonly GamesStore _gamesStore;
-        private readonly ModalNavigationStore _modalStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
 
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
         public ICommand AddGameCommand { get; }
@@ -25,12 +26,12 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         public GameListingViewModel(AccountStore accountStore,
             GamesStore gamesStore,
-            ModalNavigationStore modalStore,
+            ModalNavigationStore modalNavigationStore,
             INavigationService addGameNavigationService)
         {
             _accountStore = accountStore;
             _gamesStore = gamesStore;
-            _modalStore = modalStore;
+            _modalNavigationStore = modalNavigationStore;
 
             _gameViewModels = new();
 
@@ -100,7 +101,9 @@ namespace DEDSEC.WPF.ViewModels.Games
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
             if (gameViewModel != null)
             {
+                _gameViewModels.Remove(gameViewModel);
                 gameViewModel.Update(game);
+                _gameViewModels.Add(gameViewModel);
                 OnPropertyChanged(nameof(GameViewModelsCountDisplay));
             }
         }
@@ -108,7 +111,6 @@ namespace DEDSEC.WPF.ViewModels.Games
         private void GamesStore_Deleted(Guid id)
         {
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(y => y.Id == id);
-
             if (gameViewModel != null)
             {
                 _gameViewModels.Remove(gameViewModel);
@@ -118,7 +120,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            var itemViewModel = new GameViewModel(game, _gamesStore, _modalStore, IsAdmin);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _modalNavigationStore, IsAdmin);
             _gameViewModels.Add(itemViewModel);
         }
 

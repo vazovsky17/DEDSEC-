@@ -17,16 +17,19 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         private readonly AccountStore _accountStore;
         private readonly MeetingsStore _meetingsStore;
+        private readonly ModalNavigationStore _modalStore;
 
         private readonly ObservableCollection<MeetingViewModel> _meetingViewModels;
         public IEnumerable<MeetingViewModel> MeetingViewModels => _meetingViewModels;
 
         public MeetingListingViewModel(AccountStore accountStore,
             MeetingsStore meetingsStore,
+            ModalNavigationStore modalStore,
             INavigationService addMeetingNavigationService)
         {
             _accountStore = accountStore;
             _meetingsStore = meetingsStore;
+            _modalStore = modalStore;
 
             _meetingViewModels = new();
 
@@ -64,7 +67,9 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             MeetingViewModel meetingViewModel = _meetingViewModels.FirstOrDefault(x => x.Id == meeting.Id);
             if (meetingViewModel != null)
             {
+                _meetingViewModels.Remove(meetingViewModel);
                 meetingViewModel.Update(meeting);
+                _meetingViewModels.Add(meetingViewModel);
             }
         }
 
@@ -80,7 +85,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         private void AddGameViewModel(Meeting meeting)
         {
-            var itemViewModel = new MeetingViewModel(meeting, _meetingsStore, IsAdmin);
+            var itemViewModel = new MeetingViewModel(meeting, _meetingsStore, _modalStore, IsAdmin);
             _meetingViewModels.Add(itemViewModel);
         }
 

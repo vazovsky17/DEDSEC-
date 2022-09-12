@@ -1,6 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands.Common;
-using DEDSEC.WPF.Commands.Games;
 using DEDSEC.WPF.Commands.Meetings;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Forms;

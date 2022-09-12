@@ -128,13 +128,6 @@ namespace DEDSEC.WPF.HostBuilders
                 serviceProvider.GetRequiredService<ModalNavigationStore>(),
                 () => serviceProvider.GetRequiredService<AddDonationGoalViewModel>());
         }
-
-        public static INavigationService CreateEditDonationGoalNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<EditDonationGoalViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<EditDonationGoalViewModel>());
-        }
         #endregion
 
         #region Other

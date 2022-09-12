@@ -17,7 +17,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             var CancelCommand = new NavigateCommand(closeNavigationService);
 
             MeetingFormViewModel = new MeetingFormViewModel(SubmitCommand, CancelCommand)
-            {
+            {   
                 DateBegin = System.DateTime.Now,
                 DateEnd = System.DateTime.Now,
                 MaxCountVisitors = 8

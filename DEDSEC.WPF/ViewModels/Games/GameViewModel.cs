@@ -30,12 +30,12 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         public GameViewModel(Game game,
             GamesStore gamesStore,
-            ModalNavigationStore modalStore,
+            ModalNavigationStore modalNavigationStore,
             bool isAdmin)
         {
             IsAdmin = isAdmin;
             Game = game;
-            EditCommand = new OpenEditGameCommand(this, gamesStore, modalStore);
+            EditCommand = new OpenEditGameCommand(this, gamesStore, modalNavigationStore);
             DeleteCommand = new DeleteGameCommand(gamesStore, game);
         }
 

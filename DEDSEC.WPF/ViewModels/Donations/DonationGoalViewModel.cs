@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Commands.Donations;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Games;
@@ -27,8 +28,8 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public bool CanAddDonationGoal => IsAdmin && DonationGoalMissing;
         public bool CanEditDonationGoal => IsAdmin && HasDonationGoal;
 
-        public string Title => DonationGoal?.Title ?? String.Empty;
-        public string Description => DonationGoal?.Description ?? String.Empty;
+        public string Title => DonationGoal?.Title ?? string.Empty;
+        public string Description => DonationGoal?.Description ?? string.Empty;
         public int CurrentValue => DonationGoal?.CurrentValue ?? 00;
         public int TargetValue => DonationGoal?.TargetValue ?? 100;
         public int Progress => CurrentValue * 100 / TargetValue;
@@ -70,7 +71,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
             AccountStore accountStore,
             INavigationService addDonationNavigationService,
             INavigationService addDonationGoalNavigationService,
-            INavigationService editDonationGoalNavigationService)
+            ModalNavigationStore modalNavigationStore)
         {
             _donationGoalStore = donationGoalStore;
             _accountStore = accountStore;
@@ -88,7 +89,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
             AddDonationCommand = new NavigateCommand(addDonationNavigationService);
             AddDonationGoalCommand = new NavigateCommand(addDonationGoalNavigationService);
-            EditDonationGoalCommand = new NavigateCommand(editDonationGoalNavigationService);
+            EditDonationGoalCommand = new OpenEditDonationGoalCommand(this, donationGoalStore, modalNavigationStore);
         }
 
         private async void Load()

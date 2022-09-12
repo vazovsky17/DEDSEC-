@@ -25,12 +25,15 @@ namespace DEDSEC.WPF.ViewModels.Meetings
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public MeetingViewModel(Meeting meeting, MeetingsStore meetingsStore, bool isAdmin)
+        public MeetingViewModel(Meeting meeting,
+            MeetingsStore meetingsStore,
+            ModalNavigationStore modalStore,
+            bool isAdmin)
         {
             IsAdmin = isAdmin;
             Meeting = meeting;
 
-            //EditCommand = new NavigateCommand();
+            EditCommand = new OpenEditMeetingCommand(this, meetingsStore, modalStore);
             DeleteCommand = new DeleteMeetingCommand(meetingsStore, meeting);
         }
 
