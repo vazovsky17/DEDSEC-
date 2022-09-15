@@ -63,28 +63,31 @@
             </Button>
         </StackPanel>
 
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,20"
+            Orientation="Horizontal"
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Style="{StaticResource textBlockDefault}" Text="{Binding Title}" />
+            <TextBlock
+                Margin="10,0,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding Description}" />
+            <ProgressBar
+                Width="160"
+                Margin="10,0,0,0"
+                Foreground="{StaticResource ColorPrimary}"
+                Maximum="100"
+                Minimum="0"
+                Value="{Binding Progress, Mode=OneWay}" />
+            <TextBlock
+                Margin="10,0,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding Targets}" />
+            <Button Style="{StaticResource optionButton}" Content="Задонатить" Command="{Binding AddDonationCommand}"/>
+        </StackPanel>
 
-        <TextBlock
-            Grid.Row="1"
-            HorizontalAlignment="Left"
-            Text="{Binding Title}"
-            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        <TextBlock
-            Grid.Row="1"
-            HorizontalAlignment="Right"
-            Text="{Binding Description}"
-            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        <ProgressBar
-            Grid.Row="1"
-            Width="160"
-            Margin="4,8,4,0"
-            HorizontalAlignment="Center"
-            DockPanel.Dock="Top"
-            Foreground="{StaticResource ColorPrimary}"
-            Maximum="100"
-            Minimum="0"
-            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanToVisibilityConverter}}"
-            Value="{Binding Progress, Mode=OneWay}" />
+
 
         <!--  Counter Title  -->
         <TextBlock

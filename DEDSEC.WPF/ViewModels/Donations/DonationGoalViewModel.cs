@@ -3,12 +3,10 @@ using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Commands.Donations;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Donations

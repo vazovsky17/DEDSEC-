@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -33,31 +32,10 @@
             </StackPanel>
         </Button>
 
-        <!--  Separator  -->
-        <Separator
-            Grid.Row="2"
-            Height="1"
-            Margin="0,-16,0,8"
-            Background="{StaticResource ColorSeparator}" />
-
-        <!--  Tab Buttons  -->
-        <StackPanel
-            Grid.Row="1"
-            Margin="0,8,0,0"
-            Orientation="Horizontal">
-            <Button
-                BorderBrush="#784ff2"
-                Content="Все"
-                Style="{StaticResource tabButton}" />
-            <Button Content="Игроки" Style="{StaticResource tabButton}" />
-            <Button Content="Админы" Style="{StaticResource tabButton}" />
-            <Button Content="Посетившие" Style="{StaticResource tabButton}" />
-            <Button Content="Новички" Style="{StaticResource tabButton}" />
-        </StackPanel>
-
         <!--  Counter Title  -->
         <TextBlock
-            Grid.Row="2"
+            Grid.Row="1"
+            Margin="0,20,0,10"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             FontSize="18"
@@ -68,23 +46,13 @@
         <!--  Meetings Datagrid  -->
         <DataGrid
             x:Name="MeetingsDataGrid"
-            Grid.Row="3"
+            Grid.Row="2"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
             ItemsSource="{Binding MeetingViewModels}"
             RowStyle="{DynamicResource DataGridRowStyle1}"
             Style="{DynamicResource DataGridStyle1}">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn
-                    Width="auto"
-                    CanUserResize="False"
-                    ElementStyle="{StaticResource CornerCheckBoxStyle}">
-                    <DataGridCheckBoxColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <CheckBox Style="{StaticResource CornerCheckBoxStyle}" />
-                        </DataTemplate>
-                    </DataGridCheckBoxColumn.HeaderTemplate>
-                </DataGridCheckBoxColumn>
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding Title}"

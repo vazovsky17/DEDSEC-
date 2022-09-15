@@ -7,12 +7,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <!--  Page Title  -->
@@ -44,6 +39,9 @@
             </Button>
         </StackPanel>
 
-        <components:AccountDataComponent Grid.Row="1" DataContext="{Binding CurrentAccountViewModel}"/>
+        <components:AccountDataComponent
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            DataContext="{Binding CurrentAccountViewModel}" />
     </Grid>
 </UserControl>
