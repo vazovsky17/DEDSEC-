@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.ViewModels
 
         public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Гость";
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
-        public bool IsLoggedIn => _accountStore.IsLoggedIn;
+        public bool IsLoggedIn => _accountStore.CurrentAccount != null;
         public bool IsUnlogged => !IsLoggedIn;
 
         public NavigationBarViewModel(AccountStore accountStore,

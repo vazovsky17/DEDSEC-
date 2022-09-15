@@ -1,11 +1,13 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Stores;
 using System.Collections.Generic;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class AccountViewModel : ViewModelBase
     {
-        public Account Account { get; private set; }
+        public AccountStore AccountStore { get; private set; }
+        public Account Account => AccountStore.CurrentAccount;
         public string Nickname => !string.IsNullOrEmpty(Account.AccountHolder.Nickname) ? Account.AccountHolder.Nickname : "Неизвестно";
         public string Name => !string.IsNullOrEmpty(Account?.Name) ? Account.Name : "Неизестно";
         public int Age => Account?.Age ?? 0;
@@ -13,16 +15,23 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public bool IsVisited => Account?.IsVisited ?? false;
         public List<Game> FavoriteGames => Account?.FavoriteGames ?? new();
 
-        public AccountViewModel(Account account)
+        public AccountViewModel(AccountStore accountStore)
         {
-            Account = account;
+            AccountStore = accountStore;
+
+            AccountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }
 
-        public void Update(Account account)
+        private void OnCurrentAccountChanged()
         {
-            Account = account;
-
             OnPropertyChanged(nameof(Account));
+        }
+
+        public override void Dispose()
+        {
+            AccountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
+
+            base.Dispose();
         }
     }
 }

@@ -3,6 +3,7 @@ using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
+using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Accounts;
 using System;
 using System.Threading.Tasks;
@@ -13,16 +14,16 @@ namespace DEDSEC.WPF.Commands.Accounts
     {
         private readonly EditAccountViewModel _editAccountViewModel;
         private readonly IAccountService _dataService;
-        private readonly IAuthenticatorService _authenticatorService;
+        private readonly AccountStore _accountStore;
         private readonly INavigationService _navigationService;
 
         public EditAccountCommand(EditAccountViewModel editAccountViewModel,
             IAccountService dataService,
-            IAuthenticatorService authenticatorService,
+            AccountStore accountStore,
             INavigationService navigationService)
         {
             _editAccountViewModel = editAccountViewModel;
-            _authenticatorService = authenticatorService;
+            _accountStore = accountStore;
             _dataService = dataService;
             _navigationService = navigationService;
         }
@@ -51,7 +52,7 @@ namespace DEDSEC.WPF.Commands.Accounts
                 {
                     if (task.IsCompleted)
                     {
-                        _authenticatorService.EditAccount(account);
+                        _accountStore.EditAccount(account);
                         _navigationService.Navigate();
                     }
                 });

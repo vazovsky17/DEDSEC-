@@ -53,7 +53,7 @@
             <!--  Delete Button  -->
             <Button
                 Grid.Row="0"
-                Margin="10,20,0,0"
+                Margin="10,0,0,0"
                 Command="{Binding DeleteDonationGoalCommand}"
                 Style="{StaticResource optionButton}">
                 <StackPanel Orientation="Horizontal">

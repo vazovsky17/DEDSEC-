@@ -32,10 +32,10 @@ namespace DEDSEC.WPF.Commands.Donations
             var donationGoal = new DonationGoal()
             {
                 Id = Guid.NewGuid(),
-                Title = _addDonationGoalViewModel.Title,
-                Description = _addDonationGoalViewModel.Description,
-                CurrentValue = _addDonationGoalViewModel.CurrentValue,
-                TargetValue = _addDonationGoalViewModel.TargetValue,
+                Title = _addDonationGoalViewModel.DonationGoalFormViewModel.Title,
+                Description = _addDonationGoalViewModel.DonationGoalFormViewModel.Description,
+                CurrentValue = _addDonationGoalViewModel.DonationGoalFormViewModel.CurrentValue,
+                TargetValue = _addDonationGoalViewModel.DonationGoalFormViewModel.TargetValue,
                 Donations = new()
             };
 

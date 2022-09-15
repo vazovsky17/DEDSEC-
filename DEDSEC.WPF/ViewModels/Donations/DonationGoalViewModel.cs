@@ -90,6 +90,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
             AddDonationCommand = new NavigateCommand(addDonationNavigationService);
             AddDonationGoalCommand = new NavigateCommand(addDonationGoalNavigationService);
             EditDonationGoalCommand = new OpenEditDonationGoalCommand(this, donationGoalStore, modalNavigationStore);
+            DeleteDonationGoalCommand = new DeleteDonationGoalCommand(donationGoalStore,DonationGoal);
         }
 
         private async void Load()

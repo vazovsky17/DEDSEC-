@@ -35,7 +35,7 @@ namespace DEDSEC.WPF.Commands.Donations
             {
                 Id = Guid.NewGuid(),
                 Donater = _accountStore.CurrentAccount,
-                Value = _addDonationViewModel.Value
+                Value = _addDonationViewModel.DonationFormViewModel.DonatValue
             };
 
             await _donationGoalStore.AddDonation(donation).ContinueWith(task =>

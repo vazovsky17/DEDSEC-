@@ -1,6 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
 using System;
-using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Stores
 {
@@ -16,10 +15,13 @@ namespace DEDSEC.WPF.Stores
                 CurrentAccountChanged?.Invoke();
             }
         }
-
-        public bool IsLoggedIn => CurrentAccount != null;
         public bool IsAdmin => CurrentAccount?.AccountHolder.IsAdmin ?? false;
 
+        public void EditAccount(Account account)
+        {
+            CurrentAccount = account;
+            CurrentAccountChanged?.Invoke();
+        }
         public event Action CurrentAccountChanged;
     }
 }

@@ -8,8 +8,8 @@ namespace DEDSEC.WPF.ViewModels.Donations
 {
     public class EditDonationViewModel : ViewModelBase
     {
-        public Donation Donation { get; }
         public DonationFormViewModel DonationFormViewModel { get; }
+        public Donation Donation { get; }
 
         public EditDonationViewModel(Donation donation,
             DonationGoalStore donationGoalStore,

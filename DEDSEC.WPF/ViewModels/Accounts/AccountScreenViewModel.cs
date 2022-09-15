@@ -24,23 +24,10 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             INavigationService logoutNavigationService)
         {
             _accountStore = accountStore;
-            CurrentAccountViewModel =  new AccountViewModel(_accountStore.CurrentAccount);
+            CurrentAccountViewModel =  new AccountViewModel(_accountStore);
+
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);
             DeleteAccountCommand = new DeleteAccountCommand(dataService, authenticatorService, logoutNavigationService);
-
-            _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
-        }
-
-        private void OnCurrentAccountChanged()
-        {
-            OnPropertyChanged(nameof(CurrentAccountViewModel));
-        }
-
-        public override void Dispose()
-        {
-            _accountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
-
-            base.Dispose();
         }
     }
 }

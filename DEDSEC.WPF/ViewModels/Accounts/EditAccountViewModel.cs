@@ -4,6 +4,7 @@ using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Commands.Accounts;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
+using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
@@ -14,12 +15,12 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public AccountFormViewModel AccountFormViewModel { get; }
 
         public EditAccountViewModel(IAccountService dataService,
-            IAuthenticatorService authenticatorService,
+            AccountStore accountStore,
             INavigationService closeNavigationService)
         {
-            CurrentAccount = authenticatorService.CurrentAccount;
+            CurrentAccount = accountStore.CurrentAccount;
 
-            var SubmitCommand = new EditAccountCommand(this, dataService, authenticatorService, closeNavigationService);
+            var SubmitCommand = new EditAccountCommand(this, dataService, accountStore, closeNavigationService);
             var CancelCommand = new NavigateCommand(closeNavigationService);
 
             AccountFormViewModel = new AccountFormViewModel(SubmitCommand, CancelCommand)
