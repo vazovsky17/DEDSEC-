@@ -1,51 +1,28 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
-using DEDSEC.WPF.Commands;
-using DEDSEC.WPF.Commands.Accounts;
-using DEDSEC.WPF.Services;
-using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
-using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class AccountViewModel : ViewModelBase
     {
-        private readonly AccountStore _accountStore;
+        public Account Account { get; private set; }
+        public string Nickname => !string.IsNullOrEmpty(Account.AccountHolder.Nickname) ? Account.AccountHolder.Nickname : "Неизвестно";
+        public string Name => !string.IsNullOrEmpty(Account?.Name) ? Account.Name : "Неизестно";
+        public int Age => Account?.Age ?? 0;
+        public string AboutMe => !string.IsNullOrEmpty(Account?.AboutMe) ? Account.AboutMe : "Не заполнено";
+        public bool IsVisited => Account?.IsVisited ?? false;
+        public List<Game> FavoriteGames => Account?.FavoriteGames ?? new();
 
-        public Account? CurrentAccount => _accountStore?.CurrentAccount;
-        public string Nickname => !string.IsNullOrEmpty(CurrentAccount?.AccountHolder.Nickname) ? CurrentAccount.AccountHolder.Nickname : "Неизвестно";
-        public string Name => !string.IsNullOrEmpty(CurrentAccount?.Name) ? CurrentAccount.Name : "Неизестно";
-        public int Age => _accountStore.CurrentAccount?.Age ?? 0;
-        public string AboutMe => !string.IsNullOrEmpty(CurrentAccount?.AboutMe) ? CurrentAccount.AboutMe : "Не заполнено";
-        public bool IsVisited => _accountStore.CurrentAccount?.IsVisited ?? false;
-
-        public ICommand EditAccountCommand { get; }
-        public ICommand DeleteAccountCommand { get; }
-
-        public AccountViewModel(IAccountService dataService,
-            AccountStore accountStore,
-            IAuthenticatorService authenticatorService,
-            INavigationService editAccountNavigationService,
-            INavigationService logoutNavigationService)
+        public AccountViewModel(Account account)
         {
-            _accountStore = accountStore;
-            EditAccountCommand = new NavigateCommand(editAccountNavigationService);
-            DeleteAccountCommand = new DeleteAccountCommand(dataService, authenticatorService, logoutNavigationService);
-
-            _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
+            Account = account;
         }
 
-        private void OnCurrentAccountChanged()
+        public void Update(Account account)
         {
-            OnPropertyChanged(nameof(CurrentAccount));
-        }
+            Account = account;
 
-        public override void Dispose()
-        {
-            _accountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
-
-            base.Dispose();
+            OnPropertyChanged(nameof(Account));
         }
     }
 }

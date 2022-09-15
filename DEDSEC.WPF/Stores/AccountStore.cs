@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Stores
 {

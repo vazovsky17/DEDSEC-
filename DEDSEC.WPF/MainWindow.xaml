@@ -25,7 +25,7 @@
         <Grid>
             <Grid.Resources>
                 <!--#region Account-->
-                <DataTemplate DataType="{x:Type accounts:AccountViewModel}">
+                <DataTemplate DataType="{x:Type accounts:AccountScreenViewModel}">
                     <components:AccountComponent />
                 </DataTemplate>
 
@@ -60,7 +60,7 @@
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type players:EditPlayerViewModel}">
-                    <components:EditPlayerComponent/>
+                    <components:EditPlayerComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

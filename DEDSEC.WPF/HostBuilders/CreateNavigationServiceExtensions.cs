@@ -33,9 +33,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Account
         public static INavigationService CreateAccountNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<AccountViewModel>(
+            return new LayoutNavigationService<AccountScreenViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<AccountViewModel>(),
+                () => serviceProvider.GetRequiredService<AccountScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 

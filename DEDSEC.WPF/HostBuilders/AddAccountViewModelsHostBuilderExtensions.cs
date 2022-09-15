@@ -14,7 +14,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<AccountViewModel>(s => new (
+                services.AddTransient<AccountScreenViewModel>(s => new (
                     s.GetRequiredService<IAccountService>(),
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<IAuthenticatorService>(),

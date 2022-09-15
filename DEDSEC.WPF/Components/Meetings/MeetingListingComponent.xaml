@@ -110,7 +110,7 @@
                     Header="Максимум игроков"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn
-                    Width="auto"
+                    Width="*"
                     CanUserResize="False"
                     Header="Действия"
                     IsReadOnly="True">
