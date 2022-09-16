@@ -55,7 +55,7 @@
                     IsHitTestVisible="False"
                     Text="Пароль"
                     Visibility="{Binding ElementName=textBoxPassword, Path=Password.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <common:BindablePasswordBox   x:Name="textBoxPassword"  Password="{Binding Password,UpdateSourceTrigger=PropertyChanged}"/>
+                <common:BindablePasswordBox x:Name="textBoxPassword" Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
             <StackPanel
@@ -84,11 +84,10 @@
                     Foreground="{StaticResource ColorTextBoxHint}"
                     IsHitTestVisible="False"
                     Text="Код администрации"
-                    Visibility="{Binding ElementName=textBoxAdministrationCode, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBox
+                    Visibility="{Binding ElementName=textBoxAdministrationCode, Path=Password.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <common:BindablePasswordBox
                     x:Name="textBoxAdministrationCode"
-                    Style="{StaticResource textBoxDefault}"
-                    Text="{Binding AdministrationCode, UpdateSourceTrigger=PropertyChanged}" />
+                    Password="{Binding AdministrationCode, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </StackPanel>
 

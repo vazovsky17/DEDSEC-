@@ -1,7 +1,8 @@
 ﻿<UserControl
     x:Class="DEDSEC.WPF.Components.Accounts.AccountFormComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:DEDSEC.WPF.Components.Common">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -18,10 +19,7 @@
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Vertical">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Пароль" />
-                <TextBox
-                    Margin="0,4,0,0"
-                    Style="{StaticResource textBoxDefault}"
-                    Text="{Binding Password}" />
+                <common:BindablePasswordBox Margin="0,4,0,0" Password="{Binding Password}" />
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Vertical">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Имя" />
