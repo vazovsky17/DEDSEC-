@@ -573,7 +573,6 @@
                     <Setter Property="Background" Value="{StaticResource ColorPrimary}" />
                     <Setter Property="Foreground" Value="White" />
                 </Trigger>
-
             </Style.Triggers>
         </Style>
         <Style x:Key="DataGridCellStyle1" TargetType="{x:Type DataGridCell}">

@@ -3,6 +3,7 @@ using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DEDSEC.WPF.Commands.Accounts
 {
@@ -26,17 +27,21 @@ namespace DEDSEC.WPF.Commands.Accounts
 
         public override async Task ExecuteAsync(object parameter)
         {
-            var account = _authenticatorService.CurrentAccount;
-            if (account != null)
+            var message = MessageBox.Show("Вы действительно хотите удалить аккаунт?", "Это весьма смелое решение.", MessageBoxButton.YesNoCancel);
+            if (message == MessageBoxResult.Yes)
             {
-                await _dataService.Delete(account.Id).ContinueWith(task =>
+                var account = _authenticatorService.CurrentAccount;
+                if (account != null)
                 {
-                    if (task.IsCompleted)
+                    await _dataService.Delete(account.Id).ContinueWith(task =>
                     {
-                        _authenticatorService.Logout();
-                        _navigationService.Navigate();
-                    }
-                });
+                        if (task.IsCompleted)
+                        {
+                            _authenticatorService.Logout();
+                            _navigationService.Navigate();
+                        }
+                    });
+                }
             }
         }
     }
