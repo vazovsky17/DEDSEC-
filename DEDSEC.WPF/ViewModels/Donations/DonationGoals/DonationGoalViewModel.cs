@@ -1,8 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands.Donations;
-using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using System.Linq;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Donations.DonationGoals

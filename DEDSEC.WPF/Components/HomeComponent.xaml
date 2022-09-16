@@ -27,7 +27,7 @@
             Grid.Row="0"
             Command="{Binding NavigateLoginCommand}"
             Style="{StaticResource optionButton}"
-            Visibility="{Binding IsUnlogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+            Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanNotConverter}}">
             <StackPanel Orientation="Horizontal">
                 <icon:PackIconMaterial Kind="Login" Style="{StaticResource optionButtonIcon}" />
                 <TextBlock Margin="0,0,8,0" Text="Авторизация" />

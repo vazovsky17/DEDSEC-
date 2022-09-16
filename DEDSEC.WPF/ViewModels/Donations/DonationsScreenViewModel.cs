@@ -106,7 +106,6 @@ namespace DEDSEC.WPF.ViewModels.Donations
         {
             OnPropertyChanged(nameof(DonationGoal));
             OnPropertyChanged(nameof(HasDonationGoal));
-            OnPropertyChanged(nameof(DonationGoalMissing));
             OnPropertyChanged(nameof(CanAddDonationGoal));
             OnPropertyChanged(nameof(CanEditDonationGoal));
         }

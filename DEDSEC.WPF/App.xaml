@@ -7,7 +7,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <managers:BooleanNotConverter x:Key="BooleanNotConverter"/>
+        <managers:BooleanNotConverter x:Key="BooleanNotConverter" />
 
         <!--#region Colors-->
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />

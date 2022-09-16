@@ -10,7 +10,7 @@ namespace DEDSEC.WPF.ViewModels
         private readonly IAuthenticatorService _authenticatorService;
 
         public string WelcomeMessage => "Добро пожаловать в DEDSEC";
-        public bool IsUnlogged => !_authenticatorService?.IsLoggedIn ?? true;
+        public bool IsLoggedIn => _authenticatorService?.IsLoggedIn ?? false;
 
         public ICommand NavigateLoginCommand { get; }
 
