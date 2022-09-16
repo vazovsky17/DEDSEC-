@@ -53,7 +53,7 @@ namespace DEDSEC.WPF.Components.Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/components/games/editgamecomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/components/games/editgamecomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Components\Games\EditGameComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

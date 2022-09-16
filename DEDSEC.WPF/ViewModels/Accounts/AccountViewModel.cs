@@ -1,8 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Stores;
+using DEDSEC.WPF.ViewModels.Games;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Automation.Peers;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
 {
@@ -16,7 +15,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public string AboutMe => !string.IsNullOrEmpty(Account?.AboutMe) ? Account.AboutMe : "Не заполнено";
         public bool IsVisited => Account?.IsVisited ?? false;
         public List<Game> FavoriteGames => Account?.FavoriteGames ?? new();
-        public string FavoriteGamesString => SetFavoriteGamesString(FavoriteGames);
+        public bool HasFavoriteGames => FavoriteGames.Count > 0;
 
         public AccountViewModel(AccountStore accountStore)
         {
@@ -35,24 +34,6 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             AccountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
 
             base.Dispose();
-        }
-
-        private string SetFavoriteGamesString(List<Game> list)
-        {
-            if(list.Count >0)
-            {
-                var stringBuilder = new StringBuilder();
-                list.ForEach((it) =>
-                    {
-                        stringBuilder.AppendLine(it.Name);
-                    }
-                );
-                return stringBuilder.ToString();
-            }
-            else
-            {
-                return "Пусто";
-            }
         }
     }
 }
