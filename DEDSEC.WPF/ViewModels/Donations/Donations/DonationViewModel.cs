@@ -18,12 +18,12 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public DonationViewModel(Donation donation, DonationGoalStore donationGoalStore, bool isAdmin)
+        public DonationViewModel(Donation donation, DonationsStore donationsStore, bool isAdmin)
         {
             IsAdmin = isAdmin;
             Donation = donation;
 
-            DeleteCommand = new DeleteDonationCommand(donationGoalStore, donation);
+            DeleteCommand = new DeleteDonationCommand(donationsStore, donation);
         }
 
         public void Update(Donation donation)

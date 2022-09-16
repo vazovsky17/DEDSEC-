@@ -9,11 +9,11 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
     {
         public DonationFormViewModel DonationFormViewModel { get; }
 
-        public AddDonationViewModel(DonationGoalStore donationGoalStore,
+        public AddDonationViewModel(DonationsStore donationsStore,
             AccountStore accountStore,
             INavigationService closeNavigationService)
         {
-            var SubmitCommand = new AddDonationCommand(this, accountStore, donationGoalStore, closeNavigationService);
+            var SubmitCommand = new AddDonationCommand(this, accountStore, donationsStore, closeNavigationService);
             var CancelCommand = new NavigateCommand(closeNavigationService);
             DonationFormViewModel = new DonationFormViewModel(SubmitCommand, CancelCommand)
             {

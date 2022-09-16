@@ -9,15 +9,15 @@ namespace DEDSEC.WPF.Commands.Donations
     public class EditDonationCommand : AsyncCommandBase
     {
         private readonly EditDonationViewModel _editDonationViewModel;
-        private readonly DonationGoalStore _donationGoalStore;
+        private readonly DonationsStore _donationsStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public EditDonationCommand(EditDonationViewModel editDonationViewModel,
-            DonationGoalStore donationGoalStore,
+            DonationsStore donationsStore,
             ModalNavigationStore modalNavigationStore)
         {
             _editDonationViewModel = editDonationViewModel;
-            _donationGoalStore = donationGoalStore;
+            _donationsStore = donationsStore;
             _modalNavigationStore = modalNavigationStore;
         }
 
@@ -31,7 +31,7 @@ namespace DEDSEC.WPF.Commands.Donations
             };
             if (donation != null)
             {
-                await _donationGoalStore.UpdateDonation(donation).ContinueWith(task =>
+                await _donationsStore.UpdateDonation(donation).ContinueWith(task =>
                 {
                     if (task.IsCompleted)
                     {

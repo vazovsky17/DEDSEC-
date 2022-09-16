@@ -7,19 +7,19 @@ namespace DEDSEC.WPF.Commands.Donations
 {
     public class DeleteDonationCommand : AsyncCommandBase
     {
-        private readonly DonationGoalStore _donationGoalStore;
+        private readonly DonationsStore _donationsStore;
         private readonly Donation _donation;
 
-        public DeleteDonationCommand(DonationGoalStore donationGoalStore,
+        public DeleteDonationCommand(DonationsStore donationsStore,
             Donation donation)
         {
-            _donationGoalStore = donationGoalStore;
+            _donationsStore = donationsStore;
             _donation = donation;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            await _donationGoalStore.DeleteDonation(_donation);
+            await _donationsStore.DeleteDonation(_donation);
         }
     }
 }

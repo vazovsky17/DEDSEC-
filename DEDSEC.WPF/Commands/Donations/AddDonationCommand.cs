@@ -15,17 +15,17 @@ namespace DEDSEC.WPF.Commands.Donations
     {
         private readonly AddDonationViewModel _addDonationViewModel;
         private readonly AccountStore _accountStore;
-        private readonly DonationGoalStore _donationGoalStore;
+        private readonly DonationsStore _donationsStore;
         private readonly INavigationService _navigationService;
 
         public AddDonationCommand(AddDonationViewModel addDonationViewModel,
             AccountStore accountStore,
-            DonationGoalStore donationGoalStore,
+            DonationsStore donationsStore,
             INavigationService navigationService)
         {
             _addDonationViewModel = addDonationViewModel;
             _accountStore = accountStore;
-            _donationGoalStore = donationGoalStore;
+            _donationsStore = donationsStore;
             _navigationService = navigationService;
         }
 
@@ -38,7 +38,7 @@ namespace DEDSEC.WPF.Commands.Donations
                 Value = _addDonationViewModel.DonationFormViewModel.DonatValue
             };
 
-            await _donationGoalStore.AddDonation(donation).ContinueWith(task =>
+            await _donationsStore.AddDonation(donation).ContinueWith(task =>
             {
                 if (task.IsCompleted)
                 {

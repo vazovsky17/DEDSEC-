@@ -11,11 +11,11 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
         public Donation Donation { get; }
 
         public EditDonationViewModel(Donation donation,
-            DonationGoalStore donationGoalStore,
+            DonationsStore donationsStore,
             ModalNavigationStore modalNavigationStore)
         {
             Donation = donation;
-            var SubmitCommand = new EditDonationCommand(this, donationGoalStore, modalNavigationStore);
+            var SubmitCommand = new EditDonationCommand(this, donationsStore, modalNavigationStore);
             var CancelCommand = new CloseModalCommand(modalNavigationStore);
 
             DonationFormViewModel = new DonationFormViewModel(SubmitCommand, CancelCommand)

@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.HostBuilders
                     s.GetRequiredService<ModalNavigationStore>()));
 
                 services.AddTransient<AddDonationViewModel>(s => new(
-                    s.GetRequiredService<DonationGoalStore>(),
+                    s.GetRequiredService<DonationsStore>(),
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 

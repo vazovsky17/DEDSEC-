@@ -15,6 +15,7 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddSingleton<PlayersStore>();
                 services.AddSingleton<GamesStore>();
                 services.AddSingleton<DonationGoalStore>();
+                services.AddSingleton<DonationsStore>();
                 services.AddSingleton<NavigationStore>();
                 services.AddSingleton<ModalNavigationStore>();
             });

@@ -1,6 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
-using DEDSEC.WPF.Commands.Donations;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Donations.DonationGoals;
@@ -21,7 +20,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         private readonly ObservableCollection<DonationViewModel> _donationViewModels;
         public IEnumerable<DonationViewModel> DonationViewModels => _donationViewModels;
-        public DonationGoal? DonationGoal => _donationGoalStore?.DonationGoal;
+        public DonationGoal? DonationGoal => _donationGoalStore?.CurrentDonationGoal;
         public DonationGoalViewModel DonationGoalViewModel { get; }
 
         public bool HasDonationGoal => DonationGoal != null;
@@ -31,8 +30,6 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         public ICommand AddDonationCommand { get; }
         public ICommand AddDonationGoalCommand { get; }
-        public ICommand EditDonationGoalCommand { get; }
-        public ICommand DeleteDonationGoalCommand { get; }
 
         public DonationsScreenViewModel(DonationGoalStore donationGoalStore,
             AccountStore accountStore,
@@ -46,15 +43,15 @@ namespace DEDSEC.WPF.ViewModels.Donations
             _donationViewModels = new();
 
             Load();
-            _donationGoalStore.DonationGoalLoaded += DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalAdded += DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalUpdated += DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalDeleted += DonationGoalStore_Deleted;
-            _donationGoalStore.DonationAdded += DonationGoalStore_DonationAdded;
-            _donationGoalStore.DonationUpdated += DonationGoalStore_DonationUpdated;
-            _donationGoalStore.DonationDeleted += DonationGoalStore_DonationDeleted;
+            //_donationGoalStore.DonationGoalLoaded += DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalAdded += DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalUpdated += DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalDeleted += DonationGoalStore_Deleted;
+            //_donationGoalStore.DonationAdded += DonationGoalStore_DonationAdded;
+            //_donationGoalStore.DonationUpdated += DonationGoalStore_DonationUpdated;
+            //_donationGoalStore.DonationDeleted += DonationGoalStore_DonationDeleted;
 
-            DonationGoalViewModel = new DonationGoalViewModel(donationGoalStore.DonationGoal,donationGoalStore,modalNavigationStore);
+            DonationGoalViewModel = new DonationGoalViewModel(donationGoalStore.CurrentDonationGoal, donationGoalStore, modalNavigationStore);
 
             AddDonationCommand = new NavigateCommand(addDonationNavigationService);
             AddDonationGoalCommand = new NavigateCommand(addDonationGoalNavigationService);
@@ -117,7 +114,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
 
         private void DonationGoalStore_DonationAdded(Donation donation)
         {
-            AddDonationViewModel(donation);
+           // AddDonationViewModel(donation);
         }
 
         private void DonationGoalStore_DonationUpdated(Donation donation)
@@ -144,21 +141,21 @@ namespace DEDSEC.WPF.ViewModels.Donations
         {
         }
 
-        private void AddDonationViewModel(Donation donation)
-        {
-            var itemViewModel = new DonationViewModel(donation, _donationGoalStore, IsAdmin);
-            _donationViewModels.Add(itemViewModel);
-        }
+        //private void AddDonationViewModel(Donation donation)
+        //{
+        //    var itemViewModel = new DonationViewModel(donation, _donationGoalStore, IsAdmin);
+        //    _donationViewModels.Add(itemViewModel);
+        //}
 
         public override void Dispose()
         {
-            _donationGoalStore.DonationGoalLoaded -= DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalAdded -= DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalUpdated -= DonationGoalStore_Changed;
-            _donationGoalStore.DonationGoalDeleted -= DonationGoalStore_Deleted;
-            _donationGoalStore.DonationAdded -= DonationGoalStore_DonationAdded;
-            _donationGoalStore.DonationUpdated -= DonationGoalStore_DonationUpdated;
-            _donationGoalStore.DonationDeleted -= DonationGoalStore_DonationDeleted;
+            //_donationGoalStore.DonationGoalLoaded -= DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalAdded -= DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalUpdated -= DonationGoalStore_Changed;
+            //_donationGoalStore.DonationGoalDeleted -= DonationGoalStore_Deleted;
+            //_donationGoalStore.DonationAdded -= DonationGoalStore_DonationAdded;
+            //_donationGoalStore.DonationUpdated -= DonationGoalStore_DonationUpdated;
+            //_donationGoalStore.DonationDeleted -= DonationGoalStore_DonationDeleted;
 
             base.Dispose();
         }

@@ -8,15 +8,15 @@ namespace DEDSEC.WPF.Commands.Donations
     public class OpenEditDonationCommand : CommandBase
     {
         private readonly DonationViewModel _donationViewModel;
-        private readonly DonationGoalStore _donationGoalStore;
+        private readonly DonationsStore _donationsStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public OpenEditDonationCommand(DonationViewModel donationViewModel,
-            DonationGoalStore donationGoalStore,
+            DonationsStore donationsStore,
             ModalNavigationStore modalNavigationStore)
         {
             _donationViewModel = donationViewModel;
-            _donationGoalStore = donationGoalStore;
+            _donationsStore = donationsStore;
             _modalNavigationStore = modalNavigationStore;
         }
 
@@ -25,7 +25,7 @@ namespace DEDSEC.WPF.Commands.Donations
             Donation donation = _donationViewModel.Donation;
 
             EditDonationViewModel editDonationViewModel = new EditDonationViewModel(
-                donation, _donationGoalStore, _modalNavigationStore);
+                donation, _donationsStore, _modalNavigationStore);
             _modalNavigationStore.CurrentViewModel = editDonationViewModel;
         }
     }

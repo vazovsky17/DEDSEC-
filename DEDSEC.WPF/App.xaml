@@ -5,7 +5,8 @@
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
-
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        
         <!--#region Colors-->
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
         <SolidColorBrush x:Key="ColorButtonBackground" Color="#7950f2" />
