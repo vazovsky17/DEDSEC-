@@ -62,7 +62,7 @@ namespace DEDSEC.WPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/views/donationsscreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/views/donationsscreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\DonationsScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

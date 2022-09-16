@@ -4,6 +4,7 @@ using DEDSEC.WPF.ViewModels.Donations.Donations;
 using DEDSEC.WPF.ViewModels.Donations.DonationGoals;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DEDSEC.WPF.ViewModels.Donations;
 
 namespace DEDSEC.WPF.HostBuilders
 {
@@ -13,7 +14,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<DonationGoalViewModel>(s => new(
+                services.AddTransient<DonationsScreenViewModel>(s => new(
                     s.GetRequiredService<DonationGoalStore>(),
                     s.GetRequiredService<AccountStore>(),
                     CreateNavigationServiceExtensions.CreateAddDonationNavigationService(s),

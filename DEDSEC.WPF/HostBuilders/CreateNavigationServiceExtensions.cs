@@ -10,6 +10,7 @@ using DEDSEC.WPF.ViewModels.Meetings;
 using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using DEDSEC.WPF.ViewModels.Donations;
 
 namespace DEDSEC.WPF.HostBuilders
 {
@@ -110,9 +111,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Donation
         public static INavigationService CreateDonationGoalNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<DonationGoalViewModel>(
+            return new LayoutNavigationService<DonationsScreenViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<DonationGoalViewModel>(),
+                () => serviceProvider.GetRequiredService<DonationsScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
