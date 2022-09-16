@@ -24,8 +24,7 @@ namespace DEDSEC.WPF.ViewModels.Donations
         public DonationGoalViewModel DonationGoalViewModel { get; }
 
         public bool HasDonationGoal => DonationGoal != null;
-        public bool DonationGoalMissing => !HasDonationGoal;
-        public bool CanAddDonationGoal => IsAdmin && DonationGoalMissing;
+        public bool CanAddDonationGoal => IsAdmin && !HasDonationGoal;
         public bool CanEditDonationGoal => IsAdmin && HasDonationGoal;
 
         public ICommand AddDonationCommand { get; }

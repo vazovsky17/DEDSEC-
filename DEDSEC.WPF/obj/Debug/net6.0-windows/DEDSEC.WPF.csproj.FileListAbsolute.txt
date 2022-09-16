@@ -80,7 +80,6 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Co
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Views\GamesScreen.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Views\MeetingsScreen.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Views\PlayersScreen.baml
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\AccountComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\AccountFormComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\EditAccountComponent.g.cs
@@ -115,6 +114,7 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Ap
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF_MarkupCompile.cache
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF_MarkupCompile.lref
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\EditAccountComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\AddDonationComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\AddDonationGoalComponent.baml

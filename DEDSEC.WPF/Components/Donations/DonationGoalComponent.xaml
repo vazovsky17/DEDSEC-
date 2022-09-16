@@ -51,7 +51,7 @@
             FontWeight="SemiBold"
             Foreground="{StaticResource ColorTextForeground}"
             Text="Донатная цель отсутствует"
-            Visibility="{Binding DonationGoalMissing, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            Visibility="{Binding HasDonationGoal, Converter={StaticResource BooleanNotConverter}}" />
         <!--  Donations Datagrid  -->
         <DataGrid
             x:Name="DonationsDataGrid"
@@ -93,9 +93,6 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Command="{Binding ShowCommand}" Style="{StaticResource gridEditButton}">
-                                    <icon:PackIconMaterial Kind="Shower" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
                                 <Button
                                     Margin="5,0,0,0"
                                     Command="{Binding EditCommand}"
