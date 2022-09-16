@@ -11,19 +11,19 @@
         <converters:YesOrNotConverter x:Key="YesOrNotConverter" />
 
         <!--#region Colors-->
-        <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
-        <SolidColorBrush x:Key="ColorButtonBackground" Color="#7950f2" />
-        <SolidColorBrush x:Key="ColorButtonForeground" Color="#d0c0ff" />
+        <SolidColorBrush x:Key="ColorPrimary" Color="#623ED0" />
+        <SolidColorBrush x:Key="ColorButtonBackground" Color="#7950F2" />
+        <SolidColorBrush x:Key="ColorButtonForeground" Color="#D0C0FF" />
         <SolidColorBrush x:Key="ColorPaginationButtonForeground" Color="#6c7682" />
         <SolidColorBrush x:Key="ColorMouseOverBackground" Color="#7b5cd6" />
         <SolidColorBrush x:Key="ColorTextForeground" Color="#121518" />
-        <SolidColorBrush x:Key="ColorSeparator" Color="#dae2ae" />
+        <SolidColorBrush x:Key="ColorSeparator" Color="#DAE2AE" />
         <SolidColorBrush x:Key="ColorSeparatorSecond" Color="#7e5fdc" />
-        <SolidColorBrush x:Key="ColorTextBoxHint" Color="#b0b976" />
+        <SolidColorBrush x:Key="ColorTextBoxHint" Color="#B0B976" />
         <SolidColorBrush x:Key="ColorCardBackground" Color="#660099" />
         <SolidColorBrush x:Key="ColorCardForeground" Color="#F6F4F7" />
-        <SolidColorBrush x:Key="ColorCancelButtonBackground" Color="#d32f2f" />
-        <SolidColorBrush x:Key="ColorSubmitButtonBackground" Color="#6741d9" />
+        <SolidColorBrush x:Key="ColorCancelButtonBackground" Color="#D32F2F" />
+        <SolidColorBrush x:Key="ColorSubmitButtonBackground" Color="#6741D9" />
         <SolidColorBrush x:Key="ColorSeparators" Color="#E0E6ED" />
         <SolidColorBrush x:Key="ColorItemTextTitle" Color="#6C6C79" />
         <SolidColorBrush x:Key="ColorItemTextDesc" Color="#51515F" />
@@ -210,7 +210,7 @@
             x:Key="gridFavoriteButton"
             BasedOn="{StaticResource gridEditButton}"
             TargetType="Button">
-            <Setter Property="Background" Value="#FFC618" />
+            <Setter Property="Background" Value="#DAE2AE" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -222,7 +222,7 @@
             x:Key="gridUnFavoriteButton"
             BasedOn="{StaticResource gridEditButton}"
             TargetType="Button">
-            <Setter Property="Background" Value="#E0E6ED" />
+            <Setter Property="Background" Value="#FFC618" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
