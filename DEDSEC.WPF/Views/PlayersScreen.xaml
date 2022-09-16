@@ -84,18 +84,16 @@
                     CanUserResize="False"
                     Header="Обо мне"
                     IsReadOnly="True" />
-                <DataGridCheckBoxColumn
+                <DataGridTextColumn
                     Width="auto"
-                    Binding="{Binding IsVisited, Mode=OneWay}"
+                    Binding="{Binding IsVisited, Mode=OneWay, Converter={StaticResource YesOrNotConverter}}"
                     CanUserResize="False"
-                    ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Посещено"
                     IsReadOnly="True" />
-                <DataGridCheckBoxColumn
+                <DataGridTextColumn
                     Width="auto"
-                    Binding="{Binding IsAdmin, Mode=OneWay}"
+                    Binding="{Binding IsAdmin, Mode=OneWay, Converter={StaticResource YesOrNotConverter}}"
                     CanUserResize="False"
-                    ElementStyle="{StaticResource CornerCheckBoxReadonlyStyle}"
                     Header="Админ"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn

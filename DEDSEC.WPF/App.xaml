@@ -3,11 +3,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-    xmlns:managers="clr-namespace:DEDSEC.WPF.Managers"
+    xmlns:converters="clr-namespace:DEDSEC.WPF.Converters"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <managers:BooleanNotConverter x:Key="BooleanNotConverter" />
+        <converters:BooleanNotConverter x:Key="BooleanNotConverter" />
+        <converters:YesOrNotConverter x:Key="YesOrNotConverter"/>
 
         <!--#region Colors-->
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ed0" />
@@ -23,6 +24,9 @@
         <SolidColorBrush x:Key="ColorCardForeground" Color="#F6F4F7" />
         <SolidColorBrush x:Key="ColorCancelButtonBackground" Color="#d32f2f" />
         <SolidColorBrush x:Key="ColorSubmitButtonBackground" Color="#6741d9" />
+        <SolidColorBrush x:Key="ColorSeparators" Color="#E0E6ED" />
+        <SolidColorBrush x:Key="ColorItemTextTitle" Color="#6C6C79"/>
+        <SolidColorBrush x:Key="ColorItemTextDesc" Color="#51515F"/>
         <!--#endregion-->
 
         <!--#region Button Styles-->
@@ -281,7 +285,7 @@
                         <Border
                             x:Name="border"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="#e0e6ed"
+                            BorderBrush="{StaticResource ColorSeparators}"
                             BorderThickness="1"
                             CornerRadius="16"
                             SnapsToDevicePixels="True">
@@ -815,11 +819,17 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
         </Style>
-        <Style x:Key="textBlockTitleMiniComponent" TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="24" />
+        <Style x:Key="textBlockItemTitle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14" />
             <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="Foreground" Value="{StaticResource ColorCardForeground}" />
+            <Setter Property="Foreground" Value="{StaticResource ColorItemTextTitle}" />
+        </Style>
+        <Style x:Key="textBlockItemDesc" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="{StaticResource ColorItemTextDesc}" />
         </Style>
         <Style x:Key="textBlockDefault" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -828,5 +838,10 @@
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
         </Style>
         <!--#endregion-->
+        <Style TargetType="Separator">
+            <Setter Property="Background" Value="{StaticResource ColorSeparators}" />
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+        
     </Application.Resources>
 </Application>

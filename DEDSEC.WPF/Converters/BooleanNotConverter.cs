@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace DEDSEC.WPF.Managers
+namespace DEDSEC.WPF.Converters
 {
     public class BooleanNotConverter : IValueConverter
     {

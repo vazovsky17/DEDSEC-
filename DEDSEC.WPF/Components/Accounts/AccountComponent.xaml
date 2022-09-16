@@ -6,66 +6,69 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock
                 Width="150"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Никнейм" />
             <TextBlock
                 Margin="10,0"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemDesc}"
                 Text="{Binding Nickname}" />
         </StackPanel>
-
-        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+        <Separator />
+        <StackPanel Orientation="Horizontal">
             <TextBlock
                 Width="150"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Имя" />
             <TextBlock
                 Margin="10,0"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemDesc}"
                 Text="{Binding Name}" />
         </StackPanel>
 
-        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+        <Separator />
+
+        <StackPanel Orientation="Horizontal">
             <TextBlock
                 Width="150"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Возраст" />
             <TextBlock
                 Margin="10,0"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemDesc}"
                 Text="{Binding Age}" />
         </StackPanel>
-
-        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+        <Separator />
+        <StackPanel  Orientation="Horizontal">
             <TextBlock
                 Width="150"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Обо мне" />
             <TextBlock
                 Margin="10,0"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemDesc}"
                 Text="{Binding AboutMe}" />
         </StackPanel>
-
-        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+        <Separator />
+        <StackPanel  Orientation="Horizontal">
             <TextBlock
                 Width="150"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Присутствовал(а)" />
             <TextBlock
                 Margin="10,0"
-                Style="{StaticResource textBlockDefault}"
-                Text="{Binding IsVisited}" />
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding IsVisited,Converter={StaticResource YesOrNotConverter}}" />
         </StackPanel>
-        <StackPanel Margin="0,20,0,0" Orientation="Vertical">
+        <Separator />
+        <StackPanel  Orientation="Vertical">
             <TextBlock
                 Width="150"
                 HorizontalAlignment="Left"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemTitle}"
                 Text="Любимые игры" />
             <TextBlock
                 Margin="0,10,0,0"
-                Style="{StaticResource textBlockDefault}"
+                Style="{StaticResource textBlockItemDesc}"
                 Text="{Binding FavoriteGamesString}" />
         </StackPanel>
     </StackPanel>

@@ -40,9 +40,9 @@
             Foreground="{StaticResource ColorTextForeground}"
             Text="{Binding GameViewModelsCountDisplay}" />
 
-        <!--  Meetings Datagrid  -->
+        <!--  Games Datagrid  -->
         <DataGrid
-            x:Name="MeetingsDataGrid"
+            x:Name="GamesDataGrid"
             Grid.Row="2"
             CellStyle="{DynamicResource DataGridCellStyle1}"
             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
