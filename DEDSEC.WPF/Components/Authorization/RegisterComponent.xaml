@@ -30,7 +30,7 @@
                 Command="{Binding NavigateLoginCommand}"
                 Content="Уже зарегистрированы?"
                 FontSize="11"
-                Style="{StaticResource tabButton}" />
+                Style="{StaticResource borderlessButton}" />
             <Grid MinWidth="140">
                 <TextBlock
                     Margin="15,0"
@@ -113,7 +113,7 @@
             HorizontalAlignment="Center"
             Command="{Binding RegisterCommand}"
             Content="Продолжить"
-            Style="{StaticResource tabButton}" />
+            Style="{StaticResource borderlessButton}" />
 
         <TextBlock
             Grid.Row="3"

@@ -99,15 +99,13 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="tabButton" TargetType="Button">
+        <Style x:Key="borderlessButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="MinWidth" Value="80" />
-            <Setter Property="MinHeight" Value="44" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="20" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -115,6 +113,8 @@
                         <Border
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
+                            Padding="10"
+                            CornerRadius="10"
                             BorderThickness="0,0,0,1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
@@ -123,7 +123,8 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="BorderBrush" Value="{StaticResource ColorMouseOverBackground}" />
+                    <Setter Property="Background" Value="{StaticResource ColorMouseOverBackground}" />
+                    <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
         </Style>
