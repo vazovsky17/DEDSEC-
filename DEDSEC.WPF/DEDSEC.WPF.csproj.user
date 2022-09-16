@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Components\Common\BindablePasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Donations\DonationGoalComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Components\Common\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\Donations\DonationGoalComponent.xaml">
       <SubType>Designer</SubType>
     </Page>

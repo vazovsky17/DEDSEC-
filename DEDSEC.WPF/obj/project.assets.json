@@ -855,18 +855,6 @@
           }
         }
       },
-      "PasswordBoxMVVM/1.0.5": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/PasswordBoxMVVM.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/PasswordBoxMVVM.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
       "SimpleModal.WPF/1.0.0": {
         "type": "package",
         "compile": {
@@ -2409,18 +2397,6 @@
         "version.txt"
       ]
     },
-    "PasswordBoxMVVM/1.0.5": {
-      "sha512": "NeUoGEBKjrYotXuLdSmEsglUhofPNgf6Hd6g7R64R+Iail4+ANzkNRsrcq/euYMlurFkC7MUtUJvesdU20Cycg==",
-      "type": "package",
-      "path": "passwordboxmvvm/1.0.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp3.1/PasswordBoxMVVM.dll",
-        "passwordboxmvvm.1.0.5.nupkg.sha512",
-        "passwordboxmvvm.nuspec"
-      ]
-    },
     "SimpleModal.WPF/1.0.0": {
       "sha512": "dtTvUl6O2peKZz2oCh5Y6mRjYL+q/Izxm6+z/Nzdpbcgxdo/qTD39stwegu/sY0uBTAYGJEy2P9X8mwpOMM+rw==",
       "type": "package",
@@ -3224,7 +3200,6 @@
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.1",
       "Microsoft.Extensions.Hosting.Abstractions >= 6.0.0",
-      "PasswordBoxMVVM >= 1.0.5",
       "SimpleModal.WPF >= 1.0.0",
       "Xam.Plugins.Forms.ProgressRing >= 0.1.2"
     ]
@@ -3295,10 +3270,6 @@
           "Microsoft.Extensions.Hosting.Abstractions": {
             "target": "Package",
             "version": "[6.0.0, )"
-          },
-          "PasswordBoxMVVM": {
-            "target": "Package",
-            "version": "[1.0.5, )"
           },
           "SimpleModal.WPF": {
             "target": "Package",

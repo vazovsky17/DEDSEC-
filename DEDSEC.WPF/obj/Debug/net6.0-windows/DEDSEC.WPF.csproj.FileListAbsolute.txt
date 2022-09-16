@@ -43,7 +43,6 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Mi
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\PasswordBoxMVVM.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\ModalControl.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
@@ -66,8 +65,8 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\bin\Debug\net6.0-windows\DE
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF.csproj.AssemblyReference.cache
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\AccountComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\AccountFormComponent.baml
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\LoginComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\RegisterComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\BindablePasswordBox.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\FilterComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\SearchComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\DonationFormComponent.baml
@@ -85,6 +84,7 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Co
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\EditAccountComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\LoginComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\RegisterComponent.g.cs
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\BindablePasswordBox.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\FilterComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Common\SearchComponent.g.cs
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\AddDonationComponent.g.cs
@@ -116,6 +116,7 @@ C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DE
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\DEDSEC.WPF_MarkupCompile.lref
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Accounts\EditAccountComponent.baml
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Authorization\LoginComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\AddDonationComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\AddDonationGoalComponent.baml
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\Components\Donations\EditDonationComponent.baml

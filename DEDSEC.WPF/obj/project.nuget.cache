@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YezheXOU2YTB1ehybgppgWaTucXEQpc2Qa1EJLPqjxtLF8cPu2oEa43xbUot+CFNU6lcSkdh+s3n4UUldxNcZg==",
+  "dgSpecHash": "n4NqJdIdRux2q66HxVaUcJisrf4NFEiuEAaA6jDzCNcs+OoS//7JLIoE3HlFsp9Io6XsUKWx6B7TP2HgEupJcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
   "expectedPackageFiles": [
@@ -49,7 +49,6 @@
     "C:\\Users\\vazovsky\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\vazovsky\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
