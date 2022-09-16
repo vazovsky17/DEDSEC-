@@ -89,11 +89,17 @@
                                     <icon:PackIconMaterial Kind="Star" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
+                                    Command="{Binding AddToFavoriteCommand}"
+                                    Style="{StaticResource gridUnFavoriteButton}"
+                                    Visibility="{Binding IsAddToFavoriteEnabled, Converter={StaticResource BooleanNotConverter}}">
+                                    <icon:PackIconMaterial Kind="Star" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button
                                     Margin="5,0,0,0"
                                     Command="{Binding EditCommand}"
                                     Style="{StaticResource gridEditButton}"
                                     Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
+                                    <icon:PackIconMaterial Kind="Pencil" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"
