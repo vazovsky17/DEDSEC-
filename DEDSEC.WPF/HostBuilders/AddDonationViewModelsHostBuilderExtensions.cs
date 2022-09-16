@@ -1,6 +1,7 @@
 ﻿using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Donations;
+using DEDSEC.WPF.ViewModels.Donations.Donations;
+using DEDSEC.WPF.ViewModels.Donations.DonationGoals;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

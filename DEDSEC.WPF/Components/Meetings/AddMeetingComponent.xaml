@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="DEDSEC.WPF.Components.AddMeetingComponent"
+    x:Class="DEDSEC.WPF.Components.Meetings.AddMeetingComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:DEDSEC.WPF.Components">
+    xmlns:meetings_comp="clr-namespace:DEDSEC.WPF.Components.Meetings">
     <Grid Width="400" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -14,6 +14,6 @@
             Margin="20"
             Style="{StaticResource textBlockTitle}"
             Text="Добавить встречу" />
-        <components:MeetingFormComponent Grid.Row="1" DataContext="{Binding MeetingFormViewModel}" />
+        <meetings_comp:MeetingFormComponent Grid.Row="1" DataContext="{Binding MeetingFormViewModel}" />
     </Grid>
 </UserControl>

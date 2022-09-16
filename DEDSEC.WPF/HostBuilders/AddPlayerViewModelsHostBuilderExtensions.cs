@@ -12,7 +12,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<PlayerListingViewModel>(s => new(
+                services.AddTransient<PlayersScreenViewModel>(s => new(
                     s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<PlayersStore>(),
                     s.GetRequiredService<AccountStore>(),

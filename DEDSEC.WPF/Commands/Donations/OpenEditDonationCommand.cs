@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Donations;
+using DEDSEC.WPF.ViewModels.Donations.Donations;
 
 namespace DEDSEC.WPF.Commands.Donations
 {

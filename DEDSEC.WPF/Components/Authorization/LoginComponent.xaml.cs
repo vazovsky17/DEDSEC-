@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DEDSEC.WPF.Components
+namespace DEDSEC.WPF.Components.Authorization
 {
     /// <summary>
     /// Логика взаимодействия для LoginComponent.xaml

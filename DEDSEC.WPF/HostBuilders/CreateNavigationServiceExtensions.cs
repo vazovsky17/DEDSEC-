@@ -3,7 +3,8 @@ using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using DEDSEC.WPF.ViewModels.Accounts;
 using DEDSEC.WPF.ViewModels.Authorization;
-using DEDSEC.WPF.ViewModels.Donations;
+using DEDSEC.WPF.ViewModels.Donations.Donations;
+using DEDSEC.WPF.ViewModels.Donations.DonationGoals;
 using DEDSEC.WPF.ViewModels.Games;
 using DEDSEC.WPF.ViewModels.Meetings;
 using DEDSEC.WPF.ViewModels.Players;
@@ -51,9 +52,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Game
         public static INavigationService CreateGameListingNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<GameListingViewModel>(
+            return new LayoutNavigationService<GamesScreenViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<GameListingViewModel>(),
+                () => serviceProvider.GetRequiredService<GamesScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
@@ -68,9 +69,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Meeting
         public static INavigationService CreateMeetingListingNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<MeetingListingViewModel>(
+            return new LayoutNavigationService<MeetingsScreenViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<MeetingListingViewModel>(),
+                () => serviceProvider.GetRequiredService<MeetingsScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 
@@ -85,9 +86,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Player
         public static INavigationService CreatePlayerListingNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<PlayerListingViewModel>(
+            return new LayoutNavigationService<PlayersScreenViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<PlayerListingViewModel>(),
+                () => serviceProvider.GetRequiredService<PlayersScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 

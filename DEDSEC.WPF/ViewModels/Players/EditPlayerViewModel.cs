@@ -4,7 +4,7 @@ using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Commands.Players;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Forms;
+using DEDSEC.WPF.ViewModels.Accounts;
 
 namespace DEDSEC.WPF.ViewModels.Players
 {

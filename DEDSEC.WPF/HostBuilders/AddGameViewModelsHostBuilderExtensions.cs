@@ -18,7 +18,7 @@ namespace DEDSEC.WPF.HostBuilders
                     s.GetRequiredService<GamesStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
-                services.AddTransient<GameListingViewModel>(s => new(
+                services.AddTransient<GamesScreenViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<IAccountService>(),
                     s.GetRequiredService<IAuthenticatorService>(),

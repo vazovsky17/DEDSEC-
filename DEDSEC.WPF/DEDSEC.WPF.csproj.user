@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Components\Account\AccountComponent.xaml.cs">
+    <Compile Update="Views\AccountScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Account\AccountDataComponent.xaml.cs">
+    <Compile Update="Components\Accounts\AccountComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Account\EditAccountComponent.xaml.cs">
+    <Compile Update="Components\Accounts\EditAccountComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Authorization\RegisterComponent.xaml.cs">
@@ -25,7 +25,7 @@
     <Compile Update="Components\Donations\AddDonationGoalComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Donations\DonationGoalComponent.xaml.cs">
+    <Compile Update="Views\DonationsScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Common\FilterComponent.xaml.cs">
@@ -37,16 +37,16 @@
     <Compile Update="Components\Donations\EditDonationGoalComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Forms\DonationFormComponent.xaml.cs">
+    <Compile Update="Components\Donations\DonationFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Forms\DonationGoalFormComponent.xaml.cs">
+    <Compile Update="Components\Donations\DonationGoalFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Forms\GameFormComponent.xaml.cs">
+    <Compile Update="Components\Games\GameFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Forms\MeetingFormComponent.xaml.cs">
+    <Compile Update="Components\Meetings\MeetingFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Games\AddGameComponent.xaml.cs">
@@ -55,7 +55,7 @@
     <Compile Update="Components\Games\EditGameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Games\GameListingComponent.xaml.cs">
+    <Compile Update="Views\GamesScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Meetings\AddMeetingComponent.xaml.cs">
@@ -73,7 +73,7 @@
     <Compile Update="Components\Meetings\EditMeetingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Meetings\MeetingListingComponent.xaml.cs">
+    <Compile Update="Views\MeetingsScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\NavigationComponent.xaml.cs">
@@ -82,24 +82,24 @@
     <Compile Update="Components\Players\EditPlayerComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Players\PlayerListingComponent.xaml.cs">
+    <Compile Update="Views\PlayersScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Common\SearchComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Forms\AccountFormComponent.xaml.cs">
+    <Compile Update="Components\Accounts\AccountFormComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Components\Account\AccountComponent.xaml">
+    <Page Update="Views\AccountScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Account\AccountDataComponent.xaml">
+    <Page Update="Components\Accounts\AccountComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Account\EditAccountComponent.xaml">
+    <Page Update="Components\Accounts\EditAccountComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Authorization\RegisterComponent.xaml">
@@ -111,7 +111,7 @@
     <Page Update="Components\Donations\AddDonationGoalComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Donations\DonationGoalComponent.xaml">
+    <Page Update="Views\DonationsScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Common\FilterComponent.xaml">
@@ -123,16 +123,16 @@
     <Page Update="Components\Donations\EditDonationGoalComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Forms\DonationFormComponent.xaml">
+    <Page Update="Components\Donations\DonationFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Forms\DonationGoalFormComponent.xaml">
+    <Page Update="Components\Donations\DonationGoalFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Forms\GameFormComponent.xaml">
+    <Page Update="Components\Games\GameFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Forms\MeetingFormComponent.xaml">
+    <Page Update="Components\Meetings\MeetingFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\AddGameComponent.xaml">
@@ -141,7 +141,7 @@
     <Page Update="Components\Games\EditGameComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Games\GameListingComponent.xaml">
+    <Page Update="Views\GamesScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Meetings\AddMeetingComponent.xaml">
@@ -159,7 +159,7 @@
     <Page Update="Components\Meetings\EditMeetingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Meetings\MeetingListingComponent.xaml">
+    <Page Update="Views\MeetingsScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\NavigationComponent.xaml">
@@ -168,7 +168,7 @@
     <Page Update="Components\Players\EditPlayerComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Players\PlayerListingComponent.xaml">
+    <Page Update="Views\PlayersScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Common\SearchComponent.xaml">
@@ -177,7 +177,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Forms\AccountFormComponent.xaml">
+    <Page Update="Components\Accounts\AccountFormComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

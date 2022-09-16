@@ -2,7 +2,6 @@
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Commands.Games;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Games
 {

@@ -16,7 +16,7 @@ namespace DEDSEC.WPF.HostBuilders
                     s.GetRequiredService<MeetingsStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));
 
-                services.AddTransient<MeetingListingViewModel>(s => new(
+                services.AddTransient<MeetingsScreenViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
                     s.GetRequiredService<ModalNavigationStore>(),

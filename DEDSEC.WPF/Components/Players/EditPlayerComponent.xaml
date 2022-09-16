@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="DEDSEC.WPF.Components.EditPlayerComponent"
+    x:Class="DEDSEC.WPF.Components.Players.EditPlayerComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:DEDSEC.WPF.Components">
+    xmlns:accounts_comp="clr-namespace:DEDSEC.WPF.Components.Accounts">
     <Grid Width="400" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -13,6 +13,6 @@
             Margin="20"
             Style="{StaticResource textBlockTitle}"
             Text="Редактировать игрока" />
-        <components:AccountFormComponent Grid.Row="1" DataContext="{Binding AccountFormViewModel}" />
+        <accounts_comp:AccountFormComponent Grid.Row="1" DataContext="{Binding AccountFormViewModel}" />
     </Grid>
 </UserControl>

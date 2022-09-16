@@ -1,0 +1,72 @@
+﻿<UserControl
+    x:Class="DEDSEC.WPF.Components.Accounts.AccountComponent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockDefault}"
+                Text="Никнейм" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding Nickname}" />
+        </StackPanel>
+
+        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockDefault}"
+                Text="Имя" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding Name}" />
+        </StackPanel>
+
+        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockDefault}"
+                Text="Возраст" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding Age}" />
+        </StackPanel>
+
+        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockDefault}"
+                Text="Обо мне" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding AboutMe}" />
+        </StackPanel>
+
+        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockDefault}"
+                Text="Присутствовал(а)" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding IsVisited}" />
+        </StackPanel>
+        <StackPanel Margin="0,20,0,0" Orientation="Vertical">
+            <TextBlock
+                Width="150"
+                HorizontalAlignment="Left"
+                Style="{StaticResource textBlockDefault}"
+                Text="Любимые игры" />
+            <TextBlock
+                Margin="0,10,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="{Binding FavoriteGamesString}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

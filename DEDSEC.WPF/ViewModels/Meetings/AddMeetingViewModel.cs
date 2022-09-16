@@ -2,7 +2,6 @@
 using DEDSEC.WPF.Commands.Meetings;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Meetings
 {

@@ -5,7 +5,6 @@ using DEDSEC.WPF.Commands.Accounts;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Forms;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
 {

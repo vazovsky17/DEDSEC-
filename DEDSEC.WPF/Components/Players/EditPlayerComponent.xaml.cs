@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DEDSEC.WPF.Components
+namespace DEDSEC.WPF.Components.Players
 {
     /// <summary>
     /// Логика взаимодействия для EditPlayerComponent.xaml

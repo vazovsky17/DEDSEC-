@@ -2,15 +2,23 @@
     x:Class="DEDSEC.WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:accounts="clr-namespace:DEDSEC.WPF.ViewModels.Accounts"
-    xmlns:authorization="clr-namespace:DEDSEC.WPF.ViewModels.Authorization"
     xmlns:components="clr-namespace:DEDSEC.WPF.Components"
-    xmlns:donations="clr-namespace:DEDSEC.WPF.ViewModels.Donations"
-    xmlns:games="clr-namespace:DEDSEC.WPF.ViewModels.Games"
-    xmlns:meetings="clr-namespace:DEDSEC.WPF.ViewModels.Meetings"
-    xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
-    xmlns:players="clr-namespace:DEDSEC.WPF.ViewModels.Players"
+    xmlns:accounts_comp="clr-namespace:DEDSEC.WPF.Components.Accounts"
+    xmlns:authorization_comp="clr-namespace:DEDSEC.WPF.Components.Authorization"
+    xmlns:donations_comp="clr-namespace:DEDSEC.WPF.Components.Donations"
+    xmlns:games_comp="clr-namespace:DEDSEC.WPF.Components.Games"
+    xmlns:meetings_comp="clr-namespace:DEDSEC.WPF.Components.Meetings"
     xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
+    xmlns:accounts_vm="clr-namespace:DEDSEC.WPF.ViewModels.Accounts"
+    xmlns:authorization_vm="clr-namespace:DEDSEC.WPF.ViewModels.Authorization"
+    xmlns:donations_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations"
+    xmlns:donationgoal_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations.DonationGoals"
+    xmlns:donation_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations.Donations"
+    xmlns:games_vm="clr-namespace:DEDSEC.WPF.ViewModels.Games"
+    xmlns:meetings_vm="clr-namespace:DEDSEC.WPF.ViewModels.Meetings"
+    xmlns:players_vm="clr-namespace:DEDSEC.WPF.ViewModels.Players"
+    xmlns:views="clr-namespace:DEDSEC.WPF.Views"
+    xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
     Width="1080"
     Height="720"
     AllowsTransparency="True"
@@ -25,78 +33,62 @@
         <Grid>
             <Grid.Resources>
                 <!--#region Account-->
-                <DataTemplate DataType="{x:Type accounts:AccountScreenViewModel}">
-                    <components:AccountComponent />
+                <DataTemplate DataType="{x:Type accounts_vm:AccountScreenViewModel}">
+                    <views:AccountScreen />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type accounts:EditAccountViewModel}">
-                    <components:EditAccountComponent />
+                <DataTemplate DataType="{x:Type accounts_vm:EditAccountViewModel}">
+                    <accounts_comp:EditAccountComponent />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Authorization-->
-                <DataTemplate DataType="{x:Type authorization:LoginViewModel}">
-                    <components:LoginComponent />
+                <DataTemplate DataType="{x:Type authorization_vm:LoginViewModel}">
+                    <authorization_comp:LoginComponent />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type authorization:RegisterViewModel}">
-                    <components:RegisterComponent />
+                <DataTemplate DataType="{x:Type authorization_vm:RegisterViewModel}">
+                    <authorization_comp:RegisterComponent />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Meetings-->
-                <DataTemplate DataType="{x:Type meetings:MeetingListingViewModel}">
-                    <components:MeetingListingComponent />
+                <DataTemplate DataType="{x:Type meetings_vm:MeetingsScreenViewModel}">
+                    <views:MeetingsScreen />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type meetings:AddMeetingViewModel}">
-                    <components:AddMeetingComponent />
+                <DataTemplate DataType="{x:Type meetings_vm:AddMeetingViewModel}">
+                    <meetings_comp:AddMeetingComponent />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Players-->
-                <DataTemplate DataType="{x:Type players:PlayerListingViewModel}">
-                    <components:PlayerListingComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type players:EditPlayerViewModel}">
-                    <components:EditPlayerComponent />
+                <DataTemplate DataType="{x:Type players_vm:PlayersScreenViewModel}">
+                    <views:PlayersScreen />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Game-->
-                <DataTemplate DataType="{x:Type games:GameListingViewModel}">
-                    <components:GameListingComponent />
+                <DataTemplate DataType="{x:Type games_vm:GamesScreenViewModel}">
+                    <views:GamesScreen />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type games:AddGameViewModel}">
-                    <components:AddGameComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type games:EditGameViewModel}">
-                    <components:EditGameComponent />
+                <DataTemplate DataType="{x:Type games_vm:AddGameViewModel}">
+                    <games_comp:AddGameComponent />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Donations-->
-                <DataTemplate DataType="{x:Type donations:DonationGoalViewModel}">
-                    <components:DonationGoalComponent />
+                <DataTemplate DataType="{x:Type donations_vm:DonationsScreenViewModel}">
+                    <views:DonationsScreen />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type donations:AddDonationViewModel}">
-                    <components:AddDonationComponent />
+                <DataTemplate DataType="{x:Type donation_vm:AddDonationViewModel}">
+                    <donations_comp:AddDonationComponent />
                 </DataTemplate>
 
-                <DataTemplate DataType="{x:Type donations:AddDonationGoalViewModel}">
-                    <components:AddDonationGoalComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donations:EditDonationGoalViewModel}">
-                    <components:EditDonationGoalComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donations:EditDonationViewModel}">
-                    <components:EditDonationComponent />
+                <DataTemplate DataType="{x:Type donationgoal_vm:AddDonationGoalViewModel}">
+                    <donations_comp:AddDonationGoalComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

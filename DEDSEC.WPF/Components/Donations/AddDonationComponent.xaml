@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="DEDSEC.WPF.Components.AddDonationComponent"
+    x:Class="DEDSEC.WPF.Components.Donations.AddDonationComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:DEDSEC.WPF.Components">
+    xmlns:donations_comp="clr-namespace:DEDSEC.WPF.Components.Donations">
     <Grid Width="400" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -13,6 +13,6 @@
             Margin="20"
             Style="{StaticResource textBlockTitle}"
             Text="Добавить донат" />
-        <components:DonationFormComponent Grid.Row="1" DataContext="{Binding DonationFormViewModel}" />
+        <donations_comp:DonationFormComponent Grid.Row="1" DataContext="{Binding DonationFormViewModel}" />
     </Grid>
 </UserControl>

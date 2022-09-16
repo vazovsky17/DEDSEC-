@@ -1,7 +1,6 @@
-﻿
+﻿C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Account\AccountComponent.xaml;;
-FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Account\EditAccountComponent.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Accounts\EditAccountComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\AddDonationGoalComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Donations\EditDonationComponent.xaml;;
@@ -13,4 +12,5 @@ FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Meetings\AddMee
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Meetings\EditMeetingComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Components\Players\EditPlayerComponent.xaml;;
 FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\MainWindow.xaml;;
+FC:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.WPF\Views\AccountScreen.xaml;;
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DEDSEC.WPF.Components
+namespace DEDSEC.WPF.Components.Donations
 {
     /// <summary>
     /// Логика взаимодействия для EditDonationComponent.xaml
