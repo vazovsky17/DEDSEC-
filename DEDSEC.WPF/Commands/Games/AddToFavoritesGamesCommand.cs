@@ -1,24 +1,23 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Stores;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace DEDSEC.WPF.Commands.Games
 {
     public class AddToFavoritesGamesCommand : AsyncCommandBase
     {
         private readonly Game _game;
-        private readonly IAccountService _dataService;
+        private readonly AccountStore _accountStore;
         private readonly IAuthenticatorService _authenticatorService;
 
         public AddToFavoritesGamesCommand(Game game,
-            IAccountService dataService,
+            AccountStore accountStore,
             IAuthenticatorService authenticatorService)
         {
             _game = game;
-            _dataService = dataService;
+            _accountStore = accountStore;
             _authenticatorService = authenticatorService;
         }
 
@@ -27,15 +26,7 @@ namespace DEDSEC.WPF.Commands.Games
             var account = _authenticatorService.CurrentAccount;
             if (account != null)
             {
-                account.FavoriteGames.Add(_game);
-                await _dataService.Update(account.Id, account).ContinueWith(task =>
-                {
-                    if (task.IsCompleted)
-                    {
-                        MessageBox.Show(account.FavoriteGames.Count.ToString());
-                        _authenticatorService.EditAccount(account);
-                    }
-                });
+                await _accountStore.AddToFavoriteGames(_game);
             }
         }
     }

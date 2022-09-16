@@ -52,7 +52,7 @@ namespace DEDSEC.WPF.Components.Meetings {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;component/components/meetings/meetingformcomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DEDSEC.WPF;V1.0.0.0;component/components/meetings/meetingformcomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Components\Meetings\MeetingFormComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

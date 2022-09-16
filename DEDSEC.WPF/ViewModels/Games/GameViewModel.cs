@@ -5,6 +5,7 @@ using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games
@@ -12,7 +13,9 @@ namespace DEDSEC.WPF.ViewModels.Games
     public class GameViewModel : ViewModelBase
     {
         public AccountStore AccountStore { get; }
-        public bool IsAdmin => AccountStore?.IsAdmin ?? false;
+        public Account CurrentAccount => AccountStore.CurrentAccount;
+        public List<Game> FavoriteGames => CurrentAccount.FavoriteGames ?? new();
+        public bool IsAdmin => CurrentAccount.AccountHolder?.IsAdmin ?? false;
 
         public Game Game { get; private set; }
         public Guid Id => Game.Id;
@@ -26,9 +29,11 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string LinkHobbyGames => SetLinkDisplay(Game.LinkHobbyGames);
         public List<Review> Reviews => Game.Reviews;
 
-        public bool IsAddToFavoriteEnabled => !IsFavoriteGame();
+        public bool IsFavorite => IsFavoriteGame();
+        public bool IsUnfavorite => !IsFavoriteGame();
 
         public ICommand AddToFavoriteCommand { get; }
+        public ICommand DeleteFromFavoriteCommand { get; }
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
 
@@ -41,7 +46,9 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             AccountStore = accountStore;
-            AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, accountService, authenticatorService);
+
+            AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, accountStore, authenticatorService);
+            DeleteFromFavoriteCommand = new DeleteFromFavoriteGamesCommand(game, accountStore, authenticatorService);
             EditCommand = new OpenEditGameCommand(this, gamesStore, modalNavigationStore);
             DeleteCommand = new DeleteGameCommand(gamesStore, game);
         }
@@ -84,16 +91,9 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private bool IsFavoriteGame()
         {
-            var account = AccountStore.CurrentAccount;
-            if (account != null)
+            foreach (var item in FavoriteGames)
             {
-                foreach (var item in account.FavoriteGames)
-                {
-                    if (Game == item)
-                    {
-                        return true;
-                    }
-                }
+                if (item.Id == Game.Id) return true;
             }
             return false;
         }

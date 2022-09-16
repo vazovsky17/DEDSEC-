@@ -47,6 +47,9 @@ namespace DEDSEC.WPF.ViewModels.Games
             _gamesStore.GameAdded += GamesStore_Added;
             _gamesStore.GameUpdated += GamesStore_Updated;
             _gamesStore.GameDeleted += GamesStore_Deleted;
+            _gamesStore.GameToFavoriteAdded += GameStore_GameToFavoriteAdded;
+            _gamesStore.GameFromFavoriteDeleted += GameStore_GameFromFavoriteDeleted;
+
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);
         }
@@ -125,6 +128,28 @@ namespace DEDSEC.WPF.ViewModels.Games
             }
         }
 
+        private void GameStore_GameToFavoriteAdded(Game game)
+        {
+            GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
+            if(gameViewModel != null)
+            {
+                _gameViewModels.Remove(gameViewModel);
+                gameViewModel.Update(game);
+                _gameViewModels.Add(gameViewModel);
+            }
+        }      
+        
+        private void GameStore_GameFromFavoriteDeleted(Game game)
+        {
+            GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
+            if(gameViewModel != null)
+            {
+                _gameViewModels.Remove(gameViewModel);
+                gameViewModel.Update(game);
+                _gameViewModels.Add(gameViewModel);
+            }
+        }
+
         private void AddGameViewModel(Game game)
         {
             var itemViewModel = new GameViewModel(game, _gamesStore, _accountStore, _accountService, _authenticatorService, _modalNavigationStore);
@@ -137,6 +162,8 @@ namespace DEDSEC.WPF.ViewModels.Games
             _gamesStore.GameAdded -= GamesStore_Added;
             _gamesStore.GameUpdated -= GamesStore_Updated;
             _gamesStore.GameDeleted -= GamesStore_Deleted;
+            _gamesStore.GameToFavoriteAdded -= GameStore_GameToFavoriteAdded;
+            _gamesStore.GameFromFavoriteDeleted -= GameStore_GameFromFavoriteDeleted;
 
             base.Dispose();
         }
