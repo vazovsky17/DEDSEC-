@@ -180,9 +180,9 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="gridEditButton" TargetType="Button">
-            <Setter Property="Background" Value="#512da8" />
-            <Setter Property="BorderBrush" Value="#4a148c" />
+
+        <!--#region Grid Buttons Style-->
+        <Style x:Key="gridButton" TargetType="Button">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -200,6 +200,13 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style
+            x:Key="gridEditButton"
+            BasedOn="{StaticResource gridButton}"
+            TargetType="Button">
+            <Setter Property="Background" Value="#512da8" />
+            <Setter Property="BorderBrush" Value="#4a148c" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#637ab7" />
@@ -208,7 +215,7 @@
         </Style>
         <Style
             x:Key="gridFavoriteButton"
-            BasedOn="{StaticResource gridEditButton}"
+            BasedOn="{StaticResource gridButton}"
             TargetType="Button">
             <Setter Property="Background" Value="#DAE2AE" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
@@ -220,7 +227,7 @@
         </Style>
         <Style
             x:Key="gridUnFavoriteButton"
-            BasedOn="{StaticResource gridEditButton}"
+            BasedOn="{StaticResource gridButton}"
             TargetType="Button">
             <Setter Property="Background" Value="#FFC618" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
@@ -232,7 +239,7 @@
         </Style>
         <Style
             x:Key="gridDeleteButton"
-            BasedOn="{StaticResource gridEditButton}"
+            BasedOn="{StaticResource gridButton}"
             TargetType="Button">
             <Setter Property="Background" Value="#d32f2f" />
             <Setter Property="BorderBrush" Value="#b71c1c" />
@@ -242,6 +249,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!--#endregion-->
+
         <!--#endregion-->
 
         <!--#region Icon Styles-->

@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.Stores
                 CurrentAccountChanged?.Invoke();
             }
         }
-        public bool IsAdmin = CurrentAccount?.AccountHolder.IsAdmin ?? false;
+        public bool IsAdmin => CurrentAccount?.AccountHolder.IsAdmin ?? false;
 
         public void EditAccount(Account account)
         {
