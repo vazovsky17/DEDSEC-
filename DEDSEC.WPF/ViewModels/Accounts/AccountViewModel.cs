@@ -1,4 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Stores;
 using System.Collections.Generic;
 
@@ -8,10 +9,10 @@ namespace DEDSEC.WPF.ViewModels.Accounts
     {
         public AccountStore AccountStore { get; private set; }
         public Account Account => AccountStore.CurrentAccount;
-        public string Nickname => !string.IsNullOrEmpty(Account.AccountHolder.Nickname) ? Account.AccountHolder.Nickname : "Неизвестно";
-        public string Name => !string.IsNullOrEmpty(Account?.Name) ? Account.Name : "Неизестно";
-        public int Age => Account?.Age ?? 0;
-        public string AboutMe => !string.IsNullOrEmpty(Account?.AboutMe) ? Account.AboutMe : "Не заполнено";
+        public string Nickname => Account.SetNicknameDisplay();
+        public string Name => Account.SetNameDisplay();
+        public string Age => Account.SetAgeDisplay();
+        public string AboutMe => Account.SetAboutMeDisplay();
         public bool IsVisited => Account?.IsVisited ?? false;
         public List<Game> FavoriteGames => Account?.FavoriteGames ?? new();
         public bool HasFavoriteGames => FavoriteGames.Count > 0;
