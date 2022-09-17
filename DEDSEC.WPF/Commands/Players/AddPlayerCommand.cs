@@ -29,17 +29,17 @@ namespace DEDSEC.WPF.Commands.Players
             var player = new Account()
             {
                 Id = Guid.NewGuid(),
-                Name = _addPlayerViewModel.Name,
+                Name = _addPlayerViewModel.AccountFormViewModel.Name,
                 AccountHolder = new User()
                 {
                     Id = Guid.NewGuid(),
-                    Nickname = _addPlayerViewModel.Nickname,
-                    Password = _addPlayerViewModel.Password,
-                    IsAdmin = _addPlayerViewModel.IsAdmin,
+                    Nickname = _addPlayerViewModel.AccountFormViewModel.Nickname,
+                    Password = _addPlayerViewModel.AccountFormViewModel.Password,
+                    IsAdmin = false,
                 },
-                Age = _addPlayerViewModel.Age,
-                AboutMe = _addPlayerViewModel.AboutMe,
-                IsVisited = _addPlayerViewModel.IsVisited,
+                Age = _addPlayerViewModel.AccountFormViewModel.Age,
+                AboutMe = _addPlayerViewModel.AccountFormViewModel.AboutMe,
+                IsVisited = _addPlayerViewModel.AccountFormViewModel.IsVisited,
                 FavoriteGames = new()
             };
             await _playersStore.Add(player).ContinueWith(task =>

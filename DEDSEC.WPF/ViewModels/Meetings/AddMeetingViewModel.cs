@@ -17,6 +17,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
             MeetingFormViewModel = new MeetingFormViewModel(SubmitCommand, CancelCommand)
             {   
+                Title = string.Empty,
+                Description = string.Empty,
                 DateBegin = System.DateTime.Now,
                 DateEnd = System.DateTime.Now,
                 MaxCountVisitors = 8

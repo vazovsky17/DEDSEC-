@@ -14,7 +14,13 @@ namespace DEDSEC.WPF.ViewModels.Donations.DonationGoals
         {
             var SubmitCommand = new AddDonationGoalCommand(this, donationGoalStore, closeNavigationService);
             var CancelCommand = new NavigateCommand(closeNavigationService);
-            DonationGoalFormViewModel = new DonationGoalFormViewModel(SubmitCommand, CancelCommand);
+            DonationGoalFormViewModel = new DonationGoalFormViewModel(SubmitCommand, CancelCommand)
+            {
+                Title = string.Empty,
+                Description = string.Empty,
+                CurrentValue = 0,
+                TargetValue = 100
+            };
         }
     }
 }

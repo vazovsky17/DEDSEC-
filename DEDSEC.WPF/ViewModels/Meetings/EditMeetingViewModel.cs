@@ -21,8 +21,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
             MeetingFormViewModel = new MeetingFormViewModel(SubmitCommand, CancelCommand)
             {
-                Title = Meeting.Title,
-                Description = Meeting.Description,
+                Title = Meeting.Title ?? string.Empty,
+                Description = Meeting.Description ?? string.Empty,
                 DateBegin = Meeting.DateBegin,
                 DateEnd = Meeting.DateEnd,
                 MaxCountVisitors = Meeting.MaxCountVisitors

@@ -20,11 +20,11 @@ namespace DEDSEC.WPF.ViewModels.Games
 
             GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
             {
-                Name = Game.Name,
-                Description = Game.Description,
+                Name = Game.Name ?? string.Empty,
+                Description = Game.Description ?? string.Empty,
                 MinCountPlayers = Game.MinCountPlayers,
                 MaxCountPlayers = Game.MaxCountPlayers,
-                LinkHobbyGames = Game.LinkHobbyGames
+                LinkHobbyGames = Game.LinkHobbyGames ?? string.Empty 
             };
         }
     }
