@@ -101,7 +101,6 @@
 
         <Button
             Grid.Row="2"
-            Margin="0,20,0,0"
             HorizontalAlignment="Center"
             Command="{Binding RegisterCommand}"
             Content="Продолжить"

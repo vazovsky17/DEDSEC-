@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services.Authentification;
+using DEDSEC.WPF.Components.Settings;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Threading.Tasks;
@@ -51,6 +52,5 @@ namespace DEDSEC.WPF.Services
         {
             CurrentAccount = null;
         }
-
     }
 }
