@@ -1,6 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Games;
 using System.Collections.Generic;
 
 namespace DEDSEC.WPF.ViewModels.Accounts

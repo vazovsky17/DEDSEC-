@@ -1,5 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
@@ -23,7 +24,7 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private readonly ObservableCollection<PlayerViewModel> _playerViewModels;
         public IEnumerable<PlayerViewModel> PlayerViewModels => _playerViewModels;
-        public string PlayersViewModelsCountDisplay => setPlayersViewModelsCountDisplay();
+        public string PlayersViewModelsCountDisplay => PlayerViewModels.setPlayersViewModelsCountDisplay();
 
         public ICommand AddPlayerCommand { get; }
 
@@ -50,28 +51,6 @@ namespace DEDSEC.WPF.ViewModels.Players
             _playersStore.PlayerDeleted += PlayerStore_Deleted;
 
             AddPlayerCommand = new NavigateCommand(addPlayerNavigationService);
-        }
-
-        private string setPlayersViewModelsCountDisplay()
-        {
-            var count = _playerViewModels.Count;
-            return count + " " + GrammarPlayer(count);
-        }
-
-        private string GrammarPlayer(int num)
-        {
-            if (num % 10 == 1 && num != 11)
-            {
-                return "игрок";
-            }
-            else if ((num >= 2 && num <= 4) || (num % 10 <= 4 && num % 10 >= 2))
-            {
-                return "игрока";
-            }
-            else
-            {
-                return "игроков";
-            }
         }
 
 
