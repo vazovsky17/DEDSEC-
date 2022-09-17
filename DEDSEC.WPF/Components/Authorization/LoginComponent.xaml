@@ -85,9 +85,7 @@
                     IsHitTestVisible="False"
                     Text="Код администрации"
                     Visibility="{Binding ElementName=textBoxAdministrationCode, Path=Password.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <common:BindablePasswordBox
-                    x:Name="textBoxAdministrationCode"
-                    Password="{Binding AdministrationCode, UpdateSourceTrigger=PropertyChanged}" />
+                <common:BindablePasswordBox x:Name="textBoxAdministrationCode" Password="{Binding AdministrationCode, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </StackPanel>
 

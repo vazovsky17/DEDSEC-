@@ -60,6 +60,10 @@
                 <DataTemplate DataType="{x:Type meetings_vm:AddMeetingViewModel}">
                     <meetings_comp:AddMeetingComponent />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type meetings_vm:EditMeetingViewModel}">
+                    <meetings_comp:EditMeetingComponent />
+                </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Players-->
@@ -76,6 +80,14 @@
                 <DataTemplate DataType="{x:Type games_vm:AddGameViewModel}">
                     <games_comp:AddGameComponent />
                 </DataTemplate>
+
+                <DataTemplate DataType="{x:Type games_vm:EditGameViewModel}">
+                    <games_comp:EditGameComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type games_vm:GameComponentViewModel}">
+                    <games_comp:GameComponent />
+                </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Donations-->
@@ -87,8 +99,16 @@
                     <donations_comp:AddDonationComponent />
                 </DataTemplate>
 
+                <DataTemplate DataType="{x:Type donation_vm:EditDonationViewModel}">
+                    <donations_comp:EditDonationComponent />
+                </DataTemplate>
+
                 <DataTemplate DataType="{x:Type donationgoal_vm:AddDonationGoalViewModel}">
                     <donations_comp:AddDonationGoalComponent />
+                </DataTemplate>
+                
+                <DataTemplate DataType="{x:Type donationgoal_vm:EditDonationGoalViewModel}">
+                    <donations_comp:EditDonationGoalComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

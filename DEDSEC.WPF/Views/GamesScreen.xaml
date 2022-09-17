@@ -64,15 +64,9 @@
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding CountPlayersDisplay}"
+                    Binding="{Binding PlayersCount}"
                     CanUserResize="False"
                     Header="Кол-во игроков"
-                    IsReadOnly="True" />
-                <DataGridTextColumn
-                    Width="*"
-                    Binding="{Binding LinkHobbyGames}"
-                    CanUserResize="False"
-                    Header="Ссылка на hobby games"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn
                     Width="*"
@@ -82,17 +76,22 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
+                                <Button Command="{Binding ShowCommand}" Style="{StaticResource gridShowButton}">
+                                    <icon:PackIconMaterial Kind="Magnify" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
                                 <Button
+                                    Margin="5,0,0,0"
                                     Command="{Binding AddToFavoriteCommand}"
                                     Style="{StaticResource gridFavoriteButton}"
                                     Visibility="{Binding IsUnfavorite, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <icon:PackIconMaterial Kind="Star" Style="{StaticResource gridButtonIcon}" />
+                                    <icon:PackIconMaterial Kind="HeartPlus" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
+                                    Margin="5,0,0,0"
                                     Command="{Binding DeleteFromFavoriteCommand}"
                                     Style="{StaticResource gridUnFavoriteButton}"
                                     Visibility="{Binding IsFavorite, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <icon:PackIconMaterial Kind="Star" Style="{StaticResource gridButtonIcon}" />
+                                    <icon:PackIconMaterial Kind="HeartMinus" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"

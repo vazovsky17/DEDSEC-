@@ -1,0 +1,100 @@
+﻿<UserControl
+    x:Class="DEDSEC.WPF.Components.Games.GameComponent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:extensions="clr-namespace:DEDSEC.WPF.Extensions"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <StackPanel
+        MinWidth="200"
+        MaxWidth="500"
+        Margin="20"
+        Orientation="Vertical">
+        <TextBlock Style="{StaticResource textBlockTitle}" Text="{Binding Name}" />
+        <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Описание" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding Description}" />
+        </StackPanel>
+
+        <Separator />
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Количество игроков" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding PlayersCount}" />
+        </StackPanel>
+        <Separator />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Ссылка" />
+            <TextBlock Margin="10,0" Style="{StaticResource textBlockLink}">
+                <Hyperlink extensions:HyperlinkExtensions.IsExternal="true" NavigateUri="{Binding LinkHobbyGames}">
+                    HobbyGames
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        <Separator />
+        <Grid HorizontalAlignment="Stretch">
+            <TextBlock
+                Width="auto"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Отзывы" />
+            <Button
+                Command="{Binding AddReviewCommand}"
+                Style="{StaticResource optionButton}"
+                Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Margin="0,0,8,0" Text="Добавить" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <!--  Reviews Datagrid  -->
+        <DataGrid
+            x:Name="ReviewsDataGrid"
+            CellStyle="{DynamicResource DataGridCellStyle1}"
+            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+            ItemsSource="{Binding Reviews}"
+            RowStyle="{DynamicResource DataGridRowStyle1}"
+            Style="{DynamicResource DataGridStyle1}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Nickname}"
+                    CanUserResize="False"
+                    Header="Автор"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Title}"
+                    CanUserResize="False"
+                    Header="Заголовок"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Comment}"
+                    CanUserResize="False"
+                    Header="Комментарий"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Rating}"
+                    CanUserResize="False"
+                    Header="Окенка"
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

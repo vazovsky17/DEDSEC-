@@ -22,7 +22,7 @@ namespace DEDSEC.WPF.Commands.Games
 
         public override void Execute(object parameter)
         {
-            Game game = _gameViewModel.Game;
+            var game = _gameViewModel.Game;
 
             EditGameViewModel editGameViewModel = new EditGameViewModel(
                 game, _gamesStore, _modalNavigationStore);

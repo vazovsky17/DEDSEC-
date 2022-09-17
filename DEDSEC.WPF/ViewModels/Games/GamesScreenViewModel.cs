@@ -15,7 +15,6 @@ namespace DEDSEC.WPF.ViewModels.Games
     public class GamesScreenViewModel : ViewModelBase
     {
         private readonly AccountStore _accountStore;
-        private readonly IAccountService _accountService;
         private readonly IAuthenticatorService _authenticatorService;
         private readonly GamesStore _gamesStore;
         private readonly ModalNavigationStore _modalNavigationStore;
@@ -28,14 +27,12 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string GameViewModelsCountDisplay => setGameViewModelsCountDisplay();
 
         public GamesScreenViewModel(AccountStore accountStore,
-            IAccountService accountService,
             IAuthenticatorService authenticatorService,
             GamesStore gamesStore,
             ModalNavigationStore modalNavigationStore,
             INavigationService addGameNavigationService)
         {
             _accountStore = accountStore;
-            _accountService = accountService;
             _authenticatorService = authenticatorService;
             _gamesStore = gamesStore;
             _modalNavigationStore = modalNavigationStore;
@@ -131,18 +128,18 @@ namespace DEDSEC.WPF.ViewModels.Games
         private void GameStore_GameToFavoriteAdded(Game game)
         {
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
-            if(gameViewModel != null)
+            if (gameViewModel != null)
             {
                 _gameViewModels.Remove(gameViewModel);
                 gameViewModel.Update(game);
                 _gameViewModels.Add(gameViewModel);
             }
-        }      
-        
+        }
+
         private void GameStore_GameFromFavoriteDeleted(Game game)
         {
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
-            if(gameViewModel != null)
+            if (gameViewModel != null)
             {
                 _gameViewModels.Remove(gameViewModel);
                 gameViewModel.Update(game);
@@ -152,7 +149,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private void AddGameViewModel(Game game)
         {
-            var itemViewModel = new GameViewModel(game, _gamesStore, _accountStore, _accountService, _authenticatorService, _modalNavigationStore);
+            var itemViewModel = new GameViewModel(game, _gamesStore, _accountStore, _authenticatorService, _modalNavigationStore);
             _gameViewModels.Add(itemViewModel);
         }
 

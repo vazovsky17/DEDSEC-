@@ -77,7 +77,7 @@
                 Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
                     <DataGridTextColumn
-                        Width="auto"
+                        Width="*"
                         Binding="{Binding Name}"
                         CanUserResize="False"
                         Header="Название"

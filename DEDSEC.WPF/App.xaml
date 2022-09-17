@@ -6,9 +6,12 @@
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
+
+        <!--#region Converters-->
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:BooleanNotConverter x:Key="BooleanNotConverter" />
         <converters:YesOrNotConverter x:Key="YesOrNotConverter" />
+        <!--#endregion-->
 
         <!--#region Colors-->
         <SolidColorBrush x:Key="ColorPrimary" Color="#623ED0" />
@@ -27,6 +30,7 @@
         <SolidColorBrush x:Key="ColorSeparators" Color="#E0E6ED" />
         <SolidColorBrush x:Key="ColorItemTextTitle" Color="#6C6C79" />
         <SolidColorBrush x:Key="ColorItemTextDesc" Color="#51515F" />
+        <SolidColorBrush x:Key="ColorTextLink" Color="#6741D9" />
         <!--#endregion-->
 
         <!--#region Button Styles-->
@@ -181,6 +185,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!--#endregion-->
 
         <!--#region Grid Buttons Style-->
         <Style x:Key="gridButton" TargetType="Button">
@@ -218,7 +223,7 @@
             x:Key="gridFavoriteButton"
             BasedOn="{StaticResource gridButton}"
             TargetType="Button">
-            <Setter Property="Background" Value="#DAE2AE" />
+            <Setter Property="Background" Value="#FFCC00" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -230,11 +235,11 @@
             x:Key="gridUnFavoriteButton"
             BasedOn="{StaticResource gridButton}"
             TargetType="Button">
-            <Setter Property="Background" Value="#FFC618" />
+            <Setter Property="Background" Value="#EFD86C" />
             <Setter Property="BorderBrush" Value="#FFCC00" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#DAE2AE" />
+                    <Setter Property="Background" Value="#FFCC00" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -250,8 +255,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!--#endregion-->
-
+        <Style
+            x:Key="gridShowButton"
+            BasedOn="{StaticResource gridButton}"
+            TargetType="Button">
+            <Setter Property="Background" Value="#B2EC5D" />
+            <Setter Property="BorderBrush" Value="#7FFF00" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#7FFF00" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <!--#endregion-->
 
         <!--#region Icon Styles-->
@@ -396,44 +411,6 @@
             </Setter>
         </Style>
         <!--#endregion-->
-
-        <Style x:Key="passwordBoxDefault" TargetType="PasswordBox">
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Background" Value="White" />
-            <Setter Property="Foreground" Value="#b0b9c6" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="Padding" Value="10,8" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="PasswordBox">
-                        <Border
-                            x:Name="border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="#e0e6ed"
-                            BorderThickness="1"
-                            CornerRadius="7"
-                            IsEnabled="True"
-                            SnapsToDevicePixels="True">
-                            <ScrollViewer
-                                x:Name="PART_ContentHost"
-                                Focusable="False"
-                                HorizontalScrollBarVisibility="Hidden"
-                                VerticalScrollBarVisibility="Hidden" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
 
         <!--#region DataGrid Style-->
         <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
@@ -867,7 +844,6 @@
 
         <!--#region Text Block Styles-->
         <Style x:Key="textBlockTitle" TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontSize" Value="32" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
@@ -885,16 +861,62 @@
             <Setter Property="Foreground" Value="{StaticResource ColorItemTextDesc}" />
         </Style>
         <Style x:Key="textBlockDefault" TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource ColorTextForeground}" />
         </Style>
+        <Style x:Key="textBlockLink" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="{StaticResource ColorTextLink}" />
+        </Style>
         <!--#endregion-->
+
+        <!--#region Other Styles-->
+        <Style x:Key="passwordBoxDefault" TargetType="PasswordBox">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#b0b9c6" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="#e0e6ed"
+                            BorderThickness="1"
+                            CornerRadius="7"
+                            IsEnabled="True"
+                            SnapsToDevicePixels="True">
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="Separator">
             <Setter Property="Background" Value="{StaticResource ColorSeparators}" />
             <Setter Property="Margin" Value="0,10" />
         </Style>
+        <!--#endregion-->
 
     </Application.Resources>
 </Application>

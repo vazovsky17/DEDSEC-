@@ -20,7 +20,6 @@ namespace DEDSEC.WPF.HostBuilders
 
                 services.AddTransient<GamesScreenViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
-                    s.GetRequiredService<IAccountService>(),
                     s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<GamesStore>(),
                     s.GetRequiredService<ModalNavigationStore>(),
