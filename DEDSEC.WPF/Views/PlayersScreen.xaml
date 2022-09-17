@@ -21,7 +21,7 @@
         <Button
             Grid.Row="0"
             Style="{StaticResource optionButton}"
-            Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
+            Visibility="{Binding IsCurrentAccountAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel Orientation="Horizontal">
                 <icon:PackIconMaterial Kind="Plus" Style="{StaticResource optionButtonIcon}" />
                 <TextBlock Margin="0,0,8,0" Text="Добавить нового игрока" />
@@ -49,19 +49,8 @@
             RowStyle="{DynamicResource DataGridRowStyle1}"
             Style="{DynamicResource DataGridStyle1}">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn
-                    Width="auto"
-                    CanUserResize="False"
-                    ElementStyle="{StaticResource CornerCheckBoxStyle}">
-                    <DataGridCheckBoxColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <CheckBox Style="{StaticResource CornerCheckBoxStyle}" />
-                        </DataTemplate>
-                    </DataGridCheckBoxColumn.HeaderTemplate>
-                </DataGridCheckBoxColumn>
-
                 <DataGridTextColumn
-                    Width="*"
+                    Width="auto"
                     Binding="{Binding Nickname}"
                     CanUserResize="False"
                     Header="Никнейм"

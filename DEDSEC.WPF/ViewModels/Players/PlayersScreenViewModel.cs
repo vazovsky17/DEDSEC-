@@ -60,15 +60,11 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private string GrammarPlayer(int num)
         {
-            if (num % 10 == 0)
-            {
-                return "игроков";
-            }
-            else if (num % 10 == 1 && num != 11)
+            if (num % 10 == 1 && num != 11)
             {
                 return "игрок";
             }
-            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
+            else if ((num >= 2 && num <= 4) || (num % 10 <= 4 && num % 10 >= 2))
             {
                 return "игрока";
             }
