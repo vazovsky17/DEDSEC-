@@ -1,10 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.ViewModels.Games;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows;
 
 namespace DEDSEC.WPF.Extensions
 {
@@ -60,7 +57,7 @@ namespace DEDSEC.WPF.Extensions
         public static string setGameViewModelsCountDisplay(this IEnumerable<GameViewModel> gameViewModels)
         {
             var count = gameViewModels.Count();
-            return count + " " + GrammarGame(count);
+            return count + " " + Pluralize(count);
         }
 
         /// <summary>
@@ -68,7 +65,7 @@ namespace DEDSEC.WPF.Extensions
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        private static string GrammarGame(int num)
+        private static string Pluralize(int num)
         {
             if (num % 10 == 1 && num != 11)
             {

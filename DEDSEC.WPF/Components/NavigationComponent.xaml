@@ -142,7 +142,7 @@
                         Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal">
                             <icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Сходки" />
+                            <TextBlock Text="Встречи" />
                         </StackPanel>
                     </Button>
 

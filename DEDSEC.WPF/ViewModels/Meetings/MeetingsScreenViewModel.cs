@@ -1,7 +1,9 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
+using DEDSEC.WPF.ViewModels.Players;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +23,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         private readonly ObservableCollection<MeetingViewModel> _meetingViewModels;
         public IEnumerable<MeetingViewModel> MeetingViewModels => _meetingViewModels;
+        public string MeetingsViewModelsCountDisplay => MeetingViewModels.setMeetingsViewModelsCountDisplay();
 
         public MeetingsScreenViewModel(AccountStore accountStore,
             MeetingsStore meetingsStore,
