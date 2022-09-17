@@ -11,7 +11,6 @@ namespace DEDSEC.WPF.ViewModels
     {
         private readonly AccountStore _accountStore;
 
-        public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateAccountCommand { get; }
         public ICommand NavigateLoginCommand { get; }
         public ICommand NavigateMeetingListingCommand { get; }
@@ -36,7 +35,6 @@ namespace DEDSEC.WPF.ViewModels
             INavigationService donationGoalNavigationService)
         {
             _accountStore = accountStore;
-            NavigateHomeCommand = new NavigateCommand(homeNavigationService);
             NavigateAccountCommand = new NavigateCommand(accountNavigationService);
             NavigateLoginCommand = new NavigateCommand(loginNavigationService);
             NavigateMeetingListingCommand = new NavigateCommand(meetingListingNavigationService);

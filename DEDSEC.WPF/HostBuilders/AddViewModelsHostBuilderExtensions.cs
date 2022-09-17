@@ -13,7 +13,7 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<HomeViewModel>(s => new(
+                services.AddTransient<HomeScreenViewModel>(s => new(
                     s.GetRequiredService<IAuthenticatorService>(),
                     CreateNavigationServiceExtensions.CreateLoginNavigationService(s)));
 

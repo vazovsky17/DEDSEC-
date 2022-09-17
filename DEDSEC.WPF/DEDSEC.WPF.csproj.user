@@ -70,7 +70,7 @@
     <Compile Update="Components\Meetings\AddMeetingComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\HomeComponent.xaml.cs">
+    <Compile Update="Views\HomeScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\LayoutComponent.xaml.cs">
@@ -165,7 +165,7 @@
     <Page Update="Components\Meetings\AddMeetingComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\HomeComponent.xaml">
+    <Page Update="Views\HomeScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\LayoutComponent.xaml">

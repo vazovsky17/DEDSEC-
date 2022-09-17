@@ -106,15 +106,15 @@
                 <DataTemplate DataType="{x:Type donationgoal_vm:AddDonationGoalViewModel}">
                     <donations_comp:AddDonationGoalComponent />
                 </DataTemplate>
-                
+
                 <DataTemplate DataType="{x:Type donationgoal_vm:EditDonationGoalViewModel}">
                     <donations_comp:EditDonationGoalComponent />
                 </DataTemplate>
                 <!--#endregion-->
 
                 <!--#region Other-->
-                <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-                    <components:HomeComponent />
+                <DataTemplate DataType="{x:Type viewmodels:HomeScreenViewModel}">
+                    <views:HomeScreen />
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">

@@ -135,9 +135,9 @@ namespace DEDSEC.WPF.HostBuilders
         #region Other
         public static INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
         {
-            return new LayoutNavigationService<HomeViewModel>(
+            return new LayoutNavigationService<HomeScreenViewModel>(
                  serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<HomeViewModel>(),
+                () => serviceProvider.GetRequiredService<HomeScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
 

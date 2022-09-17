@@ -38,17 +38,6 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <Button
-            Grid.Row="0"
-            Margin="20,28,0,32"
-            Command="{Binding NavigateHomeCommand}"
-            Style="{StaticResource topButton}">
-            <icon:PackIconMaterial
-                Width="16"
-                Height="16"
-                Kind="Menu" />
-        </Button>
-
         <Border
             Grid.Row="1"
             MinHeight="580"
@@ -106,16 +95,6 @@
 
                 <!--  Menu Buttons  -->
                 <StackPanel DockPanel.Dock="Top">
-                    <Button
-                        Command="{Binding NavigateHomeCommand}"
-                        Style="{StaticResource menuButton}"
-                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Главная" />
-                        </StackPanel>
-                    </Button>
-
                     <Button
                         Command="{Binding NavigateAccountCommand}"
                         Style="{StaticResource menuButton}"
