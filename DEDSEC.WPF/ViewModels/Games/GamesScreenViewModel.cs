@@ -1,6 +1,6 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
+using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
@@ -24,7 +24,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 
         private readonly ObservableCollection<GameViewModel> _gameViewModels;
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
-        public string GameViewModelsCountDisplay => setGameViewModelsCountDisplay();
+        public string GameViewModelsCountDisplay => GameViewModels.setGameViewModelsCountDisplay();
 
         public GamesScreenViewModel(AccountStore accountStore,
             IAuthenticatorService authenticatorService,
@@ -49,37 +49,6 @@ namespace DEDSEC.WPF.ViewModels.Games
 
 
             AddGameCommand = new NavigateCommand(addGameNavigationService);
-        }
-
-        private string setGameViewModelsCountDisplay()
-        {
-            var count = _gameViewModels.Count;
-            return count + " " + GrammarGame(count);
-        }
-
-        /// <summary>
-        /// НЕ РАБОТАЕТ
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        private string GrammarGame(int num)
-        {
-            if (num % 10 == 0)
-            {
-                return "игр";
-            }
-            else if (num % 10 == 1 && num != 11)
-            {
-                return "игра";
-            }
-            else if ((num >= 4 && num <= 2) || (num % 10 >= 4 && num % 10 <= 2 && num < 12 && num > 14))
-            {
-                return "игры";
-            }
-            else
-            {
-                return "игр";
-            }
         }
 
         private async void Load()
@@ -111,7 +80,6 @@ namespace DEDSEC.WPF.ViewModels.Games
                 _gameViewModels.Remove(gameViewModel);
                 gameViewModel.Update(game);
                 _gameViewModels.Add(gameViewModel);
-                OnPropertyChanged(nameof(GameViewModelsCountDisplay));
             }
         }
 

@@ -1,5 +1,10 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.ViewModels.Games;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace DEDSEC.WPF.Extensions
 {
@@ -19,7 +24,7 @@ namespace DEDSEC.WPF.Extensions
         /// <param name="game">Игра</param>
         /// <returns>Строка с отображаемым описанием игры</returns>
         public static string SetNameDescription(this Game game)
-            => !string.IsNullOrEmpty(game.Description) ? game.Description: "Без описания";
+            => !string.IsNullOrEmpty(game.Description) ? game.Description : "Без описания";
 
         /// <summary>
         /// Установка отображаемого количества игроков для игры
@@ -52,5 +57,31 @@ namespace DEDSEC.WPF.Extensions
             return false;
         }
 
+        public static string setGameViewModelsCountDisplay(this IEnumerable<GameViewModel> gameViewModels)
+        {
+            var count = gameViewModels.Count();
+            return count + " " + GrammarGame(count);
+        }
+
+        /// <summary>
+        /// НЕ РАБОТАЕТ
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static string GrammarGame(int num)
+        {
+            if (num % 10 == 1 && num != 11)
+            {
+                return "игра";
+            }
+            else if (( num >= 2 && num <=4) || (num % 10 <= 4 && num % 10 >= 2))
+            {
+                return "игры";
+            }
+            else
+            {
+                return "игр";
+            }
+        }
     }
 }

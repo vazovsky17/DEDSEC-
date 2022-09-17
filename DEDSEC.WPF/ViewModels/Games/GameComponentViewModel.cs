@@ -1,9 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
-using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Stores;
 using System.Collections.Generic;
-using System.Windows.Input;
 using System.Windows.Navigation;
 
 namespace DEDSEC.WPF.ViewModels.Games
@@ -24,7 +22,6 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             _modalNavigationStore = modalNavigationStore;
-
         }
 
         public void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
