@@ -14,17 +14,22 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GamesScreenViewModel : ViewModelBase
     {
+        private readonly GamesStore _gamesStore;
         private readonly AccountStore _accountStore;
         private readonly IAuthenticatorService _authenticatorService;
-        private readonly GamesStore _gamesStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
-        public ICommand AddGameCommand { get; }
 
+        #region Bindings
         private readonly ObservableCollection<GameViewModel> _gameViewModels;
         public IEnumerable<GameViewModel> GameViewModels => _gameViewModels;
         public string GameViewModelsCountDisplay => GameViewModels.setGameViewModelsCountDisplay();
+        #endregion
+
+        #region Commands
+        public ICommand AddGameCommand { get; }
+        #endregion
 
         public GamesScreenViewModel(AccountStore accountStore,
             IAuthenticatorService authenticatorService,

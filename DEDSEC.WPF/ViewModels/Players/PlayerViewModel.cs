@@ -12,7 +12,11 @@ namespace DEDSEC.WPF.ViewModels.Players
 {
     public class PlayerViewModel : ViewModelBase
     {
+        public bool IsCurrentAccountAdmin { get; }
+
         public Account Player { get; private set; }
+
+        #region Bindings
         public Guid Id => Player.Id;
         public User AccountHolder => Player.AccountHolder;
         public string Nickname => Player.SetNicknameDisplay();
@@ -22,11 +26,12 @@ namespace DEDSEC.WPF.ViewModels.Players
         public bool IsVisited => Player?.IsVisited ?? false;
         public bool IsAdmin => AccountHolder?.IsAdmin ?? false;
         public List<Game> FavoriteGames => Player?.FavoriteGames ?? new();
+        #endregion
 
-        public bool IsCurrentAccountAdmin { get; }
-
+        #region Commands
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
+        #endregion
 
         public PlayerViewModel(Account player,
             PlayersStore playersStore,

@@ -22,11 +22,15 @@ namespace DEDSEC.WPF.ViewModels.Players
         private readonly AccountStore _accountStore;
         public bool IsCurrentAccountAdmin => _accountStore?.IsAdmin ?? false;
 
+        #region Bindings
         private readonly ObservableCollection<PlayerViewModel> _playerViewModels;
         public IEnumerable<PlayerViewModel> PlayerViewModels => _playerViewModels;
-        public string PlayersViewModelsCountDisplay => PlayerViewModels.setPlayersViewModelsCountDisplay();
+        public string PlayerViewModelsCountDisplay => PlayerViewModels.setPlayersViewModelsCountDisplay();
+        #endregion
 
+        #region Commands
         public ICommand AddPlayerCommand { get; }
+        #endregion
 
         public PlayersScreenViewModel(
             IAuthenticatorService authenticatorService,
@@ -66,11 +70,13 @@ namespace DEDSEC.WPF.ViewModels.Players
             {
                 AddPlayerViewModel(player);
             }
+            OnPropertyChanged(nameof(PlayerViewModelsCountDisplay));
         }
 
         private void PlayersStore_Added(Account player)
         {
             AddPlayerViewModel(player);
+            OnPropertyChanged(nameof(PlayerViewModelsCountDisplay));
         }
 
         private void PlayersStore_Updated(Account player)
@@ -93,6 +99,7 @@ namespace DEDSEC.WPF.ViewModels.Players
             {
                 _playerViewModels.Remove(playerViewModel);
             }
+            OnPropertyChanged(nameof(PlayerViewModelsCountDisplay));
         }
 
         private void AddPlayerViewModel(Account player)

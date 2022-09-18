@@ -14,8 +14,10 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 
         public AccountViewModel CurrentAccountViewModel { get; private set; }
 
+        #region Commands
         public ICommand EditAccountCommand { get; }
         public ICommand DeleteAccountCommand { get; }
+        #endregion
 
         public AccountScreenViewModel(IAccountService dataService,
             AccountStore accountStore,
@@ -24,6 +26,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             INavigationService logoutNavigationService)
         {
             _accountStore = accountStore;
+
             CurrentAccountViewModel =  new AccountViewModel(_accountStore);
 
             EditAccountCommand = new NavigateCommand(editAccountNavigationService);

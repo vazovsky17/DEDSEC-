@@ -4,6 +4,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class AccountFormViewModel : ViewModelBase
     {
+        #region Properties
         private string _nickname;
         public string Nickname
         {
@@ -87,9 +88,12 @@ namespace DEDSEC.WPF.ViewModels.Accounts
                 OnPropertyChanged(nameof(IsVisited));
             }
         }
+        #endregion
 
+        #region Commands
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        #endregion
 
         public AccountFormViewModel(ICommand submitCommand, ICommand cancelCommand)
         {

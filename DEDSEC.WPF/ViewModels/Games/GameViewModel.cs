@@ -12,10 +12,6 @@ namespace DEDSEC.WPF.ViewModels.Games
     public class GameViewModel : ViewModelBase
     {
         public AccountStore AccountStore { get; }
-        public Account CurrentAccount => AccountStore.CurrentAccount;
-        public List<Game> FavoriteGames => CurrentAccount.FavoriteGames ?? new();
-        public bool IsAdmin => CurrentAccount.AccountHolder?.IsAdmin ?? false;
-
         public Game Game { get; private set; }
 
         #region Bindings
@@ -26,6 +22,12 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string LinkHobbyGames => Game.SetLinkDisplay();
         public bool IsFavorite => Game.IsFavoriteGame(FavoriteGames);
         public bool IsUnfavorite => !Game.IsFavoriteGame(FavoriteGames);
+        #endregion
+
+        #region Account
+        public Account CurrentAccount => AccountStore.CurrentAccount;
+        public List<Game> FavoriteGames => CurrentAccount.FavoriteGames ?? new();
+        public bool IsAdmin => CurrentAccount.AccountHolder?.IsAdmin ?? false;
         #endregion
 
         #region Commands

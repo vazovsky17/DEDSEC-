@@ -7,15 +7,19 @@ namespace DEDSEC.WPF.ViewModels.Accounts
 {
     public class AccountViewModel : ViewModelBase
     {
-        public AccountStore AccountStore { get; private set; }
-        public Account Account => AccountStore.CurrentAccount;
-        public string Nickname => Account.SetNicknameDisplay();
-        public string Name => Account.SetNameDisplay();
-        public string Age => Account.SetAgeDisplay();
-        public string AboutMe => Account.SetAboutMeDisplay();
-        public bool IsVisited => Account?.IsVisited ?? false;
-        public List<Game> FavoriteGames => Account?.FavoriteGames ?? new();
+        public AccountStore AccountStore { get; }
+
+        public Account CurrentAccount => AccountStore.CurrentAccount;
+        
+        #region Bindings
+        public string Nickname => CurrentAccount.SetNicknameDisplay();
+        public string Name => CurrentAccount.SetNameDisplay();
+        public string Age => CurrentAccount.SetAgeDisplay();
+        public string AboutMe => CurrentAccount.SetAboutMeDisplay();
+        public bool IsVisited => CurrentAccount?.IsVisited ?? false;
+        public List<Game> FavoriteGames => CurrentAccount?.FavoriteGames ?? new();
         public bool HasFavoriteGames => FavoriteGames.Count > 0;
+        #endregion
 
         public AccountViewModel(AccountStore accountStore)
         {
@@ -24,9 +28,17 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             AccountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }
 
-        private void OnCurrentAccountChanged()
+        public void OnCurrentAccountChanged()
         {
-            OnPropertyChanged(nameof(Account));
+            OnPropertyChanged(nameof(CurrentAccount));
+            OnPropertyChanged(nameof(Nickname));
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(Age));
+            OnPropertyChanged(nameof(AboutMe));
+            OnPropertyChanged(nameof(IsVisited));
+            OnPropertyChanged(nameof(AboutMe));
+            OnPropertyChanged(nameof(FavoriteGames));
+            OnPropertyChanged(nameof(HasFavoriteGames));
         }
 
         public override void Dispose()

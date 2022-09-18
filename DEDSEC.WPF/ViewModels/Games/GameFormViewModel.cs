@@ -4,6 +4,7 @@ namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameFormViewModel : ViewModelBase
     {
+        #region Properties
         private string _name;
         public string Name
         {
@@ -73,9 +74,12 @@ namespace DEDSEC.WPF.ViewModels.Games
                 OnPropertyChanged(nameof(LinkHobbyGames));
             }
         }
+        #endregion
 
+        #region Commands
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        #endregion
 
         public GameFormViewModel(ICommand submitCommand, ICommand cancelCommand)
         {

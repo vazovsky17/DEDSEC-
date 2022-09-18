@@ -8,6 +8,7 @@ namespace DEDSEC.WPF.ViewModels.Authorization
 {
     public class LoginViewModel : ViewModelBase
     {
+        #region Properties
         private string _nickname = string.Empty;
         public string Nickname
         {
@@ -65,24 +66,30 @@ namespace DEDSEC.WPF.ViewModels.Authorization
                 OnPropertyChanged(nameof(AdministrationCode));
             }
         }
+        #endregion
 
+        #region ErrorMessage
         public MessageViewModel ErrorMessageViewModel { get; }
 
         public string ErrorMessage
         {
             set => ErrorMessageViewModel.Message = value;
         }
+        #endregion
 
         public bool CanLogin => !string.IsNullOrEmpty(Nickname) && !string.IsNullOrEmpty(Password);
 
+        #region Commands
         public ICommand LoginCommand { get; }
         public ICommand NavigateRegisterCommand { get; }
+        #endregion
 
         public LoginViewModel(IAuthenticatorService authenticatorService,
             INavigationService loginNavigationService,
             INavigationService registerNavigationService)
         {
             ErrorMessageViewModel = new();
+
             LoginCommand = new LoginCommand(this, authenticatorService, loginNavigationService);
             NavigateRegisterCommand = new NavigateCommand(registerNavigationService);
         }

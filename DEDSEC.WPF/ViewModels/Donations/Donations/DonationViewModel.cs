@@ -11,12 +11,17 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
         public bool IsAdmin { get; }
 
         public Donation Donation { get; private set; }
+
+        #region Bindings
         public Guid Id => Donation.Id;
         public Account Donater => Donation.Donater;
         public int Value => Donation.Value;
+        #endregion
 
+        #region Commands
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
+        #endregion
 
         public DonationViewModel(Donation donation, DonationsStore donationsStore, bool isAdmin)
         {

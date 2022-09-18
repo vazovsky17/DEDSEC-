@@ -37,7 +37,7 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="{StaticResource ColorTextForeground}"
-            Text="{Binding PlayersViewModelsCountDisplay}" />
+            Text="{Binding PlayerViewModelsCountDisplay, UpdateSourceTrigger=PropertyChanged}" />
 
         <!--  Players Datagrid  -->
         <DataGrid

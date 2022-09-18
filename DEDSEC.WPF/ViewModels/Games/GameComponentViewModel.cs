@@ -11,11 +11,14 @@ namespace DEDSEC.WPF.ViewModels.Games
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public Game Game { get; }
+
+        #region Bindings
         public string Name => Game.SetNameDisplay();
         public string Description => Game.SetNameDescription();
         public string PlayersCount => Game.SetCountPlayersDisplay();
         public string LinkHobbyGames => Game.SetLinkDisplay();
         public List<Review> Reviews => Game.Reviews;
+        #endregion
 
         public GameComponentViewModel(Game game,
             ModalNavigationStore modalNavigationStore)

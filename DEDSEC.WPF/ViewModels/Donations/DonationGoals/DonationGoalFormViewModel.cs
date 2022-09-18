@@ -4,6 +4,7 @@ namespace DEDSEC.WPF.ViewModels.Donations.DonationGoals
 {
     public class DonationGoalFormViewModel : ViewModelBase
     {
+        #region Properties
         private string _title;
         public string Title
         {
@@ -59,9 +60,12 @@ namespace DEDSEC.WPF.ViewModels.Donations.DonationGoals
                 OnPropertyChanged(nameof(TargetValue));
             }
         }
+        #endregion
 
+        #region Commands
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        #endregion
 
         public DonationGoalFormViewModel(ICommand submitCommand, ICommand cancelCommand)
         {

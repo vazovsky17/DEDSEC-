@@ -4,6 +4,7 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
 {
     public class DonationFormViewModel : ViewModelBase
     {
+        #region Properties
         private int _donatValue;
         public int DonatValue
         {
@@ -17,9 +18,12 @@ namespace DEDSEC.WPF.ViewModels.Donations.Donations
                 OnPropertyChanged(nameof(DonatValue));
             }
         }
+        #endregion
 
+        #region Commands
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        #endregion
 
         public DonationFormViewModel(ICommand submitCommand, ICommand cancelCommand)
         {

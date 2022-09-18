@@ -14,16 +14,21 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class MeetingsScreenViewModel : ViewModelBase
     {
-        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
-        public ICommand AddMeetingCommand { get; }
-
         private readonly AccountStore _accountStore;
         private readonly MeetingsStore _meetingsStore;
         private readonly ModalNavigationStore _modalStore;
 
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+
+        #region Bindings
         private readonly ObservableCollection<MeetingViewModel> _meetingViewModels;
         public IEnumerable<MeetingViewModel> MeetingViewModels => _meetingViewModels;
         public string MeetingsViewModelsCountDisplay => MeetingViewModels.setMeetingsViewModelsCountDisplay();
+        #endregion
+
+        #region Commands
+        public ICommand AddMeetingCommand { get; }
+        #endregion
 
         public MeetingsScreenViewModel(AccountStore accountStore,
             MeetingsStore meetingsStore,
@@ -57,12 +62,14 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             {
                 AddGameViewModel(meeting);
             }
+            OnPropertyChanged(nameof(MeetingsViewModelsCountDisplay));
         }
 
 
         private void MeetingsStore_Added(Meeting meeting)
         {
             AddGameViewModel(meeting);
+            OnPropertyChanged(nameof(MeetingsViewModelsCountDisplay));
         }
 
         private void MeetingsStore_Updated(Meeting meeting)
@@ -84,6 +91,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             {
                 _meetingViewModels.Remove(meetingViewModel);
             }
+            OnPropertyChanged(nameof(MeetingsViewModelsCountDisplay));
         }
 
         private void AddGameViewModel(Meeting meeting)

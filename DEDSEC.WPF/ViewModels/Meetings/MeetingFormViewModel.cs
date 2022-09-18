@@ -5,6 +5,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class MeetingFormViewModel : ViewModelBase
     {
+        #region Properties
         private string _title;
         public string Title
         {
@@ -102,9 +103,12 @@ namespace DEDSEC.WPF.ViewModels.Meetings
                 OnPropertyChanged(nameof(MaxCountVisitors));
             }
         }
+        #endregion
 
+        #region Commands
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        #endregion
 
         public MeetingFormViewModel(ICommand submitCommand, ICommand cancelCommand)
         {

@@ -14,13 +14,13 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddTransient<AccountScreenViewModel>(s => new (
+                services.AddTransient<AccountScreenViewModel>(s => new(
                     s.GetRequiredService<IAccountService>(),
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<IAuthenticatorService>(),
                     CreateNavigationServiceExtensions.CreateEditAccountNavigationService(s),
                     CreateNavigationServiceExtensions.CreateHomeNavigationService(s)));
-                services.AddTransient<EditAccountViewModel>(s => new (
+                services.AddTransient<EditAccountViewModel>(s => new(
                     s.GetRequiredService<IAccountService>(),
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<CloseModalNavigationService>()));

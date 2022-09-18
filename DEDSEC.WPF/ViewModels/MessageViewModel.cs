@@ -2,6 +2,7 @@
 {
     public class MessageViewModel : ViewModelBase
     {
+        #region Properties
         private string _message;
         public string Message
         {
@@ -16,6 +17,7 @@
                 OnPropertyChanged(nameof(HasMessage));
             }
         }
+        #endregion
 
         public bool HasMessage => !string.IsNullOrEmpty(Message);
     }

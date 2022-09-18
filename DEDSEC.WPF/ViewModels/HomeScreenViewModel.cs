@@ -2,7 +2,6 @@
 using DEDSEC.WPF.Services;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Games;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels
@@ -15,7 +14,9 @@ namespace DEDSEC.WPF.ViewModels
         public string WelcomeMessage => "Добро пожаловать в DEDSEC!";
         public bool IsLoggedIn => _authenticatorService?.IsLoggedIn ?? false;
 
+        #region Commands
         public ICommand NavigateLoginCommand { get; }
+        #endregion
 
         public HomeScreenViewModel(IAuthenticatorService authenticatorService,
             INavigationService loginNavigationService)

@@ -11,6 +11,14 @@ namespace DEDSEC.WPF.ViewModels
     {
         private readonly AccountStore _accountStore;
 
+        #region Bindings
+        public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Гость";
+        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
+        public bool IsLoggedIn => _accountStore.CurrentAccount != null;
+        public bool IsUnlogged => !IsLoggedIn;
+        #endregion
+
+        #region Commands
         public ICommand NavigateAccountCommand { get; }
         public ICommand NavigateLoginCommand { get; }
         public ICommand NavigateMeetingListingCommand { get; }
@@ -18,11 +26,7 @@ namespace DEDSEC.WPF.ViewModels
         public ICommand NavigateGameListingCommand { get; }
         public ICommand NavigateDonationGoalCommand { get; }
         public ICommand LogoutCommand { get; }
-
-        public string Nickname => _accountStore.CurrentAccount?.AccountHolder.Nickname ?? "Гость";
-        public bool IsAdmin => _accountStore?.IsAdmin ?? false;
-        public bool IsLoggedIn => _accountStore.CurrentAccount != null;
-        public bool IsUnlogged => !IsLoggedIn;
+        #endregion
 
         public NavigationBarViewModel(AccountStore accountStore,
             IAuthenticatorService authenticatorService,

@@ -9,8 +9,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 {
     public class MeetingViewModel : ViewModelBase
     {
-        public bool IsAdmin { get; }
         public Meeting Meeting { get; private set; }
+        public bool IsAdmin { get; }
 
         #region Bindings
         public Guid Id => Meeting.Id;
