@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
     <PackageReference Include="SimpleModal.WPF" Version="1.0.0" />
+    <PackageReference Include="WpfExtendedControls" Version="1.0.4" />
     <PackageReference Include="Xam.Plugins.Forms.ProgressRing" Version="0.1.2" />
   </ItemGroup>
 

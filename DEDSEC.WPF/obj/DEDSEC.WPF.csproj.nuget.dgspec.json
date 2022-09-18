@@ -209,6 +209,10 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "WpfExtendedControls": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
             "Xam.Plugins.Forms.ProgressRing": {
               "target": "Package",
               "version": "[0.1.2, )"

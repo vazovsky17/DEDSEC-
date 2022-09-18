@@ -64,19 +64,25 @@
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding DatesDisplay}"
+                    Binding="{Binding DateBegin}"
                     CanUserResize="False"
-                    Header="Дата"
+                    Header="Начало"
+                    IsReadOnly="True" />                
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding DateEnd}"
+                    CanUserResize="False"
+                    Header="Конец"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding MaxCountVisitorsDisplay}"
                     CanUserResize="False"
-                    Header="Максимум игроков"
+                    Header="Максимум"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn
                     Width="*"
-                    CanUserResize="False"
+                    CanUserResize="True"
                     Header="Действия"
                     IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>

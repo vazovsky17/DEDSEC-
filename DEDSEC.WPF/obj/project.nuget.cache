@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "n4NqJdIdRux2q66HxVaUcJisrf4NFEiuEAaA6jDzCNcs+OoS//7JLIoE3HlFsp9Io6XsUKWx6B7TP2HgEupJcA==",
+  "dgSpecHash": "SjexeUIluhsnjUJAsovKKzBh7lfrX0hEt59jvJhk3n0zGf9p9xeP1/rxD884k3HinM98BF7X35aKh3rnLrN1dQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vazovsky\\source\\repos\\DEDSEC.WPF\\DEDSEC.WPF\\DEDSEC.WPF.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\vazovsky\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\vazovsky\\.nuget\\packages\\wpfextendedcontrols\\1.0.4\\wpfextendedcontrols.1.0.4.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\xam.plugins.forms.progressring\\0.1.2\\xam.plugins.forms.progressring.0.1.2.nupkg.sha512",
     "C:\\Users\\vazovsky\\.nuget\\packages\\xamarin.forms\\2.3.4.247\\xamarin.forms.2.3.4.247.nupkg.sha512"
   ],

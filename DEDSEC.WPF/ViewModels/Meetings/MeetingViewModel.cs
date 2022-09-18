@@ -16,7 +16,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
         public Guid Id => Meeting.Id;
         public string Title => Meeting.SetTitleDisplay();
         public string Description => Meeting.SetDescriptionDisplay();
-        public string DatesDisplay => Meeting.SetDatesDisplay();
+        public string DateBegin => Meeting.SetDateDisplay(Meeting.DateBegin);
+        public string DateEnd => Meeting.SetDateDisplay(Meeting.DateEnd);
         public string MaxCountVisitorsDisplay => Meeting.SetCountVisitorsDisplay();
         #endregion
 

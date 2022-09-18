@@ -885,6 +885,19 @@
           }
         }
       },
+      "WpfExtendedControls/1.0.4": {
+        "runtime": {
+          "lib/net5.0-windows7.0/WpfExtendedControls.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        },
+        "resources": {
+          "lib/net5.0-windows7.0/ru/WpfExtendedControls.resources.dll": {
+            "locale": "ru"
+          }
+        }
+      },
       "Xam.Plugins.Forms.ProgressRing/0.1.2": {
         "dependencies": {
           "Xamarin.Forms": "2.3.4.247"
@@ -1355,6 +1368,13 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "WpfExtendedControls/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NW5TARAJT3GycNR0CGTCjmkXyEo5aItJWNbNq0esl4NU3fRtV2hQubesrpGbc4ZeW5O7Z8POXVnCbsvN83A3eA==",
+      "path": "wpfextendedcontrols/1.0.4",
+      "hashPath": "wpfextendedcontrols.1.0.4.nupkg.sha512"
     },
     "Xam.Plugins.Forms.ProgressRing/0.1.2": {
       "type": "package",

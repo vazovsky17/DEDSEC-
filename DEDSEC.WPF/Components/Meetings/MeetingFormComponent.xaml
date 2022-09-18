@@ -1,7 +1,8 @@
 ﻿<UserControl
     x:Class="DEDSEC.WPF.Components.Meetings.MeetingFormComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:WpfExtendedControls;assembly=WpfExtendedControls">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -27,17 +28,13 @@
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Vertical">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Начало встречи" />
-                <DatePicker
-                    Grid.Column="1"
-                    Margin="0,4,0,0"
-                    Text="{Binding DateBegin}" />
+                <DatePicker SelectedDate="{Binding DateBegin, UpdateSourceTrigger=PropertyChanged}" />
+                <controls:TimePicker SelectedTime="{Binding TimeBegin, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Vertical">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Окончание встречи" />
-                <DatePicker
-                    Grid.Column="1"
-                    Margin="0,4,0,0"
-                    Text="{Binding DateEnd}" />
+                <DatePicker SelectedDate="{Binding DateEnd, UpdateSourceTrigger=PropertyChanged}" />
+                <controls:TimePicker SelectedTime="{Binding TimeEnd, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Margin="0,4,0,0" Orientation="Vertical">
                 <TextBlock Style="{StaticResource textBlockDefault}" Text="Максимальное количество игроков" />

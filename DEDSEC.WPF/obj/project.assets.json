@@ -1216,6 +1216,23 @@
           }
         }
       },
+      "WpfExtendedControls/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/WpfExtendedControls.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/WpfExtendedControls.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
+        "resource": {
+          "lib/net5.0-windows7.0/ru/WpfExtendedControls.resources.dll": {
+            "locale": "ru"
+          }
+        }
+      },
       "Xam.Plugins.Forms.ProgressRing/0.1.2": {
         "type": "package",
         "dependencies": {
@@ -3005,6 +3022,26 @@
         "version.txt"
       ]
     },
+    "WpfExtendedControls/1.0.4": {
+      "sha512": "NW5TARAJT3GycNR0CGTCjmkXyEo5aItJWNbNq0esl4NU3fRtV2hQubesrpGbc4ZeW5O7Z8POXVnCbsvN83A3eA==",
+      "type": "package",
+      "path": "wpfextendedcontrols/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net472/WpfExtendedControls.dll",
+        "lib/net472/ru/WpfExtendedControls.resources.dll",
+        "lib/net48/WpfExtendedControls.dll",
+        "lib/net48/ru/WpfExtendedControls.resources.dll",
+        "lib/net5.0-windows7.0/WpfExtendedControls.dll",
+        "lib/net5.0-windows7.0/ru/WpfExtendedControls.resources.dll",
+        "lib/netcoreapp3.1/WpfExtendedControls.dll",
+        "lib/netcoreapp3.1/ru/WpfExtendedControls.resources.dll",
+        "wpfextendedcontrols.1.0.4.nupkg.sha512",
+        "wpfextendedcontrols.nuspec"
+      ]
+    },
     "Xam.Plugins.Forms.ProgressRing/0.1.2": {
       "sha512": "TqxIQo9uiq0EXPSIet8eouoF0Vs1Al30Urd++LXkH2lCQPMJzr5aCrwnCrTi9/4V229njCgUw53+Au6xWbZwHg==",
       "type": "package",
@@ -3201,6 +3238,7 @@
       "Microsoft.Extensions.Hosting >= 6.0.1",
       "Microsoft.Extensions.Hosting.Abstractions >= 6.0.0",
       "SimpleModal.WPF >= 1.0.0",
+      "WpfExtendedControls >= 1.0.4",
       "Xam.Plugins.Forms.ProgressRing >= 0.1.2"
     ]
   },
@@ -3274,6 +3312,10 @@
           "SimpleModal.WPF": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "WpfExtendedControls": {
+            "target": "Package",
+            "version": "[1.0.4, )"
           },
           "Xam.Plugins.Forms.ProgressRing": {
             "target": "Package",

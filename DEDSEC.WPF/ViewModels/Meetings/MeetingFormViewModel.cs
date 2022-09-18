@@ -47,6 +47,20 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             }
         }
 
+        private TimeSpan _timeBegin;
+        public TimeSpan TimeBegin
+        {
+            get
+            {
+                return _timeBegin;
+            }
+            set
+            {
+                _timeBegin = value;
+                OnPropertyChanged(nameof(TimeBegin));
+            }
+        }
+
         private DateTime _dateEnd;
         public DateTime DateEnd
         {
@@ -58,6 +72,20 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             {
                 _dateEnd = value;
                 OnPropertyChanged(nameof(DateEnd));
+            }
+        }
+
+        private TimeSpan _timeEnd;
+        public TimeSpan TimeEnd
+        {
+            get
+            {
+                return _timeEnd;
+            }
+            set
+            {
+                _timeEnd = value;
+                OnPropertyChanged(nameof(TimeEnd));
             }
         }
 

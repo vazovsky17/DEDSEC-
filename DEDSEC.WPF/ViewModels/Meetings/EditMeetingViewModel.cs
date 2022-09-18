@@ -23,8 +23,10 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             {
                 Title = Meeting.Title ?? string.Empty,
                 Description = Meeting.Description ?? string.Empty,
-                DateBegin = Meeting.DateBegin,
-                DateEnd = Meeting.DateEnd,
+                DateBegin = Meeting.DateBegin.Date,
+                TimeBegin = Meeting.DateBegin.TimeOfDay,
+                DateEnd = Meeting.DateEnd.Date,
+                TimeEnd = Meeting.DateEnd.TimeOfDay,
                 MaxCountVisitors = Meeting.MaxCountVisitors
             };
         }

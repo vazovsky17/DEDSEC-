@@ -13,7 +13,7 @@ namespace DEDSEC.WPF.Extensions
         /// </summary>
         /// <param name="meeting">Встреча</param>
         /// <returns>Строка с заголовком встречи</returns>
-        public static string SetTitleDisplay(this Meeting meeting) 
+        public static string SetTitleDisplay(this Meeting meeting)
             => !string.IsNullOrEmpty(meeting.Title) ? meeting.Title : "Заголовок не был добавлен";
 
         /// <summary>
@@ -44,6 +44,15 @@ namespace DEDSEC.WPF.Extensions
                 return dateBegin.ToString("M") + " " + dateBegin.ToString("t") + " - " + dateEnd.ToString("M") + " " + dateEnd.ToString("t");
             };
         }
+
+        /// <summary>
+        /// Установка отображаемой даты проведения встречи
+        /// </summary>
+        /// <param name="meeting">встреча</param>
+        /// <param name="dateTime">дата</param>
+        /// <returns>Строка с датой проведения встречи</returns>
+        public static string SetDateDisplay(this Meeting meeting, DateTime dateTime) => dateTime.ToString("t") + " " + dateTime.ToString("M");
+
 
         /// <summary>
         /// Установка отображаемого максимального количества участников встречи
