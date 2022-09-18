@@ -11,11 +11,12 @@ namespace DEDSEC.WPF.ViewModels.Games
         public GameFormViewModel GameFormViewModel { get; }
 
         public EditGameViewModel(Game game,
+            AccountStore accountStore,
             GamesStore gamesStore,
             ModalNavigationStore modalNavigationStore)
         {
             Game = game;
-            var SubmitCommand = new EditGameCommand(this, gamesStore, modalNavigationStore);
+            var SubmitCommand = new EditGameCommand(this, accountStore, gamesStore, modalNavigationStore);
             var CancelCommand = new CloseModalCommand(modalNavigationStore);
 
             GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
@@ -24,7 +25,7 @@ namespace DEDSEC.WPF.ViewModels.Games
                 Description = Game.Description ?? string.Empty,
                 MinCountPlayers = Game.MinCountPlayers,
                 MaxCountPlayers = Game.MaxCountPlayers,
-                LinkHobbyGames = Game.LinkHobbyGames ?? string.Empty 
+                LinkHobbyGames = Game.LinkHobbyGames ?? string.Empty
             };
         }
     }

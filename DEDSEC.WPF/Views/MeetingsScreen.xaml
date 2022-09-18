@@ -67,7 +67,7 @@
                     Binding="{Binding DateBegin}"
                     CanUserResize="False"
                     Header="Начало"
-                    IsReadOnly="True" />                
+                    IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding DateEnd}"

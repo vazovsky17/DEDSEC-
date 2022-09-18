@@ -8,14 +8,17 @@ namespace DEDSEC.WPF.Commands.Games
     public class OpenEditGameCommand : CommandBase
     {
         private readonly GameViewModel _gameViewModel;
+        private readonly AccountStore _accountStore;
         private readonly GamesStore _gamesStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public OpenEditGameCommand(GameViewModel gameViewModel,
+            AccountStore accountStore,
             GamesStore gamesStore,
             ModalNavigationStore modalNavigationStore)
         {
             _gameViewModel = gameViewModel;
+            _accountStore = accountStore;
             _gamesStore = gamesStore;
             _modalNavigationStore = modalNavigationStore;
         }
@@ -25,7 +28,7 @@ namespace DEDSEC.WPF.Commands.Games
             var game = _gameViewModel.Game;
 
             EditGameViewModel editGameViewModel = new EditGameViewModel(
-                game, _gamesStore, _modalNavigationStore);
+                game, _accountStore, _gamesStore, _modalNavigationStore);
             _modalNavigationStore.CurrentViewModel = editGameViewModel;
         }
     }

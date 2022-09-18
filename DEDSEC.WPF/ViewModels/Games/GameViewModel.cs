@@ -44,12 +44,11 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             AccountStore = accountStore;
-
             AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, accountStore, authenticatorService);
             DeleteFromFavoriteCommand = new DeleteFromFavoriteGamesCommand(game, accountStore, authenticatorService);
             ShowCommand = new ShowGameCommand(game,modalNavigationStore);
-            EditCommand = new OpenEditGameCommand(this, gamesStore, modalNavigationStore);
-            DeleteCommand = new DeleteGameCommand(gamesStore, game);
+            EditCommand = new OpenEditGameCommand(this, accountStore, gamesStore, modalNavigationStore);
+            DeleteCommand = new DeleteGameCommand(gamesStore, accountStore, game);
         }
 
         public void Update(Game game)
