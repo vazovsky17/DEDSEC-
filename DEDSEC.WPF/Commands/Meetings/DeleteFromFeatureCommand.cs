@@ -2,7 +2,6 @@
 using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Stores;
-using System;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Commands.Meetings

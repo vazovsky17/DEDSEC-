@@ -60,11 +60,6 @@ namespace DEDSEC.WPF.Extensions
             return count + " " + Pluralize(count);
         }
 
-        /// <summary>
-        /// НЕ РАБОТАЕТ
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
         private static string Pluralize(int num)
         {
             if (num % 10 == 1 && num != 11)

@@ -24,7 +24,6 @@ namespace DEDSEC.WPF
         public static IHostBuilder CreateHostBuilder(string[] args = null)
         {
             return Host.CreateDefaultBuilder(args)
-                .AddSettings()
                 .AddStores()
                 .AddServices()
                 .AddAuthorizaionViewModels()
@@ -54,14 +53,6 @@ namespace DEDSEC.WPF
             {
                 context.Database.Migrate();
             }
-
-            //var globalLogic = _host.Services.GetRequiredService<GlobalLogic>();
-            //var currentAccount = globalLogic.GlobalSettings?.Account;
-            //if (currentAccount != null)
-            //{
-            //    var accountStore = _host.Services.GetRequiredService<AccountStore>();
-            //    accountStore.CurrentAccount = currentAccount;
-            //}
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();

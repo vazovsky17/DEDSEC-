@@ -2,7 +2,6 @@
 using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Stores;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace DEDSEC.WPF.ViewModels.Accounts
 {

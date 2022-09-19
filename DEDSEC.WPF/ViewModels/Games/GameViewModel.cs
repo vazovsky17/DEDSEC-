@@ -2,11 +2,9 @@
 using DEDSEC.WPF.Commands.Games;
 using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Services.Authenticator;
-using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games

@@ -5,7 +5,6 @@ using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Meetings

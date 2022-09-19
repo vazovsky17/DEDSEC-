@@ -4,7 +4,6 @@ using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
