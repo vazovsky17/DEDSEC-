@@ -1,10 +1,12 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands.Games;
 using DEDSEC.WPF.Extensions;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games
@@ -35,7 +37,7 @@ namespace DEDSEC.WPF.ViewModels.Games
         public ICommand DeleteFromFavoriteCommand { get; }
         public ICommand ShowCommand { get; }
         public ICommand EditCommand { get; }
-        public ICommand DeleteCommand { get; } 
+        public ICommand DeleteCommand { get; }
         #endregion
 
         public GameViewModel(Game game,
@@ -46,11 +48,19 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             AccountStore = accountStore;
-            AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, accountStore, authenticatorService);
-            DeleteFromFavoriteCommand = new DeleteFromFavoriteGamesCommand(game, accountStore, authenticatorService);
-            ShowCommand = new ShowGameCommand(game,modalNavigationStore);
+            AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, gamesStore, authenticatorService);
+            DeleteFromFavoriteCommand = new DeleteFromFavoriteGamesCommand(game, gamesStore, authenticatorService);
+            ShowCommand = new ShowGameCommand(game, accountStore, modalNavigationStore);
             EditCommand = new OpenEditGameCommand(this, accountStore, gamesStore, modalNavigationStore);
             DeleteCommand = new DeleteGameCommand(gamesStore, accountStore, game);
+        }
+
+        public void UpdateIsFavorite()
+        {
+            OnPropertyChanged(nameof(CurrentAccount));
+            OnPropertyChanged(nameof(FavoriteGames));
+            OnPropertyChanged(nameof(IsFavorite));
+            OnPropertyChanged(nameof(IsUnfavorite));
         }
 
         public void Update(Game game)
@@ -58,6 +68,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             Game = game;
 
             OnPropertyChanged(nameof(Game));
+            UpdateIsFavorite();
         }
     }
 }

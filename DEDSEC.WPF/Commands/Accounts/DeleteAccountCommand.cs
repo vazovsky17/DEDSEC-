@@ -1,6 +1,6 @@
 ﻿using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands.Common;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,11 +12,11 @@ namespace DEDSEC.WPF.Commands.Accounts
     /// </summary>
     public class DeleteAccountCommand : AsyncCommandBase
     {
-        private readonly IAccountService _dataService;
+        private readonly IAccountDataService _dataService;
         private readonly IAuthenticatorService _authenticatorService;
         private readonly INavigationService _navigationService;
 
-        public DeleteAccountCommand(IAccountService dataService,
+        public DeleteAccountCommand(IAccountDataService dataService,
             IAuthenticatorService authenticatorService,
             INavigationService navigationService)
         {

@@ -2,7 +2,8 @@
 
 namespace DEDSEC.EntityFramework
 {
-    public class DedsecDbContextFactory
+    public class DedsecDbContextFactory 
+
     {
         private readonly Action<DbContextOptionsBuilder> _configureDbContext;
 
@@ -14,6 +15,7 @@ namespace DEDSEC.EntityFramework
         public DedsecDbContext CreateDbContext()
         {
             var options = new DbContextOptionsBuilder<DedsecDbContext>();
+
 
             _configureDbContext(options);
 

@@ -12,12 +12,12 @@ namespace DEDSEC.WPF.Commands.Accounts
     public class EditAccountCommand : AsyncCommandBase
     {
         private readonly EditAccountViewModel _editAccountViewModel;
-        private readonly IAccountService _dataService;
+        private readonly IAccountDataService _dataService;
         private readonly AccountStore _accountStore;
         private readonly INavigationService _navigationService;
 
         public EditAccountCommand(EditAccountViewModel editAccountViewModel,
-            IAccountService dataService,
+            IAccountDataService dataService,
             AccountStore accountStore,
             INavigationService navigationService)
         {

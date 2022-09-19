@@ -1,6 +1,6 @@
-C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.deps.json
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.runtimeconfig.json
+C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.EntityFramework.pdb
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.Domain.dll
 C:\Users\vazovsky\source\repos\DEDSEC.WPF\DEDSEC.EntityFramework\bin\Debug\net6.0\DEDSEC.Domain.pdb

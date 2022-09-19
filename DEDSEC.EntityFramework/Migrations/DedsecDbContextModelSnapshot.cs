@@ -52,55 +52,6 @@ namespace DEDSEC.EntityFramework.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("DEDSEC.Domain.Models.Donation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DonaterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("DonationGoalId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DonaterId");
-
-                    b.HasIndex("DonationGoalId");
-
-                    b.ToTable("Donations");
-                });
-
-            modelBuilder.Entity("DEDSEC.Domain.Models.DonationGoal", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("CurrentValue")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TargetValue")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DonationGoals");
-                });
-
             modelBuilder.Entity("DEDSEC.Domain.Models.Game", b =>
                 {
                     b.Property<Guid>("Id")
@@ -141,6 +92,9 @@ namespace DEDSEC.EntityFramework.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DateBegin")
                         .HasColumnType("datetime2");
 
@@ -160,39 +114,9 @@ namespace DEDSEC.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountId");
+
                     b.ToTable("Meetings");
-                });
-
-            modelBuilder.Entity("DEDSEC.Domain.Models.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("ReviewAuthorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("ReviewAuthorId");
-
-                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("DEDSEC.Domain.Models.User", b =>
@@ -228,21 +152,6 @@ namespace DEDSEC.EntityFramework.Migrations
                     b.Navigation("AccountHolder");
                 });
 
-            modelBuilder.Entity("DEDSEC.Domain.Models.Donation", b =>
-                {
-                    b.HasOne("DEDSEC.Domain.Models.Account", "Donater")
-                        .WithMany()
-                        .HasForeignKey("DonaterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DEDSEC.Domain.Models.DonationGoal", null)
-                        .WithMany("Donations")
-                        .HasForeignKey("DonationGoalId");
-
-                    b.Navigation("Donater");
-                });
-
             modelBuilder.Entity("DEDSEC.Domain.Models.Game", b =>
                 {
                     b.HasOne("DEDSEC.Domain.Models.Account", null)
@@ -250,38 +159,18 @@ namespace DEDSEC.EntityFramework.Migrations
                         .HasForeignKey("AccountId");
                 });
 
-            modelBuilder.Entity("DEDSEC.Domain.Models.Review", b =>
+            modelBuilder.Entity("DEDSEC.Domain.Models.Meeting", b =>
                 {
-                    b.HasOne("DEDSEC.Domain.Models.Game", "Game")
-                        .WithMany("Reviews")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DEDSEC.Domain.Models.Account", "ReviewAuthor")
-                        .WithMany()
-                        .HasForeignKey("ReviewAuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Game");
-
-                    b.Navigation("ReviewAuthor");
+                    b.HasOne("DEDSEC.Domain.Models.Account", null)
+                        .WithMany("FeatureMeetings")
+                        .HasForeignKey("AccountId");
                 });
 
             modelBuilder.Entity("DEDSEC.Domain.Models.Account", b =>
                 {
                     b.Navigation("FavoriteGames");
-                });
 
-            modelBuilder.Entity("DEDSEC.Domain.Models.DonationGoal", b =>
-                {
-                    b.Navigation("Donations");
-                });
-
-            modelBuilder.Entity("DEDSEC.Domain.Models.Game", b =>
-                {
-                    b.Navigation("Reviews");
+                    b.Navigation("FeatureMeetings");
                 });
 #pragma warning restore 612, 618
         }

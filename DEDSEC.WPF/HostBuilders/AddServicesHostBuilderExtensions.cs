@@ -2,7 +2,7 @@
 using DEDSEC.Domain.Services;
 using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.EntityFramework.Services;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,19 +15,17 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
-                services.AddSingleton<IAuthenticatorService, AuthenticatorService>();
                 services.AddSingleton<INavigationService>(s => CreateNavigationServiceExtensions.CreateHomeNavigationService(s));
                 services.AddSingleton<CloseModalNavigationService>();
 
-                services.AddSingleton<IAccountService, AccountDataService>();
+                services.AddSingleton<IAuthenticationService, AuthenticationService>();
+                services.AddSingleton<IAuthenticatorService, AuthenticatorService>();
                 services.AddSingleton<IDataService<Account>, AccountDataService>();
-                services.AddSingleton<IDataService<Donation>, GenericDataService<Donation>>();
-                services.AddSingleton<IDataService<DonationGoal>, GenericDataService<DonationGoal>>();
+                services.AddSingleton<IAccountDataService, AccountDataService>();
+                
                 services.AddSingleton<IDataService<Game>, GenericDataService<Game>>();
                 services.AddSingleton<IDataService<Meeting>, GenericDataService<Meeting>>();
-                services.AddSingleton<IDataService<Review>, GenericDataService<Review>>();
                 services.AddSingleton<IDataService<User>, GenericDataService<User>>();
-                services.AddSingleton<IAuthenticationService, AuthenticationService>();
             });
 
             return host;

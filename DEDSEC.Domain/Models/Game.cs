@@ -7,6 +7,5 @@
         public int MinCountPlayers { get; set; }
         public int MaxCountPlayers { get; set; }
         public string LinkHobbyGames { get; set; }
-        public List<Review> Reviews { get; set; }
     }
 }

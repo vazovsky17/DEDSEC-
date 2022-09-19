@@ -1,8 +1,6 @@
 ﻿using DEDSEC.EntityFramework;
-using DEDSEC.WPF.Components.Settings;
 using DEDSEC.WPF.HostBuilders;
 using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +31,6 @@ namespace DEDSEC.WPF
                 .AddAccountViewModels()
                 .AddGameViewModels()
                 .AddMeetingViewModels()
-                .AddDonationViewModels()
                 .AddPlayerViewModels()
                 .AddOtherViewModels()
                 .AddDbContext()

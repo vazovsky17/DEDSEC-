@@ -8,5 +8,6 @@
         public string AboutMe { get; set; }
         public bool IsVisited { get; set; }
         public List<Game> FavoriteGames { get; set; }
+        public List<Meeting> FeatureMeetings { get; set; }
     }
 }

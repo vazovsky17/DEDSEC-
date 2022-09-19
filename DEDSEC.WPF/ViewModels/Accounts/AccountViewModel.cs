@@ -12,7 +12,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public Account CurrentAccount => AccountStore.CurrentAccount;
         
         #region Bindings
-        public string Nickname => CurrentAccount.SetNicknameDisplay();
+        public string Nickname => CurrentAccount?.SetNicknameDisplay() ?? string.Empty;
         public string Name => CurrentAccount.SetNameDisplay();
         public string Age => CurrentAccount.SetAgeDisplay();
         public string AboutMe => CurrentAccount.SetAboutMeDisplay();

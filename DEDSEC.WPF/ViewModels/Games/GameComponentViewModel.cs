@@ -1,13 +1,12 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Stores;
-using System.Collections.Generic;
-using System.Windows.Navigation;
 
 namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameComponentViewModel : ViewModelBase
     {
+        public AccountStore AccountStore { get; }
         private readonly ModalNavigationStore _modalNavigationStore;
 
         public Game Game { get; }
@@ -17,19 +16,16 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string Description => Game.SetNameDescription();
         public string PlayersCount => Game.SetCountPlayersDisplay();
         public string LinkHobbyGames => Game.SetLinkDisplay();
-        public List<Review> Reviews => Game.Reviews;
         #endregion
 
         public GameComponentViewModel(Game game,
+            AccountStore accountStore,
             ModalNavigationStore modalNavigationStore)
         {
             Game = game;
+            AccountStore = accountStore;
             _modalNavigationStore = modalNavigationStore;
         }
 
-        public void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Uri.ToString());
-        }
     }
 }

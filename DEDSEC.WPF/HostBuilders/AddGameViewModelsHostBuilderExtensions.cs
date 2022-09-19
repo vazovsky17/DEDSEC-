@@ -1,5 +1,4 @@
-﻿using DEDSEC.Domain.Services.Authentification;
-using DEDSEC.WPF.Services;
+﻿using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Games;

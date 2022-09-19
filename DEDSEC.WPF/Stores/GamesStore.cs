@@ -1,9 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.Domain.Services;
-using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DEDSEC.WPF.Stores

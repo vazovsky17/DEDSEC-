@@ -16,10 +16,10 @@ namespace DEDSEC.WPF.ViewModels.Games
             ModalNavigationStore modalNavigationStore)
         {
             Game = game;
-            var SubmitCommand = new EditGameCommand(this, accountStore, gamesStore, modalNavigationStore);
-            var CancelCommand = new CloseModalCommand(modalNavigationStore);
+            var submitCommand = new EditGameCommand(this, accountStore, gamesStore, modalNavigationStore);
+            var cancelCommand = new CloseModalCommand(modalNavigationStore);
 
-            GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
+            GameFormViewModel = new GameFormViewModel(submitCommand, cancelCommand)
             {
                 Name = Game.Name ?? string.Empty,
                 Description = Game.Description ?? string.Empty,

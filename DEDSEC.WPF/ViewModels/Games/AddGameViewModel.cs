@@ -12,10 +12,10 @@ namespace DEDSEC.WPF.ViewModels.Games
         public AddGameViewModel(GamesStore gamesStore,
             INavigationService closeNavigationService)
         {
-            var SubmitCommand = new AddGameCommand(this, gamesStore, closeNavigationService);
-            var CancelCommand = new NavigateCommand(closeNavigationService);
+            var submitCommand = new AddGameCommand(this, gamesStore, closeNavigationService);
+            var cancelCommand = new NavigateCommand(closeNavigationService);
 
-            GameFormViewModel = new GameFormViewModel(SubmitCommand, CancelCommand)
+            GameFormViewModel = new GameFormViewModel(submitCommand, cancelCommand)
             {
                 Name = string.Empty,
                 Description = string.Empty,

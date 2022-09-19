@@ -7,8 +7,10 @@ namespace DEDSEC.WPF.Stores
 {
     public class AccountStore
     {
-        private readonly IAccountService _accountService;
+        private readonly IAccountDataService _accountService;
+        public bool IsAdmin => CurrentAccount?.AccountHolder.IsAdmin ?? false;
 
+        #region Properties
         private Account _currentAccount;
         public Account CurrentAccount
         {
@@ -19,16 +21,17 @@ namespace DEDSEC.WPF.Stores
                 CurrentAccountChanged?.Invoke();
             }
         }
-        public bool IsAdmin => CurrentAccount?.AccountHolder.IsAdmin ?? false;
+        #endregion  
+
+        public event Action CurrentAccountChanged;
 
         public void EditAccount(Account account)
         {
             CurrentAccount = account;
             CurrentAccountChanged?.Invoke();
         }
-        public event Action CurrentAccountChanged;
 
-        public AccountStore(IAccountService accountService)
+        public AccountStore(IAccountDataService accountService)
         {
             _accountService = accountService;
         }
@@ -48,7 +51,7 @@ namespace DEDSEC.WPF.Stores
         public async Task EditFavoriteGame(Game game)
         {
             var storedGame = _currentAccount.FavoriteGames.Find(item => item.Id == game.Id);
-            if(storedGame != null)
+            if (storedGame != null)
             {
                 await DeleteFromFavoriteGames(storedGame);
                 await AddToFavoriteGames(game);

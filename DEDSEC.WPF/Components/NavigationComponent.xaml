@@ -134,17 +134,6 @@
                             <TextBlock Text="Игроки" />
                         </StackPanel>
                     </Button>
-
-                    <Button
-                        Command="{Binding NavigateDonationGoalCommand}"
-                        Style="{StaticResource menuButton}"
-                        Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <StackPanel Orientation="Horizontal">
-                            <icon:PackIconMaterial Kind="Wallet" Style="{StaticResource menuButtonIcon}" />
-                            <TextBlock Text="Донаты" />
-                        </StackPanel>
-                    </Button>
-
                 </StackPanel>
                 <Button
                     VerticalAlignment="Bottom"

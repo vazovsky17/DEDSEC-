@@ -2,9 +2,6 @@
 
 namespace DEDSEC.Domain.Services.Authentification
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public interface IAuthenticationService
     {
         /// <summary>

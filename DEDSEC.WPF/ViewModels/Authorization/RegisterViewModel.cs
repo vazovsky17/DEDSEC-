@@ -1,6 +1,6 @@
 ﻿using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Commands.Authorization;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using System.Windows.Input;
 

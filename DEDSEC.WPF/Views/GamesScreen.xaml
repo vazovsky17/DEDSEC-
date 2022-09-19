@@ -83,14 +83,14 @@
                                     Margin="5,0,0,0"
                                     Command="{Binding AddToFavoriteCommand}"
                                     Style="{StaticResource gridFavoriteButton}"
-                                    Visibility="{Binding IsUnfavorite, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    Visibility="{Binding IsUnfavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="HeartPlus" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button
                                     Margin="5,0,0,0"
                                     Command="{Binding DeleteFromFavoriteCommand}"
                                     Style="{StaticResource gridUnFavoriteButton}"
-                                    Visibility="{Binding IsFavorite, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    Visibility="{Binding IsFavorite, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <icon:PackIconMaterial Kind="HeartMinus" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                                 <Button

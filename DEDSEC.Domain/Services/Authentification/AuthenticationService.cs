@@ -6,9 +6,9 @@ namespace DEDSEC.Domain.Services.Authentification
     public class AuthenticationService : IAuthenticationService
     {
         const string ADMINISTRATION_CODE = "883306";
-        private readonly IAccountService _accountService;
+        private readonly IAccountDataService _accountService;
 
-        public AuthenticationService(IAccountService accountService)
+        public AuthenticationService(IAccountDataService accountService)
         {
             _accountService = accountService;
         }

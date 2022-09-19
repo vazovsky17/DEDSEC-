@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Services.Authentification;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Commands.Accounts;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System.Windows.Input;
@@ -19,7 +19,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public ICommand DeleteAccountCommand { get; }
         #endregion
 
-        public AccountScreenViewModel(IAccountService dataService,
+        public AccountScreenViewModel(IAccountDataService dataService,
             AccountStore accountStore,
             IAuthenticatorService authenticatorService,
             INavigationService editAccountNavigationService,

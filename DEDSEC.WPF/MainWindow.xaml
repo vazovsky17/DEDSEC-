@@ -7,10 +7,6 @@
     xmlns:authorization_comp="clr-namespace:DEDSEC.WPF.Components.Authorization"
     xmlns:authorization_vm="clr-namespace:DEDSEC.WPF.ViewModels.Authorization"
     xmlns:components="clr-namespace:DEDSEC.WPF.Components"
-    xmlns:donation_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations.Donations"
-    xmlns:donationgoal_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations.DonationGoals"
-    xmlns:donations_comp="clr-namespace:DEDSEC.WPF.Components.Donations"
-    xmlns:donations_vm="clr-namespace:DEDSEC.WPF.ViewModels.Donations"
     xmlns:games_comp="clr-namespace:DEDSEC.WPF.Components.Games"
     xmlns:games_vm="clr-namespace:DEDSEC.WPF.ViewModels.Games"
     xmlns:meetings_comp="clr-namespace:DEDSEC.WPF.Components.Meetings"
@@ -87,28 +83,6 @@
 
                 <DataTemplate DataType="{x:Type games_vm:GameComponentViewModel}">
                     <games_comp:GameComponent />
-                </DataTemplate>
-                <!--#endregion-->
-
-                <!--#region Donations-->
-                <DataTemplate DataType="{x:Type donations_vm:DonationsScreenViewModel}">
-                    <views:DonationsScreen />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donation_vm:AddDonationViewModel}">
-                    <donations_comp:AddDonationComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donation_vm:EditDonationViewModel}">
-                    <donations_comp:EditDonationComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donationgoal_vm:AddDonationGoalViewModel}">
-                    <donations_comp:AddDonationGoalComponent />
-                </DataTemplate>
-
-                <DataTemplate DataType="{x:Type donationgoal_vm:EditDonationGoalViewModel}">
-                    <donations_comp:EditDonationGoalComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

@@ -1,6 +1,6 @@
 ﻿using DEDSEC.Domain.Exceptions;
 using DEDSEC.WPF.Commands.Common;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.ViewModels.Authorization;
 using System;

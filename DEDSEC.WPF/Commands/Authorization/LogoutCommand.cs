@@ -1,5 +1,5 @@
 ﻿using DEDSEC.WPF.Commands.Common;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 
 namespace DEDSEC.WPF.Commands.Authorization

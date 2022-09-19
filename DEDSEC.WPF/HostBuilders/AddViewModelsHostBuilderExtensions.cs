@@ -1,4 +1,4 @@
-﻿using DEDSEC.WPF.Services;
+﻿using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,8 +34,7 @@ namespace DEDSEC.WPF.HostBuilders
                 CreateNavigationServiceExtensions.CreateLoginNavigationService(serviceProvider),
                 CreateNavigationServiceExtensions.CreateMeetingListingNavigationService(serviceProvider),
                 CreateNavigationServiceExtensions.CreatePlayerListingNavigationService(serviceProvider),
-                CreateNavigationServiceExtensions.CreateGameListingNavigationService(serviceProvider),
-                CreateNavigationServiceExtensions.CreateDonationGoalNavigationService(serviceProvider));
+                CreateNavigationServiceExtensions.CreateGameListingNavigationService(serviceProvider));
         }
     }
 }

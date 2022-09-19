@@ -12,7 +12,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public Account? CurrentAccount { get; }
         public AccountFormViewModel AccountFormViewModel { get; }
 
-        public EditAccountViewModel(IAccountService dataService,
+        public EditAccountViewModel(IAccountDataService dataService,
             AccountStore accountStore,
             INavigationService closeNavigationService)
         {

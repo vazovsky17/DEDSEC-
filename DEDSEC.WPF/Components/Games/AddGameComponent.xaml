@@ -2,7 +2,7 @@
     x:Class="DEDSEC.WPF.Components.Games.AddGameComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:games_comp ="clr-namespace:DEDSEC.WPF.Components.Games">
+    xmlns:games_comp="clr-namespace:DEDSEC.WPF.Components.Games">
     <Grid Width="400" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -14,6 +14,6 @@
             Margin="20"
             Style="{StaticResource textBlockTitle}"
             Text="Добавить игру" />
-        <games_comp:GameFormComponent Grid.Row="1" DataContext="{Binding GameFormViewModel}"/>
+        <games_comp:GameFormComponent Grid.Row="1" DataContext="{Binding GameFormViewModel}" />
     </Grid>
 </UserControl>

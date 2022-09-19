@@ -1,4 +1,4 @@
-﻿using DEDSEC.WPF.Services;
+﻿using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;

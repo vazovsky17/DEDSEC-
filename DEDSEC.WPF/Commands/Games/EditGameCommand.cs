@@ -33,8 +33,7 @@ namespace DEDSEC.WPF.Commands.Games
                 Description = form.Description,
                 LinkHobbyGames = form.LinkHobbyGames,
                 MinCountPlayers = form.MinCountPlayers,
-                MaxCountPlayers = form.MaxCountPlayers,
-                Reviews = _editGameViewModel.Game.Reviews
+                MaxCountPlayers = form.MaxCountPlayers
             };
             if (game != null)
             {

@@ -3,14 +3,11 @@ using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels;
 using DEDSEC.WPF.ViewModels.Accounts;
 using DEDSEC.WPF.ViewModels.Authorization;
-using DEDSEC.WPF.ViewModels.Donations.Donations;
-using DEDSEC.WPF.ViewModels.Donations.DonationGoals;
 using DEDSEC.WPF.ViewModels.Games;
 using DEDSEC.WPF.ViewModels.Meetings;
 using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using DEDSEC.WPF.ViewModels.Donations;
 
 namespace DEDSEC.WPF.HostBuilders
 {
@@ -108,30 +105,6 @@ namespace DEDSEC.WPF.HostBuilders
         }
         #endregion
 
-        #region Donation
-        public static INavigationService CreateDonationGoalNavigationService(IServiceProvider serviceProvider)
-        {
-            return new LayoutNavigationService<DonationsScreenViewModel>(
-                serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<DonationsScreenViewModel>(),
-                () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
-        }
-
-        public static INavigationService CreateAddDonationNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddDonationViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddDonationViewModel>());
-        }
-
-        public static INavigationService CreateAddDonationGoalNavigationService(IServiceProvider serviceProvider)
-        {
-            return new ModalNavigationService<AddDonationGoalViewModel>(
-                serviceProvider.GetRequiredService<ModalNavigationStore>(),
-                () => serviceProvider.GetRequiredService<AddDonationGoalViewModel>());
-        }
-        #endregion
-
         #region Other
         public static INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
         {
@@ -140,7 +113,6 @@ namespace DEDSEC.WPF.HostBuilders
                 () => serviceProvider.GetRequiredService<HomeScreenViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
         }
-
         #endregion
     }
 }

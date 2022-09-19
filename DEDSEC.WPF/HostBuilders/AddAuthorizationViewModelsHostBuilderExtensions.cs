@@ -1,9 +1,9 @@
 ﻿using DEDSEC.WPF.Services.Navigation;
-using DEDSEC.WPF.Services;
 using DEDSEC.WPF.ViewModels.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using DEDSEC.WPF.Services.Authenticator;
 
 namespace DEDSEC.WPF.HostBuilders
 {

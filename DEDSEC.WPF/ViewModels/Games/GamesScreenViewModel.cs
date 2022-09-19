@@ -1,7 +1,7 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Extensions;
-using DEDSEC.WPF.Services;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using System;
@@ -103,9 +103,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
             if (gameViewModel != null)
             {
-                _gameViewModels.Remove(gameViewModel);
-                gameViewModel.Update(game);
-                _gameViewModels.Add(gameViewModel);
+                gameViewModel.UpdateIsFavorite();
             }
         }
 
@@ -114,9 +112,7 @@ namespace DEDSEC.WPF.ViewModels.Games
             GameViewModel gameViewModel = _gameViewModels.FirstOrDefault(x => x.Id == game.Id);
             if (gameViewModel != null)
             {
-                _gameViewModels.Remove(gameViewModel);
-                gameViewModel.Update(game);
-                _gameViewModels.Add(gameViewModel);
+                gameViewModel.UpdateIsFavorite();
             }
         }
 

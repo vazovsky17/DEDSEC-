@@ -12,29 +12,42 @@ namespace DEDSEC.WPF.Extensions
         /// </summary>
         /// <param name="account">Аккаунт</param>
         /// <returns>Строка с отображаемым никнеймом</returns>
-        public static string SetNicknameDisplay(this Account account)
-            => !string.IsNullOrEmpty(account.AccountHolder.Nickname) ? account.AccountHolder.Nickname : "NoName";
+        public static string SetNicknameDisplay(this Account? account)
+        {
+            if (account == null)
+            {
+                return "Гость";
+            }
+            else
+            {
+                return !string.IsNullOrEmpty(account?.AccountHolder.Nickname) ? account.AccountHolder.Nickname : "Ноунейм";
+            }
+        }
+        public static string SetNicknameDisplay(this string? nickname)
+            => !string.IsNullOrEmpty(nickname) ? nickname : "Гость";
+
 
         /// <summary>
         /// Установка отображаемого имени игрока
         /// </summary>
         /// <param name="account">Аккаунт</param>
         /// <returns>Строка с отображаемым именем</returns>
-        public static string SetNameDisplay(this Account account)
-            => !string.IsNullOrEmpty(account.Name) ? account.Name : "Неизвестно";
+        public static string SetNameDisplay(this Account? account)
+            => !string.IsNullOrEmpty(account?.Name) ? account.Name : "Неизвестно";
 
         /// <summary>
         /// Установка отображаемого возраста
         /// </summary>
         /// <param name="account">Аккаунт</param>
         /// <returns>Строка с отображаемым возрастом</returns>
-        public static string SetAgeDisplay(this Account account)
+        public static string SetAgeDisplay(this Account? account)
         {
-            var age = account.Age;
-            return age + " " + PluralizeAge(age);
+            var age = account?.Age;
+            if (age != null) return age + " " + PluralizeAge(age); 
+            else return string.Empty;
         }
 
-        private static string PluralizeAge(int num)
+        private static string PluralizeAge(int? num)
         {
             if (num % 10 == 1 && num != 11)
             {
@@ -55,8 +68,8 @@ namespace DEDSEC.WPF.Extensions
         /// </summary>
         /// <param name="account">Аккаунт</param>
         /// <returns>Строка с отображаемым описанием игрока о себе</returns>
-        public static string SetAboutMeDisplay(this Account account)
-            => !string.IsNullOrEmpty(account.AboutMe) ? account.AboutMe : "Не заполнено";
+        public static string SetAboutMeDisplay(this Account? account)
+            => !string.IsNullOrEmpty(account?.AboutMe) ? account.AboutMe : "Не заполнено";
 
         public static string setPlayersViewModelsCountDisplay(this IEnumerable<PlayerViewModel> playerViewModels)
         {

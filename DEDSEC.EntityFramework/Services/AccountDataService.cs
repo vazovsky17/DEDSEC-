@@ -7,7 +7,7 @@ namespace DEDSEC.EntityFramework.Services
     /// <summary>
     /// Сервис для операций с аккаунтом
     /// </summary>
-    public class AccountDataService : IAccountService
+    public class AccountDataService : IAccountDataService
     {
         private readonly DedsecDbContextFactory _contextFactory;
         private readonly NonQueryDataService<Account> _nonQueryDataService;
@@ -35,6 +35,7 @@ namespace DEDSEC.EntityFramework.Services
                 Account entity = await context.Accounts
                     .Include(a => a.AccountHolder)
                     .Include(a => a.FavoriteGames)
+                    .Include(a=>a.FeatureMeetings)
                     .FirstOrDefaultAsync((e) => e.Id == id);
                 return entity;
             }
@@ -47,6 +48,7 @@ namespace DEDSEC.EntityFramework.Services
                 IEnumerable<Account> entities = await context.Accounts
                     .Include(a => a.AccountHolder)
                     .Include(a => a.FavoriteGames)
+                    .Include(a => a.FeatureMeetings)
                     .ToListAsync();
                 return entities;
             }
@@ -59,6 +61,7 @@ namespace DEDSEC.EntityFramework.Services
                 return await context.Accounts
                     .Include(a => a.AccountHolder)
                     .Include(a => a.FavoriteGames)
+                    .Include(a => a.FeatureMeetings)
                     .FirstOrDefaultAsync(a => a.AccountHolder.Nickname == nickname);
             }
         }
