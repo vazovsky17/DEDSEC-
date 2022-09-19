@@ -35,6 +35,7 @@ namespace DEDSEC.WPF.Stores
         {
             _accountService = accountService;
         }
+
         #region Favorite Games
         public async Task AddToFavoriteGames(Game game)
         {

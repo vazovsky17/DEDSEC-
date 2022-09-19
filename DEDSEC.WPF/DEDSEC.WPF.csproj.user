@@ -16,6 +16,12 @@
     <Compile Update="Components\Games\GameComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\Players\AddPlayerComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Players\PlayerComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AccountScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,6 +112,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Games\GameComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Players\AddPlayerComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Players\PlayerComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AccountScreen.xaml">

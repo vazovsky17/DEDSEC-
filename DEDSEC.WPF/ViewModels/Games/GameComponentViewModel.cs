@@ -1,14 +1,13 @@
 ﻿using DEDSEC.Domain.Models;
+using DEDSEC.WPF.Commands.Common;
 using DEDSEC.WPF.Extensions;
 using DEDSEC.WPF.Stores;
+using System.Windows.Input;
 
 namespace DEDSEC.WPF.ViewModels.Games
 {
     public class GameComponentViewModel : ViewModelBase
     {
-        public AccountStore AccountStore { get; }
-        private readonly ModalNavigationStore _modalNavigationStore;
-
         public Game Game { get; }
 
         #region Bindings
@@ -18,14 +17,16 @@ namespace DEDSEC.WPF.ViewModels.Games
         public string LinkHobbyGames => Game.SetLinkDisplay();
         #endregion
 
+        #region
+        public ICommand CloseCommand { get; }
+        #endregion
+
         public GameComponentViewModel(Game game,
-            AccountStore accountStore,
             ModalNavigationStore modalNavigationStore)
         {
             Game = game;
-            AccountStore = accountStore;
-            _modalNavigationStore = modalNavigationStore;
-        }
 
+            CloseCommand = new CloseModalCommand(modalNavigationStore);
+        }
     }
 }

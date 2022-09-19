@@ -1,6 +1,5 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands.Common;
-using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Players;
 using System;
@@ -10,18 +9,18 @@ namespace DEDSEC.WPF.Commands.Players
 {
     public class EditPlayerCommand : AsyncCommandBase
     {
-        private readonly IAuthenticatorService _authenticatorService;
+        private readonly AccountStore _accountStore;
         private readonly EditPlayerViewModel _editPlayerViewModel;
         private readonly PlayersStore _playersStore;
         private readonly ModalNavigationStore _modalStore;
 
         public EditPlayerCommand(EditPlayerViewModel editPlayerViewModel,
-            IAuthenticatorService authenticatorService,
+            AccountStore accountStore,
             PlayersStore playersStore,
             ModalNavigationStore modalStore)
         {
             _editPlayerViewModel = editPlayerViewModel;
-            _authenticatorService = authenticatorService;
+            _accountStore = accountStore;
             _playersStore = playersStore;
             _modalStore = modalStore;
         }
@@ -51,9 +50,9 @@ namespace DEDSEC.WPF.Commands.Players
                 {
                     if (task.IsCompleted)
                     {
-                        if (player == _authenticatorService.CurrentAccount)
+                        if (player.Id == _accountStore.CurrentAccount.Id)
                         {
-                            _authenticatorService.EditAccount(player);
+                            _accountStore.EditAccount(player);
                         }
                         _modalStore.Close();
                     }

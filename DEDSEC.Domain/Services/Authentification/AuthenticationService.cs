@@ -54,7 +54,8 @@ namespace DEDSEC.Domain.Services.Authentification
                 Age = 0,
                 AboutMe = String.Empty,
                 IsVisited = false,
-                FavoriteGames = new List<Game>()
+                FavoriteGames = new(),
+                FeatureMeetings = new()
             };
 
             await _accountService.Create(account);

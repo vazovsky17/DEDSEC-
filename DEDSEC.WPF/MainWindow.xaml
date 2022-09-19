@@ -12,6 +12,7 @@
     xmlns:meetings_comp="clr-namespace:DEDSEC.WPF.Components.Meetings"
     xmlns:meetings_vm="clr-namespace:DEDSEC.WPF.ViewModels.Meetings"
     xmlns:modal="clr-namespace:ModalControl;assembly=ModalControl"
+    xmlns:players_comp="clr-namespace:DEDSEC.WPF.Components.Players"
     xmlns:players_vm="clr-namespace:DEDSEC.WPF.ViewModels.Players"
     xmlns:viewmodels="clr-namespace:DEDSEC.WPF.ViewModels"
     xmlns:views="clr-namespace:DEDSEC.WPF.Views"
@@ -65,6 +66,18 @@
                 <!--#region Players-->
                 <DataTemplate DataType="{x:Type players_vm:PlayersScreenViewModel}">
                     <views:PlayersScreen />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type players_vm:AddPlayerViewModel}">
+                    <players_comp:AddPlayerComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type players_vm:EditPlayerViewModel}">
+                    <players_comp:EditPlayerComponent />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type players_vm:PlayerComponentViewModel}">
+                    <players_comp:PlayerComponent />
                 </DataTemplate>
                 <!--#endregion-->
 

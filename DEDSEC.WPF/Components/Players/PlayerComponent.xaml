@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="DEDSEC.WPF.Components.Players.PlayerComponent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <StackPanel
+        MinWidth="200"
+        MaxWidth="500"
+        Margin="20"
+        Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Style="{StaticResource textBlockTitle}"
+                Text="{Binding Nickname}" />
+            <Button
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                Command="{Binding CloseCommand}"
+                Style="{StaticResource optionButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Close" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Margin="0,0,8,0" Text="Закрыть" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Separator />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Имя" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding Name}" />
+        </StackPanel>
+
+        <Separator />
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Возраст" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding Age}" />
+        </StackPanel>
+        <Separator />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Обо мне" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding AboutMe}" />
+        </StackPanel>
+        <Separator />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="150"
+                Style="{StaticResource textBlockItemTitle}"
+                Text="Присутствовал(а)" />
+            <TextBlock
+                Margin="10,0"
+                Style="{StaticResource textBlockItemDesc}"
+                Text="{Binding IsVisited, Converter={StaticResource YesOrNotConverter}}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

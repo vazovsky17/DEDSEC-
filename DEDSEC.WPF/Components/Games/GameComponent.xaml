@@ -2,16 +2,38 @@
     x:Class="DEDSEC.WPF.Components.Games.GameComponent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:extensions="clr-namespace:DEDSEC.WPF.Extensions">
+    xmlns:extensions="clr-namespace:DEDSEC.WPF.Extensions"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <StackPanel
         MinWidth="200"
         MaxWidth="500"
         Margin="20"
         Orientation="Vertical">
-        <TextBlock Style="{StaticResource textBlockTitle}" Text="{Binding Name}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Style="{StaticResource textBlockTitle}"
+                Text="{Binding Name}" />
+            <Button
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                HorizontalAlignment="Right"
+                Command="{Binding CloseCommand}"
+                Style="{StaticResource optionButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Close" Style="{StaticResource optionButtonIcon}" />
+                    <TextBlock Margin="0,0,8,0" Text="Закрыть" />
+                </StackPanel>
+            </Button>
+        </Grid>
         <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
             <TextBlock
-                Width="150"
+                Width="200"
                 Style="{StaticResource textBlockItemTitle}"
                 Text="Описание" />
             <TextBlock
@@ -24,7 +46,7 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock
-                Width="150"
+                Width="200"
                 Style="{StaticResource textBlockItemTitle}"
                 Text="Количество игроков" />
             <TextBlock
@@ -35,7 +57,7 @@
         <Separator />
         <StackPanel Orientation="Horizontal">
             <TextBlock
-                Width="150"
+                Width="200"
                 Style="{StaticResource textBlockItemTitle}"
                 Text="Ссылка" />
             <TextBlock Margin="10,0" Style="{StaticResource textBlockLink}">

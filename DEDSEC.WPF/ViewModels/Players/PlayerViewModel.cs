@@ -29,6 +29,7 @@ namespace DEDSEC.WPF.ViewModels.Players
         #endregion
 
         #region Commands
+        public ICommand ShowCommand { get; }
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
         #endregion
@@ -36,13 +37,15 @@ namespace DEDSEC.WPF.ViewModels.Players
         public PlayerViewModel(Account player,
             PlayersStore playersStore,
             bool isCurrentAccountAdmin,
-            ModalNavigationStore modalStore,
+            ModalNavigationStore modalNavigationStore,
             IAuthenticatorService authenticatorService,
+            AccountStore accountStore,
             INavigationService logoutNavigationService)
         {
             Player = player;
             IsCurrentAccountAdmin = isCurrentAccountAdmin;
-            EditCommand = new OpenEditPlayerCommand(this, authenticatorService, playersStore, modalStore);
+            ShowCommand = new ShowPlayerCommand(player, modalNavigationStore);
+            EditCommand = new OpenEditPlayerCommand(this, accountStore, playersStore, modalNavigationStore);
             DeleteCommand = new DeletePlayerCommand(authenticatorService, logoutNavigationService, playersStore, player);
         }
 

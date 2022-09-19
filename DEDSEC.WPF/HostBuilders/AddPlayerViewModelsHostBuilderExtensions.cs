@@ -1,4 +1,5 @@
 ﻿using DEDSEC.WPF.Services.Authenticator;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Players;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,10 @@ namespace DEDSEC.WPF.HostBuilders
         {
             host.ConfigureServices(services =>
             {
+                services.AddTransient<AddPlayerViewModel>(s => new(
+                    s.GetRequiredService<PlayersStore>(),
+                    s.GetRequiredService<CloseModalNavigationService>()));
+
                 services.AddTransient<PlayersScreenViewModel>(s => new(
                     s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<PlayersStore>(),

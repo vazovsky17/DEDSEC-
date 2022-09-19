@@ -104,7 +104,7 @@ namespace DEDSEC.WPF.ViewModels.Players
 
         private void AddPlayerViewModel(Account player)
         {
-            var itemViewModel = new PlayerViewModel(player, _playersStore, IsCurrentAccountAdmin, _modalStore, _authenticatorService, _logoutNavigationService);
+            var itemViewModel = new PlayerViewModel(player, _playersStore, IsCurrentAccountAdmin, _modalStore, _authenticatorService,_accountStore, _logoutNavigationService);
             _playerViewModels.Add(itemViewModel);
         }
 

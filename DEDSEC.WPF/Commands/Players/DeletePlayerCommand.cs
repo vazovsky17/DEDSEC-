@@ -14,7 +14,7 @@ namespace DEDSEC.WPF.Commands.Players
         private readonly PlayersStore _playersStore;
         private readonly Account _player;
 
-        public DeletePlayerCommand(IAuthenticatorService authenticatorService,
+        public DeletePlayerCommand( IAuthenticatorService authenticatorService,
             INavigationService logoutNavigationService,
             PlayersStore playersStore,
             Account player)
