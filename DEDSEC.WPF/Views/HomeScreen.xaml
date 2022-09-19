@@ -42,17 +42,37 @@
             <TextBlock
                 Margin="0,20,0,0"
                 Style="{StaticResource textBlockDefault}"
-                Text="Это сообщество людей со схожими интересами" />
+                Text="Это сообщество людей со схожими интересами." />
             <TextBlock
-                Margin="0,20,0,0"
+                Margin="0,5,0,0"
                 Style="{StaticResource textBlockDefault}"
-                Text="У нас есть разные виды настолок" />
+                Text="У нас есть разные виды настолок, а также мы играем в DnD" />
             <TextBlock
-                Margin="0,20,0,0"
+                Margin="0,5,0,0"
                 Style="{StaticResource textBlockDefault}"
-                Text="Также мы играем в DnD" />
+                Text="В приложении можно:" />
             <TextBlock
-                Margin="0,20,0,0"
+                Margin="0,5,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="* Ознакомиться с ближайшими встречами и их тематикой;" />
+            <TextBlock
+                Margin="0,5,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="* Узнать об имеющихся у нас настольных играх;" />
+            <TextBlock
+                Margin="0,5,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="* Узнать о каждом из вступивших в сообщество;" />
+            <TextBlock
+                Margin="0,5,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="* Сохранить понравившиеся игры себе;" />            
+            <TextBlock
+                Margin="0,5,0,0"
+                Style="{StaticResource textBlockDefault}"
+                Text="* Записаться на ближайшие встречи." />
+            <TextBlock
+                Margin="0,10,0,0"
                 Style="{StaticResource textBlockDefault}"
                 Text="Регистрируйся и найди себе компанию :)" />
         </StackPanel>
