@@ -92,7 +92,7 @@
             </DataGrid>
         </StackPanel>
         <Separator Visibility="{Binding HasFeatureMeetings, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        <StackPanel Orientation="Vertical" Visibility="{Binding HasFavoriteGames, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <StackPanel Orientation="Vertical" Visibility="{Binding HasFeatureMeetings, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
             <TextBlock
                 Width="200"
                 HorizontalAlignment="Left"
@@ -110,7 +110,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding Name}"
+                        Binding="{Binding Title}"
                         CanUserResize="False"
                         Header="Название"
                         IsReadOnly="True" />
@@ -119,6 +119,12 @@
                         Binding="{Binding Description}"
                         CanUserResize="False"
                         Header="Описание"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding DateBegin}"
+                        CanUserResize="False"
+                        Header="Начало"
                         IsReadOnly="True" />
                 </DataGrid.Columns>
             </DataGrid>

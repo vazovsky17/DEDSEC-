@@ -71,6 +71,21 @@ namespace DEDSEC.WPF.Extensions
             }
         }
 
+        /// <summary>
+        /// Выявление, есть ли встреча в запланированных у пользователя
+        /// </summary>
+        /// <param name="meeting">Всетрча</param>
+        /// <param name="featureMeetings">Список запланированных встреч</param>
+        /// <returns>Собирается ли пользователь идти на встречу</returns>
+        public static bool IsUserFeatureMeeting(this Meeting meeting, List<Meeting> featureMeetings)
+        {
+            foreach (var item in featureMeetings)
+            {
+                if (item.Id == meeting.Id) return true;
+            }
+            return false;
+        }
+
         public static string setMeetingsViewModelsCountDisplay(this IEnumerable<MeetingViewModel> meetingViewModels)
         {
             var count = meetingViewModels.Count();

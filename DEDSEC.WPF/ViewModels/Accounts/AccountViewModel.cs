@@ -10,7 +10,7 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public AccountStore AccountStore { get; }
 
         public Account CurrentAccount => AccountStore.CurrentAccount;
-        
+
         #region Bindings
         public string Nickname => CurrentAccount?.SetNicknameDisplay() ?? string.Empty;
         public string Name => CurrentAccount.SetNameDisplay();
@@ -19,6 +19,8 @@ namespace DEDSEC.WPF.ViewModels.Accounts
         public bool IsVisited => CurrentAccount?.IsVisited ?? false;
         public List<Game> FavoriteGames => CurrentAccount?.FavoriteGames ?? new();
         public bool HasFavoriteGames => FavoriteGames.Count > 0;
+        public List<Meeting> FeatureMeetings => CurrentAccount?.FeatureMeetings ?? new();
+        public bool HasFeatureMeetings => FeatureMeetings.Count > 0;
         #endregion
 
         public AccountViewModel(AccountStore accountStore)
@@ -39,6 +41,8 @@ namespace DEDSEC.WPF.ViewModels.Accounts
             OnPropertyChanged(nameof(AboutMe));
             OnPropertyChanged(nameof(FavoriteGames));
             OnPropertyChanged(nameof(HasFavoriteGames));
+            OnPropertyChanged(nameof(FeatureMeetings));
+            OnPropertyChanged(nameof(HasFeatureMeetings));
         }
 
         public override void Dispose()

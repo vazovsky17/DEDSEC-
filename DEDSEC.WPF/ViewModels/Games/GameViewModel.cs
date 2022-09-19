@@ -48,6 +48,7 @@ namespace DEDSEC.WPF.ViewModels.Games
         {
             Game = game;
             AccountStore = accountStore;
+
             AddToFavoriteCommand = new AddToFavoritesGamesCommand(game, gamesStore, authenticatorService);
             DeleteFromFavoriteCommand = new DeleteFromFavoriteGamesCommand(game, gamesStore, authenticatorService);
             ShowCommand = new ShowGameCommand(game, accountStore, modalNavigationStore);

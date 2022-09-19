@@ -1,4 +1,5 @@
-﻿using DEDSEC.WPF.Services.Navigation;
+﻿using DEDSEC.WPF.Services.Authenticator;
+using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
 using DEDSEC.WPF.ViewModels.Meetings;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,7 @@ namespace DEDSEC.WPF.HostBuilders
                 services.AddTransient<MeetingsScreenViewModel>(s => new(
                     s.GetRequiredService<AccountStore>(),
                     s.GetRequiredService<MeetingsStore>(),
+                    s.GetRequiredService<IAuthenticatorService>(),
                     s.GetRequiredService<ModalNavigationStore>(),
                     CreateNavigationServiceExtensions.CreateAddMeetingNavigationService(s)));
             });

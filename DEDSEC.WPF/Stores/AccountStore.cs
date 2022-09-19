@@ -35,7 +35,7 @@ namespace DEDSEC.WPF.Stores
         {
             _accountService = accountService;
         }
-
+        #region Favorite Games
         public async Task AddToFavoriteGames(Game game)
         {
             _currentAccount.FavoriteGames.Add(game);
@@ -73,5 +73,46 @@ namespace DEDSEC.WPF.Stores
                 });
             }
         }
+        #endregion
+
+        #region Feature Meetings
+        public async Task AddToFeatureMeetings(Meeting meeting)
+        {
+            _currentAccount.FeatureMeetings.Add(meeting);
+            await _accountService.Update(_currentAccount.Id, _currentAccount).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    EditAccount(_currentAccount);
+                }
+            });
+        }
+
+        public async Task EditFeatureMeeting(Meeting meeting)
+        {
+            var storedMeeting = _currentAccount.FeatureMeetings.Find(item => item.Id == meeting.Id);
+            if (storedMeeting != null)
+            {
+                await DeleteFromFeatureMeetings(storedMeeting);
+                await AddToFeatureMeetings(meeting);
+            }
+        }
+
+        public async Task DeleteFromFeatureMeetings(Meeting meeting)
+        {
+            var storedMeeting = _currentAccount.FeatureMeetings.Find(item => item.Id == meeting.Id);
+            if (storedMeeting != null)
+            {
+                _currentAccount.FeatureMeetings.Remove(storedMeeting);
+                await _accountService.Update(_currentAccount.Id, _currentAccount).ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        EditAccount(_currentAccount);
+                    }
+                });
+            }
+        }
+        #endregion
     }
 }

@@ -89,6 +89,21 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button
+                                    Margin="5,0,0,0"
+                                    Command="{Binding AddToFeatureCommand}"
+                                    Style="{StaticResource gridFavoriteButton}"
+                                    Visibility="{Binding IsUnfeature, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <icon:PackIconMaterial Kind="HeartPlus" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button
+                                    Margin="5,0,0,0"
+                                    Command="{Binding DeleteFromFeatureCommand}"
+                                    Style="{StaticResource gridUnFavoriteButton}"
+                                    Visibility="{Binding IsFeature, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <icon:PackIconMaterial Kind="HeartMinus" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button
+                                    Margin="5,0,0,0"
                                     Command="{Binding EditCommand}"
                                     Style="{StaticResource gridEditButton}"
                                     Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}">

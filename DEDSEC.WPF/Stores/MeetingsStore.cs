@@ -9,6 +9,7 @@ namespace DEDSEC.WPF.Stores
     public class MeetingsStore
     {
         private readonly IDataService<Meeting> _dataService;
+        private readonly AccountStore _accountStore;
         private readonly List<Meeting> _meetings;
         public IEnumerable<Meeting> Meetings => _meetings;
 
@@ -16,11 +17,15 @@ namespace DEDSEC.WPF.Stores
         public event Action<Meeting> MeetingAdded;
         public event Action<Meeting> MeetingUpdated;
         public event Action<Guid> MeetingDeleted;
+        public event Action<Meeting> MeetingToFavoriteAdded;
+        public event Action<Meeting> MeetingFromFavoriteDeleted;
 
-        public MeetingsStore(IDataService<Meeting> dataService)
+        public MeetingsStore(IDataService<Meeting> dataService,
+            AccountStore accountStore)
         {
             _meetings = new();
             _dataService = dataService;
+            _accountStore = accountStore;
         }
 
         public async Task Load()
@@ -50,6 +55,28 @@ namespace DEDSEC.WPF.Stores
             await _dataService.Delete(meeting.Id);
             _meetings.Remove(meeting);
             MeetingDeleted?.Invoke(meeting.Id);
+        }
+
+        public async Task AddToFeature(Meeting meeting)
+        {
+            await _accountStore.AddToFeatureMeetings(meeting).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    MeetingToFavoriteAdded?.Invoke(meeting);
+                }
+            });
+        }
+
+        public async Task DeleteFromFeature(Meeting meeting)
+        {
+            await _accountStore.DeleteFromFeatureMeetings(meeting).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    MeetingFromFavoriteDeleted?.Invoke(meeting);
+                }
+            });
         }
     }
 }

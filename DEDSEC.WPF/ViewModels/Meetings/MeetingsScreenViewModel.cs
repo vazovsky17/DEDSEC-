@@ -1,9 +1,10 @@
 ﻿using DEDSEC.Domain.Models;
 using DEDSEC.WPF.Commands;
 using DEDSEC.WPF.Extensions;
+using DEDSEC.WPF.Services.Authenticator;
 using DEDSEC.WPF.Services.Navigation;
 using DEDSEC.WPF.Stores;
-using DEDSEC.WPF.ViewModels.Players;
+using DEDSEC.WPF.ViewModels.Games;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,7 @@ namespace DEDSEC.WPF.ViewModels.Meetings
     {
         private readonly AccountStore _accountStore;
         private readonly MeetingsStore _meetingsStore;
+        private readonly IAuthenticatorService _authenticatorService;
         private readonly ModalNavigationStore _modalStore;
 
         public bool IsAdmin => _accountStore?.IsAdmin ?? false;
@@ -32,11 +34,13 @@ namespace DEDSEC.WPF.ViewModels.Meetings
 
         public MeetingsScreenViewModel(AccountStore accountStore,
             MeetingsStore meetingsStore,
+            IAuthenticatorService authenticatorService,
             ModalNavigationStore modalStore,
             INavigationService addMeetingNavigationService)
         {
             _accountStore = accountStore;
             _meetingsStore = meetingsStore;
+            _authenticatorService = authenticatorService;
             _modalStore = modalStore;
 
             _meetingViewModels = new();
@@ -46,6 +50,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             _meetingsStore.MeetingAdded += MeetingsStore_Added;
             _meetingsStore.MeetingUpdated += MeetingsStore_Updated;
             _meetingsStore.MeetingDeleted += MeetingsStore_Deleted;
+            _meetingsStore.MeetingToFavoriteAdded += MeetingsStore_MeetingToFeatureAdded;
+            _meetingsStore.MeetingFromFavoriteDeleted += MeetingsStore_MeetingFromFeatureDeleted;
 
             AddMeetingCommand = new NavigateCommand(addMeetingNavigationService);
         }
@@ -94,9 +100,27 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             OnPropertyChanged(nameof(MeetingsViewModelsCountDisplay));
         }
 
+        private void MeetingsStore_MeetingToFeatureAdded(Meeting meeting)
+        {
+            MeetingViewModel meetingViewModel = _meetingViewModels.FirstOrDefault(x => x.Id == meeting.Id);
+            if (meetingViewModel != null)
+            {
+                meetingViewModel.UpdateIsUserFeature();
+            }
+        }
+
+        private void MeetingsStore_MeetingFromFeatureDeleted(Meeting meeting)
+        {
+            MeetingViewModel meetingViewModel = _meetingViewModels.FirstOrDefault(x => x.Id == meeting.Id);
+            if (meetingViewModel != null)
+            {
+                meetingViewModel.UpdateIsUserFeature();
+            }
+        }
+
         private void AddGameViewModel(Meeting meeting)
         {
-            var itemViewModel = new MeetingViewModel(meeting, _meetingsStore, _modalStore, IsAdmin);
+            var itemViewModel = new MeetingViewModel(meeting, _meetingsStore, _accountStore, _authenticatorService, _modalStore);
             _meetingViewModels.Add(itemViewModel);
         }
 
@@ -106,6 +130,8 @@ namespace DEDSEC.WPF.ViewModels.Meetings
             _meetingsStore.MeetingAdded -= MeetingsStore_Added;
             _meetingsStore.MeetingUpdated -= MeetingsStore_Updated;
             _meetingsStore.MeetingDeleted -= MeetingsStore_Deleted;
+            _meetingsStore.MeetingToFavoriteAdded -= MeetingsStore_MeetingToFeatureAdded;
+            _meetingsStore.MeetingFromFavoriteDeleted -= MeetingsStore_MeetingFromFeatureDeleted;
 
             base.Dispose();
         }
